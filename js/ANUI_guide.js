@@ -1,4 +1,4 @@
-// thenet UI LIB guide
+// Angry UI LIB guide
 // banisle@gmail.com
 'use strict';
 
