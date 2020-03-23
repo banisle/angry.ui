@@ -80,10 +80,10 @@ if (!Math.sign) {
     };
 }
 
-var TNUI = TNUI || {};
+var ANUI = ANUI || {};
 
-TNUI.module = (function () {
-    // (sta) TNUI returm module
+ANUI.module = (function () {
+    // (sta) ANUI returm module
     return {
         // mark : tabUi
         tabUi: function () {
@@ -370,7 +370,7 @@ TNUI.module = (function () {
                     e.preventDefault();
                     // 스크롤 길때 스크롤 ui호출
                     if(scrollOn == 'true'){
-                        TNUI.module.scrollUi();
+                        ANUI.module.scrollUi();
                         scrollOn = 'false';
                     }
 
@@ -566,7 +566,7 @@ TNUI.module = (function () {
                 }
 
                 // pc에서만 스크롤 ui 호출
-                if (!isMobile) { TNUI.module.scrollUi();}
+                if (!isMobile) { ANUI.module.scrollUi();}
 
                 openSt = 'true';
                 // console.log('open');
@@ -2813,7 +2813,7 @@ TNUI.module = (function () {
         }
 
     }
-    // (end) TNUI returm module
+    // (end) ANUI returm module
     
 
 })();

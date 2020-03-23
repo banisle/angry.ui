@@ -29,8 +29,7 @@ $(function () {
             success: function (data) {
                 $("#load-ct").html(data);
                 SyntaxHighlighter.highlight();
-                TNUI.wsg.init();
-                // TNUI.module.init();
+                ANUI.wsg.init();
                 
             }
         });
@@ -44,10 +43,9 @@ $(function () {
     //     success: function (data) {
     //         $("#load-ct").html(data);
     //         SyntaxHighlighter.highlight();
-    //         TNUI.wsg.init();
-    //         // TNUI.module.init();
+    //         ANUI.wsg.init();
     //     }
     // });
 
-    TNUI.wsg.init();
+    ANUI.wsg.init();
 })

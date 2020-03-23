@@ -20,9 +20,9 @@
 <h3>custom alert</h3>
 <p class="sub-txt">
 	타이틀 있을 때 :
-	<br>TNUI.module.alertui({title : 'tit',msg : 'aaa'},function(){ /* 콜백함수 */});
+	<br>ANUI.module.alertui({title : 'tit',msg : 'aaa'},function(){ /* 콜백함수 */});
 	<br>타이틀 있을 때 :
-	<br>TNUI.module.alertui({msg : 'aaa'},function(){ /* 콜백함수 */});
+	<br>ANUI.module.alertui({msg : 'aaa'},function(){ /* 콜백함수 */});
 	<br>타이틀 있을 때, 없을 때 모두 alertui 호출 
 	<br>타이틀이 있으면 title 값 입력, 없으면 입력X 
 </p>
@@ -39,12 +39,12 @@
 		console.log(1);
 	} 
 	$(&#39;#aa&#39;).on(&#39;click&#39;, function(){//#aa를 눌렀을 때 
-		TNUI.module.alertui({title : &#39;tit&#39;,msg : &#39;aaa&#39;},function(){ 
+		ANUI.module.alertui({title : &#39;tit&#39;,msg : &#39;aaa&#39;},function(){ 
 			_call_back();
 		});
 	})
 	$(&#39;#aa&#39;).on(&#39;click&#39;, function(){//#bb를 눌렀을 때 
-		TNUI.module.alertui({msg : &#39;aaa&#39;},function(){ 
+		ANUI.module.alertui({msg : &#39;aaa&#39;},function(){ 
 			_call_back();
 		});
 	})
@@ -57,22 +57,22 @@
 		console.log(1);
 	} 
 	// $('#aa').on('click', function(){//#aa를 눌렀을 때 
-	// 	TNUI.module.alertui_tit({title : 'tit',msg : 'aaa'},function(){ 
+	// 	ANUI.module.alertui_tit({title : 'tit',msg : 'aaa'},function(){ 
 	// 		_call_back();
 	// 	});
 	// });
 	// $('#bb').on('click', function(){//#bb를 눌렀을 때 
-	// 	TNUI.module.alertui({msg : 'aaa'},function(){ 
+	// 	ANUI.module.alertui({msg : 'aaa'},function(){ 
 	// 		_call_back();
 	// 	});
 	// });
 	$('#aa').on('click', function(){//#aa를 눌렀을 때 
-		TNUI.module.alertui({title : 'tit',msg : 'aaa'},function(){ 
+		ANUI.module.alertui({title : 'tit',msg : 'aaa'},function(){ 
 			_call_back();
 		});
 	});
 	$('#bb').on('click', function(){//#bb를 눌렀을 때 
-		TNUI.module.alertui({msg : 'aaa'},function(){ 
+		ANUI.module.alertui({msg : 'aaa'},function(){ 
 			_call_back();
 		});
 	});

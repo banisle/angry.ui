@@ -2,7 +2,7 @@
 // banisle@gmail.com
 'use strict';
 
-TNUI.wsg = (function () {
+ANUI.wsg = (function () {
     return {
         createH1: function (s2ItemTXT) {
             var ct = $('.guide-container'),

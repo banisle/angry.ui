@@ -67,7 +67,7 @@
 &lt;/div&gt;
 </pre>
 
-<p class="sub-txt">PC: TNUI.module.selectUi();<br/> 클래스 selectWrap ui-selectbox 고정<br/> disabled, hidden 속성 받아옴</p>
+<p class="sub-txt">PC: ANUI.module.selectUi();<br/> 클래스 selectWrap ui-selectbox 고정<br/> disabled, hidden 속성 받아옴</p>
 <div class="selectWrap ui-selectbox">
     <select title="test" id="sel_link"  class="">
         <option value="선택하세요" selected disabled hidden>선택하세요</option>
@@ -213,7 +213,7 @@
 
 
 <h3>tab</h3>
-<p class="sub-txt">TNUI.module.tabUi() 호출<br/>border after로 처리 선 겹침 문제 해결<br/> 초기 보여질 컨텐츠 패널부분에 클래스 on, tabindex="0", 버튼에 aria-selected="true" 속성 추가</p>
+<p class="sub-txt">ANUI.module.tabUi() 호출<br/>border after로 처리 선 겹침 문제 해결<br/> 초기 보여질 컨텐츠 패널부분에 클래스 on, tabindex="0", 버튼에 aria-selected="true" 속성 추가</p>
 <div class="ui-tabWrap">
     <ul class="ui-tab" role="tablist">
         <li><span><a href="#" id="ui-tab-btn1" class="ui-tab-btn on" role="tab" aria-controls="ui-tab-list1"><span>first</span></a></span></li>
@@ -306,9 +306,9 @@
 
 <script>
     $(document).ready(function(){
-        TNUI.module.tabUi();
-        TNUI.module.selectUi();
-        TNUI.module.modalUi();
+        ANUI.module.tabUi();
+        ANUI.module.selectUi();
+        ANUI.module.modalUi();
         $('#sel_link').on('change',function(){
 
            console.log( $(this).val() );
