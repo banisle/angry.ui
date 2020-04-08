@@ -2068,22 +2068,14 @@ ANUI.module = (function () {
                 }
                 createDelbtn($inp_form);
 
-                $inp.on('propertychange change keyup paste input focusin', function (e) {
+                $inp.on('input propertychange', function (e) {
                     var t = $(e.target),
-                        curVal = t.val(),
-                        oldVal,
+                        visible = Boolean(t.val()),
                         $btnDel = $('.ui-deltxt');
+
                     
-                    if (curVal !== oldVal && curVal !== '') {
-                        t.closest($inp_form).find($btnDel).addClass('active');
-                        isOpen = true;
-                        return;
-                    } else {
-                        t.closest($inp_form).find($btnDel).removeClass('active');
-                        isOpen = false;
-                    }
-                    oldVal = curVal;
-                });
+                    t.closest($inp_form).find($btnDel).toggleClass('hidden', !visible);
+                }).trigger('propertychange');
 
                 //포커스 잃었을때 
                 // $(document).on('focusin click', function (e) {
@@ -2100,10 +2092,8 @@ ANUI.module = (function () {
                 $(document).on('click',$btnDel, function (e) {
 
                     var $t = $(e.target);
+                    $t.prev($inp).val('').trigger('propertychange').focus();
                    
-                    $t.prev($inp).val('').removeClass('active');
-                    $t.removeClass('active');
-                    isOpen = false;
                 });
             }();
             console.log('inputDelUI');
