@@ -1611,7 +1611,7 @@ html.mobile .ui-content {
 .addfiles>ul.list>li{ padding: 10px 0px;}
 .addfiles>ul.list>li>.dt{font-size: 13px;padding-bottom: 12px;display: inline-block;}
 .ui-addFile{position:relative;display:inline-block;width:100%;overflow:hidden;vertical-align:middle;line-height:23px;padding-right: 146px;box-sizing:border-box;}
-.ui-addFile .file{ width:100%; position:relative; display:block; vertical-align:middle;}
+.ui-addFile .file{ width:100%; position:relative; display:block;}
 .ui-addFile .file button.delete{display:none;position:absolute;width: 16px;height: 16px;top: 18px;right: 17px;background: url(/img/adm/icn_ir.png) 0 0 no-repeat;background-position: -353px -61px;font-size: 0px;}
 .ui-addFile.on .file button.delete{display:block;cursor: pointer;}
 .ui-addFile .file .loc{
