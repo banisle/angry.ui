@@ -1,5 +1,6 @@
-<script src="../lib/jquery-ui.min.js"></script>
-<script src="../lib/jquery-minimap.js"></script>
+<!-- <script src="lib/jquery-ui.min.js"></script> -->
+<script src="lib/jquery-minimap.js"></script>
+
 <style>
 	.ui-minimap{ position: relative; height: 340px; padding:10px; border:1px solid #333}
 
@@ -69,11 +70,11 @@
 <div class="ui-minimap">
 	<div id="minimap">
 		<div class="icn-error"></div>
-		<img src="../img/@evCt.png" alt="" class="minimap_img">
+		<img src="img/@evCt.png" alt="" class="minimap_img">
 	</div>
 	<div id="parent">
 		<div class="icn-error"></div>
-		<img src="../img/@evCt.png" alt="">
+		<img src="img/@evCt.png" alt="">
 	</div>
 </div>
 
@@ -91,13 +92,16 @@
 	&lt;/div&gt;
 </pre>
 <!-- (end) pre sample -->
-	
+
 <script>
-	$(function () {
-		var $parent = $("#parent");
-		var left = 0;
-		var top = 0;
-		var $child;
-		$("#minimap").minimap($parent);
-	});
+	$(document).ready(function () {
+		var $parent = document.querySelector("#parent");
+
+		// sample에선 ajax 호출로 인해 setTime을 걸어서 호출, 일반적으로는 그냥 호출해도 됨
+		setTimeout(function(){
+			$("#minimap").minimap($($parent));
+		},0)
+
+		
+	})
 </script>

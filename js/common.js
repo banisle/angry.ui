@@ -38,7 +38,7 @@ $(function () {
 
     // $.ajax({
     //     type: 'get',
-    //     url: 'pages/e03.html',
+    //     url: 'pages/e02.html',
     //     dataType: 'html',
     //     success: function (data) {
     //         $("#load-ct").html(data);
