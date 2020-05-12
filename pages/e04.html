@@ -38,9 +38,14 @@
 <h3><a href="https://www.youtube.com/watch?v=wLUJ9VNzZXo&t=2s">Apple Airpod Pro Javascript Animation Tutorial</a></h3>
 <p class="sub-txt">
     airpod pro 느낌, mp4로<br />
-    제약사항 mp4 영상의 크기가 너무 클경우 로드시간과, mp4영상의 인코딩시 옵션 조절 필요<br/>
-    참고 : <a href="https://video.stackexchange.com/questions/16836/encode-video-for-html5-and-javascript-controlled-playback">https://video.stackexchange.com/questions/16836/encode-video-for-html5-and-javascript-controlled-playback</a>
+    제약사항 mp4 영상의 크기가 너무 클경우 로드시간과, mp4영상의 인코딩시 옵션 조절 필요<br />
+    참고 : <a
+        href="https://video.stackexchange.com/questions/16836/encode-video-for-html5-and-javascript-controlled-playback">https://video.stackexchange.com/questions/16836/encode-video-for-html5-and-javascript-controlled-playback</a>
 </p>
+<div class="btn_wrap mb-s">
+    <button type="button" class="btn_icn ui-destroy"><span>destroy</span></button>
+    <button type="button" class="btn_icn ui-update"><span>update</span></button>
+</div>
 <div class="intro">
     <h1>Title</h1>
     <video src="img/macpro_main_desktop.mp4"></video>
@@ -60,54 +65,116 @@
 
 
 <script>
-    const intro = document.querySelector(".intro");
-    const video = intro.querySelector("video");
-    const text = intro.querySelector("h1");
-    //END SECTION
-    const section = document.querySelector("section");
-    const end = section.querySelector("h1");
+    window.app = (function () {
+        var _destroy = 'false';
 
-    //SCROLLMAGIC
-    const controller = new ScrollMagic.Controller();
+        return {
 
-    //Scenes
-    let scene = new ScrollMagic.Scene({
-            duration: 47000, //영상 길이 + 1s
-            triggerElement: intro,
-            triggerHook: 0
-        })
-        .addIndicators()
-        .setPin(intro)
-        .addTo(controller);
+            scrollEvt: function() {
+                const intro = document.querySelector(".intro");
+                const video = intro.querySelector("video");
+                const text = intro.querySelector("h1");
+                //END SECTION
+                const section = document.querySelector("section");
+                const end = section.querySelector("h1");
 
-    //Text Animation
-    const textAnim = TweenMax.fromTo(text, 3, {
-        opacity: 1
-    }, {
-        opacity: 0
+                //SCROLLMAGIC
+                const controller = new ScrollMagic.Controller();
+
+                //Scenes
+                let scene = new ScrollMagic.Scene({
+                        duration: 47000, //영상 길이 + 1s
+                        triggerElement: intro,
+                        triggerHook: 0
+                    })
+                    .addIndicators() //plugin 인디게이터 추가
+                    .setPin(intro)
+                    .addTo(controller);
+
+                //Text Animation
+                const textAnim = TweenMax.fromTo(text, 3, {
+                    opacity: 1
+                }, {
+                    opacity: 0
+                });
+
+                let scene2 = new ScrollMagic.Scene({
+                        duration: 3000,
+                        triggerElement: intro,
+                        triggerHook: 0
+                    })
+                    .setTween(textAnim)
+                    .addTo(controller);
+
+                //Video Animation
+                let accelamount = 0.1;
+                let scrollpos = 0;
+                let delay = 0;
+
+                scene.on("update", e => {
+                    scrollpos = e.scrollPos / 1000;
+                });
+
+                var play = setInterval(function(){
+
+                    delay += (scrollpos - delay) * accelamount;
+
+                    video.currentTime = delay;
+
+                    if(_destroy == 'true'){
+                        console.log('stop',_destroy);
+                        clearInterval(play);
+                    }
+
+                    
+                }, 33.3); //mp4영상의 프레임 1000(s) / 30(frame) = 33.33333
+
+                // destroy
+                var destroy = function(){
+
+                    _destroy = 'true';
+                    const $innerstyle = document.querySelector('.scrollmagic-pin-spacer');
+
+                    $innerstyle.removeAttribute('style');
+
+                    // destroy( reset 옵션 boolean ) : 태그까지 싹 원복
+                    scene.destroy(true);
+                    scene2.destroy(true);
+                    scene = null;
+                    tween = null;
+                    scene2 = null;
+                }
+
+                // update
+
+                var update = function(){
+                    window.app().scrollEvt();
+
+                }
+
+                const $btnDestroy = document.querySelector('.ui-destroy');
+                const $btnUpdate = document.querySelector('.ui-update');
+
+                // btn destroy
+                $btnDestroy.addEventListener('click',function(){ 
+                    destroy();
+                });
+                // btn update
+                $btnUpdate.addEventListener('click',function(){ 
+                    update();
+                });
+
+
+            },
+            init: function(){
+                window.app().scrollEvt();
+            }
+
+
+        }
     });
 
-    let scene2 = new ScrollMagic.Scene({
-            duration: 3000,
-            triggerElement: intro,
-            triggerHook: 0
-        })
-        .setTween(textAnim)
-        .addTo(controller);
+    window.app().init();
 
-    //Video Animation
-    let accelamount = 0.1;
-    let scrollpos = 0;
-    let delay = 0;
 
-    scene.on("update", e => {
-        scrollpos = e.scrollPos / 1000;
-    });
-
-    setInterval(() => {
-        delay += (scrollpos - delay) * accelamount;
-        console.log(scrollpos, delay);
-
-        video.currentTime = delay;
-    }, 33.3); //mp4영상의 프레임 1000(s) / 30(frame) = 33.33333
 </script>
