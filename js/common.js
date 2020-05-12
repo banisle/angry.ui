@@ -36,16 +36,16 @@ $(function () {
         if(isMobile) $('.mo-guide-btn').trigger('click');
     })
 
-    $.ajax({
-        type: 'get',
-        url: 'pages/e03.html',
-        dataType: 'html',
-        success: function (data) {
-            $("#load-ct").html(data);
-            SyntaxHighlighter.highlight();
-            ANUI.wsg.init();
-        }
-    });
+    // $.ajax({
+    //     type: 'get',
+    //     url: 'pages/e03.html',
+    //     dataType: 'html',
+    //     success: function (data) {
+    //         $("#load-ct").html(data);
+    //         SyntaxHighlighter.highlight();
+    //         ANUI.wsg.init();
+    //     }
+    // });
 
     ANUI.wsg.init();
 })
