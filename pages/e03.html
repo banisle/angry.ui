@@ -1,0 +1,244 @@
+<script src="../lib/360ImageRotate.min.js"></script>
+<style>
+    .ui-360rot {
+        max-width: 400px;
+    }
+
+    .threesixty-image-rotate {
+        background: #FFFFFF;
+    }
+
+    .threesixty-image-rotate .loading-spinner {
+        display: block;
+        position: absolute;
+        z-index: 10000;
+        background: #FFFFFF;
+        opacity: 0.5;
+    }
+
+    .threesixty-image-rotate .loading-spinner:after {
+        display: block;
+        background-image: url("images/icons/loading.gif");
+        background-size: contain;
+        content: '';
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100001;
+    }
+
+    .threesixty-image-rotate .images-display:hover {
+        cursor: grab;
+    }
+
+    .threesixty-image-rotate .images-display .images-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .threesixty-image-rotate .images-display .images-list .images-display {
+        display: none;
+    }
+
+    .threesixty-image-rotate .images-display .images-list .images-display img {
+        width: 100%;
+        height: auto;
+    }
+
+    .active {
+        display: block !important;
+    }
+
+    .threesixty-image-rotate .navigation-bar-wrapper {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .threesixty-image-rotate .navigation-bar-wrapper .navigation-bar {
+        width: 130px;
+        margin: auto;
+    }
+
+    .threesixty-image-rotate .navigation-bar-wrapper .navigation-bar div {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        margin: 1px;
+        background-size: contain;
+    }
+
+    .threesixty-image-rotate .navigation-bar-wrapper .navigation-bar div:hover {
+        cursor: pointer;
+    }
+
+    .threesixty-image-rotate .navigation-bar-wrapper .navigation-bar .navigation-bar-next {
+        background-image: url("../img/icons/next.png");
+    }
+
+    .threesixty-image-rotate .navigation-bar-wrapper .navigation-bar .navigation-bar-previous {
+        background-image: url("../img/icons/previous.png");
+    }
+
+    .threesixty-image-rotate .navigation-bar-wrapper .navigation-bar .navigation-bar-play {
+        background-image: url("../img/icons/play.png");
+    }
+
+    .navigation-bar-stop {
+        background-image: url("../img/icons/stop.png") !important;
+    }
+
+    .threesixty-image-rotate .navigation-bar-wrapper .navigation-bar .navigation-bar-resize {
+        background-image: url("../img/icons/large-size.png");
+    }
+
+    .navigation-bar-resize-small-icon {
+        background-image: url("../img/icons/small-size.png") !important;
+    }
+
+    @media screen and (max-width: 991px) {
+        .active {
+            display: block !important;
+        }
+
+        .threesixty-image-rotate .navigation-bar-wrapper .navigation-bar {
+            width: 100px;
+            margin: auto;
+        }
+
+        .threesixty-image-rotate .navigation-bar-wrapper .navigation-bar .navigation-bar-resize {
+            display: none;
+        }
+    }
+
+
+
+    .rotateWrap {
+        position: relative;
+    }
+
+    .rotateWrap .icn {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        z-index: 1;
+        opacity: 0;
+    }
+
+    .rotateWrap .icn.active {
+        opacity: 1;
+    }
+</style>
+
+<!-- swipe -->
+<h3>TreeSixtyImageRotate</h3>
+<p class="sub-txt">
+    이미지 특정(1) 프레임에 제어용 클래스를 추가, 해당 프레임에 클래스 액티브 적용
+</p>
+<!-- (sta) pre sample -->
+<pre
+    class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */ toolbar:false;	/* 툴바 표시 지정 */ pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
+&lt;div class=&quot;ui-360rot&quot;&gt;
+    &lt;div class=&quot;rotateWrap&quot;&gt;
+        &lt;div class=&quot;icn&quot;&gt;icon mark&lt;/div&gt;
+        &lt;div class=&quot;threesixty-image-rotate product&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    $(document).ready(function () {
+        $(&#39;.product&#39;).TreeSixtyImageRotate({
+            totalFrames: 36,
+            endFrame: 36,
+            currentFrame: 0,
+            extension: &quot;.png&quot;,
+            imagesFolder: &quot;../img/prod1/&quot;,
+            smallWidth: 400,
+            smallHeight: 400,
+            largeWidth: 800,
+            largeHeight: 800,
+            imagePlaceholderClass: &quot;images-placeholder&quot;
+        }).initTreeSixty();
+
+        var icnActive = function () {
+
+            var $this = $(&#39;.rotateWrap&#39;),
+                //이미지 첫번째 프레임
+                $img0 = $this.find(&#39;.image-0&#39;),
+                isActive,
+                $icn = $this.find(&#39;.icn&#39;),
+                $playBtn = $this.find(&#39;.navigation-bar-play&#39;);
+
+
+            $this.on(&#39;mouseover&#39;, function () {
+                var isActive = $img0.hasClass(&#39;active&#39;);
+                isActive ? $icn.addClass(&#39;active&#39;) : $icn.removeClass(&#39;active&#39;);
+
+                console.log(isActive);
+            });
+
+            $playBtn.on(&#39;click&#39;, function () {
+                $this.trigger(&#39;mouseover&#39;);
+            })
+
+        };
+
+        icnActive();
+    });
+&lt;/script&gt;
+</pre>
+<!-- (end) pre sample -->
+
+<div class="ui-360rot">
+    <div class="rotateWrap">
+        <div class="icn">icon mark</div>
+        <div class="threesixty-image-rotate product"></div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.product').TreeSixtyImageRotate({
+            totalFrames: 36,
+            endFrame: 36,
+            currentFrame: 0,
+            extension: ".png",
+            imagesFolder: "../img/prod1/",
+            smallWidth: 400,
+            smallHeight: 400,
+            largeWidth: 800,
+            largeHeight: 800,
+            imagePlaceholderClass: "images-placeholder"
+        }).initTreeSixty();
+
+        var icnActive = function () {
+
+            var $this = $('.rotateWrap'),
+                //이미지 첫번째 프레임
+                $img0 = $this.find('.image-0'),
+                isActive,
+                $icn = $this.find('.icn'),
+                $playBtn = $this.find('.navigation-bar-play');
+
+
+            $this.on('mouseover', function () {
+                var isActive = $img0.hasClass('active');
+                isActive ? $icn.addClass('active') : $icn.removeClass('active');
+
+                console.log(isActive);
+            });
+
+            $playBtn.on('click', function () {
+                $this.trigger('mouseover');
+            })
+
+        };
+
+        icnActive();
+    });
+</script>
