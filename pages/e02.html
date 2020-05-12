@@ -1,0 +1,106 @@
+<script src="../lib/jquery-ui.min.js"></script>
+<script src="../lib/jquery-minimap.js"></script>
+<style>
+	.ui-minimap{ position: relative; height: 340px; padding:10px; border:1px solid #333}
+
+	#parent {
+		overflow: hidden;
+		position: absolute;
+		width: 302px;
+		height: calc( 100% - 20px);
+		border: 1px solid #AAA;
+		right: 20px;
+	}
+
+	#parent .icn-error,
+	#minimap .icn-error {
+		position: absolute;
+		display: block;
+		width: 30px;
+		height: 30px;
+		top: 100px;
+		left: 50px;
+		background: #ea1212;
+		border-radius: 50%;
+	}
+
+	#minimap .icn-error {
+		width: 10px;
+		height: 10px;
+		top: 33.3333px;
+		left: 16.9999px;
+	}
+
+	#minimap {
+		overflow: hidden;
+		position: absolute;
+		width: 100px;
+		height: 200px;
+		top: 10px;
+		left: 10px;
+		background-color: #EEE;
+		border: 1px solid #AAA;
+		opacity: 0.9;
+		z-index: 1;
+	}
+
+	.minimap-node {
+		position: absolute;
+	}
+
+	.minimap_img {
+		width: 100%;
+	}
+
+	.minimap-viewport {
+		position: absolute;
+		box-sizing: border-box;
+		background-color: rgba(51, 190, 255, 0.4);
+		z-index: 1;
+		cursor: move;
+	}
+</style>
+<!-- swipe -->
+<h3>minimap</h3>
+<p class="sub-txt">icn-error 태그로 추가 포인트 지정, 해당 태그의 좌표는 현재 비율에 맞춰 css에서 top,left,크기를 조정한다. 
+	<br/>todo : 스크립트에서 parent의 태그만 작성후 자동으로 append해서 적용되도록
+</p>
+<!-- (sta) pre sample -->
+<pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */ toolbar:false;	/* 툴바 표시 지정 */ pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
+	&lt;div class=&quot;ui-minimap&quot;&gt;
+		&lt;div id=&quot;minimap&quot;&gt;
+			&lt;div class=&quot;icn-error&quot;&gt;&lt;/div&gt;
+			&lt;img src=&quot;../img/@evCt.png&quot; alt=&quot;&quot; class=&quot;minimap_img&quot;&gt;
+		&lt;/div&gt;
+		&lt;div id=&quot;parent&quot;&gt;
+			&lt;div class=&quot;icn-error&quot;&gt;&lt;/div&gt;
+			&lt;img src=&quot;../img/@evCt.png&quot; alt=&quot;&quot;&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	</pre>
+	<!-- (end) pre sample -->
+<div class="ui-minimap">
+	<div id="minimap">
+		<div class="icn-error"></div>
+		<img src="../img/@evCt.png" alt="" class="minimap_img">
+	</div>
+	<div id="parent">
+		<div class="icn-error"></div>
+		<img src="../img/@evCt.png" alt="">
+	</div>
+</div>
+
+
+
+
+
+	
+<script>
+	$(function () {
+		var $parent = $("#parent");
+		var left = 0;
+		var top = 0;
+		var $child;
+		$("#minimap").minimap($parent);
+	});
+</script>
