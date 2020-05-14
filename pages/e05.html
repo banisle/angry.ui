@@ -1,0 +1,120 @@
+<h3>엑셀 테이블 변환</h3>
+
+<p class="sub-txt">엑셀의 테이블 형식 복사해서 입력창에 붙여넣은 후, 결과 버튼 실행, 결과창 클릭시 복사됨</p>
+
+<p>
+    <input type="checkbox" id="chk_num" class="form_chk"><label for="chk_num">인덱스 td 추가하기</label>
+</p>
+<pre style="font-style:italic">
+
+바디키와 함께 살빠지다	팀원	imitater**	박*원
+바디키와 함께 살빠지다	팀원	dusdhr1**	이*옥
+
+or
+
+18224**	김*희
+mong91**	박*운
+yyh6**	유*희
+
+</pre>
+<textarea name="" id="input_textarea" cols="100" rows="10"></textarea>
+<button type="button" class="btn_icn" id="btn_convert">변환</button>
+<h2>결과</h2>
+<textarea name="" id="result_textarea" cols="100" rows="10"></textarea>
+
+<script>
+    $(function () {
+        //월간체험 변수 선언
+        var input_textarea = $('#input_textarea'),
+            result_textarea = $('#result_textarea');
+
+        var regExp = /.*\*\s/g; //당첨자 아이디 까지
+        var regExp_team = /팀.\s/g; //팀원,팀장
+
+        var span_arr, span_data, span_dataAll = '';
+
+        var chk_num;
+
+        var tdNum = 0;
+
+        //결과 버튼 기능
+        function btn_convert() {
+
+            chk_val = $('#chk_num').is(':checked'); //숫자 인덱스 체크박스 on
+            span_sback = input_textarea.val();
+
+            //줄바꿈으로 배열 구분
+            var span_arr = span_sback.split('\n')
+            console.log(span_arr);
+
+            tdNum = 0;
+
+            for (i = 0; i < span_arr.length; i++) {
+
+
+                //빈값 체크
+                if (span_arr[i] != null && span_arr[i] != undefined && span_arr[i] != '') {
+                    console.log(i + '///' + tdNum);
+
+                    //화면상 개행처리, 맨마지막행 예외
+                    if (tdNum == span_arr.length) {
+                        span_data = '<tr>\n	' + span_arr[i] + '</td>\n</tr>';
+
+                        //숫자 인덱스 체크박스 on시
+                        if (chk_val == true) {
+                            //체크되있으면 맨앞 td에 숫자열 추가
+                            span_data = '<tr>\n	' + (tdNum + 1) + '</td>\n	' + span_arr[i] + '</td>\n</tr>';
+                        }
+
+                    } else {
+                        span_data = '<tr>\n	' + span_arr[i] + '</td>\n</tr>' + '\n';
+
+                        //숫자 인덱스 체크박스 on시
+                        if (chk_val == true) {
+                            span_data = '<tr>\n	' + (tdNum + 1) + '</td>\n	' + span_arr[i] + '</td>\n</tr>' +
+                                '\n';
+                        }
+                    }
+                    //td index 숫자 증가
+                    tdNum = tdNum + 1;
+
+                    span_chg = regExp.exec(span_data); //정규식 조건에따른 데이터 반환
+                    span_chg2 = regExp_team.exec(span_data); //정규식 조건에따른 데이터 반환
+                    /*
+                    span_dataAll += span_data.replace(regExp, span_chg + '</td>\n	<td>')
+                    				.replace(regExp_team, '</td>\n	<td>' + span_chg2 +'</td>\n	<td>')
+                    				.replace('<tr>\n	<td></td>\n</tr>', '')
+                    				.replace(/\s\<\/td/g, '</td'); //태그 변경 적용
+                    */
+                    span_dataAll += span_data.replace(/	/g, '</td>\n	<td>')
+                        .replace(/\n\<\/td\>/g, '	')
+                        .replace('<tr>	', '<tr>');
+
+                    result_textarea.val(span_dataAll); //결과창에 데이터 출력
+                } else {
+                    //빈 값이면 태그 생성하지 않고 tdNum만 고정
+                    tdNum = tdNum;
+                }
+            }
+
+        }
+
+
+        //결과 버튼이벤트
+        $('#btn_convert').on('click', function () {
+            span_dataAll = '';
+            //결과버튼 기능 실행
+            btn_convert();
+        });
+
+        //결과창 선택시 전체텍스트 선택
+        result_textarea.on('click', function () {
+            result_textarea.select();
+        });
+
+        //입력창 선택시 데이터 초기화
+        input_textarea.on('click', function () {
+            input_textarea.select();
+        })
+    })
+</script>
