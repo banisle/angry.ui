@@ -70,7 +70,7 @@
 
         return {
 
-            scrollEvt: function() {
+            scrollEvt: function () {
                 const intro = document.querySelector(".intro");
                 const video = intro.querySelector("video");
                 const text = intro.querySelector("h1");
@@ -81,92 +81,92 @@
                 //SCROLLMAGIC
                 const controller = new ScrollMagic.Controller();
 
-                //Scenes
-                let scene = new ScrollMagic.Scene({
-                        duration: 47000, //영상 길이 + 1s
-                        triggerElement: intro,
-                        triggerHook: 0
-                    })
-                    .addIndicators() //plugin 인디게이터 추가
-                    .setPin(intro)
-                    .addTo(controller);
+                var scene,scene2;
 
-                //Text Animation
-                const textAnim = TweenMax.fromTo(text, 3, {
-                    opacity: 1
-                }, {
-                    opacity: 0
-                });
 
-                let scene2 = new ScrollMagic.Scene({
-                        duration: 3000,
-                        triggerElement: intro,
-                        triggerHook: 0
-                    })
-                    .setTween(textAnim)
-                    .addTo(controller);
+                // update
+                var update = function () {
 
-                //Video Animation
-                let accelamount = 0.1;
-                let scrollpos = 0;
-                let delay = 0;
+                    //Scenes
+                    scene = new ScrollMagic.Scene({
+                            duration: 47000, //영상 길이 + 1s
+                            triggerElement: intro,
+                            triggerHook: 0
+                        })
+                        .addIndicators() //plugin 인디게이터 추가
+                        .setPin(intro)
+                        .addTo(controller);
 
-                scene.on("update", e => {
-                    scrollpos = e.scrollPos / 1000;
-                });
+                    //Text Animation
+                    const textAnim = TweenMax.fromTo(text, 3, {
+                        opacity: 1
+                    }, {
+                        opacity: 0
+                    });
 
-                var play = setInterval(function(){
+                    scene2 = new ScrollMagic.Scene({
+                            duration: 3000,
+                            triggerElement: intro,
+                            triggerHook: 0
+                        })
+                        .setTween(textAnim)
+                        .addTo(controller);
 
-                    delay += (scrollpos - delay) * accelamount;
+                    //Video Animation
+                    let accelamount = 0.1;
+                    let scrollpos = 0;
+                    let delay = 0;
 
-                    video.currentTime = delay;
+                    scene.on("update", e => {
+                        scrollpos = e.scrollPos / 1000;
+                    });
 
-                    if(_destroy == 'true'){
-                        console.log('stop',_destroy);
-                        clearInterval(play);
-                    }
+                    var play = setInterval(function () {
 
-                    
-                }, 33.3); //mp4영상의 프레임 1000(s) / 30(frame) = 33.33333
+                        delay += (scrollpos - delay) * accelamount;
+
+                        video.currentTime = delay;
+
+                        console.log('delay',delay);
+
+                        if (_destroy == 'true') {
+                            clearInterval(play);
+                        }
+
+
+                    }, 33.3); //mp4영상의 프레임 1000(s) / 30(frame) = 33.33333
+                }
 
                 // destroy
-                var destroy = function(){
-
-                    _destroy = 'true';
-                    const $innerstyle = document.querySelector('.scrollmagic-pin-spacer');
-
-                    $innerstyle.removeAttribute('style');
+                var destroy = function () {
 
                     // destroy( reset 옵션 boolean ) : 태그까지 싹 원복
                     scene.destroy(true);
                     scene2.destroy(true);
-                    scene = null;
-                    tween = null;
-                    scene2 = null;
                 }
 
-                // update
-
-                var update = function(){
-                    window.app().scrollEvt();
-
-                }
-
+                //btn
                 const $btnDestroy = document.querySelector('.ui-destroy');
                 const $btnUpdate = document.querySelector('.ui-update');
 
                 // btn destroy
-                $btnDestroy.addEventListener('click',function(){ 
+                $btnDestroy.addEventListener('click', function () {
+                    _destroy = 'true';
+
                     destroy();
                 });
                 // btn update
-                $btnUpdate.addEventListener('click',function(){ 
+                $btnUpdate.addEventListener('click', function () {
+                    _destroy = 'false';
+
                     update();
                 });
 
+                //init
+                update();
 
             },
-            init: function(){
+            init: function () {
                 window.app().scrollEvt();
             }
 
@@ -175,6 +175,4 @@
     });
 
     window.app().init();
-
-
 </script>
