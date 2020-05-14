@@ -66,7 +66,7 @@
 
 <script>
     window.app = (function () {
-        var _destroy = 'false';
+        var _destroy = 'true';
 
         return {
 
@@ -86,63 +86,72 @@
 
                 // update
                 var update = function () {
+                    if(_destroy == 'true'){
+                        _destroy = 'false';
 
-                    //Scenes
-                    scene = new ScrollMagic.Scene({
-                            duration: 47000, //영상 길이 + 1s
-                            triggerElement: intro,
-                            triggerHook: 0
-                        })
-                        .addIndicators() //plugin 인디게이터 추가
-                        .setPin(intro)
-                        .addTo(controller);
+                        //Scenes
+                        scene = new ScrollMagic.Scene({
+                                duration: 47000, //영상 길이 + 1s
+                                triggerElement: intro,
+                                triggerHook: 0
+                            })
+                            .addIndicators() //plugin 인디게이터 추가
+                            .setPin(intro)
+                            .addTo(controller);
 
-                    //Text Animation
-                    const textAnim = TweenMax.fromTo(text, 3, {
-                        opacity: 1
-                    }, {
-                        opacity: 0
-                    });
+                        //Text Animation
+                        const textAnim = TweenMax.fromTo(text, 3, {
+                            opacity: 1
+                        }, {
+                            opacity: 0
+                        });
 
-                    scene2 = new ScrollMagic.Scene({
-                            duration: 3000,
-                            triggerElement: intro,
-                            triggerHook: 0
-                        })
-                        .setTween(textAnim)
-                        .addTo(controller);
+                        scene2 = new ScrollMagic.Scene({
+                                duration: 3000,
+                                triggerElement: intro,
+                                triggerHook: 0
+                            })
+                            .setTween(textAnim)
+                            .addTo(controller);
 
-                    //Video Animation
-                    let accelamount = 0.1;
-                    let scrollpos = 0;
-                    let delay = 0;
+                        //Video Animation
+                        let accelamount = 0.1;
+                        let scrollpos = 0;
+                        let delay = 0;
 
-                    scene.on("update", e => {
-                        scrollpos = e.scrollPos / 1000;
-                    });
+                        scene.on("update", e => {
+                            scrollpos = e.scrollPos / 1000;
+                        });
 
-                    var play = setInterval(function () {
+                        var play = setInterval(function () {
 
-                        delay += (scrollpos - delay) * accelamount;
+                            delay += (scrollpos - delay) * accelamount;
 
-                        video.currentTime = delay;
+                            video.currentTime = delay;
 
-                        console.log('delay',delay);
+                            console.log('delay',delay);
 
-                        if (_destroy == 'true') {
-                            clearInterval(play);
-                        }
+                            if (_destroy == 'true') {
+                                clearInterval(play);
+                            }
 
 
-                    }, 33.3); //mp4영상의 프레임 1000(s) / 30(frame) = 33.33333
+                        }, 33.3); //mp4영상의 프레임 1000(s) / 30(frame) = 33.33333
+
+                    }
+
+
                 }
 
                 // destroy
                 var destroy = function () {
+                    if(_destroy == 'false'){
+                        _destroy = 'true';
 
-                    // destroy( reset 옵션 boolean ) : 태그까지 싹 원복
-                    scene.destroy(true);
-                    scene2.destroy(true);
+                        // destroy( reset 옵션 boolean ) : 태그까지 싹 원복
+                        scene.destroy(true);
+                        scene2.destroy(true);
+                    }
                 }
 
                 //btn
@@ -151,14 +160,10 @@
 
                 // btn destroy
                 $btnDestroy.addEventListener('click', function () {
-                    _destroy = 'true';
-
                     destroy();
                 });
                 // btn update
                 $btnUpdate.addEventListener('click', function () {
-                    _destroy = 'false';
-
                     update();
                 });
 
