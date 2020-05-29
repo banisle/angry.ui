@@ -18,19 +18,24 @@
         width: calc(100% - 30px);
     }
 
-    #addReg {
+    #addReg, #chgWord, #exe {
         margin-top: 10px;
-        width: 80px;
     }
 
     textarea {
         width: 100%;
     }
 </style>
-<div class="regWrap">
-    <input type="text" id="">/g
+<div class="regWrap inp_wrap">
+    <input type="text" id="" placeholder="위의 예시처럼 정규식 사용">/g
 </div>
-<button type="button" id="addReg" class="btn_org btn_no"><span>조건추가</span></button>
+<button type="button" id="addReg" class="btn_org"><span>조건추가</span></button>
+<h3>단어 바꾸기</h3>
+<div class="inp_wrap row-2">
+    <span><input type="text" id="txtChg" placeholder="변경전 단어"></span>
+    <span><input type="text" id="txtChg2" placeholder="변경될 단어"></span>
+</div>
+<button type="button" id="chgWord" class="btn_org"><span>변경</span></button>
 <h3>input text</h3>
 <textarea name="" id="intxt" cols="30" rows="10"></textarea>
 <h3>output text</h3>
@@ -43,6 +48,7 @@
             $outTxt = $('#outtxt'),
             $btn = $('#exe'),
             $addRegBtn = $('#addReg'),
+            $chgBtn = $('#chgWord'),
             $regWrap = $('.regWrap'),
             txt, dataTd, cvtLineS;
 
@@ -124,6 +130,20 @@
 
         }
 
+        //chg Word
+        var chgWord = function (){
+            var _txtChg = $('#txtChg').val(),
+                _txtChg2 = $('#txtChg2').val(),
+                _outTxt = $outTxt.val()
+                regExp = new RegExp(_txtChg, 'g');
+                ;
+
+                _outTxt = _outTxt.replace(regExp,_txtChg2);
+
+                $outTxt.val(_outTxt);
+
+        }
+
         //print table
         var printTable = function () {
             createTable(convertTxt());
@@ -135,6 +155,9 @@
         //btn regAdd
         $addRegBtn.on('click', function () {
             $regWrap.append('<input [type=text]>');
-        })
+        });
+        
+        //btn chkword
+        $chgBtn.on('click', chgWord);
     });
 </script>
