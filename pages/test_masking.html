@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .fieldForm{
+            border: 1px solid #ededed;
+            border-radius: 3px;
+            padding: 15px 15px;
+            font-weight: bold;
+            width:150px;
+        }
+        #masking{
+            position: absolute;
+            top: -30px;
+        }
+        label{
+            position: relative;
+            display: inline-block;
+            border: 1px solid #ededed;
+            border-radius: 3px;
+            padding: 15px 15px;
+            font-weight: bold;
+            width:150px;
+            height:17px;
+            vertical-align: bottom;
+        }
+        label:before{
+            display: inline-block;
+            content: '';
+            clear: both;
+            width: 122px;
+            height: 13px;
+            background: url(../img/bg_keypad.png);
+            background-size: 18px 36px;
+            background-position: 0 -11px;
+        }
+        label:after{
+            display: inline-block;
+            content: '';
+            clear: both;
+            position:absolute;
+            top: 19px;
+            left:15px;
+            width: 0;
+            height: 13px;
+            background: url(../img/bg_keypad.png);
+            background-size: 18px 36px;
+            background-position: 0 -24px;
+        }
+        label.m01:after{width: 20px;}
+        label.m02:after{width: 38px;}
+        label.m03:after{width: 56px;}
+        label.m04:after{width: 74px;}
+        label.m05:after{width: 90px;}
+        label.m06:after{width: 110px;}
+        label.m07:after{width: 125px;}
+    </style>
+</head>
+<body>
+
+    <div class="fieldCell">
+        <input class="fieldForm" type="tel" maxlength="6" aria-label="주민번호 앞 6자리" placeholder="주민번호 앞 6자리">
+        <span class="sign" aria-hidden="true">-</span>
+        <label class="target" for="masking" type="tel" aria-label="주민번호 뒷 7자리"></label>
+        <input id="masking" type="tel" maxlength="7">
+    </div>
+
+    <script>
+        // <input>에 이벤트생성 (maskingUI 함수 실행)
+        var maskInput = document.querySelector('#masking');
+        maskInput.addEventListener('keyup', function(){
+            maskingUI();
+        })
+        
+        // <label>에 두자리로 변환 한 아이디값 추가 & 삭제 하기
+        function maskingUI(){
+            var label = document.querySelector('.target'); // label 타켓을 변수로 받기.
+            var star = 'm' + pad(maskInput.value.length,2); // function pad();을 변수로 받기.
+            var regExp = /m[0-7]{2}/g; // m01-m07까지의 클래스를 찾기위한 정규식을 변수로 받기.
+
+            var hasClass = label.getAttribute('class'); // (1)label의 클래스 찾기
+                removeClass = regExp.exec(hasClass); // (2)찾은 클래스 네임을,  var regExp 정규식에 반환 → 클래스가 사라짐
+                console.log('removeStar',removeClass);
+
+            label.classList.remove(removeClass);
+            label.classList.add(star);
+        }
+
+        // string length값 두자리로 변환하기 (예 1 → 01) 
+        function pad(star, width) {
+            star = star + '';
+            return star.length >= width ? star : new Array(width - star.length + 1).join('0') + star;
+        }
+    </script>
+    
+</body>
+</html>
+
+
+
+
