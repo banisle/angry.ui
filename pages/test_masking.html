@@ -61,7 +61,7 @@
     </style>
 </head>
 <body>
-    <h3>마스킹폼 컬러체인지</h3>
+
     <div class="fieldCell">
         <input class="fieldForm" type="tel" maxlength="6" aria-label="주민번호 앞 6자리" placeholder="주민번호 앞 6자리">
         <span class="sign" aria-hidden="true">-</span>
@@ -96,50 +96,9 @@
             return star.length >= width ? star : new Array(width - star.length + 1).join('0') + star;
         }
     </script>
-
-    <pre class="brush:js;" >
-        <div class="fieldCell">
-            <input class="fieldForm" type="tel" maxlength="6" aria-label="주민번호 앞 6자리" placeholder="주민번호 앞 6자리">
-            <span class="sign" aria-hidden="true">-</span>
-            <label class="target" for="masking" type="tel" aria-label="주민번호 뒷 7자리"></label>
-            <input id="masking" type="tel" maxlength="7">
-        </div>
     
-        <script>
-            // <input>에 이벤트생성 (maskingUI 함수 실행)
-            var maskInput = document.querySelector('#masking');
-            maskInput.addEventListener('keyup', function(){
-                maskingUI();
-            })
-            
-            // <label>에 두자리로 변환 한 아이디값 추가 & 삭제 하기
-            function maskingUI(){
-                var label = document.querySelector('.target'); // label 타켓을 변수로 받기.
-                var star = 'm' + pad(maskInput.value.length,2); // function pad();을 변수로 받기.
-                var regExp = /m[0-7]{2}/g; // m01-m07까지의 클래스를 찾기위한 정규식을 변수로 받기.
-    
-                var hasClass = label.getAttribute('class'); // (1)label의 클래스 찾기
-                    removeClass = regExp.exec(hasClass); // (2)찾은 클래스 네임을,  var regExp 정규식에 반환 → 클래스가 사라짐
-                    console.log('removeStar',removeClass);
-    
-                label.classList.remove(removeClass);
-                label.classList.add(star);
-            }
-    
-            // string length값 두자리로 변환하기 (예 1 → 01) 
-            function pad(star, width) {
-                star = star + '';
-                return star.length >= width ? star : new Array(width - star.length + 1).join('0') + star;
-            }
-        </script>
-    </pre>
 </body>
 </html>
-
-
-
-
-
 
 
 
