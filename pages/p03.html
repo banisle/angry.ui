@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
     <style>
         .fieldForm{
             border: 1px solid #ededed;
@@ -47,7 +41,7 @@
             left:15px;
             width: 0;
             height: 13px;
-            background: url(../img/bg_keypad.png);
+            background: url(img/bg_keypad.png);
             background-size: 18px 36px;
             background-position: 0 -24px;
         }
@@ -59,8 +53,7 @@
         label.m06:after{width: 110px;}
         label.m07:after{width: 125px;}
     </style>
-</head>
-<body>
+
     <h3>마스킹폼 컬러체인지</h3>
     <div class="fieldCell">
         <input class="fieldForm" type="tel" maxlength="6" aria-label="주민번호 앞 6자리" placeholder="주민번호 앞 6자리">
@@ -78,10 +71,12 @@
             &lt;input id=&quot;masking&quot; type=&quot;tel&quot; maxlength=&quot;7&quot;&gt;
         &lt;/div&gt;
     
+
         &lt;script&gt;
             // &lt;input&gt;에 이벤트생성 (maskingUI 함수 실행)
             var maskInput = document.querySelector(&#39;#masking&#39;);
             maskInput.addEventListener(&#39;keyup&#39;, function(){
+
                 maskingUI();
             })
             
@@ -106,12 +101,10 @@
             }
         &lt;/script&gt;
     </pre>
+
     <script>
         ANUI.module.maskingUI('#masking','focus keyup click');
     </script>
-</body>
-</html>
-
 
 
 
