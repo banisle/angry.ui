@@ -2862,6 +2862,33 @@ ANUI.module = (function () {
 
         },
 
+        //mark : masking
+        maskingUI :function(inpId , keyup){
+            var maskInput = document.querySelector(inpId);
+
+            maskInput.addEventListener(keyup, function(){
+                maskingUI();
+            })
+            function maskingUI(){
+
+                var $target = document.querySelector('.target'); // $target 타켓을 변수로 받기.
+                var star = 'm' + pad(maskInput.value.length,2); // function pad();을 변수로 받기.
+                var regExp = /m[0-7]{2}/g; // m01-m07까지의 클래스를 찾기위한 정규식을 변수로 받기.
+    
+                var hasClass = $target.getAttribute('class'), // (1)$target의 클래스 찾기
+                    removeClass = regExp.exec(hasClass); // (2)찾은 클래스 네임을,  var regExp 정규식에 반환 → 클래스가 사라짐
+                    console.log('removeStar',removeClass);
+    
+                $target.classList.remove(removeClass);
+                $target.classList.add(star);
+            }
+
+            function pad(star, width) {
+                star = star + '';
+                return star.length >= width ? star : new Array(width - star.length + 1).join('0') + star;
+            }
+        },
+
         // mark : init 
         init: function () {
             // var t = this;
