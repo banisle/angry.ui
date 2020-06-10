@@ -1,0 +1,163 @@
+<h3>정규식 테이블 변환</h3>
+
+<p class="sub-txt">정규식을 활용, 데이터를 가공해서 테이블 형태로 변환</p>
+<h3>reg set</h3>
+<pre>
+  / -> \/
+  처음숫자. -> ^[0-9]{1,3}.
+  한글&영문.숫자 -> ([가-힣&A-Z.\d ]{1,} )
+  공백,탭 -> \s
+
+</pre>
+<style>
+    body {
+        padding: 10px;
+    }
+
+    .regWrap>input {
+        width: calc(100% - 30px);
+    }
+
+    #addReg, #chgWord, #exe {
+        margin-top: 10px;
+    }
+
+    textarea {
+        width: 100%;
+    }
+</style>
+<div class="regWrap inp_wrap">
+    <input type="text" id="" placeholder="위의 예시처럼 정규식 사용">/g
+</div>
+<button type="button" id="addReg" class="btn_org"><span>조건추가</span></button>
+<h3>단어 바꾸기</h3>
+<div class="inp_wrap row-2">
+    <span><input type="text" id="txtChg" placeholder="변경전 단어"></span>
+    <span><input type="text" id="txtChg2" placeholder="변경될 단어"></span>
+</div>
+<button type="button" id="chgWord" class="btn_org"><span>변경</span></button>
+<h3>input text</h3>
+<textarea name="" id="intxt" cols="30" rows="10"></textarea>
+<h3>output text</h3>
+<textarea name="" id="outtxt" cols="30" rows="10"></textarea>
+<button type="button" id="exe" class="btn_org"><span>RUN</span></button>
+
+<script>
+    $(function () {
+        var
+            $outTxt = $('#outtxt'),
+            $btn = $('#exe'),
+            $addRegBtn = $('#addReg'),
+            $chgBtn = $('#chgWord'),
+            $regWrap = $('.regWrap'),
+            txt, dataTd, cvtLineS;
+
+        //create table
+        var createTable = function (txt) {
+            var ctable = '<table>\n' + txt + '</table>';
+
+            $outTxt.val(ctable);
+            // console.log('create',txt);
+        }
+
+        //covert Txt
+        var convertTxt = function () {
+            var $intxt = $('#intxt'),
+                line = $intxt.val(),
+                line = line.replace(/\n$/gm, ""),
+                lineArr = line.split('\n'),
+                dataTable;
+
+            for (i = 0; i < lineArr.length; i++) {
+
+                // 초기 값 없을때 나오는거 제거
+                if (dataTable == undefined) {
+                    dataTable = '';
+                }
+
+                regSet(lineArr[i]);
+
+                var dataTd = '<tr><td>' + cvtLineS + '</td></tr>\n';
+
+                var dataTable = dataTable + dataTd;
+
+            }
+
+            return dataTable;
+        }
+
+        //regSet
+        var regSet = function (arr) {
+            var $regInput = $regWrap.find('input'),
+                regVal, cvtMatch, regExp,cvtLine,replLine;
+
+            $regInput.each(function (i) {
+                regVal = $regInput.eq(i).val();
+                regExp = new RegExp(regVal, 'g');
+
+                if (regVal != null && regVal != undefined && regVal != '') {
+
+                    //replace 함수
+                    var replLine = function(a){
+                        
+                        cvtLine = a.replace(regExp, function (item) {
+                            return item + '</td><td>';
+                        });
+
+                        //배열 arr에 변환된 cvtLine을 넣는다
+                        arr = cvtLine;
+
+                        return arr;
+                    }
+                    
+                    //받아온 배열을 replLine함수로 처리
+                    cvtLine = replLine(arr);
+
+                    // console.log('cvtLine : ' + cvtLine);
+
+                    cvtLineS = cvtLine;
+
+
+                }
+
+
+            });
+
+
+            $regInput.on('focus', function () {
+                regVal = $regInput.val();
+            })
+
+        }
+
+        //chg Word
+        var chgWord = function (){
+            var _txtChg = $('#txtChg').val(),
+                _txtChg2 = $('#txtChg2').val(),
+                _outTxt = $outTxt.val()
+                regExp = new RegExp(_txtChg, 'g');
+                ;
+
+                _outTxt = _outTxt.replace(regExp,_txtChg2);
+
+                $outTxt.val(_outTxt);
+
+        }
+
+        //print table
+        var printTable = function () {
+            createTable(convertTxt());
+        }
+
+        //btn exe
+        $btn.on('click', printTable);
+
+        //btn regAdd
+        $addRegBtn.on('click', function () {
+            $regWrap.append('<input [type=text]>');
+        });
+        
+        //btn chkword
+        $chgBtn.on('click', chgWord);
+    });
+</script>
