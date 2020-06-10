@@ -62,58 +62,33 @@
         <input id="masking" type="tel" maxlength="7">
     </div>
 
-    <script>
-        // <input>에 이벤트생성 (maskingUI 함수 실행)
-        var maskInput = document.querySelector('#masking');
-        maskInput.addEventListener('keyup', function(){
-            maskingUI();
-        })
-        
-        // <label>에 두자리로 변환 한 아이디값 추가 & 삭제 하기
-        function maskingUI(){
-            var label = document.querySelector('.target'); // label 타켓을 변수로 받기.
-            var star = 'm' + pad(maskInput.value.length,2); // function pad();을 변수로 받기.
-            var regExp = /m[0-7]{2}/g; // m01-m07까지의 클래스를 찾기위한 정규식을 변수로 받기.
-
-            var hasClass = label.getAttribute('class'); // (1)label의 클래스 찾기
-                removeClass = regExp.exec(hasClass); // (2)찾은 클래스 네임을,  var regExp 정규식에 반환 → 클래스가 사라짐
-                console.log('removeStar',removeClass);
-
-            label.classList.remove(removeClass);
-            label.classList.add(star);
-        }
-
-        // string length값 두자리로 변환하기 (예 1 → 01) 
-        function pad(star, width) {
-            star = star + '';
-            return star.length >= width ? star : new Array(width - star.length + 1).join('0') + star;
-        }
-    </script>
-
-    <pre class="brush:js;" >
-        <div class="fieldCell">
-            <input class="fieldForm" type="tel" maxlength="6" aria-label="주민번호 앞 6자리" placeholder="주민번호 앞 6자리">
-            <span class="sign" aria-hidden="true">-</span>
-            <label class="target" for="masking" type="tel" aria-label="주민번호 뒷 7자리"></label>
-            <input id="masking" type="tel" maxlength="7">
-        </div>
     
-        <script>
-            // <input>에 이벤트생성 (maskingUI 함수 실행)
-            var maskInput = document.querySelector('#masking');
-            maskInput.addEventListener('keyup', function(){
+    <pre class="brush:js;" >
+        &lt;div class=&quot;fieldCell&quot;&gt;
+            &lt;input class=&quot;fieldForm&quot; type=&quot;tel&quot; maxlength=&quot;6&quot; aria-label=&quot;주민번호 앞 6자리&quot; placeholder=&quot;주민번호 앞 6자리&quot;&gt;
+            &lt;span class=&quot;sign&quot; aria-hidden=&quot;true&quot;&gt;-&lt;/span&gt;
+            &lt;label class=&quot;target&quot; for=&quot;masking&quot; type=&quot;tel&quot; aria-label=&quot;주민번호 뒷 7자리&quot;&gt;&lt;/label&gt;
+            &lt;input id=&quot;masking&quot; type=&quot;tel&quot; maxlength=&quot;7&quot;&gt;
+        &lt;/div&gt;
+    
+
+        &lt;script&gt;
+            // &lt;input&gt;에 이벤트생성 (maskingUI 함수 실행)
+            var maskInput = document.querySelector(&#39;#masking&#39;);
+            maskInput.addEventListener(&#39;keyup&#39;, function(){
+
                 maskingUI();
             })
             
-            // <label>에 두자리로 변환 한 아이디값 추가 & 삭제 하기
+            // &lt;label&gt;에 두자리로 변환 한 아이디값 추가 &amp; 삭제 하기
             function maskingUI(){
-                var label = document.querySelector('.target'); // label 타켓을 변수로 받기.
-                var star = 'm' + pad(maskInput.value.length,2); // function pad();을 변수로 받기.
+                var label = document.querySelector(&#39;.target&#39;); // label 타켓을 변수로 받기.
+                var star = &#39;m&#39; + pad(maskInput.value.length,2); // function pad();을 변수로 받기.
                 var regExp = /m[0-7]{2}/g; // m01-m07까지의 클래스를 찾기위한 정규식을 변수로 받기.
     
-                var hasClass = label.getAttribute('class'); // (1)label의 클래스 찾기
+                var hasClass = label.getAttribute(&#39;class&#39;); // (1)label의 클래스 찾기
                     removeClass = regExp.exec(hasClass); // (2)찾은 클래스 네임을,  var regExp 정규식에 반환 → 클래스가 사라짐
-                    console.log('removeStar',removeClass);
+                    console.log(&#39;removeStar&#39;,removeClass);
     
                 label.classList.remove(removeClass);
                 label.classList.add(star);
@@ -121,11 +96,15 @@
     
             // string length값 두자리로 변환하기 (예 1 → 01) 
             function pad(star, width) {
-                star = star + '';
-                return star.length >= width ? star : new Array(width - star.length + 1).join('0') + star;
+                star = star + &#39;&#39;;
+                return star.length &gt;= width ? star : new Array(width - star.length + 1).join(&#39;0&#39;) + star;
             }
-        </script>
+        &lt;/script&gt;
     </pre>
+
+    <script>
+        ANUI.module.maskingUI('#masking','focus keyup click');
+    </script>
 
 
 
