@@ -2863,12 +2863,17 @@ ANUI.module = (function () {
         },
 
         //mark : masking
-        maskingUI :function(inpId , keyup){
+        maskingUI :function(inpId , evt){
+            
             var maskInput = document.querySelector(inpId);
 
-            maskInput.addEventListener(keyup, function(){
+            console.log('evt : ',evt);
+
+            addListenerMulti(maskInput,evt, function(){
                 maskingUI();
+
             })
+
             function maskingUI(){
 
                 var $target = document.querySelector('.target'); // $target 타켓을 변수로 받기.
@@ -2882,11 +2887,20 @@ ANUI.module = (function () {
                 $target.classList.remove(removeClass);
                 $target.classList.add(star);
             }
-
+            
             function pad(star, width) {
                 star = star + '';
                 return star.length >= width ? star : new Array(width - star.length + 1).join('0') + star;
             }
+
+            function addListenerMulti(element, eventNames, listener) {
+                var events = eventNames.split(' ');
+                for (var i = 0, iLen = events.length; i < iLen; i++) {
+                    element.addEventListener(events[i], listener, false);
+                }
+            }
+
+            
         },
 
         // mark : init 
