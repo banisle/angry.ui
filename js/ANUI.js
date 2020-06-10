@@ -2863,36 +2863,36 @@ ANUI.module = (function () {
         },
 
         //mark : masking
-        maskingUI :function(inpId , evt){
-            
+        maskingUI :function(inpId , evt){ // 인자값 : (<input>의 아이디값, 적용 될 이벤트)
             var maskInput = document.querySelector(inpId);
-
-            console.log('evt : ',evt);
+            console.log('evt : ', evt);
 
             addListenerMulti(maskInput,evt, function(){
                 maskingUI();
-
             })
 
+            // maskingUI 함수 실행
             function maskingUI(){
-
-                var $target = document.querySelector('.target'); // $target 타켓을 변수로 받기.
-                var star = 'm' + pad(maskInput.value.length,2); // function pad();을 변수로 받기.
-                var regExp = /m[0-7]{2}/g; // m01-m07까지의 클래스를 찾기위한 정규식을 변수로 받기.
+                var $target = document.querySelector('.target'); // $target 타켓을 변수로 받기 | .target → <label>
+                var star = 'm' + pad(maskInput.value.length,2); // function pad();를 변수로 받기
+                var regExp = /m[0-7]{2}/g; // m01-m07까지의 클래스를 찾기위한 정규식을 변수로 받기
     
+                // $target의 클래스를 찾아 동작이 반복 될 때 마다, 해당 클래스가 사라지는 동작
                 var hasClass = $target.getAttribute('class'), // (1)$target의 클래스 찾기
                     removeClass = regExp.exec(hasClass); // (2)찾은 클래스 네임을,  var regExp 정규식에 반환 → 클래스가 사라짐
                     console.log('removeStar',removeClass);
     
-                $target.classList.remove(removeClass);
-                $target.classList.add(star);
+                $target.classList.remove(removeClass); // target의 클래스값을 없애줌
+                $target.classList.add(star); // 없애준 target의 클래스값에 새로운 클래스값을 덮어줌
             }
             
-            function pad(star, width) {
-                star = star + '';
-                return star.length >= width ? star : new Array(width - star.length + 1).join('0') + star;
+            // string length값 두자리로 변환하기 (예 1 → 01) 
+            function pad(num, width) {
+                num = num + '';
+                return num.length >= width ? num : new Array(width - num.length + 1).join('0') + num;
             }
 
+            // addListenerMulti : 이벤트를 다중으로 설정하고 싶을때!
             function addListenerMulti(element, eventNames, listener) {
                 var events = eventNames.split(' ');
                 for (var i = 0, iLen = events.length; i < iLen; i++) {
