@@ -1,0 +1,140 @@
+<style>
+    .ui-circleTimer {
+        border: 1px solid #4b4b4b;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ui-circleTimer svg {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transform: scale(0.8) rotate(-90deg);
+    }
+
+    .ui-circleTimer circle {
+        stroke: #4b4b4b;
+        fill: transparent;
+        stroke-width: 18;
+        transition: all 0.32s linear;
+    }
+</style>
+<h3>ring</h3>
+<p class="sub-txt">
+    
+</p>
+<div>
+    <div class="ui-circleTimer type-ring">
+        <span class="inner"></span>
+    </div>
+</div>
+
+<h3>svg</h3>
+<p class="sub-txt">
+    ie 9+ 지원, svg태그 필요<br/>
+    vidio 영상의 길이 체크후 로딩 타이머 circle로 구현
+</p>
+<div>
+    <div class="btn_wrap mb-s">
+        <button type="button" class="btn_icn" id="btn-play"><span>play</span></button>
+    </div>
+    <div class="ui-circleTimer">
+        <svg viewbox="0 0 18 18">
+            <circle id="ui-circle" r="9" cx="9" cy="9" stroke-dasharray="0 360"></circle>
+        </svg>
+    </div>
+    <p style="padding:10px 0;">
+        <span>'duration '</span><span id="duration"></span> | 
+        <span>'video_time '</span><span id="video_time"></span> | 
+        <span>'angle_increment '</span><span id="angle_increment"></span> | 
+        <span>'angle '</span><span id="angle"></span>
+    </p>
+    <div>
+        <video id="video" src="img/sampleVideo.mp4" style="width:100%;height:100%" preload="none" muted="" playsinline=""
+            webkit-playsinline="" x5-playsinline=""></video>
+    </div>
+</div>
+
+
+<pre class="brush:js; first-line:1; html-script:true; tab-size:2; toolbar:false; pad-line-numbers:true;">
+
+</pre>
+
+<script>
+    $(document).ready(function () {
+        var circle = document.getElementById('ui-circle');
+        var btnPlay = document.getElementById('btn-play');
+        var video = document.getElementById('video');
+        var interval = 100; // circle animation tick 단위 ms, 
+        var isPlay = 'false';
+        var angle = 0;
+        
+        
+
+
+        //circle svg draw
+        var aniCircle = function(){
+            var angle_increment = parseFloat(6 * (interval/100) / parseFloat(video.duration).toFixed(0));
+            
+            circle.setAttribute("stroke-dasharray", angle + ', 360');
+            angle = angle + angle_increment;
+
+            // sample text
+            var duration = document.getElementById('duration');
+            var video_time = document.getElementById('video_time');
+            var angle_increment_txt = document.getElementById('angle_increment');
+            var angle_txt = document.getElementById('angle');
+
+            //샘플 텍스트용
+            duration.textContent = video.duration;
+            video_time.textContent = video.currentTime;
+            angle_increment_txt.textContent = angle_increment;
+            angle_txt.textContent = angle;
+            
+        };
+
+        
+        var playCircle = function(){
+            isPlay = 'true';
+            video.play();
+            // 영상에 맞게 circle 애니메이션 실행
+            videoTimer = setInterval(function () {
+                
+                aniCircle();
+    
+                // 클리어조건
+                if (video.currentTime >= video.duration) {
+                    clearInterval(videoTimer);
+                    isPlay = 'false';
+                    console.log('end');
+                }
+            }, interval);
+
+            
+        };
+
+        var pauseCircle = function(){
+            isPlay = 'false';
+            video.pause();
+            aniCircle();
+            clearInterval(videoTimer);
+        };
+        
+
+        
+
+
+        // 버튼 이벤트
+        btnPlay.addEventListener('click', function () {
+            isPlay == 'false' ? playCircle() : pauseCircle();
+
+        });
+
+
+    });
+</script>
