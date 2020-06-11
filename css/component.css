@@ -165,7 +165,6 @@ input[type=text]+.ui-deltxt.hidden {
 	padding: 0;
 	font-size: 16px;
 	font-weight: bold;
-	line-height: 0;
 	box-sizing: border-box;
 	color: #fff;
 	background-color: #aa301c;
@@ -174,16 +173,17 @@ input[type=text]+.ui-deltxt.hidden {
 	vertical-align: middle;
 	letter-spacing: 0;
 }
+.btn_org:before{content:"";display:inline-block;height:100%;line-height:0;vertical-align:middle;font-size:0;margin:0;padding:0;border:0;}
 
 /* ie9 버튼 pressed 효과 제거 position 속성 추가 */
 .btn_org>span {
 	display: inline-block;
-	position: absolute;
+	/* position: absolute; */
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	line-height: 50px;
+	line-height: normal;
 	padding: 0 20px 0;
 	color: #fff
 }
