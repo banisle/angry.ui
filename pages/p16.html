@@ -79,7 +79,7 @@
 
         //circle svg draw
         var aniCircle = function(){
-            var angle_increment = parseFloat(6 * (interval/100) / parseFloat(video.duration).toFixed(0));
+            var angle_increment = parseFloat(6 * (interval/100) / parseFloat(video.duration).toFixed(1));
             
             circle.setAttribute("stroke-dasharray", angle + ', 360');
             angle = angle + angle_increment;
@@ -98,10 +98,11 @@
             
         };
 
-        
+        // circle 이동
         var playCircle = function(){
             isPlay = 'true';
-            video.play();
+            video.play()
+
             // 영상에 맞게 circle 애니메이션 실행
             videoTimer = setInterval(function () {
                 
@@ -115,9 +116,11 @@
                 }
             }, interval);
 
+            video.currentTime !== 0 ? video.play() : circleReset();
             
         };
 
+        // circle 멈춤
         var pauseCircle = function(){
             isPlay = 'false';
             video.pause();
@@ -125,6 +128,11 @@
             clearInterval(videoTimer);
         };
         
+        // circle 리셋
+        var circleReset = function(){
+            angle = 0;
+            video.currentTime = 0;
+        }
 
         
 
