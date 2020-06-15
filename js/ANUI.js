@@ -2899,8 +2899,93 @@ ANUI.module = (function () {
                     element.addEventListener(events[i], listener, false);
                 }
             }
+        },
 
+        // mark : circleTimerUi
+        circleTimerUi : function(){
+            var ccui;
+            var circle = document.getElementById('ui-circle');
+            var btnPlay = document.getElementById('btn-play');
+            var video = document.getElementById('video');
+            var interval = 100; // circle animation tick 단위 ms, 
+            var isPlay = 'false';
+            var angle = 0;
+            var videoTimer;
+
+            ccui = function(){
+                this.init();
+            }
+
+            //init
+            ccui.prototype.init = function(){
+                var _t = this;
+                // 버튼 이벤트
+                btnPlay.addEventListener('click', function () {
+                    isPlay == 'false' ? _t.playCircle() : _t.pauseCircle();
+                });
+            };
+
+            //circle svg draw
+            ccui.prototype.aniCircle = function(){
+                var angle_increment = parseFloat(6 * (interval/100) / parseFloat(video.duration).toFixed(1));
             
+                circle.setAttribute("stroke-dasharray", angle + ', 360');
+                angle = angle + angle_increment;
+
+                // sample text
+                var duration = document.getElementById('duration');
+                var video_time = document.getElementById('video_time');
+                var angle_increment_txt = document.getElementById('angle_increment');
+                var angle_txt = document.getElementById('angle');
+
+                //샘플 텍스트용
+                duration.textContent = video.duration;
+                video_time.textContent = video.currentTime;
+                angle_increment_txt.textContent = angle_increment;
+                angle_txt.textContent = angle;
+            };
+
+            // circle 이동
+            ccui.prototype.playCircle = function(){
+                var _t = this;
+                isPlay = 'true';
+                video.play()
+
+                // 영상에 맞게 circle 애니메이션 실행
+                videoTimer = setInterval(function () {
+                    
+                    _t.aniCircle();
+        
+                    // 클리어조건
+                    if (video.currentTime >= video.duration) {
+                        clearInterval(videoTimer);
+                        isPlay = 'false';
+                        console.log('end');
+                    }
+                }, interval);
+
+                video.currentTime !== 0 ? video.play() : this.circleReset();
+                
+            };
+
+            // circle 멈춤
+            ccui.prototype.pauseCircle = function(){
+                isPlay = 'false';
+                video.pause();
+                this.aniCircle();
+                clearInterval(videoTimer);
+            };
+            
+            // circle 리셋
+            ccui.prototype.circleReset = function(){
+                angle = 0;
+                video.currentTime = 0;
+            }
+
+            new ccui();
+            console.log('circleTimerUi');
+            
+
         },
 
         // mark : init 
