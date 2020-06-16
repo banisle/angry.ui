@@ -1,0 +1,186 @@
+<style>
+    
+</style>
+<h3>star rate</h3>
+<p class="sub-txt">
+    .5단위
+</p>
+
+
+<div class="ui-star" style="float: left;">
+    <div class="rating-group">
+        <input class="rating__input rating__input--none" checked name="rating2" id="rating2-0" value="0" type="radio">
+        <label aria-label="0 점" class="rating__label" for="rating2-0"></label>
+        <label aria-label="0.5 점" class="rating__label rating__label--half" for="rating2-05">
+            <i class="rating__icon rating__icon--star star-half"></i>
+        </label>
+        <input class="rating__input" name="rating2" id="rating2-05" value="0.5" type="radio">
+        <label aria-label="1 star" class="rating__label" for="rating2-10">
+            <i class="rating__icon rating__icon--star star"></i>
+        </label>
+        <input class="rating__input" name="rating2" id="rating2-10" value="1" type="radio">
+        <label aria-label="1.5 점" class="rating__label rating__label--half" for="rating2-15">
+            <i class="rating__icon rating__icon--star star-half"></i>
+        </label>
+        <input class="rating__input" name="rating2" id="rating2-15" value="1.5" type="radio">
+        <label aria-label="2 점" class="rating__label" for="rating2-20">
+            <i class="rating__icon rating__icon--star star"></i>
+        </label>
+        <input class="rating__input" name="rating2" id="rating2-20" value="2" type="radio">
+        <label aria-label="2.5 점" class="rating__label rating__label--half" for="rating2-25">
+            <i class="rating__icon rating__icon--star star-half"></i>
+        </label>
+        <input class="rating__input" name="rating2" id="rating2-25" value="2.5" type="radio">
+        <label aria-label="3 점" class="rating__label" for="rating2-30">
+            <i class="rating__icon rating__icon--star star"></i>
+        </label>
+        <input class="rating__input" name="rating2" id="rating2-30" value="3" type="radio">
+        <label aria-label="3.5 점" class="rating__label rating__label--half" for="rating2-35">
+            <i class="rating__icon rating__icon--star star-half"></i>
+        </label>
+        <input class="rating__input" name="rating2" id="rating2-35" value="3.5" type="radio">
+        <label aria-label="4 점" class="rating__label" for="rating2-40">
+            <i class="rating__icon rating__icon--star star"></i>
+        </label>
+        <input class="rating__input" name="rating2" id="rating2-40" value="4" type="radio">
+        <label aria-label="4.5 점" class="rating__label rating__label--half" for="rating2-45">
+            <i class="rating__icon rating__icon--star star-half"></i>
+        </label>
+        <input class="rating__input" name="rating2" id="rating2-45" value="4.5" type="radio">
+        <label aria-label="5 점" class="rating__label" for="rating2-50">
+            <i class="rating__icon rating__icon--star star"></i>
+        </label>
+        <input class="rating__input" name="rating2" id="rating2-50" value="5" type="radio">
+    </div>
+</div>
+
+<div class="form_wrap" >
+    <select name="" id="" class="ui-select-star form_select">
+        <option value="선택" selected hidden>선택</option>
+    </select>
+</div>
+<p>
+    별점 : <span class="result"></span>
+</p>
+<pre class="brush:js; first-line:1; tab-size:2; toolbar:false; pad-line-numbers:true;">
+    //샐렉트 선택
+    selstar.addEventListener('change', function(){
+        _chk = selstar.options[selstar.selectedIndex].value;
+        // _chk 인자값으로 별점 반환
+        selectVal(_chk);
+    });
+
+    // 인풋 체크 변환
+    inpArr.forEach(function (inpChk) {
+        inpChk.addEventListener('change', function (e) {
+            if (!e.target.matches('.ui-star .rating-group > input')) {
+                return;
+            }
+            _chk = e.target.value;
+            // _chk 인자값으로 별점 반환
+            selectVal(_chk);
+        });
+    });
+</pre>
+<pre class="brush:js; first-line:1; html-script:true; tab-size:2; toolbar:false; pad-line-numbers:true;">
+&lt;div class=&quot;ui-star&quot; style=&quot;float: left;&quot;&gt;
+    &lt;div class=&quot;rating-group&quot;&gt;
+        &lt;input class=&quot;rating__input rating__input--none&quot; checked name=&quot;rating2&quot; id=&quot;rating2-0&quot; value=&quot;0&quot; type=&quot;radio&quot;&gt;
+        &lt;label aria-label=&quot;0 점&quot; class=&quot;rating__label&quot; for=&quot;rating2-0&quot;&gt;&lt;/label&gt;
+        &lt;label aria-label=&quot;0.5 점&quot; class=&quot;rating__label rating__label--half&quot; for=&quot;rating2-05&quot;&gt;
+            &lt;i class=&quot;rating__icon rating__icon--star star-half&quot;&gt;&lt;/i&gt;
+        &lt;/label&gt;
+        &lt;input class=&quot;rating__input&quot; name=&quot;rating2&quot; id=&quot;rating2-05&quot; value=&quot;0.5&quot; type=&quot;radio&quot;&gt;
+        &lt;label aria-label=&quot;1 star&quot; class=&quot;rating__label&quot; for=&quot;rating2-10&quot;&gt;
+            &lt;i class=&quot;rating__icon rating__icon--star star&quot;&gt;&lt;/i&gt;
+        &lt;/label&gt;
+        &lt;input class=&quot;rating__input&quot; name=&quot;rating2&quot; id=&quot;rating2-10&quot; value=&quot;1&quot; type=&quot;radio&quot;&gt;
+        &lt;label aria-label=&quot;1.5 점&quot; class=&quot;rating__label rating__label--half&quot; for=&quot;rating2-15&quot;&gt;
+            &lt;i class=&quot;rating__icon rating__icon--star star-half&quot;&gt;&lt;/i&gt;
+        &lt;/label&gt;
+        &lt;input class=&quot;rating__input&quot; name=&quot;rating2&quot; id=&quot;rating2-15&quot; value=&quot;1.5&quot; type=&quot;radio&quot;&gt;
+        &lt;label aria-label=&quot;2 점&quot; class=&quot;rating__label&quot; for=&quot;rating2-20&quot;&gt;
+            &lt;i class=&quot;rating__icon rating__icon--star star&quot;&gt;&lt;/i&gt;
+        &lt;/label&gt;
+        &lt;input class=&quot;rating__input&quot; name=&quot;rating2&quot; id=&quot;rating2-20&quot; value=&quot;2&quot; type=&quot;radio&quot;&gt;
+        &lt;label aria-label=&quot;2.5 점&quot; class=&quot;rating__label rating__label--half&quot; for=&quot;rating2-25&quot;&gt;
+            &lt;i class=&quot;rating__icon rating__icon--star star-half&quot;&gt;&lt;/i&gt;
+        &lt;/label&gt;
+        &lt;input class=&quot;rating__input&quot; name=&quot;rating2&quot; id=&quot;rating2-25&quot; value=&quot;2.5&quot; type=&quot;radio&quot;&gt;
+        &lt;label aria-label=&quot;3 점&quot; class=&quot;rating__label&quot; for=&quot;rating2-30&quot;&gt;
+            &lt;i class=&quot;rating__icon rating__icon--star star&quot;&gt;&lt;/i&gt;
+        &lt;/label&gt;
+        &lt;input class=&quot;rating__input&quot; name=&quot;rating2&quot; id=&quot;rating2-30&quot; value=&quot;3&quot; type=&quot;radio&quot;&gt;
+        &lt;label aria-label=&quot;3.5 점&quot; class=&quot;rating__label rating__label--half&quot; for=&quot;rating2-35&quot;&gt;
+            &lt;i class=&quot;rating__icon rating__icon--star star-half&quot;&gt;&lt;/i&gt;
+        &lt;/label&gt;
+        &lt;input class=&quot;rating__input&quot; name=&quot;rating2&quot; id=&quot;rating2-35&quot; value=&quot;3.5&quot; type=&quot;radio&quot;&gt;
+        &lt;label aria-label=&quot;4 점&quot; class=&quot;rating__label&quot; for=&quot;rating2-40&quot;&gt;
+            &lt;i class=&quot;rating__icon rating__icon--star star&quot;&gt;&lt;/i&gt;
+        &lt;/label&gt;
+        &lt;input class=&quot;rating__input&quot; name=&quot;rating2&quot; id=&quot;rating2-40&quot; value=&quot;4&quot; type=&quot;radio&quot;&gt;
+        &lt;label aria-label=&quot;4.5 점&quot; class=&quot;rating__label rating__label--half&quot; for=&quot;rating2-45&quot;&gt;
+            &lt;i class=&quot;rating__icon rating__icon--star star-half&quot;&gt;&lt;/i&gt;
+        &lt;/label&gt;
+        &lt;input class=&quot;rating__input&quot; name=&quot;rating2&quot; id=&quot;rating2-45&quot; value=&quot;4.5&quot; type=&quot;radio&quot;&gt;
+        &lt;label aria-label=&quot;5 점&quot; class=&quot;rating__label&quot; for=&quot;rating2-50&quot;&gt;
+            &lt;i class=&quot;rating__icon rating__icon--star star&quot;&gt;&lt;/i&gt;
+        &lt;/label&gt;
+        &lt;input class=&quot;rating__input&quot; name=&quot;rating2&quot; id=&quot;rating2-50&quot; value=&quot;5&quot; type=&quot;radio&quot;&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+
+<script>
+    var star = document.querySelector('.ui-star');
+    var inpArr = document.querySelectorAll('.ui-star .rating-group > input');
+    var result = document.querySelector('.result');
+    var selstar = document.querySelector('.ui-select-star');
+    var resultStar;
+
+    // create opt
+    var createOpt = function () {
+        for (let i = 0; i < inpArr.length; i++) {
+            let opt = inpArr[i];
+            var node = document.createElement('option');
+
+            node.value = opt.getAttribute('value');
+            node.text = opt.getAttribute('value');
+
+            selstar.appendChild(node);
+
+        };
+    }();
+
+    //star change
+    var selectVal = function (val) {
+        console.log(0,val);
+
+        printStar(val);
+    }
+
+    // print star rate
+    var printStar = function (val) {
+        result.textContent = val;
+    }
+
+    //샐렉트 선택
+    selstar.addEventListener('change', function(){
+        _chk = selstar.options[selstar.selectedIndex].value;
+        // _chk 인자값으로 별점 반환
+        selectVal(_chk);
+    });
+
+    // 인풋 체크 변환
+    inpArr.forEach(function (inpChk) {
+        inpChk.addEventListener('change', function (e) {
+            if (!e.target.matches('.ui-star .rating-group > input')) {
+                return;
+            }
+            _chk = e.target.value;
+            // _chk 인자값으로 별점 반환
+            selectVal(_chk);
+        });
+    });
+</script>

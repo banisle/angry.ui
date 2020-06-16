@@ -2987,6 +2987,10 @@ ANUI.module = (function () {
             
 
         },
+        // mark: starRating
+        starRatingUi : function(){
+
+        },
 
         // mark : init 
         init: function () {

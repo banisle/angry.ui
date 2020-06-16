@@ -120,6 +120,26 @@ input[type=text]+.ui-deltxt.hidden {
 .inp_wrap.has_btn {
 	padding: 0 146px 0 0;
 }
+.inp_wrap.has_btn > button{
+	position: absolute;
+    top: 0;
+    right: 0;
+}
+.inp_wrap .labelname{
+	position: absolute;
+	top:0;
+	left: 0;
+	height: 100%;
+	display: table;
+}
+.inp_wrap .labelname > span{
+	display: table-cell;
+	vertical-align: middle;
+}
+.inp_wrap .labelname + span{
+	display: block;
+	padding-left: 150px;
+}
 
 .inp_btn {
 	display: inline-block;
@@ -1662,7 +1682,7 @@ html.mobile .ui-content {
 .addfiles>ul.list>li>.dt{font-size: 13px;padding-bottom: 12px;display: inline-block;}
 .ui-addFile{position:relative;display:inline-block;width:100%;overflow:hidden;vertical-align:middle;line-height:23px;padding-right: 146px;box-sizing:border-box;}
 .ui-addFile .file{ width:100%; position:relative; display:block;}
-.ui-addFile .file button.delete{display:none;position:absolute;width: 16px;height: 16px;top: 18px;right: 17px;background: url(/img/adm/icn_ir.png) 0 0 no-repeat;background-position: -353px -61px;font-size: 0px;}
+.ui-addFile .file button.delete{display:none;position:absolute;width: 16px;height: 16px;top: 18px;right: 17px;background: url('../img/adm/icn_ir.png') 0 0 no-repeat;background-position: -353px -61px;font-size: 0px;}
 .ui-addFile.on .file button.delete{display:block;cursor: pointer;}
 .ui-addFile .file .loc{
 	vertical-align:middle;
@@ -1685,3 +1705,89 @@ html.mobile .ui-content {
 .ui-addFile .btnAttach .fileButton{width:100%;font-size: 18px;line-height: 51px;} 
 .ui-addFile .btnAttach .bt{} 
 .ui-addFile .btnAttach .fileInput{font-size:100px;position:absolute;right:0px;top:0px;width:100%;height: 52px;top:0px;opacity:0;filter:alpha(opacity=0);cursor:pointer;padding:0px !important;border:none;}
+
+/* //mark: ui-star rating */
+.ui-star .rating-group {
+	display: inline-flex;
+}
+
+.ui-star .rating__icon {
+	pointer-events: none;
+}
+
+.ui-star .rating__input {
+	display: none;
+	/* position: absolute !important;
+	left: -9999px !important; */
+}
+
+.ui-star .rating__label {
+	cursor: pointer;
+	/* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
+	padding: 0 10px;
+}
+
+.ui-star .rating__label--half {
+	padding-right: 0;
+	margin-right: -17px;
+	z-index: 2;
+}
+
+.ui-star .rating__icon--star {
+	color: orange;
+	background-position-x: -218px;
+}
+
+.ui-star .rating__icon--none {
+	color: #eee;
+	background-position-x: -144px;
+
+}
+
+.ui-star .rating__input--none:checked+.rating__label .rating__icon--none {
+	color: red;
+}
+
+.ui-star .rating__input:checked~.rating__label .rating__icon--star {
+	color: #ddd;
+	background-position-x: -144px;
+
+}
+
+.ui-star .rating-group:hover .rating__label .rating__icon--star,
+.ui-star .rating-group:hover .rating__label--half .rating__icon--star {
+	color: orange;
+	background-position-x: -218px;
+
+}
+
+.ui-star .rating__input:hover~.rating__label .rating__icon--star,
+.ui-star .rating__input:hover~.rating__label--half .rating__icon--star {
+	color: #ddd;
+	background-position-x: -144px;
+
+}
+
+.ui-star .rating-group:hover .rating__input--none:not(:hover)+.rating__label .rating__icon--none {
+	color: #eee;
+	background-position-x: -144px;
+
+}
+
+.ui-star .rating__input--none:hover+.rating__label .rating__icon--none {
+	color: red;
+}
+
+.star {
+	display: block;
+	width: 14px;
+	height: 14px;
+	background: url('../img/icn_ir.png') -144px -32px no-repeat;
+}
+
+.star-half {
+	display: block;
+	width: 7px;
+	height: 14px;
+	background: url('../img/icn_ir.png') -144px -32px no-repeat;
+}
