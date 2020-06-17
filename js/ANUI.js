@@ -3004,6 +3004,8 @@ ANUI.module = (function () {
         starRatingUi: function () {
             var srui;
             var inpArr = document.querySelectorAll('.ui-star .rating-group > input');
+            // ie지원 array타입으로 변경
+            inpArr = [].slice.call(inpArr);
             var result = document.querySelector('.result');
             var selstar = document.querySelector('.ui-select-star');
             var _chk;
@@ -3011,8 +3013,6 @@ ANUI.module = (function () {
             srui = function () {
                 this.init();
                 this.createOpt();
-                console.log('star init');
-
             }
 
             //init
@@ -3030,7 +3030,9 @@ ANUI.module = (function () {
                 // 인풋 체크 변환
                 inpArr.forEach(function (inpChk) {
                     inpChk.addEventListener('change', function (e) {
-                        if (!e.target.matches('.ui-star .rating-group > input')) {
+                        // ie matches fix
+                        var matches = e.target.matches ? e.target.matches('.ui-star .rating-group > input') : e.target.msMatchesSelector('.ui-star .rating-group > input');
+                        if (!matches) {
                             return;
                         }
                         _chk = e.target.value;
@@ -3043,8 +3045,8 @@ ANUI.module = (function () {
             // create opt
             srui.prototype.createOpt = function () {
                 console.log('createOpt');
-                for (let i = 0; i < inpArr.length; i++) {
-                    let opt = inpArr[i];
+                for (var i = 0; i < inpArr.length; i++) {
+                    var opt = inpArr[i];
                     var node = document.createElement('option');
 
                     node.value = opt.getAttribute('value');

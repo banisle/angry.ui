@@ -8,8 +8,9 @@
 	margin-bottom: 30px !important;
 }
 .syntaxhighlighter .line{
-	white-space: pre-wrap !important; /*자동 줄바꿈하기*/
-	word-break: break-word !important; /*자동 줄바꿈하기*/
+	/*자동 줄바꿈하기*/
+	/* white-space: pre-wrap !important; 
+	word-break: break-word !important;  */
 }
 .syntaxhighlighter .line.alt1:hover,
 .syntaxhighlighter .line.alt2:hover{

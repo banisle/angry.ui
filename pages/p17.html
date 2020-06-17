@@ -1,10 +1,8 @@
-<h3>star rate</h3>
+<h3>star rate pure css</h3>
 <p class="sub-txt">
-    ANUI.module.starRatingUi();<br> 클래스명 샘플대로
-    ,.5단위 tick, 별 모양 background-image처리
+    샘플페이지용 ANUI.module.starRatingUi(); <br> ie11+지원<br>
+    클래스명 샘플대로 ,.5단위 tick, 별 모양 background-image처리
 </p>
-
-
 <div class="ui-star" style="float: left;">
     <div class="rating-group">
         <input class="rating__input rating__input--none" checked name="rating2" id="rating2-0" value="0" type="radio">
@@ -52,7 +50,7 @@
     </div>
 </div>
 
-<div class="form_wrap" >
+<div class="form_wrap">
     <select name="" id="" class="ui-select-star form_select">
         <option value="선택" selected hidden>선택</option>
     </select>
@@ -60,27 +58,7 @@
 <p>
     별점 : <span class="result"></span>
 </p>
-<pre class="brush:js; first-line:1; tab-size:2; toolbar:false; pad-line-numbers:true;">
-    //샐렉트 선택
-    selstar.addEventListener('change', function(){
-        _chk = selstar.options[selstar.selectedIndex].value;
-        // _chk 인자값으로 별점 반환
-        selectVal(_chk);
-    });
-
-    // 인풋 체크 변환
-    inpArr.forEach(function (inpChk) {
-        inpChk.addEventListener('change', function (e) {
-            if (!e.target.matches('.ui-star .rating-group > input')) {
-                return;
-            }
-            _chk = e.target.value;
-            // _chk 인자값으로 별점 반환
-            selectVal(_chk);
-        });
-    });
-</pre>
-<pre class="brush:js; first-line:1; html-script:true; tab-size:2; toolbar:false; pad-line-numbers:true;">
+<pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */" >
 &lt;div class=&quot;ui-star&quot; style=&quot;float: left;&quot;&gt;
     &lt;div class=&quot;rating-group&quot;&gt;
         &lt;input class=&quot;rating__input rating__input--none&quot; checked name=&quot;rating2&quot; id=&quot;rating2-0&quot; value=&quot;0&quot; type=&quot;radio&quot;&gt;
@@ -128,6 +106,25 @@
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
+
+
+<h3>star rate2</h3>
+<p class="sub-txt">
+    ie9+지원<br>
+    클래스명 샘플대로 ,1단위 tick, 별 모양 background-image처리, 별 사이 여백 필요시 bg에서 여백 준뒤 처리
+</p>
+<div class="form-item">
+    <input name="rating" id="rating-5" type="radio" value="5">
+    <label for="rating-5" data-value="5"></label>
+    <input name="rating" id="rating-4" type="radio" value="4">
+    <label for="rating-4" data-value="4"></label>
+    <input name="rating" id="rating-3" type="radio" value="3">
+    <label for="rating-3" data-value="3"></label>
+    <input name="rating" id="rating-2" type="radio" value="2">
+    <label for="rating-2" data-value="2"></label>
+    <input name="rating" id="rating-1" type="radio" value="1">
+    <label for="rating-1" data-value="1"></label>
+</div>
 
 <script>
     ANUI.module.starRatingUi();
