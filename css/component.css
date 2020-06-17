@@ -2155,17 +2155,6 @@ html.mobile .ui-content {
 }
 
 /* //mark: ui-star rating */
-/*  
- *  Pure CSS star rating that works without reversing order
- *  of inputs
- *  -------------------------------------------------------
- *  NOTE: For the styling to work, there needs to be a radio
- *        input selected by default. There also needs to be a
- *        radio input before the first star, regardless of
- *        whether you offer a 'no rating' or 0 stars option
- *  
- *  This codepen uses FontAwesome icons
- */
 .ui-star .rating-group {
 	/* display: inline-flex; */
 	font-size: 0;
@@ -2184,6 +2173,27 @@ html.mobile .ui-content {
 	height: 14px;
 	background: url('../img/icn_ir.png') -144px -32px no-repeat;
 }
+
+.ui-star .star:before {
+	content:'';
+	display: block;
+	width: 14px;
+	height: 14px;
+	background: url('../img/icn_ir.png') -218px -32px no-repeat;
+	opacity:0;
+	transition:all .3s ease;
+}
+
+.ui-star .star-half:before {
+	content:'';
+	display: block;
+	width: 7px;
+	height: 14px;
+	background: url('../img/icn_ir.png') -218px -32px no-repeat;
+	opacity:0;
+	transition:all .3s ease;
+}
+
 
 .ui-star .rating__icon {
 	pointer-events: none;
@@ -2206,30 +2216,29 @@ html.mobile .ui-content {
 	margin-right: -17px;
 }
 
-.ui-star .rating__icon--star {
-	background-position-x: -218px;
+.ui-star .rating__icon--star:before{
+	opacity:1;
 }
 
-.ui-star .rating__icon--none {
-	background-position-x: -144px;
-
-}
-
-.ui-star .rating__input:checked~.rating__label .rating__icon--star {
-	background-position-x: -144px;
+.ui-star .rating__icon--none:before {
+	opacity:0;
 
 }
 
-.ui-star .rating-group:hover .rating__label .rating__icon--star,
-.ui-star .rating-group:hover .rating__label--half .rating__icon--star {
-	background-position-x: -218px;
+.ui-star .rating__input:checked~.rating__label .rating__icon--star:before {
+	opacity:0;
 
 }
 
-/* 마우스 오버시 현재 선택된 별까지 활성화 */
-.ui-star .rating__input:hover~.rating__label .rating__icon--star,
-.ui-star .rating__input:hover~.rating__label--half .rating__icon--star {
-	background-position-x: -144px;
+.ui-star .rating-group:hover .rating__label .rating__icon--star:before,
+.ui-star .rating-group:hover .rating__label--half .rating__icon--star:before {
+	opacity:1;
+
+}
+
+.ui-star .rating__input:hover~.rating__label .rating__icon--star:before,
+.ui-star .rating__input:hover~.rating__label--half .rating__icon--star:before {
+	opacity:0;
 }
 
 /* ie9 용 */
