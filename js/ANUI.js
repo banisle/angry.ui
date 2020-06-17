@@ -11,26 +11,39 @@ var context = window,
     detectIe = get_version_of_IE();
 
 isTouch && $root.addClass("touch");
-if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
-    || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4))) { 
-    console.log('mobile');0
+if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) ||
+    /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0, 4))) {
+    console.log('mobile');
+    0
     $root.addClass("mobile");
     isMobile = true;
 }
 
 // userAgent 추가 분류
-var chkUserAgent = function(){
+var chkUserAgent = function () {
     var ua = window.navigator.userAgent,
-        isChrome = { agent : ua.indexOf('Chrome/'), name : 'isChrome'},
-        isFireFox = { agent : ua.indexOf('Firefox/'), name : 'isFireFox'},
-        isChEdge = {agent : ua.indexOf('Edg/'), name : 'isChEdge'},
-        isMsEdge = {agent : ua.indexOf('Edge/'), name : 'isMsEdge'},
+        isChrome = {
+            agent: ua.indexOf('Chrome/'),
+            name: 'isChrome'
+        },
+        isFireFox = {
+            agent: ua.indexOf('Firefox/'),
+            name: 'isFireFox'
+        },
+        isChEdge = {
+            agent: ua.indexOf('Edg/'),
+            name: 'isChEdge'
+        },
+        isMsEdge = {
+            agent: ua.indexOf('Edge/'),
+            name: 'isMsEdge'
+        },
         usName;
 
-    var arrUA = [isChrome,isFireFox,isChEdge,isMsEdge];
+    var arrUA = [isChrome, isFireFox, isChEdge, isMsEdge];
 
-    arrUA.forEach(function(item,index){
-        if(item.agent > -1) {
+    arrUA.forEach(function (item, index) {
+        if (item.agent > -1) {
             usName = arrUA[index].name
         }
     });
@@ -65,8 +78,8 @@ if (!(window.console && console.log)) {
 }
 
 // 해상도 체크 클래스
-var resChk = function(){
-    $(window).on('resize.changemediasize load', function(){
+var resChk = function () {
+    $(window).on('resize.changemediasize load', function () {
         var $window = $(window),
             $html = $('html'),
             _res = [{
@@ -90,15 +103,15 @@ var resChk = function(){
                 min: 1280,
                 max: 100000
             }];
-    
+
         var curW = $window.width();
-    
+
         for (var i = 0, wmode; wmode = _res[i]; i++) {
-            
+
             if (curW > wmode.min && curW <= wmode.max) {
                 wmode.width = curW;
                 console.log(wmode.mode);
-    
+
                 switch (wmode.mode) {
                     case "wide":
                         $html.removeClass("w376 w768 w1024 w1280");
@@ -115,13 +128,13 @@ var resChk = function(){
                     case "w376":
                         $html.addClass("w376 w768").removeClass("w1024 w1280");
                         break
-                    }
-                
+                }
+
                 $window.trigger("changemediasize", false);
                 break
             }
         }
-    
+
     });
 }();
 
@@ -142,21 +155,21 @@ if (typeof Function.prototype.bind === "undefined") {
 
 // polyfill 
 if (!Math.sign) {
-    Math.sign = function(x) {
-      // If x is NaN, the result is NaN.
-      // If x is -0, the result is -0.
-      // If x is +0, the result is +0.
-      // If x is negative and not -0, the result is -1.
-      // If x is positive and not +0, the result is +1.
+    Math.sign = function (x) {
+        // If x is NaN, the result is NaN.
+        // If x is -0, the result is -0.
+        // If x is +0, the result is +0.
+        // If x is negative and not -0, the result is -1.
+        // If x is positive and not +0, the result is +1.
         return ((x > 0) - (x < 0)) || +x;
-      // A more aesthetic pseudo-representation:
-      //
-      // ( (x > 0) ? 1 : 0 )  // if x is positive, then positive one
-      //          +           // else (because you can't be both - and +)
-      // ( (x < 0) ? -1 : 0 ) // if x is negative, then negative one
-      //         ||           // if x is 0, -0, or NaN, or not a number,
-      //         +x           // then the result will be x, (or) if x is
-      //                      // not a number, then x converts to number
+        // A more aesthetic pseudo-representation:
+        //
+        // ( (x > 0) ? 1 : 0 )  // if x is positive, then positive one
+        //          +           // else (because you can't be both - and +)
+        // ( (x < 0) ? -1 : 0 ) // if x is negative, then negative one
+        //         ||           // if x is 0, -0, or NaN, or not a number,
+        //         +x           // then the result will be x, (or) if x is
+        //                      // not a number, then x converts to number
     };
 }
 
@@ -174,10 +187,10 @@ ANUI.module = (function () {
                 uiTabBtnRad = $('label.ui-tab-btn').prev('input[type=radio]'),
                 uiTabList = $('.ui-tab-list'),
                 index;
-                
+
 
             // a 탭 버튼
-            uiTabBtnA.on('click', function(e) {
+            uiTabBtnA.on('click', function (e) {
                 e.preventDefault();
 
                 if ($(this).hasClass('on')) return;
@@ -202,24 +215,24 @@ ANUI.module = (function () {
             });
 
             // 라디오 탭 버튼
-            uiTabBtnRad.on('click change', function(e) {
-                
-                
+            uiTabBtnRad.on('click change', function (e) {
+
+
                 var _this = $(this).next('label');
 
-                if ( _this.hasClass('on')) return;
+                if (_this.hasClass('on')) return;
 
                 $(this).closest(uiTabWrap).find(uiTabBtn).removeClass('on');
-                
+
                 _this.attr({
                     "tabindex": "-1",
                     "aria-selected": "false"
                 });
 
                 _this.addClass('on').attr({
-                        "tabindex": "0",
-                        "aria-selected": "true"
-                    });
+                    "tabindex": "0",
+                    "aria-selected": "true"
+                });
 
                 $("#" + _this.attr("aria-controls"))
                     .attr("tabindex", "0")
@@ -335,7 +348,7 @@ ANUI.module = (function () {
 
             selectUibox = function (selId) {
                 $selBox = $('#' + selId + ''),
-                $optGrp = $selBox.find('option');
+                    $optGrp = $selBox.find('option');
 
 
                 //포커스 잃었을때 
@@ -362,50 +375,49 @@ ANUI.module = (function () {
             };
             selectUibox.prototype.createDiv = function () {
                 var appendLi = '';
-                
+
 
                 // 중복생성 체크
-                if ( $selBox.closest($selWrap).find('.pc_selwrap').length < 1 ){
-                        $selBox.closest($selWrap)
+                if ($selBox.closest($selWrap).find('.pc_selwrap').length < 1) {
+                    $selBox.closest($selWrap)
                         .append($('<div class="pc_selwrap"><div class="selOneWrap"><button class="ui-selected-one" aria-haspopup="listbox" aria-labelledby="sel_' + selId + '">' + $selBox.find(':selected').text() + '</button></div><div class="ui-result-ul" tabindex="-1" role="listbox" ><ul></ul></div>'));
-                        
+
                     $selBox.find($optGrp).each(function (i) {
                         var isDisabled = $(this).prop('disabled') ? 'disabled' : '',
                             isHidden = $(this).prop('hidden') ? true : false,
                             selVal = $(this).prop('value'),
                             optTitle = $(this).prop('title');
 
-                            //히든속성 체크
-                            if( isHidden  === true ){
-                                return;
-                            } else{
-                                appendLi += '<li><button role="option" ' + isDisabled + ' title="' + optTitle + '" aria-labelledby="sel_' + selId + '" value=' + selVal + '>' + $optGrp.eq(i).text() + '</button></li>';
-                            }
+                        //히든속성 체크
+                        if (isHidden === true) {
+                            return;
+                        } else {
+                            appendLi += '<li><button role="option" ' + isDisabled + ' title="' + optTitle + '" aria-labelledby="sel_' + selId + '" value=' + selVal + '>' + $optGrp.eq(i).text() + '</button></li>';
+                        }
 
                     });
-    
+
                     $selBox.closest($selWrap).find('ul').html(appendLi);
-                    
+
                     // 옵션 ul 높이 구하기
                     var $uiResult = $selBox.closest($selWrap).find('.ui-result-ul'),
                         uiResultH = Number($uiResult.css('height').split('px')[0]),
-                        uiResultulH = $uiResult.show().find('ul').outerHeight()
-                        ;
-                        // console.log($selBox,uiResultH,uiResultulH);
-                        //옵션 이 css지정된 height보다 클 경우 스크롤 실행
-                        if( uiResultH < uiResultulH){
+                        uiResultulH = $uiResult.show().find('ul').outerHeight();
+                    // console.log($selBox,uiResultH,uiResultulH);
+                    //옵션 이 css지정된 height보다 클 경우 스크롤 실행
+                    if (uiResultH < uiResultulH) {
 
-                            scrollOn = 'true';
-                            $uiResult.find('ul')
+                        scrollOn = 'true';
+                        $uiResult.find('ul')
                             .wrapAll('<div class="scrollWrap ui-scrollview"><div class="scrollInner ui-scrollarea"><div class="scrollview ui-content"></div></div></div>');
 
-                            $uiResult.find('.ui-scrollview').prepend('<div class="ui-scrollbar"><span class="bar"></span></div>');
+                        $uiResult.find('.ui-scrollview').prepend('<div class="ui-scrollbar"><span class="bar"></span></div>');
 
-                        }
-                    
+                    }
 
 
-                    
+
+
                 }
 
 
@@ -449,7 +461,7 @@ ANUI.module = (function () {
                     $(this).attr('aria-expanded', true).closest($selWrap).removeClass('active ui-result-active').addClass('active ui-result-active');
                     e.preventDefault();
                     // 스크롤 길때 스크롤 ui호출
-                    if(scrollOn == 'true'){
+                    if (scrollOn == 'true') {
                         ANUI.module.scrollUi();
                         scrollOn = 'false';
                     }
@@ -464,7 +476,7 @@ ANUI.module = (function () {
                 new selectUibox('' + selId + '');
 
             });
-        
+
 
 
             console.log('selectUi');
@@ -530,7 +542,7 @@ ANUI.module = (function () {
 
         },
         // mark : modalUi
-        modalUi: function (maskClick) { 
+        modalUi: function (maskClick) {
             var mvBtn = $('[data-modal]'),
                 btnClose = $('.mvClose'),
                 optTrans = 'false',
@@ -541,15 +553,14 @@ ANUI.module = (function () {
                 mvId,
                 maskClick = maskClick || false,
                 bodyIsOverflowing,
-                $this
-                ;
+                $this;
 
             // 브라우저 스크롤바 크기 구하기
-            function scrollbarWidth () {
+            function scrollbarWidth() {
                 var inner = document.createElement('p');
                 inner.style.width = "100%";
                 inner.style.height = "200px";
-            
+
                 var outer = document.createElement('div');
                 outer.style.position = "absolute";
                 outer.style.top = "0px";
@@ -558,16 +569,16 @@ ANUI.module = (function () {
                 outer.style.width = "200px";
                 outer.style.height = "150px";
                 outer.style.overflow = "hidden";
-                outer.appendChild (inner);
-            
-                document.body.appendChild (outer);
+                outer.appendChild(inner);
+
+                document.body.appendChild(outer);
                 var w1 = inner.offsetWidth;
                 outer.style.overflow = 'scroll';
                 var w2 = inner.offsetWidth;
                 if (w1 == w2) w2 = outer.clientWidth;
-            
-                document.body.removeChild (outer);
-            
+
+                document.body.removeChild(outer);
+
                 return (w1 - w2);
             };
 
@@ -577,15 +588,15 @@ ANUI.module = (function () {
                     firstFocusableEl = $('[data-target=' + mvId + ']').find('.dialog-start')[0],
                     lastFocusableEl = $('[data-target=' + mvId + ']').find('.dialog-end')[0],
                     KEYCODE_TAB = 9;
-            
-                element.addEventListener('keydown', function(e) {
+
+                element.addEventListener('keydown', function (e) {
                     var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
-            
-                    if (!isTabPressed) { 
-                        return; 
+
+                    if (!isTabPressed) {
+                        return;
                     }
-            
-                    if ( e.shiftKey ) /* shift + tab */ {
+
+                    if (e.shiftKey) /* shift + tab */ {
                         if (document.activeElement === firstFocusableEl) {
                             lastFocusableEl.focus();
                             e.preventDefault();
@@ -596,11 +607,11 @@ ANUI.module = (function () {
                             e.preventDefault();
                         }
                     }
-            
+
                 });
             }
 
-            
+
             var dimLyOpen = function (mvId, maskClick) {
                 var $targetM = $('[data-target=' + mvId + ']'),
                     wrapStat = $targetM.find('.dialog-start').length;
@@ -609,25 +620,25 @@ ANUI.module = (function () {
                     return;
                 }
                 //스크롤바가 생겼는지 체크
-                bodyIsOverflowing = Math.sign( $(window).height() - $(document).height() ) > 0 ? 'true' : 'false';
+                bodyIsOverflowing = Math.sign($(window).height() - $(document).height()) > 0 ? 'true' : 'false';
 
                 //모달 출력시 바닥 고정
                 $('html').addClass('fixed');
                 // pc일떄만 스크롤바 있을때만 오른쪽 여백 생성
                 if (!isMobile) {
-                    if (bodyIsOverflowing && scrollbarWidth){
+                    if (bodyIsOverflowing && scrollbarWidth) {
                         $('html').css('padding-right', scrollbarWidth);
                     }
                 }
                 // 접근성 : 호출 모달에 포커스 및 탭 인덱스 설정
-                $targetM.attr('tabindex',-1).fadeIn(0).focus();
+                $targetM.attr('tabindex', -1).fadeIn(0).focus();
 
                 // trapFocus를 위한 엘리먼트 추가
-                if( wrapStat < 1 ){
+                if (wrapStat < 1) {
                     $targetM.prepend('<div class="dialog-start" tabindex="0">').append('<div class="dialog-end" tabindex="0">');
                 }
 
-                if ( $targetM.find('.mask').length ) {
+                if ($targetM.find('.mask').length) {
                     $mask.show();
                 } else {
                     $targetM.prepend(mask);
@@ -641,12 +652,14 @@ ANUI.module = (function () {
                 if (detectIe == '9') {
                     $('[data-target=' + mvId + '] .inner').css({
                         'top': '50%',
-                        'marginTop': -( $targetM.find('.inner').height() / 2)
+                        'marginTop': -($targetM.find('.inner').height() / 2)
                     });
                 }
 
                 // pc에서만 스크롤 ui 호출
-                if (!isMobile) { ANUI.module.scrollUi();}
+                if (!isMobile) {
+                    ANUI.module.scrollUi();
+                }
 
                 openSt = 'true';
                 // console.log('open');
@@ -702,7 +715,7 @@ ANUI.module = (function () {
             //외부 제어용 플러그인형식
             $.fn.modalUi = function (evt, mvId, maskClick, t) {
 
-                
+
                 if (evt === 'open') {
                     $this = t;
                     dimLyOpen(mvId, maskClick);
@@ -717,7 +730,7 @@ ANUI.module = (function () {
         },
         // mark :scrollUi
         scrollUi: function () {
-            
+
             // 모바일 체크
             // console.log('pc',!isMobile);
 
@@ -734,82 +747,82 @@ ANUI.module = (function () {
 
                 if (scrollWrap.length !== 0) {
                     //scroll width & height 구하기
-                        var i = 0;
+                    var i = 0;
 
-                        scrollWrap.each(function (i) {
-                            var wrapW = scrollWrap.eq(i).parent().width(),
-                                wrapH = scrollCt.eq(i).prop('scrollHeight'),
-                                wrapOrgH = scrollWrap.eq(i).height(),
-                                barSize = parseFloat((wrapOrgH / wrapH) * 100);
+                    scrollWrap.each(function (i) {
+                        var wrapW = scrollWrap.eq(i).parent().width(),
+                            wrapH = scrollCt.eq(i).prop('scrollHeight'),
+                            wrapOrgH = scrollWrap.eq(i).height(),
+                            barSize = parseFloat((wrapOrgH / wrapH) * 100);
 
-                            // console.log(
-                            //     'wrapW' + wrapW,
-                            //     'wrapOrgH' + wrapOrgH,
-                            //     'wrapH' + wrapH,
-                            //     'barSize' + barSize
-                            //     );
-                            scrollWrap.eq(i).width(wrapW);
-                            scrollCt.eq(i).width(wrapW).height(wrapOrgH);
+                        // console.log(
+                        //     'wrapW' + wrapW,
+                        //     'wrapOrgH' + wrapOrgH,
+                        //     'wrapH' + wrapH,
+                        //     'barSize' + barSize
+                        //     );
+                        scrollWrap.eq(i).width(wrapW);
+                        scrollCt.eq(i).width(wrapW).height(wrapOrgH);
 
-                            barCursor.eq(i).height(barSize + '%');
+                        barCursor.eq(i).height(barSize + '%');
 
+                    });
+
+                    // scrollbar 위치 구하기
+                    scrollArea.on('scroll', function () {
+                        var t = $(this),
+                            wrapH = t.find('.ui-content').prop('scrollHeight'),
+                            wrapOrgH = t.parent().height(),
+                            barCursor = t.parent().find('.bar'),
+                            barSize = barCursor.height(),
+                            scTop = $(this).scrollTop(),
+                            scTopPer = parseFloat(scTop / ((wrapH - wrapOrgH) / 100)),
+                            barPer = (wrapOrgH - barSize) / 100;
+
+                        barCursor.eq(i).css({
+                            'top': parseFloat(barPer * scTopPer) + 'px'
                         });
+                    });
 
-                        // scrollbar 위치 구하기
-                        scrollArea.on('scroll', function () {
-                            var t = $(this),
-                                wrapH = t.find('.ui-content').prop('scrollHeight'),
-                                wrapOrgH = t.parent().height(),
-                                barCursor = t.parent().find('.bar'),
-                                barSize = barCursor.height(),
-                                scTop = $(this).scrollTop(),
-                                scTopPer = parseFloat(scTop / ((wrapH - wrapOrgH) / 100)),
-                                barPer = (wrapOrgH - barSize) / 100;
-
-                            barCursor.eq(i).css({
-                                'top': parseFloat(barPer * scTopPer) + 'px'
-                            });
-                        });
-
-                        scrollBar.on('mousedown', function (e) {
-                            var t = $(this);
-                                rangeTop = t.offset().top,
-                                rangeSize = t.height();
-                                scrollCt = t.closest(scrollWrap).find(scrollArea),
-                                down = true;
-
-                                
-                            // console.log(scrollCt);
+                    scrollBar.on('mousedown', function (e) {
+                        var t = $(this);
+                        rangeTop = t.offset().top,
+                            rangeSize = t.height();
+                        scrollCt = t.closest(scrollWrap).find(scrollArea),
+                            down = true;
 
 
-                            return false;
-                        });
+                        // console.log(scrollCt);
 
-                        $(document).on('mousemove', function (e) {
-                            updateDrag(e);
-                        });
 
-                        $(document).on('mouseup', function () {
-                            down = false;
-                        });
+                        return false;
+                    });
 
-                        //스크롤바 drag 이벤트
-                        var updateDrag = function(e) {
-                            var t = $(e.target),
-                                barCursor = t.closest(scrollWrap).find('.bar'),
-                                barSize = parseFloat(barCursor.height()) / 2,
-                                curTop = e.pageY - rangeTop - barSize,
-                                curScTop = Math.round((curTop * 100) / (rangeSize - (barSize * 2)) * (scrollCt.find('.ui-content').prop('scrollHeight') - scrollCt.height()) / 100);
+                    $(document).on('mousemove', function (e) {
+                        updateDrag(e);
+                    });
 
-                            // console.log('updateDrag',e.pageY,rangeTop,barSize);
+                    $(document).on('mouseup', function () {
+                        down = false;
+                    });
 
-                            if (down && e.pageY >= (rangeTop + barSize) && e.pageY <= (rangeTop + rangeSize - barSize)) {
-                                barCursor.css('top', curTop + 'px');
-                                scrollCt.scrollTop(curScTop);
+                    //스크롤바 drag 이벤트
+                    var updateDrag = function (e) {
+                        var t = $(e.target),
+                            barCursor = t.closest(scrollWrap).find('.bar'),
+                            barSize = parseFloat(barCursor.height()) / 2,
+                            curTop = e.pageY - rangeTop - barSize,
+                            curScTop = Math.round((curTop * 100) / (rangeSize - (barSize * 2)) * (scrollCt.find('.ui-content').prop('scrollHeight') - scrollCt.height()) / 100);
 
-                            }
-                            
+                        // console.log('updateDrag',e.pageY,rangeTop,barSize);
+
+                        if (down && e.pageY >= (rangeTop + barSize) && e.pageY <= (rangeTop + rangeSize - barSize)) {
+                            barCursor.css('top', curTop + 'px');
+                            scrollCt.scrollTop(curScTop);
+
                         }
+
+                    }
 
 
 
@@ -2063,7 +2076,7 @@ ANUI.module = (function () {
                     $(this).closest($searchWrap).find($btnIcn).addClass('active');
                 }).on('blur', function () {
                     $(this).closest($searchWrap).find($btnIcn).removeClass('active');
-                }); 
+                });
             }();
 
             this.inputDelUi();
@@ -2078,9 +2091,9 @@ ANUI.module = (function () {
                     $inp = $inp_form.find('input.ui-hasDel'),
                     $btnDel = $('.ui-deltxt'),
                     isOpen = false;
-                
+
                 // 삭제 버튼 생성
-                var createDelbtn = function(e){
+                var createDelbtn = function (e) {
                     var $btn = '<button type="button" class="ui-deltxt" title="내용 삭제"></button>',
                         $this = $(e);
 
@@ -2093,7 +2106,7 @@ ANUI.module = (function () {
                         visible = Boolean(t.val()),
                         $btnDel = $('.ui-deltxt');
 
-                    
+
                     t.closest($inp_form).find($btnDel).toggleClass('hidden', !visible);
                 }).trigger('propertychange');
 
@@ -2109,20 +2122,20 @@ ANUI.module = (function () {
                 // });
 
                 // 삭제 버튼 클릭
-                $(document).on('click',$btnDel, function (e) {
+                $(document).on('click', $btnDel, function (e) {
 
                     var $t = $(e.target);
                     $t.prev($inp).val('').trigger('propertychange').focus();
-                   
+
                 });
             }();
             console.log('inputDelUI');
         },
 
         // mark: fileAttach
-        fileAttachUi: function(){
+        fileAttachUi: function () {
 
-            $(document).on("change", "[data-ui='attach'].ui-addFile .fileButton .fileInput", function() {
+            $(document).on("change", "[data-ui='attach'].ui-addFile .fileButton .fileInput", function () {
                 var fUrl = (this.value).split("\\"),
                     fName = fUrl[fUrl.length - 1];
                 $(this).closest(".ui-addFile").find(".file .loc").val(fName);
@@ -2131,7 +2144,7 @@ ANUI.module = (function () {
                     $(this).closest(".ui-addFile").addClass("on");
                 }
             });
-            $(document).on("click", "[data-ui='attach'].ui-addFile .file .delete", function() {
+            $(document).on("click", "[data-ui='attach'].ui-addFile .file .delete", function () {
                 $(this).closest(".ui-addFile").find(".file .loc").val("");
                 $(this).closest(".ui-addFile").find(".fileButton .fileInput").val("");
                 $(this).closest(".ui-addFile").removeClass("on");
@@ -2218,35 +2231,34 @@ ANUI.module = (function () {
         },
 
         // mark : tab anckorUI
-        tabAnchorUi: function(fix){
-                var $t = $('.ui-tabAnchor'),
-                    $tabList = $t.find('.ui-tabList'),
-                    tH = Math.round( $t.outerHeight() ),
-                    $aWrap = $('.ui-anchorWrap'),
-                    tTop = $t.offset().top,
-                    $linkA = $tabList.find('a'),
-                    $target = $($linkA.attr('href')),
-                    $lastTarget = $target.parent().children().last(),
-                    lastTargetTop = $lastTarget.position().top + $lastTarget.height(),
-                    tabFixed,
-                    linkArr = $linkA.get(),
-                    rangeArr = new Array(),
-                    optFix = fix
-                    ;
-                
-                
+        tabAnchorUi: function (fix) {
+            var $t = $('.ui-tabAnchor'),
+                $tabList = $t.find('.ui-tabList'),
+                tH = Math.round($t.outerHeight()),
+                $aWrap = $('.ui-anchorWrap'),
+                tTop = $t.offset().top,
+                $linkA = $tabList.find('a'),
+                $target = $($linkA.attr('href')),
+                $lastTarget = $target.parent().children().last(),
+                lastTargetTop = $lastTarget.position().top + $lastTarget.height(),
+                tabFixed,
+                linkArr = $linkA.get(),
+                rangeArr = new Array(),
+                optFix = fix;
+
+
 
 
             tabFixed = function () {
 
-                $linkA.each(function(i){
+                $linkA.each(function (i) {
                     var targetArr = $(linkArr[i]).attr('href');
-                    var range = Math.round( $(targetArr).position().top - tH );
+                    var range = Math.round($(targetArr).position().top - tH);
                     rangeArr.push(range);
                     // console.log(tH,rangeArr);
                 });
                 //옵션 fix값 true
-                if(optFix == 'true' ) this.scroll();
+                if (optFix == 'true') this.scroll();
                 this.evt();
             }
 
@@ -2258,10 +2270,10 @@ ANUI.module = (function () {
 
                     //스크롤시 탭고정 되는 순간 상단 여백 처리
                     if (curTop < lastTargetTop) {
-                        if( curTop > (tPosY ) ){
+                        if (curTop > (tPosY)) {
                             $t.addClass('fixed-on');
                             $aWrap.css('paddingTop', tH)
-                        } else{
+                        } else {
                             $t.removeClass('fixed-on')
                             $aWrap.removeAttr('style');
                         }
@@ -2269,7 +2281,7 @@ ANUI.module = (function () {
                         $t.removeClass('fixed-on')
                         $aWrap.removeAttr('style');
                     }
-                    
+
                 });
             };
 
@@ -2281,23 +2293,22 @@ ANUI.module = (function () {
 
                     var _t = $(this),
                         idx = _t.parent().index();
-                        
-                        // 첫번쨰 요소 선택시 분기
-                        if ( _t.parent().index() == 0 ){
-                            var scrVal = tTop;
-                        } else{
-                            // animate에 따라 스크롤이 조금씩 부족한 현상 fix +2
-                            var scrVal = rangeArr[idx] + 2;
-                            // console.log(scrVal);
-                        }
-                        ;
+
+                    // 첫번쨰 요소 선택시 분기
+                    if (_t.parent().index() == 0) {
+                        var scrVal = tTop;
+                    } else {
+                        // animate에 따라 스크롤이 조금씩 부족한 현상 fix +2
+                        var scrVal = rangeArr[idx] + 2;
+                        // console.log(scrVal);
+                    };
 
                     e.preventDefault();
-                    
-                    
+
+
                     $('html,body').animate({
                         'scrollTop': scrVal
-                    }, 500,'easeInOutCubic', function () {
+                    }, 500, 'easeInOutCubic', function () {
                         $(document).on("scroll", onScroll);
                     });
 
@@ -2311,12 +2322,12 @@ ANUI.module = (function () {
 
                     $linkA.each(function () {
                         var _t = $(this),
-                        idx = _t.parent().index();
+                            idx = _t.parent().index();
 
                         //fix :
                         // animate에 따라 스크롤이 조금씩 부족한 현상 fix
-                        if ( rangeArr[idx] <= curTop + 1) {
-                            
+                        if (rangeArr[idx] <= curTop + 1) {
+
                             $linkA.removeClass("active");
                             _t.addClass("active");
                         } else {
@@ -2335,7 +2346,7 @@ ANUI.module = (function () {
         },
 
         // mark : parallaxUi
-        parallaxUi: function(){
+        parallaxUi: function () {
             // makes the parallax elements
             function parallaxIt() {
 
@@ -2389,47 +2400,47 @@ ANUI.module = (function () {
         },
 
         // mark: updown changeUi
-        updnChgUi: function(elType){
+        updnChgUi: function (elType) {
             var $el = elType; // div && tr 
 
             var $up = $('.ui-row-up'),
                 $dn = $('.ui-row-dn');
-    
-                $up.on('click',function(){
-                    upFunc( $(this) );
-                });
-                $dn.on('click',function(){
-                    dnFunc( $(this) );
-                });
-    
-                var upFunc = function(t){
-                    var $tr = t.closest($el); // 클릭한 버튼이 속한 tr 요소
-                    $tr.prev().before($tr); // 현재 tr 의 이전 tr 앞에 선택한 tr 넣기
-                }
-    
-                var dnFunc = function(t){
-                    var $tr = t.closest($el); // 클릭한 버튼이 속한 tr 요소
-                    $tr.next().after($tr); // 현재 tr 의 다음 tr 뒤에 선택한 tr 넣기
-                }
+
+            $up.on('click', function () {
+                upFunc($(this));
+            });
+            $dn.on('click', function () {
+                dnFunc($(this));
+            });
+
+            var upFunc = function (t) {
+                var $tr = t.closest($el); // 클릭한 버튼이 속한 tr 요소
+                $tr.prev().before($tr); // 현재 tr 의 이전 tr 앞에 선택한 tr 넣기
+            }
+
+            var dnFunc = function (t) {
+                var $tr = t.closest($el); // 클릭한 버튼이 속한 tr 요소
+                $tr.next().after($tr); // 현재 tr 의 다음 tr 뒤에 선택한 tr 넣기
+            }
         },
 
         // mark : floatGnbUi
-        floatGnbUi : function(){
+        floatGnbUi: function () {
 
             var $t = $('.ui-floatGnb'),
                 $call = $t.find('.call'),
                 $dimBg = $t.find('.dim_bg');
-                //스크롤바 width 구하기
-                // scrlW = window.innerWidth - document.documentElement.clientWidth;
+            //스크롤바 width 구하기
+            // scrlW = window.innerWidth - document.documentElement.clientWidth;
 
-            function floatGnb(){
+            function floatGnb() {
                 function showMenu() {
                     $call.addClass('active');
                     $('.subMenu:not(:last)').add($dimBg).addClass('show');
                     // $('html').addClass('fixed').css('padding-right', scrlW);
                     // $('html').addClass('fixed');
                 }
-    
+
                 function hideMenu() {
                     // $('html').removeClass('fixed').css('padding-right','');
                     $call.removeClass('active');
@@ -2439,70 +2450,69 @@ ANUI.module = (function () {
                     window.setTimeout(function () {
                         $dimBg.removeClass('show');
                     }, 300);
-                }   
-    
+                }
+
                 $call.on('click', function () {
                     (this.tog ^= 1) ? showMenu(): hideMenu();
                 });
-    
+
                 // $dimBg.on('click', hideMenu);
             }
 
             //init
-            if($t.length > 0 ){
+            if ($t.length > 0) {
                 floatGnb();
             }
         },
         // mark : allChkUi
-        allChkUi : function(opt){
+        allChkUi: function (opt) {
 
             var $t = $('.ui-allChk'),
                 $allChk = $t.find('[data-allchk]'), //부모 체크박스
                 $optChk = $t.find('[data-optchk]'),
-                $subChk = $t.find('[data-subchk] input').not($optChk),//자식 체크박스
+                $subChk = $t.find('[data-subchk] input').not($optChk), //자식 체크박스
                 allChkFn,
                 opt = {
                     'req': opt.req || true //전체 체크시 선택요소 체크 부분
                 };
 
-            allChkFn = function(opt){
+            allChkFn = function (opt) {
                 this.init();
                 this.evt();
-                
+
             }
-            allChkFn.prototype.init = function(){
-            }
-            allChkFn.prototype.evt = function(){
-                
+            allChkFn.prototype.init = function () {}
+            allChkFn.prototype.evt = function () {
+
                 //전체체크 버튼 이벤트
-                $allChk.on('change', function(){
+                $allChk.on('change', function () {
                     var _t = $(this);
 
                     $optChk = _t.closest($t).find('[data-optchk]'),
-                    $subChk = _t.closest($t).find('[data-subchk] input').not($optChk);
+                        $subChk = _t.closest($t).find('[data-subchk] input').not($optChk);
 
-                    if( _t.prop('checked')  == true){
+                    if (_t.prop('checked') == true) {
                         //전체체크 옵션값이 true일때 선택요소도 체크되게, false 일때 선택요소는 체크 안되게 함
                         opt.req == true ? $subChk.add($optChk).prop('checked', true) : $subChk.prop('checked', true);
-                    } else{
+                    } else {
                         $subChk.add($optChk).prop('checked', false);
                     }
                 });
 
                 //자식요소 체크 이벤트
-                $subChk.on('change', function(){
+                $subChk.on('change', function () {
                     var f_name = $(this).attr('name'),
-                    checkBoxLength,checkedLength;
-                    
-                    $allChk = $(this).closest($t).find('[data-allchk]'),
-                    $optChk = $(this).closest($t).find('[data-optchk]'),
-                    $subChk = $(this).closest($t).find('[data-subchk] input').not($optChk);
+                        checkBoxLength, checkedLength;
 
-                    if( $(this).prop("checked") ){
-                        checkBoxLength = $("[name="+ f_name +"]").not($optChk).length;
-                        checkedLength = $("[name="+ f_name +"]:checked").not($optChk).length;
-                        
-                        if( checkBoxLength == checkedLength ) {
+                    $allChk = $(this).closest($t).find('[data-allchk]'),
+                        $optChk = $(this).closest($t).find('[data-optchk]'),
+                        $subChk = $(this).closest($t).find('[data-subchk] input').not($optChk);
+
+                    if ($(this).prop("checked")) {
+                        checkBoxLength = $("[name=" + f_name + "]").not($optChk).length;
+                        checkedLength = $("[name=" + f_name + "]:checked").not($optChk).length;
+
+                        if (checkBoxLength == checkedLength) {
                             $allChk.prop("checked", true);
                         } else {
                             $allChk.prop("checked", false);
@@ -2519,176 +2529,180 @@ ANUI.module = (function () {
             console.log('allChkUi');
 
         },
-        
+
         // mark : sticky
-        stickyUi : function(){
+        stickyUi: function () {
             var $fixed = $('.totalSticky');
-            $(window).on('scroll',function(){
+            $(window).on('scroll', function () {
                 var scr = $(window).scrollTop();
                 var dHeight = $(document).height();
                 var wHeight = $(window).height();
-                if(scr == dHeight - wHeight){
-                    if(!$fixed.parent().hasClass('active')){
+                if (scr == dHeight - wHeight) {
+                    if (!$fixed.parent().hasClass('active')) {
                         $fixed.addClass('fixed');
                     }
-                }else{
+                } else {
                     $fixed.removeClass('fixed');
                 }
             });
         },
 
         //mark : click center
-        clickCenter : function(){
-            $('.mo_submenu_wrap li a').on('click',function(e){
+        clickCenter: function () {
+            $('.mo_submenu_wrap li a').on('click', function (e) {
                 e.preventDefault();
                 $(this).parent().addClass('active').siblings('li').removeClass('active');
                 var navLi = $(this).parent('li');
                 var navWd = navLi.outerWidth();
                 var posL = navLi.position().left - $('.mo_submenu_wrap').outerWidth() * 0.5 + navWd * 0.5;
-                $('.mo_submenu_wrap').animate({scrollLeft: posL}, 300);
+                $('.mo_submenu_wrap').animate({
+                    scrollLeft: posL
+                }, 300);
 
             });
         },
 
         // mark : scrollMenu
-        scrollMenu : function(){
+        scrollMenu: function () {
             var prevScroll = 0;
             var body = $('body');
 
-            $(window).on('scroll',function(){
+            $(window).on('scroll', function () {
                 var thisScr = $(this).scrollTop();
-                if(thisScr > prevScroll && thisScr > 0){
+                if (thisScr > prevScroll && thisScr > 0) {
                     body.addClass('is-hidden');
-                    if(body.hasClass('is-hidden')){
+                    if (body.hasClass('is-hidden')) {
                         body.addClass('is-hidden');
                     }
                     prevScroll = thisScr;
-                }else if(thisScr < prevScroll) {
-                    if (body.hasClass('is-hidden')){ 
-                        setTimeout(function(){body.removeClass("is-hidden")},200);
+                } else if (thisScr < prevScroll) {
+                    if (body.hasClass('is-hidden')) {
+                        setTimeout(function () {
+                            body.removeClass("is-hidden")
+                        }, 200);
                     }
                     prevScroll = thisScr;
                 }
             });
         },
         //mark : custom alert 창 + callback 
-        alertui : function(option,callback){
-            var option = {// 내용 받아오기
-                    title : option.title,
-                    msg : option.msg
+        alertui: function (option, callback) {
+            var option = { // 내용 받아오기
+                    title: option.title,
+                    msg: option.msg
                 },
                 callback = callback;
-                
-            if(!option.title){
+
+            if (!option.title) {
                 console.log('title no');
                 var alertTit = '';
                 alertT();
-            }else if(option.title){
+            } else if (option.title) {
                 console.log('title ok');
                 var alertTit = '<div class="costomAlert_tit"> ' + option.title + '</div> ';
                 alertT();
             }
 
-            function alertT() {//alert 창 
+            function alertT() { //alert 창 
                 var str = '';
-                str = '<div class="costomAlert_wrap" class=""><div class="dim"></div> '
-                +' <div class="costomAlert"> '
-                +alertTit
-                +'<div class="costomAlert_content"> '
-                +'<p class="costomAlert_p">' + option.msg + '</p> '
-                +'</div> '
-                +'<div class="costomAlert_btnWrap"> '
-                +'<button class="costomAlert_btn ui-close" >확인</button> '
-                +'</div>'+'</div>' +'</div>';
+                str = '<div class="costomAlert_wrap" class=""><div class="dim"></div> ' +
+                    ' <div class="costomAlert"> ' +
+                    alertTit +
+                    '<div class="costomAlert_content"> ' +
+                    '<p class="costomAlert_p">' + option.msg + '</p> ' +
+                    '</div> ' +
+                    '<div class="costomAlert_btnWrap"> ' +
+                    '<button class="costomAlert_btn ui-close" >확인</button> ' +
+                    '</div>' + '</div>' + '</div>';
 
                 $(str).appendTo(document.body);
 
                 $('.costomAlert_bg').addClass('on');
-                
-                function alertClose(){// alert창 닫기
+
+                function alertClose() { // alert창 닫기
                     $('.costomAlert_wrap').remove();
                     return false;
                 }
-                               
-                $(document).on('click','.ui-close', function(){
+
+                $(document).on('click', '.ui-close', function () {
                     alertClose();
-                    if (typeof callback == 'function') {//callback 실행
+                    if (typeof callback == 'function') { //callback 실행
                         callback.call(this);
                     }
                 });
             }
             // alertT();
-            
+
         },
         //mark : prev, next 버튼으로 paging 
-        pageMove : function($btn){
+        pageMove: function ($btn) {
             //인자값 받아오기($(this)==$this)
-            var moveEvt = function($this){
+            var moveEvt = function ($this) {
                 //누르는 버튼($this)의 클래스 구함
-                var direction = $this.attr('class'), 
-                //동작해야하는(셀렉터를 누름으로써 바뀔) 화면 함수 선언
+                var direction = $this.attr('class'),
+                    //동작해야하는(셀렉터를 누름으로써 바뀔) 화면 함수 선언
                     thisView = $('.ui-tab-list'),
                     //동작할 화면의 전체 갯수 구하기 
                     thisViewNum = thisView.length - 1,
                     curNum = parseFloat($('.ui-tab-list.on').attr('id').split('ui-tab-list')[1]) - 1;
                 //버튼별 동작  
                 //만약에 클릭한 셀렉터의 클래스가 left_btn이면
-                if( direction == 'left_btn'){
+                if (direction == 'left_btn') {
                     //left_btn을 눌렀을 때 현재 보여지는 화면이 첫번째가 아니면
-                    if(curNum !== 0){
+                    if (curNum !== 0) {
                         //현재 화면 값에 -1 => 하나값 이전 화면에 이벤트 실행하게 됌
                         curNum = curNum - 1;
-                    } else{
+                    } else {
                         //left_btn을 눌렀을 때 현재 보여지는 화면이 첫번째이면
                         //보여지는 화면이 첫번째 0번 이하로 가지 않게 //첫번째 화면 이전으로 더 가지 않게 
                         curNum = 0;
                     }
-                    
-                } else if( direction == 'right_btn'){
+
+                } else if (direction == 'right_btn') {
                     //만약에 클릭한 셀렉터의 클래스가 left_btn이 아니면(right_btn일시)
                     //전체 동작화면 수 보다 현재 표출 화면의 숫자(순서값)이 작으면
-                    if(curNum < thisViewNum){
+                    if (curNum < thisViewNum) {
                         //현재 표출 화면의 번호에 +1 => 하나값 다음 화면에 이벤트 실행하게 됌
                         curNum = curNum + 1;
                         //전체 동작화면 수 보다 현재 표출 화면의 숫자(순서값)이 크면
-                    } else{
+                    } else {
                         //전체값 이상으로 수가 늘어나지 않게 //마지막 화면 이상으로 가지 않게.
                         curNum = thisViewNum;
                     }
                 }
                 //현재 표출 화면 값 찍어보기 
-                console.log('curNum',curNum);
-    
+                console.log('curNum', curNum);
+
                 //페이지 전환 
                 //현재 화면 값이 -1보다 크고 and 전체 화면 갯수보다 작거나 크면 작동해라
-                if( 0 <= curNum && curNum <= (thisViewNum) ){
+                if (0 <= curNum && curNum <= (thisViewNum)) {
                     //동작해야하는 화면에 on클래스 제거 //초기화
                     thisView.removeClass('on');
                     //동작해야하는 화면값에 on 클래스 추가 //화면 표출
                     $(thisView[curNum]).addClass('on');
-    
+
                     // 버튼 제한 효과 초기화 : disabled : 더 넘어갈 것 없으면 버튼 투명도 주기 
                     //모든 셀렉터 초기화  
                     $btn.removeClass('disabled');
-    
+
                     //현재 화면값이 0이거나 or 현재 화면값이 전체화면값과 동일하면
                     // == 첫번째 화면 또는 마지막 화면이면 
-                    if( curNum == 0 || curNum == thisViewNum ){
-                            //지금 누른 셀렉터에 disabled 클래스 추가
-                            $this.addClass('disabled'); 
+                    if (curNum == 0 || curNum == thisViewNum) {
+                        //지금 누른 셀렉터에 disabled 클래스 추가
+                        $this.addClass('disabled');
                     }
                     //잘 동작하나 현재 화면값 찍어보기 
                     console.log('sucess', curNum);
                 }
             }
 
-            $btn.on('click',function(){
-                moveEvt( $(this) );
+            $btn.on('click', function () {
+                moveEvt($(this));
             });
         },
-        
+
         //mark : flowSelect 
-        flowSelect : function(tarO,curF,baseF,spd) {
+        flowSelect: function (tarO, curF, baseF, spd) {
             var flowSelectBox,
                 $uiFlow = $('.' + tarO),
                 $flowEv = $uiFlow.find('.ui-flowEV'),
@@ -2696,196 +2710,195 @@ ANUI.module = (function () {
                 $floor = $flowlist.find('li'),
                 speed = spd || 500,
                 baseF = baseF || 0,
-                curF = curF -1,
+                curF = curF - 1,
                 curNum = curF + baseF || 0,
                 destNum = curNum,
-                isMove = false
-                ;
-            
-                flowSelectBox = function(){
-                    
-                    this.init();
-                }
+                isMove = false;
 
-                flowSelectBox.prototype.init = function(){
-                    var floorLn = $floor.length - 1, //가장 아래 data-floor=0 부터 시작하기 위해
-                        _this = this;
+            flowSelectBox = function () {
 
-                        // console.log( 'curF',curF, 'baseF',baseF,'curNum',curNum ) 
+                this.init();
+            }
 
-                    // 데이터 속성 추가
-                    $.each( $floor, function(i){
-                        $(this).attr('data-floor',floorLn - i);
-                    });
+            flowSelectBox.prototype.init = function () {
+                var floorLn = $floor.length - 1, //가장 아래 data-floor=0 부터 시작하기 위해
+                    _this = this;
 
-                    // ev 높이 그리기
-                    $flowEv.height($flowlist.outerHeight());
+                // console.log( 'curF',curF, 'baseF',baseF,'curNum',curNum ) 
 
+                // 데이터 속성 추가
+                $.each($floor, function (i) {
+                    $(this).attr('data-floor', floorLn - i);
+                });
+
+                // ev 높이 그리기
+                $flowEv.height($flowlist.outerHeight());
 
 
-                    // 액션
-                    $floor.on('click', function(){
 
-                        if( $(this).hasClass('on') ){
-                            return false;
-                        }
-                        destNum = $(this).attr('data-floor');
+                // 액션
+                $floor.on('click', function () {
 
-                        // 층수 이동 : 중복실행 방지
-                        if( isMove == false ){
-                            flowStart(curNum,destNum);
-                        }
-                    });
+                    if ($(this).hasClass('on')) {
+                        return false;
+                    }
+                    destNum = $(this).attr('data-floor');
 
-                    // 초기 층수 표시                    
-                    $flowlist.find('li[data-floor="'+curNum+'"]').addClass('on');
-                    evH(curNum,0);
-                    flowDone();
+                    // 층수 이동 : 중복실행 방지
+                    if (isMove == false) {
+                        flowStart(curNum, destNum);
+                    }
+                });
 
-                }
+                // 초기 층수 표시                    
+                $flowlist.find('li[data-floor="' + curNum + '"]').addClass('on');
+                evH(curNum, 0);
+                flowDone();
 
-
-                // 이동
-                var flowMove = function(curNum,destNum){
-                    isMove = true;
-                    var _this = flowSelectBox.prototype;
-                    var floorDist = destNum - curNum > 0 ? destNum - curNum : curNum - destNum;
-                    
-                    // console.log('destNum',destNum,'curNum',curNum,'floorDist',floorDist);
-                    
-                    var loop = setInterval(function(){
-                        
-                        var $floorOn = $floor.siblings().filter('.on');
-                            curNum = $floorOn.attr('data-floor');
+            }
 
 
-                            // console.log('destNum',destNum);
+            // 이동
+            var flowMove = function (curNum, destNum) {
+                isMove = true;
+                var _this = flowSelectBox.prototype;
+                var floorDist = destNum - curNum > 0 ? destNum - curNum : curNum - destNum;
 
-                        var direction = Math.sign(destNum - curNum);//위아래인지 방향만
+                // console.log('destNum',destNum,'curNum',curNum,'floorDist',floorDist);
 
-                        // console.log('direction',direction);
+                var loop = setInterval(function () {
 
-                        $floorOn.removeClass('on active');
+                    var $floorOn = $floor.siblings().filter('.on');
+                    curNum = $floorOn.attr('data-floor');
 
-                        // ev모션 제거
-                        _this.evOff();
 
-                        if(direction >= 1){//높은층으로 //prev
-                            // console.log('+', 'curNum',curNum);
-                            $floorOn.prev().addClass('on');
-                            if(curNum  >= destNum - 1){
-                                // 이동 후 완료
-                                flowDone();
-                                clearInterval(loop);
-                            }
-                            
-                        }else if(direction < 0){//낮은층으로 //next
-                            // console.log('-','curNum',curNum);
-                            $floorOn.next().addClass('on');
-                            if(curNum - 1 <= destNum){
-                                clearInterval(loop);
-                                // 이동 후 완료
-                                flowDone();
-                            } 
-                            
-                        } else{
+                    // console.log('destNum',destNum);
+
+                    var direction = Math.sign(destNum - curNum); //위아래인지 방향만
+
+                    // console.log('direction',direction);
+
+                    $floorOn.removeClass('on active');
+
+                    // ev모션 제거
+                    _this.evOff();
+
+                    if (direction >= 1) { //높은층으로 //prev
+                        // console.log('+', 'curNum',curNum);
+                        $floorOn.prev().addClass('on');
+                        if (curNum >= destNum - 1) {
+                            // 이동 후 완료
+                            flowDone();
                             clearInterval(loop);
+                        }
+
+                    } else if (direction < 0) { //낮은층으로 //next
+                        // console.log('-','curNum',curNum);
+                        $floorOn.next().addClass('on');
+                        if (curNum - 1 <= destNum) {
+                            clearInterval(loop);
+                            // 이동 후 완료
                             flowDone();
                         }
 
+                    } else {
+                        clearInterval(loop);
+                        flowDone();
+                    }
 
-                        // console.log('curNum',curNum, 'destNum', destNum,direction);
 
-                    },speed);
-                    // ev 이동
-                    evH(destNum,floorDist);
-                }
-                
-                // 이동 완료
-                var flowDone = function(){
-                    var _this = flowSelectBox.prototype;
-                        isMove = false,
-                        curNum = destNum;
+                    // console.log('curNum',curNum, 'destNum', destNum,direction);
 
-                    $floor.find('li[data-floor="'+destNum+'"]').addClass('on').addClass('active');
+                }, speed);
+                // ev 이동
+                evH(destNum, floorDist);
+            }
 
-                    // 창문 열기 딜레이
-                    setTimeout(function(){
-                        _this.evOn();
-                    }, 500);
-                }
+            // 이동 완료
+            var flowDone = function () {
+                var _this = flowSelectBox.prototype;
+                isMove = false,
+                    curNum = destNum;
 
-                // 이동 시작
-                var flowStart = function(c,d){
-                    var _this = flowSelectBox.prototype;
-                        isMove = true;
+                $floor.find('li[data-floor="' + destNum + '"]').addClass('on').addClass('active');
 
-                    // 창문 열기 딜레이
-                    _this.evOff();
-                    setTimeout(function(){
-                        flowMove(c,d);
-                    }, 500);
-                }
+                // 창문 열기 딜레이
+                setTimeout(function () {
+                    _this.evOn();
+                }, 500);
+            }
 
-                // ev 높이 계산 & 이동
-                var evH = function(curNum,floorDist){
-                    var evH = $flowEv.outerHeight(),
-                        _fl_L = $floor.length,
-                        _ev_1H = evH /_fl_L,
-                        $evCt = $flowEv.find('.flw_ct'),
-                        evCtH = $evCt.outerHeight(),
-                        curFloor = _fl_L - destNum,
-                        speed = spd * Math.abs(floorDist);
+            // 이동 시작
+            var flowStart = function (c, d) {
+                var _this = flowSelectBox.prototype;
+                isMove = true;
 
-                        // ev 이동
-                        $evCt.stop().animate({
-                                'top': _ev_1H * curFloor - evCtH
-                        },speed)
-                        // console.log(curNum,floorDist,speed);
+                // 창문 열기 딜레이
+                _this.evOff();
+                setTimeout(function () {
+                    flowMove(c, d);
+                }, 500);
+            }
 
-                    
-                }
-                
-                //ev 모션 off
-                flowSelectBox.prototype.evOff = function(){
-                    $flowEv.removeClass('active');
+            // ev 높이 계산 & 이동
+            var evH = function (curNum, floorDist) {
+                var evH = $flowEv.outerHeight(),
+                    _fl_L = $floor.length,
+                    _ev_1H = evH / _fl_L,
+                    $evCt = $flowEv.find('.flw_ct'),
+                    evCtH = $evCt.outerHeight(),
+                    curFloor = _fl_L - destNum,
+                    speed = spd * Math.abs(floorDist);
 
-                }
-                //ev 모션 on
-                flowSelectBox.prototype.evOn = function(){
-                    $flowEv.addClass('active');
+                // ev 이동
+                $evCt.stop().animate({
+                    'top': _ev_1H * curFloor - evCtH
+                }, speed)
+                // console.log(curNum,floorDist,speed);
 
-                }
 
-                new flowSelectBox(tarO,curF,baseF,spd);
-                console.log('flowSelect');
+            }
+
+            //ev 모션 off
+            flowSelectBox.prototype.evOff = function () {
+                $flowEv.removeClass('active');
+
+            }
+            //ev 모션 on
+            flowSelectBox.prototype.evOn = function () {
+                $flowEv.addClass('active');
+
+            }
+
+            new flowSelectBox(tarO, curF, baseF, spd);
+            console.log('flowSelect');
 
         },
 
         //mark : masking
-        maskingUI :function(inpId , evt){ // 인자값 : (<input>의 아이디값, 적용 될 이벤트)
+        maskingUI: function (inpId, evt) { // 인자값 : (<input>의 아이디값, 적용 될 이벤트)
             var maskInput = document.querySelector(inpId);
             console.log('evt : ', evt);
 
-            addListenerMulti(maskInput,evt, function(){
+            addListenerMulti(maskInput, evt, function () {
                 maskingUI();
             })
 
             // maskingUI 함수 실행
-            function maskingUI(){
+            function maskingUI() {
                 var $target = document.querySelector('.target'); // $target 타켓을 변수로 받기 | .target → <label>
-                var star = 'm' + pad(maskInput.value.length,2); // function pad();를 변수로 받기
+                var star = 'm' + pad(maskInput.value.length, 2); // function pad();를 변수로 받기
                 var regExp = /m[0-7]{2}/g; // m01-m07까지의 클래스를 찾기위한 정규식을 변수로 받기
-    
+
                 // $target의 클래스를 찾아 동작이 반복 될 때 마다, 해당 클래스가 사라지는 동작
                 var hasClass = $target.getAttribute('class'), // (1)$target의 클래스 찾기
                     removeClass = regExp.exec(hasClass); // (2)찾은 클래스 네임을,  var regExp 정규식에 반환 → 클래스가 사라짐
-                    console.log('removeStar',removeClass);
-    
+                console.log('removeStar', removeClass);
+
                 $target.classList.remove(removeClass); // target의 클래스값을 없애줌
                 $target.classList.add(star); // 없애준 target의 클래스값에 새로운 클래스값을 덮어줌
             }
-            
+
             // string length값 두자리로 변환하기 (예 1 → 01) 
             function pad(num, width) {
                 num = num + '';
@@ -2902,7 +2915,7 @@ ANUI.module = (function () {
         },
 
         // mark : circleTimerUi
-        circleTimerUi : function(){
+        circleTimerUi: function () {
             var ccui;
             var circle = document.getElementById('ui-circle');
             var btnPlay = document.getElementById('btn-play');
@@ -2912,12 +2925,12 @@ ANUI.module = (function () {
             var angle = 0;
             var videoTimer;
 
-            ccui = function(){
+            ccui = function () {
                 this.init();
             }
 
             //init
-            ccui.prototype.init = function(){
+            ccui.prototype.init = function () {
                 var _t = this;
                 // 버튼 이벤트
                 btnPlay.addEventListener('click', function () {
@@ -2926,9 +2939,9 @@ ANUI.module = (function () {
             };
 
             //circle svg draw
-            ccui.prototype.aniCircle = function(){
-                var angle_increment = parseFloat(6 * (interval/100) / parseFloat(video.duration).toFixed(1));
-            
+            ccui.prototype.aniCircle = function () {
+                var angle_increment = parseFloat(6 * (interval / 100) / parseFloat(video.duration).toFixed(1));
+
                 circle.setAttribute("stroke-dasharray", angle + ', 360');
                 angle = angle + angle_increment;
 
@@ -2946,16 +2959,16 @@ ANUI.module = (function () {
             };
 
             // circle 이동
-            ccui.prototype.playCircle = function(){
+            ccui.prototype.playCircle = function () {
                 var _t = this;
                 isPlay = 'true';
                 video.play()
 
                 // 영상에 맞게 circle 애니메이션 실행
                 videoTimer = setInterval(function () {
-                    
+
                     _t.aniCircle();
-        
+
                     // 클리어조건
                     if (video.currentTime >= video.duration) {
                         clearInterval(videoTimer);
@@ -2965,31 +2978,94 @@ ANUI.module = (function () {
                 }, interval);
 
                 video.currentTime !== 0 ? video.play() : this.circleReset();
-                
+
             };
 
             // circle 멈춤
-            ccui.prototype.pauseCircle = function(){
+            ccui.prototype.pauseCircle = function () {
                 isPlay = 'false';
                 video.pause();
                 this.aniCircle();
                 clearInterval(videoTimer);
             };
-            
+
             // circle 리셋
-            ccui.prototype.circleReset = function(){
+            ccui.prototype.circleReset = function () {
                 angle = 0;
                 video.currentTime = 0;
             }
 
             new ccui();
             console.log('circleTimerUi');
-            
+
 
         },
         // mark: starRating
-        starRatingUi : function(){
+        starRatingUi: function () {
+            var srui;
+            var inpArr = document.querySelectorAll('.ui-star .rating-group > input');
+            var result = document.querySelector('.result');
+            var selstar = document.querySelector('.ui-select-star');
+            var _chk;
 
+            srui = function () {
+                this.init();
+                this.createOpt();
+                console.log('star init');
+
+            }
+
+            //init
+            srui.prototype.init = function () {
+                var _t = this;
+
+
+                //샐렉트 선택
+                selstar.addEventListener('change', function () {
+                    _chk = selstar.options[selstar.selectedIndex].value;
+                    // _chk 인자값으로 별점 반환
+                    _t.selectVal(_chk);
+                });
+
+                // 인풋 체크 변환
+                inpArr.forEach(function (inpChk) {
+                    inpChk.addEventListener('change', function (e) {
+                        if (!e.target.matches('.ui-star .rating-group > input')) {
+                            return;
+                        }
+                        _chk = e.target.value;
+                        // _chk 인자값으로 별점 반환
+                        _t.selectVal(_chk);
+                    });
+                });
+            };
+
+            // create opt
+            srui.prototype.createOpt = function () {
+                console.log('createOpt');
+                for (let i = 0; i < inpArr.length; i++) {
+                    let opt = inpArr[i];
+                    var node = document.createElement('option');
+
+                    node.value = opt.getAttribute('value');
+                    node.text = opt.getAttribute('value');
+
+                    selstar.appendChild(node);
+
+                };
+            };
+
+            //star change
+            srui.prototype.selectVal = function (val) {
+                this.printStar(val);
+            }
+
+            // print star rate
+            srui.prototype.printStar = function (val) {
+                result.textContent = val;
+            }
+
+            new srui();
         },
 
         // mark : init 
@@ -3006,6 +3082,6 @@ ANUI.module = (function () {
 
     }
     // (end) ANUI returm module
-    
+
 
 })();

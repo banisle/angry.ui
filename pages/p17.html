@@ -1,9 +1,7 @@
-<style>
-    
-</style>
 <h3>star rate</h3>
 <p class="sub-txt">
-    .5단위
+    ANUI.module.starRatingUi();<br> 클래스명 샘플대로
+    ,.5단위 tick, 별 모양 background-image처리
 </p>
 
 
@@ -131,56 +129,6 @@
 &lt;/div&gt;
 </pre>
 
-
 <script>
-    var star = document.querySelector('.ui-star');
-    var inpArr = document.querySelectorAll('.ui-star .rating-group > input');
-    var result = document.querySelector('.result');
-    var selstar = document.querySelector('.ui-select-star');
-    var resultStar;
-
-    // create opt
-    var createOpt = function () {
-        for (let i = 0; i < inpArr.length; i++) {
-            let opt = inpArr[i];
-            var node = document.createElement('option');
-
-            node.value = opt.getAttribute('value');
-            node.text = opt.getAttribute('value');
-
-            selstar.appendChild(node);
-
-        };
-    }();
-
-    //star change
-    var selectVal = function (val) {
-        console.log(0,val);
-
-        printStar(val);
-    }
-
-    // print star rate
-    var printStar = function (val) {
-        result.textContent = val;
-    }
-
-    //샐렉트 선택
-    selstar.addEventListener('change', function(){
-        _chk = selstar.options[selstar.selectedIndex].value;
-        // _chk 인자값으로 별점 반환
-        selectVal(_chk);
-    });
-
-    // 인풋 체크 변환
-    inpArr.forEach(function (inpChk) {
-        inpChk.addEventListener('change', function (e) {
-            if (!e.target.matches('.ui-star .rating-group > input')) {
-                return;
-            }
-            _chk = e.target.value;
-            // _chk 인자값으로 별점 반환
-            selectVal(_chk);
-        });
-    });
+    ANUI.module.starRatingUi();
 </script>
