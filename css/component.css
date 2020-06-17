@@ -2242,7 +2242,10 @@ html.mobile .ui-content {
 }
 
 /* ie9 용 */
-
+.starRating{
+	overflow: hidden;
+	display: inline-block;
+}
 .form-item {
 	float: left;
 	position: relative;
