@@ -2400,27 +2400,30 @@ ANUI.module = (function () {
         },
 
         // mark: updown changeUi
-        updnChgUi: function (elType) {
+        updnChgUi: function (target,elType) {
+            var $target = $(target);
             var $el = elType; // div && tr 
 
-            var $up = $('.ui-row-up'),
-                $dn = $('.ui-row-dn');
+            var $up = $target.find('.ui-row-up'),
+                $dn = $target.find('.ui-row-dn');
 
             $up.on('click', function () {
                 upFunc($(this));
+                console.log('up');
             });
             $dn.on('click', function () {
                 dnFunc($(this));
+                console.log('dn');
             });
 
             var upFunc = function (t) {
-                var $tr = t.closest($el); // 클릭한 버튼이 속한 tr 요소
-                $tr.prev().before($tr); // 현재 tr 의 이전 tr 앞에 선택한 tr 넣기
+                var $tr = t.closest($el); // 클릭한 버튼이 속한 el 요소
+                $tr.prev().before($tr); // 현재 el 의 이전 el 앞에 선택한 el 넣기
             }
 
             var dnFunc = function (t) {
-                var $tr = t.closest($el); // 클릭한 버튼이 속한 tr 요소
-                $tr.next().after($tr); // 현재 tr 의 다음 tr 뒤에 선택한 tr 넣기
+                var $tr = t.closest($el); // 클릭한 버튼이 속한 el 요소
+                $tr.next().after($tr); // 현재 el 의 다음 el 뒤에 선택한 el 넣기
             }
         },
 
