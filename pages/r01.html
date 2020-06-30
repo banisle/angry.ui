@@ -39,32 +39,44 @@
     .btn-primary { /* 주요 버튼과 관련된 스타일 */ }
 </p>
 
-<h3>클래스명 구조화</h3>
+<h3>클래스명 구조화 B(lock) E(element) M(odifier)</h3>
 <p class="sub-txt">
         /* 유틸리티 */<br/>
         .<strong class="clr--code">ui</strong>-utilityName {}<br/><br/>
         
         /* 컴포넌트 */<br/>
         .ComponentName {}<br/><br/>
-        
+        <em class="clr--code">carousel<br/>
+            page-nav<br/>
+            form<br/>
+        </em><br/><br/>
+
         /* 컴포넌트 수식어 */<br/>
         .ComponentName--modifierName {}<br/><br/>
-        <em class="clr--code">btn{ width:100%; border:1px solid #eee }<br/>
+        <em class="clr--code">
+            form--simple<br/>
             btn--default{...}<br/>
             btn--secondary{...}<br/><br/>
             &lt;div class="btn btn--secondary"&gt;&lt;/div&gt;
         </em><br/><br/>
         
         /* 컴포넌트 자손 */<br/>
-        .ComponentName-descendant {}<br/><br/>
-        <em class="clr--code">carousel-inner<br/>
-            carousel-item<br/>
-            carousel-item-next<br/>
-            carousel-item-prev<br/>
+        .ComponentName__descendant {}<br/><br/>
+        <em class="clr--code">
+            form__input<br/>
+            form__select<br/>
+            carousel__inner<br/>
+            carousel__item<br/>
         </em><br/><br/>
         
         /* 컴포넌트 자손 수식어 */<br/>
-        .ComponentName-descendant--modifierName {}<br/><br/>
+        .ComponentName__descendant--modifierName {}<br/><br/>
+        <em class="clr--code">
+            form__input--readonly<br/>
+            form__select--disabled<br/>
+            carousel__item--next<br/>
+            carousel__item--prev<br/>
+        </em><br/><br/>
         
         /* 컴포넌트 상태 (컴포넌트 범위에서) */<br/>
         .ComponentName.<strong class="clr--code">is-</strong>stateOfComponent {}
