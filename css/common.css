@@ -1,8 +1,9 @@
 @charset "utf-8";
 
 /* //mark : color */
-.clr-danger{color: #ed4b30;}
-.clr-code{color: #0768c4;}
+.clr--danger{color: #ed4b30;}
+.clr--code{color: #0768c4;}
+.clr--link{color: blue !important;}
 
 /* //mark : space */
 .mb-s{margin-bottom: 10px;}

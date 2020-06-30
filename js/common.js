@@ -40,7 +40,7 @@ $(function () {
 
     // $.ajax({
     //     type: 'get',
-    //     url: 'pages/p17.html',
+    //     url: 'pages/p08.html',
     //     dataType: 'html',
     //     success: function (data) {
     //         $("#load-ct").html(data);
