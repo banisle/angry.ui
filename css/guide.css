@@ -229,11 +229,11 @@
 		z-index: 1
 	}
 
-	.btn_org {
+	.btn-org {
 		min-width: 0
 	}
 
-	input.form_chk+label {
+	input.form__chk+label {
 		display: flex;
 		align-items: center
 	}

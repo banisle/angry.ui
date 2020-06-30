@@ -180,7 +180,7 @@ ANUI.module = (function () {
     return {
         // mark : tabUi
         tabUi: function () {
-            var uiTabWrap = $('.ui-tabWrap'),
+            var uiTabWrap = $('.ui-tab-wrap'),
                 uiTab = uiTabWrap.find('.ui-tab'),
                 uiTabBtn = uiTab.find('.ui-tab-btn'),
                 uiTabBtnA = $('a.ui-tab-btn'),
@@ -341,7 +341,7 @@ ANUI.module = (function () {
         selectUi: function () {
             var selId,
                 selectUibox,
-                $selWrap = $('.selectWrap.ui-selectbox'),
+                $selWrap = $('.select-wrap.ui-selectbox'),
                 $selBox,
                 $optGrp,
                 scrollOn = false;
@@ -2068,14 +2068,14 @@ ANUI.module = (function () {
         // mark : searchUi
         searchUi: function () {
             var searchBtn = function () {
-                var $searchWrap = $('.searchWrap'),
-                    $searchInp = $searchWrap.find('.inp_form input'),
-                    $btnIcn = $searchWrap.find('.icn_search');
+                var $searchWrap = $('.search-wrap'),
+                    $searchInp = $searchWrap.find('.inp-form input'),
+                    $btnIcn = $searchWrap.find('.icn--search');
 
                 $searchInp.on('click focus', function () {
-                    $(this).closest($searchWrap).find($btnIcn).addClass('active');
+                    $(this).closest($search-wrap).find($btnIcn).addClass('active');
                 }).on('blur', function () {
-                    $(this).closest($searchWrap).find($btnIcn).removeClass('active');
+                    $(this).closest($search-wrap).find($btnIcn).removeClass('active');
                 });
             }();
 
@@ -2430,7 +2430,7 @@ ANUI.module = (function () {
         // mark : floatGnbUi
         floatGnbUi: function () {
 
-            var $t = $('.ui-floatGnb'),
+            var $t = $('.ui-float-gnb'),
                 $call = $t.find('.call'),
                 $dimBg = $t.find('.dim_bg');
             //스크롤바 width 구하기
@@ -2439,7 +2439,7 @@ ANUI.module = (function () {
             function floatGnb() {
                 function showMenu() {
                     $call.addClass('active');
-                    $('.subMenu:not(:last)').add($dimBg).addClass('show');
+                    $('.sub-menu:not(:last)').add($dimBg).addClass('show');
                     // $('html').addClass('fixed').css('padding-right', scrlW);
                     // $('html').addClass('fixed');
                 }
@@ -2448,7 +2448,7 @@ ANUI.module = (function () {
                     // $('html').removeClass('fixed').css('padding-right','');
                     $call.removeClass('active');
                     // $('html').removeClass('fixed');
-                    $('.subMenu:not(:last)').removeClass('show');
+                    $('.sub-menu:not(:last)').removeClass('show');
                     $call.tog = 0;
                     window.setTimeout(function () {
                         $dimBg.removeClass('show');
