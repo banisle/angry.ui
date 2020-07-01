@@ -12,7 +12,7 @@
 */
 
 function inc_linkInfo(){
-	var linkPath = '../../';
+	var linkPath = '../';
 	var str='';
 	str+='<h2>Link info.</h2>';
 	str+='<table>';
@@ -27,7 +27,7 @@ function inc_linkInfo(){
 	str+='		<td class="tobe_section">';
 	str+='			<div>';
 	str+='				<a href="'+linkPath+'index.html" class="btn"><span>Front</span></a>';
-	str+='				<a href="'+linkPath+'html/_pub_guide/worklist.guide.html" class="btn"><span>Guide</span></a>';
+	str+='				<a href="'+linkPath+'/guide/worklist.guide.html" class="btn"><span>Guide</span></a>';
 	// str+='				<a href="'+linkPath+'admin/html/_pub_guide/worklist.guide.html" class="btn"><span>A.Guide</span></a>';
 	str+='			</div>';
 	str+='		</td>';
