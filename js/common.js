@@ -15,6 +15,7 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
     isMobile = true;
 }
 
+
 $(function () {
     var s2Item = $('.guide-side .sub-menu > li > a');
 
@@ -32,7 +33,7 @@ $(function () {
                 SyntaxHighlighter.config.strings.expandSource = "source view";
                 SyntaxHighlighter.highlight();
                 ANUI.wsg.init();
-
+                // console.log('ajax success');
             }
         });
         if (isMobile) $('.mo-guide-btn').trigger('click');
@@ -52,4 +53,5 @@ $(function () {
     // });
 
     ANUI.wsg.init();
+
 })

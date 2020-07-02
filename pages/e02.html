@@ -1,5 +1,4 @@
 <!-- <script src="lib/jquery-ui.min.js"></script> -->
-<script src="lib/jquery-minimap.js"></script>
 
 <style>
 	.ui-minimap{ position: relative; height: 340px; padding:10px; border:1px solid #333}
@@ -92,16 +91,21 @@
 	&lt;/div&gt;
 </pre>
 <!-- (end) pre sample -->
+<script src="lib/jquery-minimap.js"></script>
 
-<script>
+<script >
 	$(document).ready(function () {
-		var $parent = document.querySelector("#parent");
-
-		// sample에선 ajax 호출로 인해 setTime을 걸어서 호출, 일반적으로는 그냥 호출해도 됨
-		setTimeout(function(){
-			$("#minimap").minimap($($parent));
-		},0)
+		
+		console.log('minimap init');
+		$(".minimap_img").load(function(){
+			console.log('load');
+			$('#minimap').minimap($('#parent'));
+		});
 
 		
-	})
+	});
+
+
+
+
 </script>

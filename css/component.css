@@ -1427,7 +1427,7 @@ html.mobile .form__select {
 
 .ui-scrollarea {
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 	position: absolute;
 	left: 0;
 }

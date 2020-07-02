@@ -81,9 +81,11 @@ ANUI.wsg = (function () {
             // t.toggleOn();
             t.moGuideMenu();
             t.modalEvt();
+            ANUI.module.scrollUi();
 
             console.log('init');
         }
     }
+    
 })();
 
