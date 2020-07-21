@@ -253,7 +253,7 @@ input[type=text]+.ui-deltxt.hidden {
 	letter-spacing: 0;
 }
 
-/* .btn-org:before {
+.btn-org:before {
 	content: "";
 	display: inline-block;
 	height: 100%;
@@ -263,7 +263,7 @@ input[type=text]+.ui-deltxt.hidden {
 	margin: 0;
 	padding: 0;
 	border: 0;
-} */
+}
 
 /* ie9 버튼 pressed 효과 제거 position 속성 추가 */
 .btn-org>span {
