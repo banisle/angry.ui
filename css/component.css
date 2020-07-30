@@ -42,10 +42,6 @@ input[type=text] {
 	font-size: 13px;
 }
 
-input:focus {
-	outline: none;
-}
-
 .inp-form {
 	position: relative;
 	box-sizing: border-box
@@ -146,7 +142,7 @@ input[type=text]+.ui-deltxt.hidden {
 	padding-left: 150px;
 }
 
-.inp_btn {
+.inp-btn {
 	display: inline-block;
 	vertical-align: top;
 	position: absolute;
@@ -209,34 +205,34 @@ input[type=text]+.ui-deltxt.hidden {
 }
 
 /* //mark: buttons */
-.btn-wrap {
+[class^=btn-wrap] {
 	overflow: hidden;
 }
 
-.btn-wrap.row-2>span {
+[class^=btn-wrap][class*=--row-2]>span {
 	float: left;
 	width: 50%;
 	padding-right: 2.5px;
 	box-sizing: border-box;
 }
 
-.btn-wrap.row-2>span:last-child {
+[class^=btn-wrap][class*=--row-2]>span:last-child {
 	float: left;
 	width: 50%;
 	padding: 0 0 0 2.5px;
 	box-sizing: border-box;
 }
 
-.btn-wrap.dp-flex {
+[class^=btn-wrap][class*=--flex] {
 	display: flex;
 	justify-content: space-between;
 }
 
-.btn-wrap.dp-flex>button:nth-child(2) {
+[class^=btn-wrap][class*=--flex]>button:nth-child(2) {
 	margin: 0 5px
 }
 
-.btn-org {
+a[class^=btn],button[class^=btn] {
 	display: inline-block;
 	position: relative;
 	min-width: 182px;
@@ -253,7 +249,7 @@ input[type=text]+.ui-deltxt.hidden {
 	letter-spacing: 0;
 }
 
-.btn-org:before {
+a[class^=btn]:before,button[class^=btn]:before {
 	content: "";
 	display: inline-block;
 	height: 100%;
@@ -266,7 +262,8 @@ input[type=text]+.ui-deltxt.hidden {
 }
 
 /* ie9 버튼 pressed 효과 제거 position 속성 추가 */
-.btn-org>span {
+a[class^=btn]>span,
+button[class^=btn]>span {
 	display: inline-block;
 	/* position: absolute; */
 	top: 0;
@@ -278,76 +275,105 @@ input[type=text]+.ui-deltxt.hidden {
 	color: #fff
 }
 
-.btn-org.free-width {
+a[class^=btn][class*=--free-width],
+button[class^=btn][class*=--free-width] {
 	min-width: auto;
 }
 
-.btn-org.free-width>span {
+a[class^=btn][class*=--free-width]>span,
+button[class^=btn][class*=--free-width]>span {
 	position: relative;
 }
 
-.btn-org.md {
+a[class^=btn][class*=--md],
+button[class^=btn][class*=--md] {
 	height: 38px;
 }
 
-.btn-org.sm {
+a[class^=btn][class*=--sm],
+button[class^=btn][class*=--sm] {
 	height: 28px;
 }
 
-.btn-org.xs {
+a[class^=btn][class*=--xs],
+button[class^=btn][class*=--xs] {
 	height: 22px;
 }
 
-.btn-org.md>span {
+a[class^=btn][class*=--md]>span,
+button[class^=btn][class*=--md]>span {
 	line-height: 38px
 }
 
-.btn-org.sm>span {
+a[class^=btn][class*=--sm]>span,
+button[class^=btn][class*=--sm]>span {
 	line-height: 28px;
 	font-size: 14px;
 }
 
-.btn-org.xs>span {
+a[class^=btn][class*=--xs]>span,
+button[class^=btn][class*=--xs]>span {
 	line-height: 22px;
 	font-size: 12px;
 }
 
-.btn-no {
+a[class^=btn][class*=--no],
+button[class^=btn][class*=--no] {
 	background: #5b5b5b
 }
 
-.btn-ok:active,
-.btn-ok:focus,
-.btn-ok:hover {
+a[class^=btn][class*=--ok]:active,
+button[class^=btn][class*=--ok]:active,
+a[class^=btn][class*=--ok]:focus,
+button[class^=btn][class*=--ok]:focus,
+a[class^=btn][class*=--ok]:hover,
+button[class^=btn][class*=--ok]:hover {
 	background: #771403
 }
 
-.btn-no:active,
-.btn-no:focus,
-.btn-no:hover {
+a[class^=btn][class*=--no]:active,
+button[class^=btn][class*=--no]:active,
+a[class^=btn][class*=--no]:focus,
+button[class^=btn][class*=--no]:focus,
+a[class^=btn][class*=--no]:hover ,
+button[class^=btn][class*=--no]:hover {
 	background: #2b2b2b
 }
 
-.btn-ok:disabled,
-.btn-ok:disabled:active,
-.btn-ok:disabled:hover,
-.btn-ok.disabled,
-.btn-ok.disabled:active,
-.btn-ok.disabled:hover {
+a[class^=btn][class*=--ok]:disabled,
+button[class^=btn][class*=--ok]:disabled,
+a[class^=btn][class*=--ok]:disabled:active,
+button[class^=btn][class*=--ok]:disabled:active,
+a[class^=btn]:disabled:hover,
+button[class^=btn][class*=--ok]:disabled:hover,
+a[class^=btn][class*=disabled],
+button[class^=btn][class*=--ok][class*=disabled],
+a[class^=btn][class*=disabled]:active,
+button[class^=btn][class*=--ok][class*=disabled]:active,
+a[class^=btn][class*=disabled]:hover,
+button[class^=btn][class*=--ok][class*=disabled]:hover {
 	background: #e49c90
 }
 
-.btn-no:disabled,
-.btn-no:disabled:active,
-.btn-no:disabled:hover,
-.btn-no.disabled,
-.btn-no.disabled:active,
-.btn-no.disabled:hover {
+a[class^=btn][class*=--no]:disabled,
+button[class^=btn][class*=--no]:disabled,
+a[class^=btn][class*=--no]:disabled:active,
+button[class^=btn][class*=--no]:disabled:active,
+a[class^=btn][class*=--no]:disabled:hover,
+button[class^=btn][class*=--no]:disabled:hover,
+a[class^=btn][class*=--no][class*=--disabled],
+button[class^=btn][class*=--no][class*=--disabled],
+a[class^=btn][class*=--no][class*=--disabled]:active,
+button[class^=btn][class*=--no][class*=--disabled]:active,
+a[class^=btn][class*=--no][class*=--disabled]:hover,
+button[class^=btn][class*=--no][class*=--disabled]:hover {
 	background: #b6b6b6
 }
 
-.btn-icn {
+a[class^=btn-icn],
+button[class^=btn-icn] {
 	display: inline-block;
+	min-width: auto;
 	height: 32px;
 	padding: 0;
 	border-radius: 2px;
@@ -359,34 +385,50 @@ input[type=text]+.ui-deltxt.hidden {
 	box-sizing: border-box;
 	background-color: #f3f5f8;
 	border: 1px solid #9b9fa8;
+}
+
+a[class^=btn-icn]>span,
+button[class^=btn-icn]>span {
+	padding: 0 12px 0;
 	color: #575b63;
 }
 
-.btn-icn>span {
-	padding: 0 12px 0;
-}
-
-.btn-icn>span>i.fa,
-.btn-icn>span>i.fas {
+a[class^=btn-icn]>span>i.fa,
+button[class^=btn-icn]>span>i.fa,
+a[class^=btn-icn]>span>i.fas ,
+button[class^=btn-icn]>span>i.fas {
 	padding: 0 5px 0 0;
 }
 
-.btn-icn:active,
-.btn-icn:hover {
+a[class^=btn-icn]:active,
+button[class^=btn-icn]:active,
+a[class^=btn-icn]:hover ,
+button[class^=btn-icn]:hover {
 	background-color: #e9ebef;
 	border-color: #2b2e38;
 	color: #2b2e38;
 }
 
-.btn-icn:disabled,
-.btn-icn:disabled:active,
-.btn-icn:disabled:hover {
+a[class^=btn-icn]:disabled,
+button[class^=btn-icn]:disabled,
+a[class^=btn-icn]:disabled:active,
+button[class^=btn-icn]:disabled:active,
+a[class^=btn-icn]:disabled:hover ,
+button[class^=btn-icn]:disabled:hover {
 	background-color: #fff;
 	border-color: #e9ebef;
+}
+a[class^=btn-icn]:disabled > span,
+button[class^=btn-icn]:disabled > span,
+a[class^=btn-icn]:disabled:active > span,
+button[class^=btn-icn]:disabled:active > span,
+a[class^=btn-icn]:disabled:hover  > span,
+button[class^=btn-icn]:disabled:hover  > span{
 	color: #e9ebef;
 }
 
-.btn.list {
+a[class^=btn][class*=--list],
+button[class^=btn][class*=--list] {
 	border: 1px solid #d2d2d2;
 	font-size: 16px;
 	color: #666;
@@ -394,16 +436,15 @@ input[type=text]+.ui-deltxt.hidden {
 	padding: 0 27px;
 }
 
-.btn span {
-	line-height: 1
-}
-
-.btn.list:focus,
-.btn.list:hover {
+a[class^=btn][class*=--list],
+button[class^=btn][class*=--list]:focus,
+a[class^=btn][class*=--list],
+button[class^=btn][class*=--list]:hover {
 	border-color: #3ead57;
 }
 
-.btn-mid {
+a[class^=btn][class*=--mid],
+button[class^=btn][class*=--mid] {
 	min-width: 136px;
 }
 
@@ -480,7 +521,7 @@ input.form__radio.inp--error:disabled+label:before {
 
 input.form__chk:focus+label,
 input.form__radio:focus+label {
-	box-shadow: 0 0 1px #4d90fe
+	/* box-shadow: 0 0 1px #4d90fe */
 }
 
 input.form__chk__slide+label {
@@ -549,6 +590,7 @@ input+label>.label-txt {
 	vertical-align: middle
 }
 
+/* //mark: ui-tab */
 ul.ui-tab {
 	width: 100%;
 	display: table;
@@ -1826,7 +1868,7 @@ html.mobile .ui-content {
 	margin: 0 auto;
 }
 
-/* //mark : tab */
+/* //mark : tab-list */
 .tab_list {
 	overflow: hidden;
 	width: 100%;
@@ -1943,7 +1985,7 @@ html.mobile .ui-content {
 	padding-left: 0;
 }
 
-.sticky ul>li .btnRed {
+.sticky ul>li a[class^=btn],button[class^=btn]Red {
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -2040,7 +2082,6 @@ html.mobile .ui-content {
 }
 
 /* //mark: fileAttach */
-/* 첨부파일 */
 .addfiles>ul.list {
 	margin-top: 10px;
 }
@@ -2220,7 +2261,7 @@ html.mobile .ui-content {
 	opacity:1;
 }
 
-.ui-star .rating__icon--none:before {
+.ui-star .rating__icon-[class*=--no]ne:before {
 	opacity:0;
 
 }

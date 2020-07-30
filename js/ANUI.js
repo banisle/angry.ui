@@ -2552,13 +2552,13 @@ ANUI.module = (function () {
 
         //mark : click center
         clickCenter: function () {
-            $('.mo_submenu_wrap li a').on('click', function (e) {
+            $('.ui-gnbCenter li a').on('click', function (e) {
                 e.preventDefault();
                 $(this).parent().addClass('active').siblings('li').removeClass('active');
                 var navLi = $(this).parent('li');
                 var navWd = navLi.outerWidth();
-                var posL = navLi.position().left - $('.mo_submenu_wrap').outerWidth() * 0.5 + navWd * 0.5;
-                $('.mo_submenu_wrap').animate({
+                var posL = navLi.position().left - $('.ui-gnbCenter').outerWidth() * 0.5 + navWd * 0.5;
+                $('.ui-gnbCenter').animate({
                     scrollLeft: posL
                 }, 300);
 

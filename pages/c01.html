@@ -4,12 +4,12 @@
 <h3>고정 버튼</h3>
 <p class="sub-txt">width:182px; *ie9에서 disabled 버튼 이슈,따로 disabled 클래스를 추가하는 방법으로 적용 </p>
 <div class="btn-wrap">
-    <button type="button" class="btn-org btn-ok"><span>확인</span></button>
-    <button type="button" class="btn-org btn-ok" disabled><span>확인 disabled</span></button>
-    <button type="button" class="btn-org btn-no"><span>취소</span></button>
-    <button type="button" class="btn-org btn-no" disabled><span>취소 disabled</span></button>
-    <button type="button" class="btn-org btn-ok disabled" ><span>ie9용 확인</span></button>
-    <button type="button" class="btn-org btn-no disabled" ><span>ie9용 취소</span></button>
+    <button type="button" class="btn--ok"><span>확인</span></button>
+    <button type="button" class="btn--ok" disabled><span>확인 disabled</span></button>
+    <button type="button" class="btn--no"><span>취소</span></button>
+    <button type="button" class="btn--no" disabled><span>취소 disabled</span></button>
+    <button type="button" class="btn--ok--disabled" ><span>ie9용 확인</span></button>
+    <button type="button" class="btn--no--disabled" ><span>ie9용 취소</span></button>
 </div>
 
 <!-- (sta) pre sample -->
@@ -25,13 +25,14 @@
         pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */
         quick-code:true;"		/* double click으로 code 전체를 선택 */
 >
-
-&lt;div class=&quot;btn-wrap&quot;&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok&quot;&gt;&lt;span&gt;확인&lt;/span&gt;&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok&quot; disabled&gt;&lt;span&gt;확인 disabled&lt;/span&gt;&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-no&quot;&gt;&lt;span&gt;취소&lt;/span&gt;&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-no&quot; disabled&gt;&lt;span&gt;취소 disabled&lt;/span&gt;&lt;/button&gt;
-&lt;/div&gt;
+<div class="btn-wrap">
+    <button type="button" class="btn--ok"><span>확인</span></button>
+    <button type="button" class="btn--ok" disabled><span>확인 disabled</span></button>
+    <button type="button" class="btn--no"><span>취소</span></button>
+    <button type="button" class="btn--no" disabled><span>취소 disabled</span></button>
+    <button type="button" class="btn--ok--disabled" ><span>ie9용 확인</span></button>
+    <button type="button" class="btn--no--disabled" ><span>ie9용 취소</span></button>
+</div>
 </pre>
 <!-- (end) pre sample -->
 
@@ -39,41 +40,41 @@
 <h3>가변 버튼</h3>
 <p class="sub-txt">1개 </p>
 <div class="btn-wrap">
-    <button type="button" class="btn-org btn-ok w100"><span>확인</span></button>
+    <button type="button" class="btn--ok w100"><span>확인</span></button>
 </div>
 <!-- (sta) pre sample -->
 <pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */" >
-&lt;div class=&quot;btn-wrap&quot;&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok w100&quot;&gt;&lt;span&gt;확인&lt;/span&gt;&lt;/button&gt;
-&lt;/div&gt;
+	<div class="btn-wrap">
+		<button type="button" class="btn--ok w100"><span>확인</span></button>
+	</div>
 </pre>
 <!-- (end) pre sample -->
 
 <p class="sub-txt">균등 row-2 클래스 추가</p>
-<div class="btn-wrap row-2">
-    <span><button type="button" class="btn-org btn-ok w100"><span>확인</span></button></span>
-    <span><button type="button" class="btn-org btn-no w100"><span>취소</span></button></span>
+<div class="btn-wrap--row-2">
+    <span><button type="button" class="btn--ok w100"><span>확인</span></button></span>
+    <span><button type="button" class="btn--no w100"><span>취소</span></button></span>
 </div>
 <!-- (sta) pre sample -->
 <pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */" >
-&lt;div class=&quot;btn-wrap row-2&quot;&gt;
-    &lt;span&gt;&lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok w100&quot;&gt;&lt;span&gt;확인&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
-    &lt;span&gt;&lt;button type=&quot;button&quot; class=&quot;btn-org btn-no w100&quot;&gt;&lt;span&gt;취소&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
-&lt;/div&gt;
+	<div class="btn-wrap--row-2">
+		<span><button type="button" class="btn--ok w100"><span>확인</span></button></span>
+		<span><button type="button" class="btn--no w100"><span>취소</span></button></span>
+	</div>
 </pre>
 
-<p class="sub-txt">3개 이상 균등 pc:고정, mo:display:flex, dp-flex 클래스 추가</p>
+<p class="sub-txt">3개 이상 균등 pc:고정, mo:display:flex, flex 클래스 추가</p>
 
-<div class="btn-wrap dp-flex">
-    <button type="button" class="btn-org btn-ok w100"><span>확인</span></button>
-    <button type="button" class="btn-org btn-ok w100" disabled><span>확인 disabled</span></button>
-    <button type="button" class="btn-org btn-no w100"><span>취소</span></button>
+<div class="btn-wrap--flex">
+    <button type="button" class="btn--ok w100"><span>확인</span></button>
+    <button type="button" class="btn--ok w100" disabled><span>확인 disabled</span></button>
+    <button type="button" class="btn--no w100"><span>취소</span></button>
 </div>
 <pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */" >
-&lt;div class=&quot;btn-wrap dp-flex&quot;&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok w100&quot;&gt;&lt;span&gt;확인&lt;/span&gt;&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok w100&quot; disabled&gt;&lt;span&gt;확인 disabled&lt;/span&gt;&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-no w100&quot;&gt;&lt;span&gt;취소&lt;/span&gt;&lt;/button&gt;
+&lt;div class=&quot;btn-wrap--flex&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn--ok w100&quot;&gt;&lt;span&gt;확인&lt;/span&gt;&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn--ok w100&quot; disabled&gt;&lt;span&gt;확인 disabled&lt;/span&gt;&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn--no w100&quot;&gt;&lt;span&gt;취소&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;
 </pre>
 
@@ -95,32 +96,32 @@
 
 <p class="sub-txt">텍스트 글자에 따라 가변 버튼</p>
 <div class="btn-wrap">
-    <button type="button" class="btn-org btn-ok free-width" ><span>짧아짐</span></button>
-    <button type="button" class="btn-org btn-ok free-width" ><span>글자가 길어지는 가변 버튼</span></button>
-    <button type="button" class="btn-org btn-ok free-width" ><span>글자가 길어지는 가변 ~~~~~~~~~~~~~~ 버튼</span></button>
-    <button type="button" class="btn-org btn-ok free-width" ><span>글자가 길어지는 가변 ~~~~~~~ 버튼</span></button>
+    <button type="button" class="btn--ok--free-width" ><span>짧아짐</span></button>
+    <button type="button" class="btn--ok--free-width" ><span>글자가 길어지는 가변 버튼</span></button>
+    <button type="button" class="btn--ok--free-width" ><span>글자가 길어지는 가변 ~~~~~~~~~~~~~~ 버튼</span></button>
+    <button type="button" class="btn--ok--free-width" ><span>글자가 길어지는 가변 ~~~~~~~ 버튼</span></button>
 </div>
 <pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */" >
-&lt;div class=&quot;btn-wrap&quot;&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok free-width&quot; &gt;&lt;span&gt;짧아짐&lt;/span&gt;&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok free-width&quot; &gt;&lt;span&gt;글자가 길어지는 가변 버튼&lt;/span&gt;&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok free-width&quot; &gt;&lt;span&gt;글자가 길어지는 가변 ~~~~~~~~~~~~~~ 버튼&lt;/span&gt;&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok free-width&quot; &gt;&lt;span&gt;글자가 길어지는 가변 ~~~~~~~ 버튼&lt;/span&gt;&lt;/button&gt;
-&lt;/div&gt;
+	<div class="btn-wrap">
+		<button type="button" class="btn--ok--free-width" ><span>짧아짐</span></button>
+		<button type="button" class="btn--ok--free-width" ><span>글자가 길어지는 가변 버튼</span></button>
+		<button type="button" class="btn--ok--free-width" ><span>글자가 길어지는 가변 ~~~~~~~~~~~~~~ 버튼</span></button>
+		<button type="button" class="btn--ok--free-width" ><span>글자가 길어지는 가변 ~~~~~~~ 버튼</span></button>
+	</div>
 </pre>
 
 <h3>사이즈 별</h3>
 <div class="btn-wrap">
-    <button type="button" class="btn-org btn-ok lg" ><span>large</span></button>
-    <button type="button" class="btn-org btn-ok md free-width" ><span>mid</span></button>
-    <button type="button" class="btn-org btn-ok sm free-width" ><span>small</span></button>
-    <button type="button" class="btn-org btn-ok xs free-width" ><span>xsmall</span></button>
+    <button type="button" class="btn--ok--lg" ><span>large</span></button>
+    <button type="button" class="btn--ok--md--free-width" ><span>mid</span></button>
+    <button type="button" class="btn--ok--sm--free-width" ><span>small</span></button>
+    <button type="button" class="btn--ok--xs--free-width" ><span>xsmall</span></button>
 </div>
 <pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */" >
-&lt;div class=&quot;btn-wrap&quot;&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok lg&quot; &gt;&lt;span&gt;large&lt;/span&gt;&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok md free-width&quot; &gt;&lt;span&gt;mid&lt;/span&gt;&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok sm free-width&quot; &gt;&lt;span&gt;small&lt;/span&gt;&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn-org btn-ok xs free-width&quot; &gt;&lt;span&gt;xsmall&lt;/span&gt;&lt;/button&gt;
-&lt;/div&gt;
+	<div class="btn-wrap">
+		<button type="button" class="btn--ok--lg" ><span>large</span></button>
+		<button type="button" class="btn--ok--md--free-width" ><span>mid</span></button>
+		<button type="button" class="btn--ok--sm--free-width" ><span>small</span></button>
+		<button type="button" class="btn--ok--xs--free-width" ><span>xsmall</span></button>
+	</div>
 </pre>
