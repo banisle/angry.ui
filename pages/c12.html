@@ -1,8 +1,11 @@
-<!-- scroll -->
+<style>
+	.scrollWrap{height: 300px;}
+</style>
 
+<!-- scroll -->
 <h3>PC : 스크롤, *모바일은 네이티브로 적용(overflow-y:scroll)</h3>
 <p class="sub-txt">pc : overflow 적용, 네이티브 스크롤바 숨김 후 스크롤바 생성 방식<br/> ** 스크롤바 드래그 좀 더 부드럽게?? <br/>*** 리사이즈시 버벅임 이슈 <br/>**** 프로토타입 속성으로 다시 짤 예정</p>
-<div class="scrollWrap ui-scrollview" style="height: 300px">
+<div class="scrollWrap ui-scrollview" >
     <div class="ui-scrollbar"><span class="bar"></span></div>
     <div class="scrollInner ui-scrollarea">
         <div class="scrollview ui-content">(sta)내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역<br/>내용이 들어가는 영역(end) </div>
@@ -25,30 +28,30 @@
     <div class="scrollInner ui-scrollarea">
         <div class="scrollview ui-content">
             <div class="form-grp">
-                <p><input type="checkbox" id="chk-on1" class="form__chk"><label for="chk-on1"><span class="label-txt">기본</span></label></span>
-                <p><input type="checkbox" id="chk-on2" class="form__chk"checked><label for="chk-on2"><span class="label-txt">체크됨</span></label></span>
-                <p><input type="checkbox" id="chk-on3" class="form__chk"disabled><label for="chk-on3"><span class="label-txt">disabled</span></label></span>
-                <p><input type="checkbox" id="chk-on4" class="form__chk"checked disabled><label for="chk-on4"><span class="label-txt">checked disabled</span></label></span>
-                <p><input type="checkbox" id="chk-on5" class="form__chk inp--error"><label for="chk-on5"><span class="label-txt">error</span></label></>
+                <p><input type="checkbox" id="chk-on1" class="form__chk"><label for="chk-on1"><span class="label-txt">기본</span></label></p>
+                <p><input type="checkbox" id="chk-on2" class="form__chk" checked><label for="chk-on2"><span class="label-txt">체크됨</span></label></p>
+                <p><input type="checkbox" id="chk-on3" class="form__chk" disabled><label for="chk-on3"><span class="label-txt">disabled</span></label></p>
+                <p><input type="checkbox" id="chk-on4" class="form__chk" checked disabled><label for="chk-on4"><span class="label-txt">checked disabled</span></label></p>
+                <p><input type="checkbox" id="chk-on5" class="form__chk inp--error"><label for="chk-on5"><span class="label-txt">error</span></label></p>
             </div>
         </div>
     </div>
 </div>
 <pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
-&lt;div class=&quot;scrollWrap ui-scrollview&quot; style=&quot;height:150px;&quot;&gt;
-    &lt;div class=&quot;ui-scrollbar&quot;&gt;&lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;scrollInner ui-scrollarea&quot;&gt;
-        &lt;div class=&quot;scrollview ui-content&quot;&gt;
-            &lt;div class=&quot;form-grp&quot;&gt;
-                &lt;p&gt;&lt;input type=&quot;checkbox&quot; id=&quot;chk-on1&quot; class=&quot;form__chk&quot;&gt;&lt;label for=&quot;chk-on1&quot;&gt;&lt;span class=&quot;label-txt&quot;&gt;기본&lt;/span&gt;&lt;/label&gt;&lt;/span&gt;
-                &lt;p&gt;&lt;input type=&quot;checkbox&quot; id=&quot;chk-on2&quot; class=&quot;form__chk&quot;checked&gt;&lt;label for=&quot;chk-on2&quot;&gt;&lt;span class=&quot;label-txt&quot;&gt;체크됨&lt;/span&gt;&lt;/label&gt;&lt;/span&gt;
-                &lt;p&gt;&lt;input type=&quot;checkbox&quot; id=&quot;chk-on3&quot; class=&quot;form__chk&quot;disabled&gt;&lt;label for=&quot;chk-on3&quot;&gt;&lt;span class=&quot;label-txt&quot;&gt;disabled&lt;/span&gt;&lt;/label&gt;&lt;/span&gt;
-                &lt;p&gt;&lt;input type=&quot;checkbox&quot; id=&quot;chk-on4&quot; class=&quot;form__chk&quot;checked disabled&gt;&lt;label for=&quot;chk-on4&quot;&gt;&lt;span class=&quot;label-txt&quot;&gt;checked disabled&lt;/span&gt;&lt;/label&gt;&lt;/span&gt;
-                &lt;p&gt;&lt;input type=&quot;checkbox&quot; id=&quot;chk-on5&quot; class=&quot;form__chk inp--error&quot;&gt;&lt;label for=&quot;chk-on5&quot;&gt;&lt;span class=&quot;label-txt&quot;&gt;error&lt;/span&gt;&lt;/label&gt;&lt;/&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+	<div class="scrollWrap ui-scrollview" style="height:150px;">
+		<div class="ui-scrollbar"><span class="bar"></span></div>
+		<div class="scrollInner ui-scrollarea">
+			<div class="scrollview ui-content">
+				<div class="form-grp">
+					<p><input type="checkbox" id="chk-on1" class="form__chk"><label for="chk-on1"><span class="label-txt">기본</span></label></p>
+					<p><input type="checkbox" id="chk-on2" class="form__chk" checked><label for="chk-on2"><span class="label-txt">체크됨</span></label></p>
+					<p><input type="checkbox" id="chk-on3" class="form__chk" disabled><label for="chk-on3"><span class="label-txt">disabled</span></label></p>
+					<p><input type="checkbox" id="chk-on4" class="form__chk" checked disabled><label for="chk-on4"><span class="label-txt">checked disabled</span></label></p>
+					<p><input type="checkbox" id="chk-on5" class="form__chk inp--error"><label for="chk-on5"><span class="label-txt">error</span></label></p>
+				</div>
+			</div>
+		</div>
+	</div>
 </pre>
 
 <h3>스크롤 아래로 하면 숨김 위로 하면 보여짐</h3>
