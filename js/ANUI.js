@@ -2369,7 +2369,15 @@ ANUI.module = (function () {
                     $fwindow.on('scroll resize', function () {
                         yPos = fgOffset - scrollTop / speed;
 
-                        $contentObj.css('top', yPos);
+						$contentObj.css('top', yPos);
+						
+						// console.log(
+						// 	$contentObj,
+						// 	'yPos' + yPos,
+						// 	'fgOffset' + fgOffset,
+						// 	'scrollTop' + scrollTop,
+						// 	'speed;' + speed,
+						// );
                     });
                 });
 
