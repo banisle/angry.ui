@@ -1,4 +1,3 @@
-// thenet UI LIB 0.7
 // banisle@gmail.com
 
 'use strict';
