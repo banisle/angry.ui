@@ -1,7 +1,7 @@
 <!-- gnb -->
 <h3>모바일 : 가로스크롤</h3>
 <p class="sub-txt">클릭시 활성화 센터정렬</p>
-<div class="mo__submenu-wrap ui-gnbCenter">
+<div class="mo__submenu-wrap aui-gnbCenter">
     <ul>
         <li><a href="#"><span>menu1</span></a></li>
         <li><a href="#"><span>menu2</span></a></li>
@@ -17,7 +17,7 @@
 </div>
 <!-- (sta) pre sample -->
 <pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
-	<div class="mo__submenu-wrap ui-gnbCenter">
+	<div class="mo__submenu-wrap aui-gnbCenter">
 		<ul>
 			<li><a href="#"><span>menu1</span></a></li>
 			<li><a href="#"><span>menu2</span></a></li>
@@ -36,7 +36,7 @@
 
 <h3>따라다니는 메뉴바</h3>
 <div>
-    <nav class="ui-tabList">
+    <nav class="aui-tabList">
         <ul>
             <li><a href="#sc_order">How to Order</a></li>
             <li><a href="#sc_program">Basic 4 Program</a></li>
@@ -47,14 +47,14 @@
     </nav>
 </div>
 <style>
-.ui-tabList{ position: relative; }
-.ui-tabList ul{position:relative;font-size:0;}
-.ui-tabList ul li{display:inline-block;margin:0 5%; transition:ease all .5s;}
-.ui-tabList ul li a{display:block;width:100%;height:90px;line-height:90px;font-size:16px;color:#000;font-weight:500;}
+.aui-tabList{ position: relative; }
+.aui-tabList ul{position:relative;font-size:0;}
+.aui-tabList ul li{display:inline-block;margin:0 5%; transition:ease all .5s;}
+.aui-tabList ul li a{display:block;width:100%;height:90px;line-height:90px;font-size:16px;color:#000;font-weight:500;}
 .floatBar { position: absolute; bottom: 0; height: 5px; background-color: #fbc737; transition: all ease .5s; }
 </style>
 <script>
-var $nav = $('.ui-tabList'),
+var $nav = $('.aui-tabList'),
     $a = $nav.find('> ul > li > a'),
     $sBar = $nav.find('.floatBar');
     
@@ -72,7 +72,7 @@ var $nav = $('.ui-tabList'),
 <!-- (sta) pre sample -->
 <pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
 &lt;div&gt;
-    &lt;nav class=&quot;ui-tabList&quot;&gt;
+    &lt;nav class=&quot;aui-tabList&quot;&gt;
         &lt;ul&gt;
             &lt;li&gt;&lt;a href=&quot;#sc_order&quot;&gt;How to Order&lt;/a&gt;&lt;/li&gt;
             &lt;li&gt;&lt;a href=&quot;#sc_program&quot;&gt;Basic 4 Program&lt;/a&gt;&lt;/li&gt;
@@ -83,14 +83,14 @@ var $nav = $('.ui-tabList'),
     &lt;/nav&gt;
 &lt;/div&gt;
 &lt;style&gt;
-.ui-tabList{ position: relative; }
-.ui-tabList ul{position:relative;font-size:0;}
-.ui-tabList ul li{display:inline-block;margin:0 5%; transition:ease all .5s;}
-.ui-tabList ul li a{display:block;width:100%;height:90px;line-height:90px;font-size:16px;color:#000;font-weight:500;font-family:&#39;jost&#39;, sans-serif;}
+.aui-tabList{ position: relative; }
+.aui-tabList ul{position:relative;font-size:0;}
+.aui-tabList ul li{display:inline-block;margin:0 5%; transition:ease all .5s;}
+.aui-tabList ul li a{display:block;width:100%;height:90px;line-height:90px;font-size:16px;color:#000;font-weight:500;font-family:&#39;jost&#39;, sans-serif;}
 .floatBar { position: absolute; bottom: 0; height: 5px; background-color: #fbc737; transition: all ease .5s; }
 &lt;/style&gt;
 &lt;script&gt;
-var $nav = $(&#39;.ui-tabList&#39;),
+var $nav = $(&#39;.aui-tabList&#39;),
     $a = $nav.find(&#39;&gt; ul &gt; li &gt; a&#39;),
     $sBar = $nav.find(&#39;.floatBar&#39;);
     
@@ -114,7 +114,7 @@ var $nav = $(&#39;.ui-tabList&#39;),
 
 <h3>기본 2depth </h3>
 <p class="sub-txt">ANUI.module.gnb2Ui() 호출</p>
-<ul role="menubar" class="menu2depth ui-menu2depth">
+<ul role="menubar" class="menu2depth aui-menu2depth">
     <li class=""><a href="" role="menuitem"><span>depth1</span></a></li>
     <li class=""><a href="" role="menuitem"><span>depth2</span></a></li>
     <li><a href="" role="menuitem"><span>depth3</span></a>
@@ -133,7 +133,7 @@ var $nav = $(&#39;.ui-tabList&#39;),
 </ul>
 
 <pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
-&lt;ul role=&quot;menubar&quot; class=&quot;menu2depth ui-menu2depth&quot;&gt;
+&lt;ul role=&quot;menubar&quot; class=&quot;menu2depth aui-menu2depth&quot;&gt;
     &lt;li class=&quot;&quot;&gt;&lt;a href=&quot;&quot; role=&quot;menuitem&quot;&gt;&lt;span&gt;depth1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;&quot;&gt;&lt;a href=&quot;&quot; role=&quot;menuitem&quot;&gt;&lt;span&gt;depth2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;&quot; role=&quot;menuitem&quot;&gt;&lt;span&gt;depth3&lt;/span&gt;&lt;/a&gt;
@@ -156,7 +156,7 @@ var $nav = $(&#39;.ui-tabList&#39;),
 <h3>top버튼</h3>
 <p class="sub-txt">ANUI.module.scrlTopUi({right 인자값, 없을시 0}) 호출</p>
 <!-- (sta) 맨위로 -->
-<button type="button" class="ui-scrlTop"><span class="hidden">맨 위로</span></button>
+<button type="button" class="aui-scrlTop"><span class="hidden">맨 위로</span></button>
 <!-- (end) 맨위로 -->
 
 <script>

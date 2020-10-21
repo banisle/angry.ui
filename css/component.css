@@ -47,11 +47,11 @@ input[type=text] {
 	box-sizing: border-box
 }
 
-.ui-hasDelForm>input {
+.aui-hasDelForm>input {
 	padding-right: 30px;
 }
 
-input[type=text]+.ui-deltxt {
+input[type=text]+.aui-deltxt {
 	display: inline-block;
 	width: 15px;
 	height: 15px;
@@ -65,7 +65,7 @@ input[type=text]+.ui-deltxt {
 	z-index: 10;
 }
 
-input[type=text]+.ui-deltxt.hidden {
+input[type=text]+.aui-deltxt.hidden {
 	display: none;
 }
 
@@ -593,8 +593,8 @@ input+label>.label-txt {
 	vertical-align: middle
 }
 
-/* //mark: ui-tab */
-ul.ui-tab {
+/* //mark: aui-tab */
+ul.aui-tab {
 	width: 100%;
 	display: table;
 	border-collapse: collapse;
@@ -602,29 +602,29 @@ ul.ui-tab {
 	box-sizing: border-box;
 }
 
-ul.ui-tab li {
+ul.aui-tab li {
 	position: relative;
 	width: 33.3333%;
 	display: table-cell;
 	border: 1px solid #333;
 }
 
-ul.ui-tab li span {
+ul.aui-tab li span {
 	display: block;
 	width: 100%;
 	line-height: 28px;
 	color: #2b2b2b;
 }
 
-.ui-tab-btn {
+.aui-tab-btn {
 	display: block;
 	width: 100%;
 	padding: 2px;
 	box-sizing: border-box;
 }
 
-.ui-tab-wrap input+label.ui-tab-btn:before,
-.ui-tab-btn:before {
+.aui-tab-wrap input+label.aui-tab-btn:before,
+.aui-tab-btn:before {
 	display: block;
 	content: '';
 	background: #eee;
@@ -636,8 +636,8 @@ ul.ui-tab li span {
 	z-index: -1;
 }
 
-.ui-tab-wrap input:checked+label.ui-tab-btn:after,
-.ui-tab-btn.on:after {
+.aui-tab-wrap input:checked+label.aui-tab-btn:after,
+.aui-tab-btn.on:after {
 	content: '';
 	display: block;
 	position: absolute;
@@ -648,7 +648,7 @@ ul.ui-tab li span {
 	border: 3px solid rgba(255, 0, 0, 1);
 }
 
-.ui-tab-wrap input:focus+label.ui-tab-btn:after {
+.aui-tab-wrap input:focus+label.aui-tab-btn:after {
 	content: '';
 	display: block;
 	position: absolute;
@@ -660,7 +660,7 @@ ul.ui-tab li span {
 	box-shadow: 0px 0px 1px #4d90fe;
 }
 
-.ui-tab-list {
+.aui-tab-list {
 	display: none;
 	width: 100%;
 	padding: 10px;
@@ -669,7 +669,7 @@ ul.ui-tab li span {
 	box-sizing: border-box
 }
 
-.ui-tab-list.on {
+.aui-tab-list.on {
 	display: block;
 }
 
@@ -698,14 +698,14 @@ html.mobile .form__select {
 	border: 1px solid #aaa;
 }
 
-.select-wrap.ui-selectbox {
+.select-wrap.aui-selectbox {
 	position: relative;
 	font-family: 'Font Awesome 5 Free';
 	font-weight: 900;
 	color: #333;
 }
 
-.select-wrap.ui-selectbox:after {
+.select-wrap.aui-selectbox:after {
 	content: "\f107";
 	position: absolute;
 	z-index: 1111;
@@ -714,7 +714,7 @@ html.mobile .form__select {
 	right: 10px;
 }
 
-.select-wrap.ui-selectbox.active.ui-result-active:after {
+.select-wrap.aui-selectbox.active.aui-result-active:after {
 	content: "\f106";
 	position: absolute;
 	z-index: 1111;
@@ -723,7 +723,7 @@ html.mobile .form__select {
 	right: 10px;
 }
 
-.select-wrap.ui-selectbox .ui-result-ul {
+.select-wrap.aui-selectbox .aui-result-ul {
 	display: none;
 	position: absolute;
 	top: 100%;
@@ -740,7 +740,7 @@ html.mobile .form__select {
 	box-sizing: border-box
 }
 
-.select-wrap.ui-selectbox.active.ui-result-active .ui-result-ul {
+.select-wrap.aui-selectbox.active.aui-result-active .aui-result-ul {
 	overflow-y: auto;
 	display: block;
 	max-height: 140px;
@@ -753,7 +753,7 @@ html.mobile .form__select {
 	z-index: 1112;
 }
 
-.select-wrap.ui-selectbox.active.ui-result-active .ui-result-ul button {
+.select-wrap.aui-selectbox.active.aui-result-active .aui-result-ul button {
 	display: block;
 	width: 100%;
 	padding: 8px;
@@ -762,21 +762,21 @@ html.mobile .form__select {
 	text-align: left;
 }
 
-.select-wrap.ui-selectbox.active.ui-result-active .ui-result-ul button:disabled {
+.select-wrap.aui-selectbox.active.aui-result-active .aui-result-ul button:disabled {
 	cursor: default;
 }
 
-.select-wrap.ui-selectbox.active.ui-result-active .ui-result-ul button:hover,
-.select-wrap.ui-selectbox.active.ui-result-active .ui-result-ul button:focus,
-.select-wrap.ui-selectbox.active.ui-result-active .ui-result-ul button:active {
+.select-wrap.aui-selectbox.active.aui-result-active .aui-result-ul button:hover,
+.select-wrap.aui-selectbox.active.aui-result-active .aui-result-ul button:focus,
+.select-wrap.aui-selectbox.active.aui-result-active .aui-result-ul button:active {
 	background: #c1c1c1;
 }
 
-.select-wrap.ui-selectbox .pc_selwrap {
+.select-wrap.aui-selectbox .pc_selwrap {
 	position: relative;
 }
 
-.select-wrap.ui-selectbox .pc_selwrap>div.selOneWrap {
+.select-wrap.aui-selectbox .pc_selwrap>div.selOneWrap {
 	position: relative;
 	display: block;
 	overflow: hidden;
@@ -796,7 +796,7 @@ html.mobile .form__select {
 	box-sizing: border-box
 }
 
-.select-wrap.ui-selectbox .pc_selwrap>div.selOneWrap .ui-selected-one {
+.select-wrap.aui-selectbox .pc_selwrap>div.selOneWrap .aui-selected-one {
 	overflow: hidden;
 	float: left;
 	width: 100%;
@@ -809,7 +809,7 @@ html.mobile .form__select {
 	text-indent: 8px;
 }
 
-.select-wrap.ui-selectbox.active.ui-result-active .pc_selwrap>div.selOneWrap {
+.select-wrap.aui-selectbox.active.aui-result-active .pc_selwrap>div.selOneWrap {
 	border: 1px solid #aaa;
 	border-bottom-right-radius: 0;
 	border-bottom-left-radius: 0;
@@ -1301,7 +1301,7 @@ html.mobile .form__select {
 }
 
 /* //mark:  top버튼 */
-.ui-scrlTop {
+.aui-scrlTop {
 	display: none;
 	width: 39px;
 	height: 38px;
@@ -1523,7 +1523,7 @@ html.mobile .form__select {
 
 
 /* //mark:  tooltip */
-.ui-tooltipbox a {
+.aui-tooltipbox a {
 	display: inline-block;
 	padding: 10px 15px;
 	background: #450e4c;
@@ -1581,17 +1581,17 @@ html.mobile .form__select {
 
 
 /* //mark:  scroll */
-.ui-scrollview {
+.aui-scrollview {
 	overflow: hidden;
 	position: relative;
 	height: 100%;
 }
 
-.ui-scrollview:hover .ui-scrollbar {
+.aui-scrollview:hover .aui-scrollbar {
 	opacity: 1;
 }
 
-.ui-scrollarea {
+.aui-scrollarea {
 	overflow-x: hidden;
 	overflow-y: auto;
 	position: absolute;
@@ -1599,7 +1599,7 @@ html.mobile .form__select {
 }
 
 /* 스크롤바 크기 만큼 + padding-right */
-.ui-content {
+.aui-content {
 	padding-right: 15px;
 	-webkit-user-select: none !important;
 	-moz-user-select: none !important;
@@ -1607,11 +1607,11 @@ html.mobile .form__select {
 	user-select: none !important;
 }
 
-.ui-content::-webkit-scrollbar {
+.aui-content::-webkit-scrollbar {
 	display: none;
 }
 
-.ui-scrollbar {
+.aui-scrollbar {
 	opacity: 0;
 	overflow: hidden;
 	position: absolute;
@@ -1624,7 +1624,7 @@ html.mobile .form__select {
 	transition: all .5s linear;
 }
 
-.ui-scrollbar .bar {
+.aui-scrollbar .bar {
 	display: block;
 	position: absolute;
 	top: 0;
@@ -1636,7 +1636,7 @@ html.mobile .form__select {
 	/* cursor: pointer; */
 }
 
-.ui-scrollbar .bar:hover {
+.aui-scrollbar .bar:hover {
 	background: #555
 }
 
@@ -1644,36 +1644,36 @@ html.mobile .form__select {
 	line-height: 1.6
 }
 
-html.mobile .ui-scrollview {
+html.mobile .aui-scrollview {
 	overflow-y: auto;
 }
 
-html.mobile .ui-scrollbar {
+html.mobile .aui-scrollbar {
 	display: none;
 }
 
-html.mobile .ui-scrollarea {
+html.mobile .aui-scrollarea {
 	position: relative;
 	overflow: unset;
 }
 
-html.mobile .ui-content {
+html.mobile .aui-content {
 	overflow: unset;
 	padding: 0;
 }
 
 
 /* //mark:  어코디언 */
-.ui-accordian.sub-accord {
+.aui-accordian.sub-accord {
 	padding: 10px;
 }
 
-.ui-accordian h3.acco-btn {
+.aui-accordian h3.acco-btn {
 	padding: 0;
 	margin: 0;
 }
 
-.ui-accordian h3.acco-btn .ui-btn-acco {
+.aui-accordian h3.acco-btn .aui-btn-acco {
 	display: block;
 	width: 100%;
 	padding: 10px;
@@ -1687,7 +1687,7 @@ html.mobile .ui-content {
 	color: #333;
 }
 
-.ui-accordian h3.acco-btn .ui-btn-acco:after {
+.aui-accordian h3.acco-btn .aui-btn-acco:after {
 	content: "\f107";
 	position: absolute;
 	z-index: 1111;
@@ -1696,7 +1696,7 @@ html.mobile .ui-content {
 	right: 10px;
 }
 
-.ui-accordian li.active .ui-btn-acco:after {
+.aui-accordian li.active .aui-btn-acco:after {
 	content: "\f106";
 	position: absolute;
 	z-index: 1111;
@@ -1705,12 +1705,12 @@ html.mobile .ui-content {
 	right: 10px;
 }
 
-.ui-accordian .ui-acco-ct {
+.aui-accordian .aui-acco-ct {
 	overflow: hidden;
 	height: 0px;
 }
 
-.ui-accordian .acco-ct {
+.aui-accordian .acco-ct {
 	display: block;
 	width: 100%;
 	padding: 10px;
@@ -1720,40 +1720,40 @@ html.mobile .ui-content {
 	box-sizing: border-box;
 }
 
-.ui-accordian li {
+.aui-accordian li {
 	border: 1px solid #c0c0c0;
 	border-bottom: 0;
 	box-sizing: border-box;
 	transition: all ease .5s;
 }
 
-.ui-accordian li:last-child {
+.aui-accordian li:last-child {
 	border-bottom: 1px solid #c0c0c0
 }
 
-.ui-accordian li.active {
+.aui-accordian li.active {
 	border: 1px solid red;
 	border-bottom: 0;
 }
 
-.ui-accordian li.active+li {
+.aui-accordian li.active+li {
 	border-top: 1px solid red;
 }
 
-.ui-accordian li.active:last-child {
+.aui-accordian li.active:last-child {
 	border-bottom: 1px solid red
 }
 
-.ui-accordian li:hover {
+.aui-accordian li:hover {
 	border-color: #333;
 	border-top: 1px solid #333 !important
 }
 
-.ui-accordian li:hover+li {
+.aui-accordian li:hover+li {
 	border-top: 1px solid #333
 }
 
-.ui-accordian li:last-child:hover {
+.aui-accordian li:last-child:hover {
 	border-bottom: 1px solid #333
 }
 
@@ -1966,23 +1966,23 @@ html.mobile .ui-content {
 
 
 /* //mark:  swipe */
-.ui-swipe-wrap {
+.aui-swipe-wrap {
 	overflow-x: hidden;
 }
 
-.ui-swipe-wrap .container {
+.aui-swipe-wrap .container {
 	position: relative;
 	width: 100%;
 	height: 100px;
 }
 
-.ui-swipe-wrap .container [data-item] {
+.aui-swipe-wrap .container [data-item] {
 	float: left;
 	height: 100%;
 	/* pointer-events: none; */
 }
 
-.ui-swipe-wrap .ui-bullet .active {
+.aui-swipe-wrap .aui-bullet .active {
 	color: red;
 }
 
@@ -2050,7 +2050,7 @@ html.mobile .ui-content {
 	right: 0
 }
 
-.ui-tabAnchor.fixed-on {
+.aui-tabAnchor.fixed-on {
 	position: fixed;
 	top: 0;
 	padding-top: 0;
@@ -2079,17 +2079,17 @@ html.mobile .ui-content {
 }
 
 /* //mark : parallax  */
-.ui-parallax {}
+.aui-parallax {}
 
-/* .ui-parallax.container {display: flex;  display: -webkit-box; display: -webkit-flex; display: -ms-flexbox;  -webkit-align-content: center; -ms-flex-line-pack: center; align-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; height: 100%; -webkit-justify-content: space-around; -ms-flex-pack: distribute; justify-content: space-around; position: relative; width: 100%; } */
-.ui-parallax.container {
+/* .aui-parallax.container {display: flex;  display: -webkit-box; display: -webkit-flex; display: -ms-flexbox;  -webkit-align-content: center; -ms-flex-line-pack: center; align-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; height: 100%; -webkit-justify-content: space-around; -ms-flex-pack: distribute; justify-content: space-around; position: relative; width: 100%; } */
+.aui-parallax.container {
 	height: 100%;
 	position: relative;
 	width: 100%;
 }
 
-/* .ui-parallax.container section { width: 100%; height: 100vh; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; text-align: center; position: relative; overflow: hidden; background-color: #000; } */
-.ui-parallax.container section {
+/* .aui-parallax.container section { width: 100%; height: 100vh; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; text-align: center; position: relative; overflow: hidden; background-color: #000; } */
+.aui-parallax.container section {
 	width: 100%;
 	height: 100vh;
 	text-align: center;
@@ -2098,31 +2098,31 @@ html.mobile .ui-content {
 	background-color: #000;
 }
 
-.ui-parallax.container section:nth-child(1) .image {
+.aui-parallax.container section:nth-child(1) .image {
 	background-color: red;
 }
 
-.ui-parallax.container section:nth-child(2) .image {
+.aui-parallax.container section:nth-child(2) .image {
 	background-color: blue;
 }
 
-.ui-parallax.container section:nth-child(3) .image {
+.aui-parallax.container section:nth-child(3) .image {
 	background-color: cyan;
 }
 
-.ui-parallax.container section:nth-child(4) .image {
+.aui-parallax.container section:nth-child(4) .image {
 	background-color: mediumseagreen;
 }
 
-.ui-parallax.container section:nth-child(5) .image {
+.aui-parallax.container section:nth-child(5) .image {
 	background-color: mediumorchid;
 }
 
-.ui-parallax.container section:nth-child(6) .image {
+.aui-parallax.container section:nth-child(6) .image {
 	background-color: yellow;
 }
 
-.ui-parallax.container section .image {
+.aui-parallax.container section .image {
 	background-attachment: fixed;
 	background-size: cover;
 	width: 100%;
@@ -2132,8 +2132,8 @@ html.mobile .ui-content {
 	opacity: 0.4;
 }
 
-/* .ui-parallax.container section .stuff { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; height: 100%; width: 100%; max-width: 70%; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; text-align: center; z-index: 1000; color: #e67e22; margin: 0 auto; font-size: 26px; position: relative; } */
-.ui-parallax.container section .stuff {
+/* .aui-parallax.container section .stuff { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; height: 100%; width: 100%; max-width: 70%; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; text-align: center; z-index: 1000; color: #e67e22; margin: 0 auto; font-size: 26px; position: relative; } */
+.aui-parallax.container section .stuff {
 	height: 100%;
 	width: 100%;
 	max-width: 70%;
@@ -2145,12 +2145,12 @@ html.mobile .ui-content {
 	position: relative;
 }
 
-.ui-parallax.container section .stuff h2 {
+.aui-parallax.container section .stuff h2 {
 	margin: 0px;
 }
 
-.ui-parallax.container section .stuff:before,
-.ui-parallax.container section .stuff:after {
+.aui-parallax.container section .stuff:before,
+.aui-parallax.container section .stuff:after {
 	width: 100%;
 	height: 1px;
 	display: block;
@@ -2367,7 +2367,7 @@ html.mobile .ui-content {
 	display: inline-block;
 }
 
-.ui-addFile {
+.aui-addFile {
 	position: relative;
 	display: inline-block;
 	width: 100%;
@@ -2378,13 +2378,13 @@ html.mobile .ui-content {
 	box-sizing: border-box;
 }
 
-.ui-addFile .file {
+.aui-addFile .file {
 	width: 100%;
 	position: relative;
 	display: block;
 }
 
-.ui-addFile .file button.delete {
+.aui-addFile .file button.delete {
 	display: none;
 	position: absolute;
 	width: 16px;
@@ -2396,12 +2396,12 @@ html.mobile .ui-content {
 	font-size: 0px;
 }
 
-.ui-addFile.on .file button.delete {
+.aui-addFile.on .file button.delete {
 	display: block;
 	cursor: pointer;
 }
 
-.ui-addFile .file .loc {
+.aui-addFile .file .loc {
 	vertical-align: middle;
 	white-space: nowrap;
 	overflow: hidden;
@@ -2418,13 +2418,13 @@ html.mobile .ui-content {
 	outline: none;
 }
 
-.ui-addFile .btnAttach {
+.aui-addFile .btnAttach {
 	position: absolute;
 	right: 0px;
 	top: 0px;
 }
 
-.ui-addFile .btnAttach {
+.aui-addFile .btnAttach {
 	width: 80px;
 	display: inline-block;
 	position: absolute;
@@ -2443,15 +2443,15 @@ html.mobile .ui-content {
 	letter-spacing: 0;
 }
 
-.ui-addFile .btnAttach .fileButton {
+.aui-addFile .btnAttach .fileButton {
 	width: 100%;
 	font-size: 18px;
 	line-height: 51px;
 }
 
-.ui-addFile .btnAttach .bt {}
+.aui-addFile .btnAttach .bt {}
 
-.ui-addFile .btnAttach .fileInput {
+.aui-addFile .btnAttach .fileInput {
 	font-size: 100px;
 	position: absolute;
 	right: 0px;
@@ -2466,27 +2466,27 @@ html.mobile .ui-content {
 	border: none;
 }
 
-/* //mark: ui-star rating */
-.ui-star .rating-group {
+/* //mark: aui-star rating */
+.aui-star .rating-group {
 	/* display: inline-flex; */
 	font-size: 0;
 }
 
-.ui-star .star {
+.aui-star .star {
 	display: block;
 	width: 14px;
 	height: 14px;
 	background: url('../img/icn_ir.png') -144px -32px no-repeat;
 }
 
-.ui-star .star-half {
+.aui-star .star-half {
 	display: block;
 	width: 7px;
 	height: 14px;
 	background: url('../img/icn_ir.png') -144px -32px no-repeat;
 }
 
-.ui-star .star:before {
+.aui-star .star:before {
 	content: '';
 	display: block;
 	width: 14px;
@@ -2496,7 +2496,7 @@ html.mobile .ui-content {
 	transition: all .3s ease;
 }
 
-.ui-star .star-half:before {
+.aui-star .star-half:before {
 	content: '';
 	display: block;
 	width: 7px;
@@ -2507,11 +2507,11 @@ html.mobile .ui-content {
 }
 
 
-.ui-star .rating__icon {
+.aui-star .rating__icon {
 	pointer-events: none;
 }
 
-.ui-star .rating__label {
+.aui-star .rating__label {
 	display: inline-block;
 	/* 별 이미지 사이즈 높이 */
 	height: 14px;
@@ -2520,7 +2520,7 @@ html.mobile .ui-content {
 	cursor: pointer;
 }
 
-.ui-star .rating__label--half {
+.aui-star .rating__label--half {
 	position: absolute;
 	z-index: 2;
 	padding-right: 0;
@@ -2528,28 +2528,28 @@ html.mobile .ui-content {
 	margin-right: -17px;
 }
 
-.ui-star .rating__icon--star:before {
+.aui-star .rating__icon--star:before {
 	opacity: 1;
 }
 
-.ui-star .rating__icon-[class*=--no]ne:before {
+.aui-star .rating__icon-[class*=--no]ne:before {
 	opacity: 0;
 
 }
 
-.ui-star .rating__input:checked~.rating__label .rating__icon--star:before {
+.aui-star .rating__input:checked~.rating__label .rating__icon--star:before {
 	opacity: 0;
 
 }
 
-.ui-star .rating-group:hover .rating__label .rating__icon--star:before,
-.ui-star .rating-group:hover .rating__label--half .rating__icon--star:before {
+.aui-star .rating-group:hover .rating__label .rating__icon--star:before,
+.aui-star .rating-group:hover .rating__label--half .rating__icon--star:before {
 	opacity: 1;
 
 }
 
-.ui-star .rating__input:hover~.rating__label .rating__icon--star:before,
-.ui-star .rating__input:hover~.rating__label--half .rating__icon--star:before {
+.aui-star .rating__input:hover~.rating__label .rating__icon--star:before,
+.aui-star .rating__input:hover~.rating__label--half .rating__icon--star:before {
 	opacity: 0;
 }
 

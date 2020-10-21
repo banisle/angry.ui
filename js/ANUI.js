@@ -179,12 +179,12 @@ ANUI.module = (function () {
     return {
         // mark : tabUi
         tabUi: function () {
-            var uiTabWrap = $('.ui-tab-wrap'),
-                uiTab = uiTabWrap.find('.ui-tab'),
-                uiTabBtn = uiTab.find('.ui-tab-btn'),
-                uiTabBtnA = $('a.ui-tab-btn'),
-                uiTabBtnRad = $('label.ui-tab-btn').prev('input[type=radio]'),
-                uiTabList = $('.ui-tab-list'),
+            var uiTabWrap = $('.aui-tab-wrap'),
+                uiTab = uiTabWrap.find('.aui-tab'),
+                uiTabBtn = uiTab.find('.aui-tab-btn'),
+                uiTabBtnA = $('a.aui-tab-btn'),
+                uiTabBtnRad = $('label.aui-tab-btn').prev('input[type=radio]'),
+                uiTabList = $('.aui-tab-list'),
                 index;
 
 
@@ -340,7 +340,7 @@ ANUI.module = (function () {
         selectUi: function () {
             var selId,
                 selectUibox,
-                $selWrap = $('.select-wrap.ui-selectbox'),
+                $selWrap = $('.select-wrap.aui-selectbox'),
                 $selBox,
                 $optGrp,
                 scrollOn = false;
@@ -355,7 +355,7 @@ ANUI.module = (function () {
                     if ($selWrap) {
                         if (!$selWrap.find(e.target).length) {
                             //셀렉트 결과 창 닫기
-                            $selWrap.removeClass('active ui-result-active');
+                            $selWrap.removeClass('active aui-result-active');
                         }
                     }
                 });
@@ -379,7 +379,7 @@ ANUI.module = (function () {
                 // 중복생성 체크
                 if ($selBox.closest($selWrap).find('.pc_selwrap').length < 1) {
                     $selBox.closest($selWrap)
-                        .append($('<div class="pc_selwrap"><div class="selOneWrap"><button class="ui-selected-one" aria-haspopup="listbox" aria-labelledby="sel_' + selId + '">' + $selBox.find(':selected').text() + '</button></div><div class="ui-result-ul" tabindex="-1" role="listbox" ><ul></ul></div>'));
+                        .append($('<div class="pc_selwrap"><div class="selOneWrap"><button class="aui-selected-one" aria-haspopup="listbox" aria-labelledby="sel_' + selId + '">' + $selBox.find(':selected').text() + '</button></div><div class="aui-result-ul" tabindex="-1" role="listbox" ><ul></ul></div>'));
 
                     $selBox.find($optGrp).each(function (i) {
                         var isDisabled = $(this).prop('disabled') ? 'disabled' : '',
@@ -399,7 +399,7 @@ ANUI.module = (function () {
                     $selBox.closest($selWrap).find('ul').html(appendLi);
 
                     // 옵션 ul 높이 구하기
-                    var $uiResult = $selBox.closest($selWrap).find('.ui-result-ul'),
+                    var $uiResult = $selBox.closest($selWrap).find('.aui-result-ul'),
                         uiResultH = Number($uiResult.css('height').split('px')[0]),
                         uiResultulH = $uiResult.show().find('ul').outerHeight();
                     // console.log($selBox,uiResultH,uiResultulH);
@@ -408,9 +408,9 @@ ANUI.module = (function () {
 
                         scrollOn = 'true';
                         $uiResult.find('ul')
-                            .wrapAll('<div class="scrollWrap ui-scrollview"><div class="scrollInner ui-scrollarea"><div class="scrollview ui-content"></div></div></div>');
+                            .wrapAll('<div class="scrollWrap aui-scrollview"><div class="scrollInner aui-scrollarea"><div class="scrollview aui-content"></div></div></div>');
 
-                        $uiResult.find('.ui-scrollview').prepend('<div class="ui-scrollbar"><span class="bar"></span></div>');
+                        $uiResult.find('.aui-scrollview').prepend('<div class="aui-scrollbar"><span class="bar"></span></div>');
 
                     }
 
@@ -424,8 +424,8 @@ ANUI.module = (function () {
 
             selectUibox.prototype.selUpdate = function () {
                 var $selBox = $('#' + selId + ''),
-                    $selectedOne = $selBox.closest($selWrap).find('.ui-selected-one'),
-                    $uiResult = $selBox.closest($selWrap).find('.ui-result-ul'),
+                    $selectedOne = $selBox.closest($selWrap).find('.aui-selected-one'),
+                    $uiResult = $selBox.closest($selWrap).find('.aui-result-ul'),
                     isHidden = $selBox.find('option').prop('hidden') ? true : false;
 
                 $uiResult.find('button').on('click', function (e) {
@@ -436,7 +436,7 @@ ANUI.module = (function () {
                     // 선택된 값 출력
                     $selectedOne.text($selBox.find('option').eq(index).text()).removeAttr('aria-expanded');
                     //셀렉트 결과 창 닫기
-                    $selWrap.removeClass('ui-result-active');
+                    $selWrap.removeClass('aui-result-active');
                     //셀렉트박스 포커스
                     $(this).closest($selWrap).find($selectedOne).focus();
 
@@ -447,7 +447,7 @@ ANUI.module = (function () {
 
             selectUibox.prototype.selOne = function () {
                 var $selBox = $('#' + selId + ''),
-                    $selectedOne = $selBox.closest($selWrap).find('.ui-selected-one');
+                    $selectedOne = $selBox.closest($selWrap).find('.aui-selected-one');
 
 
                 $selectedOne.on('click', function (e) {
@@ -455,9 +455,9 @@ ANUI.module = (function () {
                     if ($selBox.prop('disabled')) {
                         return false;
                     }
-                    $selWrap.removeClass('active ui-result-active');
+                    $selWrap.removeClass('active aui-result-active');
                     $selectedOne.removeAttr('aria-expanded');
-                    $(this).attr('aria-expanded', true).closest($selWrap).removeClass('active ui-result-active').addClass('active ui-result-active');
+                    $(this).attr('aria-expanded', true).closest($selWrap).removeClass('active aui-result-active').addClass('active aui-result-active');
                     e.preventDefault();
                     // 스크롤 길때 스크롤 ui호출
                     if (scrollOn == 'true') {
@@ -485,7 +485,7 @@ ANUI.module = (function () {
         // mark :tooltipUi
         tooltipUi: function (arrW, arrH, opt) {
             var tooltip,
-                $tooltip = $('.ui-tooltipbox a'),
+                $tooltip = $('.aui-tooltipbox a'),
                 opt = opt || 0; // 페이드 효과 없엘때 0으로;
 
 
@@ -735,10 +735,10 @@ ANUI.module = (function () {
 
             if (!isMobile) {
 
-                var scrollWrap = $('.ui-scrollview'),
-                    scrollArea = scrollWrap.find('.ui-scrollarea'),
-                    scrollCt = scrollArea.find('.ui-content'),
-                    scrollBar = scrollWrap.find('.ui-scrollbar'),
+                var scrollWrap = $('.aui-scrollview'),
+                    scrollArea = scrollWrap.find('.aui-scrollarea'),
+                    scrollCt = scrollArea.find('.aui-content'),
+                    scrollBar = scrollWrap.find('.aui-scrollbar'),
                     barCursor = scrollBar.find('.bar'),
                     down = false,
                     rangeTop,
@@ -770,7 +770,7 @@ ANUI.module = (function () {
                     // scrollbar 위치 구하기
                     scrollArea.on('scroll', function () {
                         var t = $(this),
-                            wrapH = t.find('.ui-content').prop('scrollHeight'),
+                            wrapH = t.find('.aui-content').prop('scrollHeight'),
                             wrapOrgH = t.parent().height(),
                             barCursor = t.parent().find('.bar'),
                             barSize = barCursor.height(),
@@ -811,7 +811,7 @@ ANUI.module = (function () {
                             barCursor = t.closest(scrollWrap).find('.bar'),
                             barSize = parseFloat(barCursor.height()) / 2,
                             curTop = e.pageY - rangeTop - barSize,
-                            curScTop = Math.round((curTop * 100) / (rangeSize - (barSize * 2)) * (scrollCt.find('.ui-content').prop('scrollHeight') - scrollCt.height()) / 100);
+                            curScTop = Math.round((curTop * 100) / (rangeSize - (barSize * 2)) * (scrollCt.find('.aui-content').prop('scrollHeight') - scrollCt.height()) / 100);
 
                         // console.log('updateDrag',e.pageY,rangeTop,barSize);
 
@@ -845,9 +845,9 @@ ANUI.module = (function () {
         },
         // mark : accoUi
         accoUi: function () {
-            var uiAccoWrap = $('.ui-accordian'),
-                uiAccobtn = uiAccoWrap.find('.ui-btn-acco'),
-                uiAccoCt = uiAccoWrap.find('.ui-acco-ct'),
+            var uiAccoWrap = $('.aui-accordian'),
+                uiAccobtn = uiAccoWrap.find('.aui-btn-acco'),
+                uiAccoCt = uiAccoWrap.find('.aui-acco-ct'),
                 ArrBtn = Array.prototype.slice.call(uiAccobtn),
                 ArrSubBtn = ArrBtn.filter(function (i) {
                     return $(i).hasClass('sub');
@@ -959,7 +959,7 @@ ANUI.module = (function () {
                         //서브 아코디언 있을경우 
                         if ($(target).is('.sub-has') && $(target).attr('aria-expanded') == 'false') {
                             direction == 1 ? newIndex = newIndex + ArrSubBtn.length : newIndex;
-                        } else if ($(target).is('.ui-sub-next') && $(target).closest('[data-li]').prev().find(uiAccobtn).attr('aria-expanded') == 'false') {
+                        } else if ($(target).is('.aui-sub-next') && $(target).closest('[data-li]').prev().find(uiAccobtn).attr('aria-expanded') == 'false') {
                             direction == -1 ? newIndex = newIndex - ArrSubBtn.length : newIndex;
                         };
 
@@ -992,10 +992,10 @@ ANUI.module = (function () {
             opendSt.trigger('click');
             uiAccoWrap.each(function () {
                 var t = $(this);
-                t.find('.ui-btn-acco').last().addClass('last');
+                t.find('.aui-btn-acco').last().addClass('last');
             });
             // 서브 어코디언 있을때 다음 어코디언(키맵핑)에 클래스 추가
-            if ($('.sub-has').length !== 0) $('.sub-has').closest('[data-li]').next().find(uiAccobtn).addClass('ui-sub-next');
+            if ($('.sub-has').length !== 0) $('.sub-has').closest('[data-li]').next().find(uiAccobtn).addClass('aui-sub-next');
 
             console.log('accoUi');
 
@@ -1759,7 +1759,7 @@ ANUI.module = (function () {
         // mark : swiperUi
         swipeUi: function (container_id, opt) {
             var swipeUiIn,
-                $swipeWrap = $('.ui-swipe-wrap'),
+                $swipeWrap = $('.aui-swipe-wrap'),
                 sWW = $swipeWrap.width(),
                 t = $('#' + container_id + ''),
                 c = t.children('[data-item]'),
@@ -1774,8 +1774,8 @@ ANUI.module = (function () {
                     'transition2': opt.transition2 || 100, // 원복할때 모션 속도
                     'thresold': opt.thresold || .2 //감도(%)
                 },
-                $prevBtn = t.closest($swipeWrap).find('.ui-swipe-btn .ui-btn-prev'),
-                $nextBtn = t.closest($swipeWrap).find('.ui-swipe-btn .ui-btn-next');
+                $prevBtn = t.closest($swipeWrap).find('.aui-swipe-btn .aui-btn-prev'),
+                $nextBtn = t.closest($swipeWrap).find('.aui-swipe-btn .aui-btn-next');
 
 
             function unify(e) {
@@ -1786,7 +1786,7 @@ ANUI.module = (function () {
             swipeUiIn = function () {
                 this.init();
                 var thisObj = this,
-                    $bullet = $('.ui-bullet button');
+                    $bullet = $('.aui-bullet button');
 
 
                 $swipeWrap.on('mousedown touchstart', function (e) {
@@ -1875,15 +1875,15 @@ ANUI.module = (function () {
             swipeUiIn.prototype.createBullet = function () {
                 var appendBul = '';
 
-                t.closest($swipeWrap).append($('<div class="ui-bullet">'));
+                t.closest($swipeWrap).append($('<div class="aui-bullet">'));
                 c.each(function (i) {
                     appendBul += '<button data-bullet="b' + i + '">' + i + '</button>';
                 });
-                t.closest($swipeWrap).find('.ui-bullet').html(appendBul);
+                t.closest($swipeWrap).find('.aui-bullet').html(appendBul);
             };
 
             swipeUiIn.prototype.bulletOn = function () {
-                var $bullet = $('.ui-bullet');
+                var $bullet = $('.aui-bullet');
 
                 $bullet.children().removeClass('active').eq(i).addClass('active');
             };
@@ -2086,14 +2086,14 @@ ANUI.module = (function () {
         // mark : input del
         inputDelUi: function () {
             var inpTxtDel = function () {
-                var $inp_form = $('.ui-hasDelForm'),
-                    $inp = $inp_form.find('input.ui-hasDel'),
-                    $btnDel = $('.ui-deltxt'),
+                var $inp_form = $('.aui-hasDelForm'),
+                    $inp = $inp_form.find('input.aui-hasDel'),
+                    $btnDel = $('.aui-deltxt'),
                     isOpen = false;
 
                 // 삭제 버튼 생성
                 var createDelbtn = function (e) {
-                    var $btn = '<button type="button" class="ui-deltxt" title="내용 삭제"></button>',
+                    var $btn = '<button type="button" class="aui-deltxt" title="내용 삭제"></button>',
                         $this = $(e);
 
                     $this.append($btn);
@@ -2103,7 +2103,7 @@ ANUI.module = (function () {
                 $inp.on('input propertychange', function (e) {
                     var t = $(e.target),
                         visible = Boolean(t.val()),
-                        $btnDel = $('.ui-deltxt');
+                        $btnDel = $('.aui-deltxt');
 
 
                     t.closest($inp_form).find($btnDel).toggleClass('hidden', !visible);
@@ -2111,7 +2111,7 @@ ANUI.module = (function () {
 
                 //포커스 잃었을때 
                 // $(document).on('focusin click', function (e) {
-                //     var $btnDel = $('.ui-deltxt');
+                //     var $btnDel = $('.aui-deltxt');
 
                 //     if ($inp_form) {
                 //         if (!$inp_form.find(e.target).length) {
@@ -2134,25 +2134,25 @@ ANUI.module = (function () {
         // mark: fileAttach
         fileAttachUi: function () {
 
-            $(document).on("change", "[data-ui='attach'].ui-addFile .fileButton .fileInput", function () {
+            $(document).on("change", "[data-ui='attach'].aui-addFile .fileButton .fileInput", function () {
                 var fUrl = (this.value).split("\\"),
                     fName = fUrl[fUrl.length - 1];
-                $(this).closest(".ui-addFile").find(".file .loc").val(fName);
-                var locVar = $(this).closest(".ui-addFile").find(".file .loc").val();
+                $(this).closest(".aui-addFile").find(".file .loc").val(fName);
+                var locVar = $(this).closest(".aui-addFile").find(".file .loc").val();
                 if (locVar) {
-                    $(this).closest(".ui-addFile").addClass("on");
+                    $(this).closest(".aui-addFile").addClass("on");
                 }
             });
-            $(document).on("click", "[data-ui='attach'].ui-addFile .file .delete", function () {
-                $(this).closest(".ui-addFile").find(".file .loc").val("");
-                $(this).closest(".ui-addFile").find(".fileButton .fileInput").val("");
-                $(this).closest(".ui-addFile").removeClass("on");
+            $(document).on("click", "[data-ui='attach'].aui-addFile .file .delete", function () {
+                $(this).closest(".aui-addFile").find(".file .loc").val("");
+                $(this).closest(".aui-addFile").find(".fileButton .fileInput").val("");
+                $(this).closest(".aui-addFile").removeClass("on");
             });
             console.log('fileAttachUi');
         },
         // mark : gnb2Ui
         gnb2Ui: function () {
-            var $menu = $('.ui-menu2depth > li');
+            var $menu = $('.aui-menu2depth > li');
 
             //init
             $menu.on('mouseenter focusin', function (e) {
@@ -2169,7 +2169,7 @@ ANUI.module = (function () {
             var scrTopF,
                 optLen = arguments.length,
                 rV,
-                $top = $('.ui-scrlTop');
+                $top = $('.aui-scrlTop');
 
             scrTopF = function () {
                 this.init(rV);
@@ -2231,10 +2231,10 @@ ANUI.module = (function () {
 
         // mark : tab anckorUI
         tabAnchorUi: function (fix) {
-            var $t = $('.ui-tabAnchor'),
-                $tabList = $t.find('.ui-tabList'),
+            var $t = $('.aui-tabAnchor'),
+                $tabList = $t.find('.aui-tabList'),
                 tH = Math.round($t.outerHeight()),
-                $aWrap = $('.ui-anchorWrap'),
+                $aWrap = $('.aui-anchorWrap'),
                 tTop = $t.offset().top,
                 $linkA = $tabList.find('a'),
                 $target = $($linkA.attr('href')),
@@ -2411,8 +2411,8 @@ ANUI.module = (function () {
             var $target = $(target);
             var $el = elType; // div && tr 
 
-            var $up = $target.find('.ui-row-up'),
-                $dn = $target.find('.ui-row-dn');
+            var $up = $target.find('.aui-row-up'),
+                $dn = $target.find('.aui-row-dn');
 
             $up.on('click', function () {
                 upFunc($(this));
@@ -2437,7 +2437,7 @@ ANUI.module = (function () {
         // mark : floatGnbUi
         floatGnbUi: function () {
 
-            var $t = $('.ui-float-gnb'),
+            var $t = $('.aui-float-gnb'),
                 $call = $t.find('.call'),
                 $dimBg = $t.find('.dim_bg');
             //스크롤바 width 구하기
@@ -2477,7 +2477,7 @@ ANUI.module = (function () {
         // mark : allChkUi
         allChkUi: function (opt) {
 
-            var $t = $('.ui-allChk'),
+            var $t = $('.aui-allChk'),
                 $allChk = $t.find('[data-allchk]'), //부모 체크박스
                 $optChk = $t.find('[data-optchk]'),
                 $subChk = $t.find('[data-subchk] input').not($optChk), //자식 체크박스
@@ -2542,13 +2542,13 @@ ANUI.module = (function () {
 
         //mark : click center
         clickCenter: function () {
-            $('.ui-gnbCenter li a').on('click', function (e) {
+            $('.aui-gnbCenter li a').on('click', function (e) {
                 e.preventDefault();
                 $(this).parent().addClass('active').siblings('li').removeClass('active');
                 var navLi = $(this).parent('li');
                 var navWd = navLi.outerWidth();
-                var posL = navLi.position().left - $('.ui-gnbCenter').outerWidth() * 0.5 + navWd * 0.5;
-                $('.ui-gnbCenter').animate({
+                var posL = navLi.position().left - $('.aui-gnbCenter').outerWidth() * 0.5 + navWd * 0.5;
+                $('.aui-gnbCenter').animate({
                     scrollLeft: posL
                 }, 300);
 
@@ -2605,7 +2605,7 @@ ANUI.module = (function () {
                     '<p class="costomAlert_p">' + option.msg + '</p> ' +
                     '</div> ' +
                     '<div class="costomAlert_btnWrap"> ' +
-                    '<button class="costomAlert_btn ui-close" >확인</button> ' +
+                    '<button class="costomAlert_btn aui-close" >확인</button> ' +
                     '</div>' + '</div>' + '</div>';
 
                 $(str).appendTo(document.body);
@@ -2617,7 +2617,7 @@ ANUI.module = (function () {
                     return false;
                 }
 
-                $(document).on('click', '.ui-close', function () {
+                $(document).on('click', '.aui-close', function () {
                     alertClose();
                     if (typeof callback == 'function') { //callback 실행
                         callback.call(this);
@@ -2634,10 +2634,10 @@ ANUI.module = (function () {
                 //누르는 버튼($this)의 클래스 구함
                 var direction = $this.attr('class'),
                     //동작해야하는(셀렉터를 누름으로써 바뀔) 화면 함수 선언
-                    thisView = $('.ui-tab-list'),
+                    thisView = $('.aui-tab-list'),
                     //동작할 화면의 전체 갯수 구하기 
                     thisViewNum = thisView.length - 1,
-                    curNum = parseFloat($('.ui-tab-list.on').attr('id').split('ui-tab-list')[1]) - 1;
+                    curNum = parseFloat($('.aui-tab-list.on').attr('id').split('aui-tab-list')[1]) - 1;
                 //버튼별 동작  
                 //만약에 클릭한 셀렉터의 클래스가 left_btn이면
                 if (direction == 'left_btn') {
@@ -2698,8 +2698,8 @@ ANUI.module = (function () {
         flowSelect: function (tarO, curF, baseF, spd) {
             var flowSelectBox,
                 $uiFlow = $('.' + tarO),
-                $flowEv = $uiFlow.find('.ui-flowEV'),
-                $flowlist = $uiFlow.find('.ui-flowList'),
+                $flowEv = $uiFlow.find('.aui-flowEV'),
+                $flowlist = $uiFlow.find('.aui-flowList'),
                 $floor = $flowlist.find('li'),
                 speed = spd || 500,
                 baseF = baseF || 0,
@@ -2910,7 +2910,7 @@ ANUI.module = (function () {
         // mark : circleTimerUi
         circleTimerUi: function () {
             var ccui;
-            var circle = document.getElementById('ui-circle');
+            var circle = document.getElementById('aui-circle');
             var btnPlay = document.getElementById('btn-play');
             var video = document.getElementById('video');
             var interval = 100; // circle animation tick 단위 ms, 
@@ -2996,11 +2996,11 @@ ANUI.module = (function () {
         // mark: starRating
         starRatingUi: function () {
             var srui;
-            var inpArr = document.querySelectorAll('.ui-star .rating-group > input');
+            var inpArr = document.querySelectorAll('.aui-star .rating-group > input');
             // ie지원 array타입으로 변경
             inpArr = [].slice.call(inpArr);
             var result = document.querySelector('.result');
-            var selstar = document.querySelector('.ui-select-star');
+            var selstar = document.querySelector('.aui-select-star');
             var _chk;
 
             srui = function () {
@@ -3024,7 +3024,7 @@ ANUI.module = (function () {
                 inpArr.forEach(function (inpChk) {
                     inpChk.addEventListener('change', function (e) {
                         // ie matches fix
-                        var matches = e.target.matches ? e.target.matches('.ui-star .rating-group > input') : e.target.msMatchesSelector('.ui-star .rating-group > input');
+                        var matches = e.target.matches ? e.target.matches('.aui-star .rating-group > input') : e.target.msMatchesSelector('.aui-star .rating-group > input');
                         if (!matches) {
                             return;
                         }

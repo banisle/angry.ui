@@ -1,5 +1,5 @@
 <style>
-    .ui-circleTimer {
+    .aui-circleTimer {
         border: 1px solid #4b4b4b;
         width: 25px;
         height: 25px;
@@ -9,14 +9,14 @@
         align-items: center;
     }
 
-    .ui-circleTimer svg {
+    .aui-circleTimer svg {
         width: 100%;
         height: 100%;
         border-radius: 50%;
         transform: scale(0.8) rotate(-90deg);
     }
 
-    .ui-circleTimer circle {
+    .aui-circleTimer circle {
         stroke: #4b4b4b;
         fill: transparent;
         stroke-width: 18;
@@ -28,7 +28,7 @@
 
 </p>
 <div>
-    <div class="ui-circleTimer type-ring">
+    <div class="aui-circleTimer type-ring">
         <span class="inner"></span>
     </div>
 </div>
@@ -36,7 +36,7 @@
 <h3>svg</h3>
 <p class="sub-txt">
     ANUI.module.circleTimerUi(); 호출 <br/>
-    svg circle id="ui-circle"
+    svg circle id="aui-circle"
     ie 9+ 지원, svg태그 필요<br/>
     vidio 영상의 길이 체크후 로딩 타이머 circle로 구현
 </p>
@@ -44,9 +44,9 @@
     <div class="btn-wrap mb--s">
         <button type="button" class="btn-icn" id="btn-play"><span>play</span></button>
     </div>
-    <div class="ui-circleTimer">
+    <div class="aui-circleTimer">
         <svg viewbox="0 0 18 18">
-            <circle id="ui-circle" r="9" cx="9" cy="9" stroke-dasharray="0 360"></circle>
+            <circle id="aui-circle" r="9" cx="9" cy="9" stroke-dasharray="0 360"></circle>
         </svg>
     </div>
     <p style="padding:10px 0;">
@@ -63,9 +63,9 @@
 
 
 <pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;">
-&lt;div class=&quot;ui-circleTimer&quot;&gt;
+&lt;div class=&quot;aui-circleTimer&quot;&gt;
     &lt;svg viewbox=&quot;0 0 18 18&quot;&gt;
-        &lt;circle id=&quot;ui-circle&quot; r=&quot;9&quot; cx=&quot;9&quot; cy=&quot;9&quot; stroke-dasharray=&quot;0 360&quot;&gt;&lt;/circle&gt;
+        &lt;circle id=&quot;aui-circle&quot; r=&quot;9&quot; cx=&quot;9&quot; cy=&quot;9&quot; stroke-dasharray=&quot;0 360&quot;&gt;&lt;/circle&gt;
     &lt;/svg&gt;
 &lt;/div&gt;
 
@@ -77,7 +77,7 @@
 </script>
 <!-- <script>
     $(document).ready(function () {
-        var circle = document.getElementById('ui-circle');
+        var circle = document.getElementById('aui-circle');
         var btnPlay = document.getElementById('btn-play');
         var video = document.getElementById('video');
         var interval = 100; // circle animation tick 단위 ms, 

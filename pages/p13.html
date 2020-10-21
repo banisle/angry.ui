@@ -69,14 +69,14 @@
     층수 클릭시 기본 선택되어있는 층에서 선택한 층으로 순차적으로 선택되며 이동 
     <br>ex) 디폴트 9층일때 3층 클릭시 9층에서 8층, 7층, 6층 ~ 3층까지 on 틀래스가 순차적으로 이동 후 최종 3층에서 고정
 </p>
-<div class="ui-flowselect" style="overflow: hidden">
-    <div class="flow_mv ui-flowEV">
+<div class="aui-flowselect" style="overflow: hidden">
+    <div class="flow_mv aui-flowEV">
         <div class="flw_ct">
             <div class="door_l"></div>
             <div class="door_r"></div>
         </div>
     </div>
-    <ul class="flow-list ui-flowList">
+    <ul class="flow-list aui-flowList">
         <li class=""><button>12</button></li>
         <li class=""><button>11</button></li>
         <li class=""><button>10</button></li>
@@ -97,14 +97,14 @@
 </div>
 
 <pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
-&lt;div class=&quot;ui-flowselect&quot;&gt;
-    &lt;div class=&quot;flow_mv ui-flowEV&quot;&gt;
+&lt;div class=&quot;aui-flowselect&quot;&gt;
+    &lt;div class=&quot;flow_mv aui-flowEV&quot;&gt;
         &lt;div class=&quot;flw_ct&quot;&gt;
             &lt;div class=&quot;door_l&quot;&gt;&lt;/div&gt;
             &lt;div class=&quot;door_r&quot;&gt;&lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-    &lt;ul class=&quot;flow-list ui-flowList&quot;&gt;
+    &lt;ul class=&quot;flow-list aui-flowList&quot;&gt;
         &lt;li class=&quot;&quot;&gt;&lt;button&gt;12&lt;/button&gt;&lt;/li&gt;
         &lt;li class=&quot;&quot;&gt;&lt;button&gt;11&lt;/button&gt;&lt;/li&gt;
         &lt;li class=&quot;&quot;&gt;&lt;button&gt;10&lt;/button&gt;&lt;/li&gt;
@@ -126,11 +126,11 @@
     
 &lt;script&gt;
     //선택자(ev와 층수 선택 포함한 상위 객체),선택된 층( 0 = 지하 1층),지하층(default 0), 속도
-    ANUI.module.flowSelect('ui-flowselect',0,4,200);
+    ANUI.module.flowSelect('aui-flowselect',0,4,200);
 &lt;/script&gt;
 </pre>
 <script>
 
-ANUI.module.flowSelect('ui-flowselect',0,4,200);
+ANUI.module.flowSelect('aui-flowselect',0,4,200);
 
 </script>
