@@ -1,4 +1,4 @@
-// banisle@gmail.com
+// https://banisle.github.io/angry.ui/
 
 'use strict';
 var context = window,
@@ -485,7 +485,7 @@ ANUI.module = (function () {
         // mark :tooltipUi
         tooltipUi: function (arrW, arrH, opt) {
             var tooltip,
-                $tooltip = $('.ui-tooltip a'),
+                $tooltip = $('.ui-tooltipbox a'),
                 opt = opt || 0; // 페이드 효과 없엘때 0으로;
 
 
@@ -2538,23 +2538,6 @@ ANUI.module = (function () {
 
             console.log('allChkUi');
 
-        },
-
-        // mark : sticky
-        stickyUi: function () {
-            var $fixed = $('.totalSticky');
-            $(window).on('scroll', function () {
-                var scr = $(window).scrollTop();
-                var dHeight = $(document).height();
-                var wHeight = $(window).height();
-                if (scr == dHeight - wHeight) {
-                    if (!$fixed.parent().hasClass('active')) {
-                        $fixed.addClass('fixed');
-                    }
-                } else {
-                    $fixed.removeClass('fixed');
-                }
-            });
         },
 
         //mark : click center

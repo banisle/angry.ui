@@ -1309,6 +1309,32 @@ html.mobile .form__select {
 	z-index: 9999;
 }
 
+/* //mark:  board */
+.board-list{ padding: 0; border-top: 2px solid #222; box-sizing: border-box; }
+.board-list li { padding: 18px 20px; font-size: 0; box-sizing: border-box; border-bottom: 1px solid #d9d9d9; }
+.board-list li .tit01{display: inline-block; width: 9%; text-align: center; }
+.board-list li .tit02{display: inline-block; width: 17%; text-align: center; }
+.board-list li .tit03{display: inline-block; width: 74%; text-align: center; }
+.board-list li p{ display: inline-block; width: 74%; font-size: 14px; padding: 0 0 0 28px; box-sizing: border-box;line-height: 1.5;  }
+.board-list li p a{ color: #666; font-weight: 500; }
+.board-list li span{ font-size: 14px; color: #666; font-weight: 500; }
+.board-list li span.date{ position: relative;padding-left: 0; }
+.board-list li span.date::before{ display: none; }
+
+.table-list{width: 100%; border:1px solid #333; border-right: 0; border-left: 0;}
+.table-list thead th{padding: 10px 0;border-bottom: 1px solid #999;font-weight: 700;}
+.table-list tbody td{padding: 10px 0;border-bottom: 1px solid #999;text-align: center;}
+
+@media screen and (max-width:960px){
+	.board-list{ padding: 0 16px }
+	.board-list li{padding: 14px 0;}
+	.board-list li.board-tit { display: none; }
+	.board-list li [class^=tit]{display: inline;}
+	.board-list li span.date{position: relative; padding-left: 14px;}
+	.board-list li span.date::before{ display:block !important; content: ''; position: absolute; width: 1px; height: 15px; background-color: #222; top: 2px; left: 6px; }
+	.board-list li p{ display: block; padding: 10px 0 0 0; line-height: 1.5; font-size: 16px;}
+}
+
 /* //mark:  paging */
 .pagewrap {
 	display: block;
@@ -1399,7 +1425,7 @@ html.mobile .form__select {
 
 
 /* //mark:  tooltip */
-.ui-tooltip a {
+.ui-tooltipbox a {
 	display: inline-block;
 	padding: 10px 15px;
 	background: #450e4c;
@@ -1952,52 +1978,6 @@ html.mobile .ui-content {
 
 .is-hidden .scrollMenu {
 	margin-bottom: -60px;
-}
-
-/* //mark: sticky */
-.sticky ul {
-	width: 100%;
-	border-top: 1px solid #dcdcdc;
-}
-
-.sticky ul>li {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 300px;
-	border-bottom: 1px solid #dcdcdc;
-}
-
-.sticky ul>li .totalSticky {
-	position: fixed;
-	left: 0;
-	bottom: 60px;
-	width: 100%;
-	padding-left: 320px;
-	background: #f3f3f3;
-	box-sizing: border-box;
-	text-align: center;
-}
-
-.sticky ul>li .totalSticky.fixed {
-	position: relative;
-	height: 300px;
-	padding-left: 0;
-}
-
-.sticky ul>li a[class^=btn],button[class^=btn]Red {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	height: 60px;
-	padding-left: 320px;
-	background: #d35400;
-	color: #fff;
-	font-size: 18px;
-	font-weight: bold;
-	box-sizing: border-box;
-	text-align: center;
 }
 
 /* //mark : parallax  */

@@ -1,0 +1,66 @@
+<script src="lib/jquery.pagepiling.js"></script>
+<link rel="stylesheet" href="lib/jquery.pagepiling.css">
+
+<style>
+	.wrap{
+		border:1px solid red;
+	}
+</style>
+<h3>page scroll</h3>
+<p class="sub-txt"> </p>
+<div class="wrap">
+	<div id="pagepiling">
+		<div class="section">1 section</div>
+		<div class="section">2 section</div>
+		<div class="section">3 section</div>
+		<div class="section">4 section</div>
+	</div>
+	
+</div>
+
+<!-- (sta) pre sample -->
+<pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
+
+</pre>
+<!-- (end) pre sample -->
+
+<script >
+
+$(document).ready(function() {
+	$('#pagepiling').pagepiling({
+	    menu: null,
+        direction: 'vertical',
+        verticalCentered: true,
+        sectionsColor: [],
+        anchors: [],
+        scrollingSpeed: 700,
+        easing: 'swing',
+        loopBottom: false,
+        loopTop: false,
+        css3: true,
+        navigation: {
+            'textColor': '#000',
+            'bulletsColor': '#000',
+            'position': 'right',
+            'tooltips': ['section1', 'section2', 'section3', 'section4']
+        },
+       	normalScrollElements: null,
+        normalScrollElementTouchThreshold: 5,
+        touchSensitivity: 5,
+        keyboardScrolling: true,
+        sectionSelector: '#pagepiling .section',
+        animateAnchor: false,
+
+		//events
+		onLeave: function(index, nextIndex, direction){},
+		afterLoad: function(anchorLink, index){},
+		afterRender: function(){},
+	});
+	// $('#hpagepiling').pagepiling({
+	//     menu: null,
+    //     direction: 'horizontal',
+        
+	// });
+});
+
+</script>
