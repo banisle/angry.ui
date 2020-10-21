@@ -852,7 +852,6 @@ ANUI.module = (function () {
                 ArrSubBtn = ArrBtn.filter(function (i) {
                     return $(i).hasClass('sub');
                 }),
-                opendSt = $('[data-open]'),
                 tarCtH;
 
             // console.log( ArrSubBtn );
@@ -879,7 +878,7 @@ ANUI.module = (function () {
                     if (!allowMultiple) {
                         t.closest(uiAccoWrap).find(uiAccoCt).animate({
                             'height': 0
-                        }, 0);
+                        }, motSpd);
                         t.closest(uiAccoWrap).find(uiAccobtn).attr('aria-expanded', 'false').removeAttr('aria-disabled');
                         t.closest(uiAccoWrap).find('li').removeClass('active');
                         t.attr('aria-disabled', 'true');
@@ -989,7 +988,6 @@ ANUI.module = (function () {
 
             //init
             // uiAccoCt.hide();
-            opendSt.trigger('click');
             uiAccoWrap.each(function () {
                 var t = $(this);
                 t.find('.aui-btn-acco').last().addClass('last');

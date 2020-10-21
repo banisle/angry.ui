@@ -1724,7 +1724,6 @@ html.mobile .aui-content {
 	border: 1px solid #c0c0c0;
 	border-bottom: 0;
 	box-sizing: border-box;
-	transition: all ease .5s;
 }
 
 .aui-accordian li:last-child {
@@ -1735,6 +1734,7 @@ html.mobile .aui-content {
 	border: 1px solid red;
 	border-bottom: 0;
 }
+.aui-accordian li.active .aui-acco-ct{height: auto;}
 
 .aui-accordian li.active+li {
 	border-top: 1px solid red;
