@@ -1,1 +1,44 @@
 <div>step indicator detail</div>
+
+<h3>bg type</h3>
+<p class="sub-txt">bg image 필요</p>
+
+<div class="steparea" style="margin-top: 50px;">
+	<span class="step_5_3"></span>
+	<h2 class="tit_1nd">타이틀</h2>
+</div>
+
+<pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
+	<div class="steparea">
+		<span class="step_3_3"></span>
+		<h2 class="tit_1nd">타이틀</h2>
+	</div>
+</pre>
+
+
+<h3>css type</h3>
+<p class="sub-txt">bg image 불필요, 접근성 고려시 aria-hidden 속성 제어 필요</p>
+
+<div class="steparea--v2" style="margin-top: 50px;">
+	<div class="step-wrap">
+		<span aria-hidden="true">1</span>
+		<span aria-hidden="true">2</span>
+		<span class="active">3</span>
+		<span aria-hidden="true">4</span>
+		<span aria-hidden="true">5</span>
+	</div>
+	<h2 class="tit_1nd">타이틀</h2>
+</div>
+
+<pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
+	<div class="steparea--v2" style="margin-top: 50px;">
+		<div class="step-wrap">
+			<span aria-hidden="true">1</span>
+			<span aria-hidden="true">2</span>
+			<span class="active">3</span>
+			<span aria-hidden="true">4</span>
+			<span aria-hidden="true">5</span>
+		</div>
+		<h2 class="tit_1nd">타이틀</h2>
+	</div>
+</pre>
