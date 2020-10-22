@@ -1734,7 +1734,7 @@ html.mobile .aui-content {
 	border: 1px solid red;
 	border-bottom: 0;
 }
-.aui-accordian li.active .aui-acco-ct{height: auto;}
+.aui-accordian li.active > .aui-acco-ct{height: auto;}
 
 .aui-accordian li.active+li {
 	border-top: 1px solid red;

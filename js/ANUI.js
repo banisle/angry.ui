@@ -867,7 +867,7 @@ ANUI.module = (function () {
                     tarCt = t.closest(uiAccoWrap).find('#' + tarId),
                     motSpd = parseInt(t.closest(uiAccoWrap).attr('data-trans-speed')),
                     tarCtH = t.closest(uiAccoWrap).find(tarCt).height(),
-                    tarCtAH = t.closest(uiAccoWrap).find(tarCt).css('height', 'auto').height();
+                    tarCtAH = t.closest(uiAccoWrap).find(tarCt)[0].scrollHeight;
 
                 if (tarCt.is(':animated')) {
                     return
