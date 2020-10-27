@@ -53,13 +53,13 @@ var chkUserAgent = function () {
 function get_version_of_IE() { //ie aegent 체크
 	var word;
 	var agent = navigator.userAgent.toLowerCase();
-	// IE old version ( IE 10 or Lower ) 
+	// IE old version ( IE 10 or Lower )
 	if (navigator.appName == "Microsoft Internet Explorer") word = "msie ";
-	// IE 11 
+	// IE 11
 	else if (agent.search("trident") > -1) word = "trident/.*rv:";
-	// Microsoft Edge  
+	// Microsoft Edge
 	else if (agent.search("edge/") > -1) word = "edge/";
-	// 그외, IE가 아니라면 ( If it's not IE or Edge )  
+	// 그외, IE가 아니라면 ( If it's not IE or Edge )
 	else return -1;
 	var reg = new RegExp(word + "([0-9]{1,})(\\.{0,}[0-9]{0,1})");
 	if (reg.exec(agent) != null) return parseInt(RegExp.$1 + RegExp.$2);
@@ -152,7 +152,7 @@ if (typeof Function.prototype.bind === "undefined") {
 	}
 }
 
-// polyfill 
+// polyfill
 if (!Math.sign) {
 	Math.sign = function (x) {
 		// If x is NaN, the result is NaN.
@@ -350,7 +350,7 @@ ANUI.module = (function () {
 					$optGrp = $selBox.find('option');
 
 
-				//포커스 잃었을때 
+				//포커스 잃었을때
 				$(document).on('focusin click', function (e) {
 					if ($selWrap) {
 						if (!$selWrap.find(e.target).length) {
@@ -505,7 +505,7 @@ ANUI.module = (function () {
 						thisBtnW = t.outerWidth(),
 						thisBtnH = t.outerHeight();
 
-					// console.log( 
+					// console.log(
 					//     'targetOff top' + targetOff.top,
 					//     'targetOff left' + targetOff.left,
 					//     'thisBtnW' + thisBtnW);
@@ -955,7 +955,7 @@ ANUI.module = (function () {
 						var length = ArrBtn.length;
 						var newIndex = (index + length + direction) % length;
 
-						//서브 아코디언 있을경우 
+						//서브 아코디언 있을경우
 						if ($(target).is('.sub-has') && $(target).attr('aria-expanded') == 'false') {
 							direction == 1 ? newIndex = newIndex + ArrSubBtn.length : newIndex;
 						} else if ($(target).is('.aui-sub-next') && $(target).closest('[data-li]').prev().find(uiAccobtn).attr('aria-expanded') == 'false') {
@@ -1745,7 +1745,7 @@ ANUI.module = (function () {
 				evt.stopPropagation;
 				return false;
 
-			} // end handleMouseMove            
+			} // end handleMouseMove
 
 			//슬라이더 호출 생성
 			var container_id = new sliderUiIn('' + container_id + '', vert, min, max, inc, jump, showVals, range, val1, val2);
@@ -2010,7 +2010,7 @@ ANUI.module = (function () {
 							} else if ((i > 0 || s < 0) && (i < N - 1 || s > 0) && f > opt.thresold) {
 								// console.log(
 								// 'i' + i,
-								// 's' + s, 
+								// 's' + s,
 								// 'N' + N,
 								// -((i / N) * sWW) + tx
 								// );
@@ -2107,7 +2107,7 @@ ANUI.module = (function () {
 					t.closest($inp_form).find($btnDel).toggleClass('hidden', !visible);
 				}).trigger('propertychange');
 
-				//포커스 잃었을때 
+				//포커스 잃었을때
 				// $(document).on('focusin click', function (e) {
 				//     var $btnDel = $('.aui-deltxt');
 
@@ -2268,7 +2268,9 @@ ANUI.module = (function () {
 					//스크롤시 탭고정 되는 순간 상단 여백 처리
 					if (curTop < lastTargetTop) {
 						if (curTop > (tPosY)) {
-							$t.addClass('fixed-on');
+							$t.addClass('fixed-on').css({
+								'width': $t.parent().outerWidth()
+							});
 							$aWrap.css('paddingTop', tH)
 						} else {
 							$t.removeClass('fixed-on')
@@ -2327,6 +2329,15 @@ ANUI.module = (function () {
 
 							$linkA.removeClass("active");
 							_t.addClass("active");
+
+							// gnb 플로팅 바 추가 적용
+                            var aW = _t.width(),
+                                aL = _t.position().left;
+                            $('.floatBar').css({
+                                'width': aW,
+                                'left': aL
+							});
+
 						} else {
 							_t.removeClass("active");
 							// console.log( 'no')
@@ -2407,7 +2418,7 @@ ANUI.module = (function () {
 		// mark: updown changeUi
 		updnChgUi: function (target, elType) {
 			var $target = $(target);
-			var $el = elType; // div && tr 
+			var $el = elType; // div && tr
 
 			var $up = $target.find('.aui-row-up'),
 				$dn = $target.find('.aui-row-dn');
@@ -2576,7 +2587,7 @@ ANUI.module = (function () {
 				}
 			});
 		},
-		//mark : custom alert 창 + callback 
+		//mark : custom alert 창 + callback
 		alertui: function (option, callback) {
 			var option = { // 내용 받아오기
 					title: option.title,
@@ -2594,7 +2605,7 @@ ANUI.module = (function () {
 				alertT();
 			}
 
-			function alertT() { //alert 창 
+			function alertT() { //alert 창
 				var str = '';
 				str = '<div class="costomAlert_wrap" class=""><div class="dim"></div> ' +
 					' <div class="costomAlert"> ' +
@@ -2625,7 +2636,7 @@ ANUI.module = (function () {
 			// alertT();
 
 		},
-		//mark : prev, next 버튼으로 paging 
+		//mark : prev, next 버튼으로 paging
 		pageMove: function ($btn) {
 			//인자값 받아오기($(this)==$this)
 			var moveEvt = function ($this) {
@@ -2633,10 +2644,10 @@ ANUI.module = (function () {
 				var direction = $this.attr('class'),
 					//동작해야하는(셀렉터를 누름으로써 바뀔) 화면 함수 선언
 					thisView = $('.aui-tab-list'),
-					//동작할 화면의 전체 갯수 구하기 
+					//동작할 화면의 전체 갯수 구하기
 					thisViewNum = thisView.length - 1,
 					curNum = parseFloat($('.aui-tab-list.on').attr('id').split('aui-tab-list')[1]) - 1;
-				//버튼별 동작  
+				//버튼별 동작
 				//만약에 클릭한 셀렉터의 클래스가 left_btn이면
 				if (direction == 'left_btn') {
 					//left_btn을 눌렀을 때 현재 보여지는 화면이 첫번째가 아니면
@@ -2645,7 +2656,7 @@ ANUI.module = (function () {
 						curNum = curNum - 1;
 					} else {
 						//left_btn을 눌렀을 때 현재 보여지는 화면이 첫번째이면
-						//보여지는 화면이 첫번째 0번 이하로 가지 않게 //첫번째 화면 이전으로 더 가지 않게 
+						//보여지는 화면이 첫번째 0번 이하로 가지 않게 //첫번째 화면 이전으로 더 가지 않게
 						curNum = 0;
 					}
 
@@ -2661,10 +2672,10 @@ ANUI.module = (function () {
 						curNum = thisViewNum;
 					}
 				}
-				//현재 표출 화면 값 찍어보기 
+				//현재 표출 화면 값 찍어보기
 				console.log('curNum', curNum);
 
-				//페이지 전환 
+				//페이지 전환
 				//현재 화면 값이 -1보다 크고 and 전체 화면 갯수보다 작거나 크면 작동해라
 				if (0 <= curNum && curNum <= (thisViewNum)) {
 					//동작해야하는 화면에 on클래스 제거 //초기화
@@ -2672,17 +2683,17 @@ ANUI.module = (function () {
 					//동작해야하는 화면값에 on 클래스 추가 //화면 표출
 					$(thisView[curNum]).addClass('on');
 
-					// 버튼 제한 효과 초기화 : disabled : 더 넘어갈 것 없으면 버튼 투명도 주기 
-					//모든 셀렉터 초기화  
+					// 버튼 제한 효과 초기화 : disabled : 더 넘어갈 것 없으면 버튼 투명도 주기
+					//모든 셀렉터 초기화
 					$btn.removeClass('disabled');
 
 					//현재 화면값이 0이거나 or 현재 화면값이 전체화면값과 동일하면
-					// == 첫번째 화면 또는 마지막 화면이면 
+					// == 첫번째 화면 또는 마지막 화면이면
 					if (curNum == 0 || curNum == thisViewNum) {
 						//지금 누른 셀렉터에 disabled 클래스 추가
 						$this.addClass('disabled');
 					}
-					//잘 동작하나 현재 화면값 찍어보기 
+					//잘 동작하나 현재 화면값 찍어보기
 					console.log('sucess', curNum);
 				}
 			}
@@ -2692,7 +2703,7 @@ ANUI.module = (function () {
 			});
 		},
 
-		//mark : flowSelect 
+		//mark : flowSelect
 		flowSelect: function (tarO, curF, baseF, spd) {
 			var flowSelectBox,
 				$uiFlow = $('.' + tarO),
@@ -2715,7 +2726,7 @@ ANUI.module = (function () {
 				var floorLn = $floor.length - 1, //가장 아래 data-floor=0 부터 시작하기 위해
 					_this = this;
 
-				// console.log( 'curF',curF, 'baseF',baseF,'curNum',curNum ) 
+				// console.log( 'curF',curF, 'baseF',baseF,'curNum',curNum )
 
 				// 데이터 속성 추가
 				$.each($floor, function (i) {
@@ -2741,7 +2752,7 @@ ANUI.module = (function () {
 					}
 				});
 
-				// 초기 층수 표시                    
+				// 초기 층수 표시
 				$flowlist.find('li[data-floor="' + curNum + '"]').addClass('on');
 				evH(curNum, 0);
 				flowDone();
@@ -2890,7 +2901,7 @@ ANUI.module = (function () {
 				$target.classList.add(star); // 없애준 target의 클래스값에 새로운 클래스값을 덮어줌
 			}
 
-			// string length값 두자리로 변환하기 (예 1 → 01) 
+			// string length값 두자리로 변환하기 (예 1 → 01)
 			function pad(num, width) {
 				num = num + '';
 				return num.length >= width ? num : new Array(width - num.length + 1).join('0') + num;
@@ -2911,7 +2922,7 @@ ANUI.module = (function () {
 			var circle = document.getElementById('aui-circle');
 			var btnPlay = document.getElementById('btn-play');
 			var video = document.getElementById('video');
-			var interval = 100; // circle animation tick 단위 ms, 
+			var interval = 100; // circle animation tick 단위 ms,
 			var isPlay = 'false';
 			var angle = 0;
 			var videoTimer;
@@ -3061,7 +3072,7 @@ ANUI.module = (function () {
 			new srui();
 		},
 
-		// mark : init 
+		// mark : init
 		init: function () {
 			// var t = this;
 
