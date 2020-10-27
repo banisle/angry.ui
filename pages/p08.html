@@ -1,74 +1,104 @@
+<script src="lib/jquery-ui.min.js"></script>
+<h3>sortable</h3>
+<p class="sub-txt">index num 갱신, css counter로 제어</p>
+
+<div style="width: 500px;margin:0 auto">
+	<ul class="aui-sort">
+		<li class="slide"><span class="num"></span><span class="tit">Slide 1</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 2</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 3</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 4</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 5</span></li>
+	</ul>
+</div>
+
+<pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;">
+	<ul class="aui-sort">
+		<li class="slide"><span class="num"></span><span class="tit">Slide 1</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 2</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 3</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 4</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 5</span></li>
+	</ul>
+
+	<script>
+		$(".aui-sort ").sortable({
+		axis: "y",
+		revert: 150});
+	</script>
+</pre>
+
 <h3>tr 순서 변경</h3>
-<p class="sub-txt">ANUI.module.updnChgUi('.aui-updn','tr'); <br/>인자값 : {target},{el}<br /> aui-row-up,aui-row-dn 클래스 추가 </p>
+<p class="sub-txt">ANUI.module.updnChgUi('.aui-updn','tr'); <br />인자값 : {target},{el}<br /> aui-row-up,aui-row-dn 클래스 추가 </p>
 <div class="content_page">
-    <div class="board_list type_notice">
-        <table>
-            <caption class="hidden">공지사항 번호, 구분, 제목 등록일</caption>
-            <colgroup>
-                <col width="84px">
-                <col width="104px">
-                <col width="">
-                <col width="126px">
-                <col width="126px">
-            </colgroup>
-            <thead>
-                <tr>
-                    <th scope="col"><span>번호</span></th>
-                    <th scope="col"><span>로고</span></th>
-                    <th scope="col"><span>센터 명</span></th>
-                    <th scope="col"><span>등록/수정일</span></th>
-                    <th scope="col"><span>순서변경</span></th>
-                </tr>
-            </thead>
-            <tbody class="aui-updn">
-                <tr>
-                    <td><span>1</span></td>
-                    <td><span>기관로고</span></td>
-                    <td><a href=""><span>기관 1</span></a></td>
-                    <td><span>2019-01-10</span></td>
-                    <td>
-                        <div class="btn-wrap">
-                            <span><button type="button" class="btn-icn icn_up aui-row-up"><span
-                                        class="">▲</span></button></span>
-                            <span><button type="button" class="btn-icn icn_up aui-row-dn"><span
-                                        class="">▼</span></button></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span>2</span></td>
-                    <td><span>기관로고</span></td>
-                    <td><a href=""><span>기관 2</span></a></td>
-                    <td><span>2019-01-10</span></td>
-                    <td>
-                        <div class="btn-wrap">
-                            <span><button type="button" class="btn-icn icn_up aui-row-up"><span
-                                        class="">▲</span></button></span>
-                            <span><button type="button" class="btn-icn icn_up aui-row-dn"><span
-                                        class="">▼</span></button></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span>3</span></td>
-                    <td><span>기관로고</span></td>
-                    <td><a href=""><span>기관 3</span></a></td>
-                    <td><span>2019-01-10</span></td>
-                    <td>
-                        <div class="btn-wrap">
-                            <span><button type="button" class="btn-icn icn_up aui-row-up"><span
-                                        class="">▲</span></button></span>
-                            <span><button type="button" class="btn-icn icn_up aui-row-dn"><span
-                                        class="">▼</span></button></span>
-                        </div>
-                    </td>
-                </tr>
+	<div class="board_list type_notice">
+		<table>
+			<caption class="hidden">공지사항 번호, 구분, 제목 등록일</caption>
+			<colgroup>
+				<col width="84px">
+				<col width="104px">
+				<col width="">
+				<col width="126px">
+				<col width="126px">
+			</colgroup>
+			<thead>
+				<tr>
+					<th scope="col"><span>번호</span></th>
+					<th scope="col"><span>로고</span></th>
+					<th scope="col"><span>센터 명</span></th>
+					<th scope="col"><span>등록/수정일</span></th>
+					<th scope="col"><span>순서변경</span></th>
+				</tr>
+			</thead>
+			<tbody class="aui-updn">
+				<tr>
+					<td><span>1</span></td>
+					<td><span>기관로고</span></td>
+					<td><a href=""><span>기관 1</span></a></td>
+					<td><span>2019-01-10</span></td>
+					<td>
+						<div class="btn-wrap">
+							<span><button type="button" class="btn-icn icn_up aui-row-up"><span
+										class="">▲</span></button></span>
+							<span><button type="button" class="btn-icn icn_up aui-row-dn"><span
+										class="">▼</span></button></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><span>2</span></td>
+					<td><span>기관로고</span></td>
+					<td><a href=""><span>기관 2</span></a></td>
+					<td><span>2019-01-10</span></td>
+					<td>
+						<div class="btn-wrap">
+							<span><button type="button" class="btn-icn icn_up aui-row-up"><span
+										class="">▲</span></button></span>
+							<span><button type="button" class="btn-icn icn_up aui-row-dn"><span
+										class="">▼</span></button></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><span>3</span></td>
+					<td><span>기관로고</span></td>
+					<td><a href=""><span>기관 3</span></a></td>
+					<td><span>2019-01-10</span></td>
+					<td>
+						<div class="btn-wrap">
+							<span><button type="button" class="btn-icn icn_up aui-row-up"><span
+										class="">▲</span></button></span>
+							<span><button type="button" class="btn-icn icn_up aui-row-dn"><span
+										class="">▼</span></button></span>
+						</div>
+					</td>
+				</tr>
 
-            </tbody>
+			</tbody>
 
 
-        </table>
-    </div>
+		</table>
+	</div>
 </div>
 <pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
 &lt;tbody class=&quot;aui-updn&quot;&gt;
@@ -119,26 +149,27 @@
 </pre>
 
 <h3>li 순서 변경</h3>
-<p class="sub-txt">ANUI.module.updnChgUi('.aui-updn2','li'); <br/>인자값 : {target},{el}<br /> aui-row-up,aui-row-dn 클래스 추가 </p>
+<p class="sub-txt">ANUI.module.updnChgUi('.aui-updn2','li'); <br />인자값 : {target},{el}<br /> aui-row-up,aui-row-dn 클래스
+	추가 </p>
 
 <div>
-    <ul class="aui-updn2 ul_list">
-        <li>
-            <span>test1</span>
-            <span><button class="btn-icn aui-row-up"><span><i class="fas fa-angle-up"></i>up</span></button></span>
-            <span><button class="btn-icn aui-row-dn"><span><i class="fas fa-angle-down"></i>dn</span></button></span>
-        </li>
-        <li>
-            <span>test2</span>
-            <span><button class="btn-icn aui-row-up"><span><i class="fas fa-angle-up"></i>up</span></button></span>
-            <span><button class="btn-icn aui-row-dn"><span><i class="fas fa-angle-down"></i>dn</span></button></span>
-        </li>
-        <li>
-            <span>test3</span>
-            <span><button class="btn-icn aui-row-up"><span><i class="fas fa-angle-up"></i>up</span></button></span>
-            <span><button class="btn-icn aui-row-dn"><span><i class="fas fa-angle-down"></i>dn</span></button></span>
-        </li>
-    </ul>
+	<ul class="aui-updn2 ul_list">
+		<li>
+			<span>test1</span>
+			<span><button class="btn-icn aui-row-up"><span><i class="fas fa-angle-up"></i>up</span></button></span>
+			<span><button class="btn-icn aui-row-dn"><span><i class="fas fa-angle-down"></i>dn</span></button></span>
+		</li>
+		<li>
+			<span>test2</span>
+			<span><button class="btn-icn aui-row-up"><span><i class="fas fa-angle-up"></i>up</span></button></span>
+			<span><button class="btn-icn aui-row-dn"><span><i class="fas fa-angle-down"></i>dn</span></button></span>
+		</li>
+		<li>
+			<span>test3</span>
+			<span><button class="btn-icn aui-row-up"><span><i class="fas fa-angle-up"></i>up</span></button></span>
+			<span><button class="btn-icn aui-row-dn"><span><i class="fas fa-angle-down"></i>dn</span></button></span>
+		</li>
+	</ul>
 </div>
 <pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;">
 &lt;ul class=&quot;aui-updn2 ul_list&quot;&gt;
@@ -160,13 +191,25 @@
 &lt;/ul&gt;
 </pre>
 
-<h3>jquery ui : sortable</h3>
-<p class="sub-txt">draggable 가능, 인덱스 숫자 재정렬 옵션</p>
 
 
 <script>
-    $(document).ready(function () {
-        ANUI.module.updnChgUi('.aui-updn','tr');
-        ANUI.module.updnChgUi('.aui-updn2','li');
-    })
+	$(document).ready(function () {
+		ANUI.module.updnChgUi('.aui-updn', 'tr');
+		ANUI.module.updnChgUi('.aui-updn2', 'li');
+	});
+
+	// sortable
+	$(".aui-sort ").sortable({
+		axis: "y",
+		revert: 150,
+		start: function (e, ui) {
+
+		},
+		change: function (event, ui) {
+		},
+
+		stop: function (e, ui) {
+		},
+	});
 </script>
