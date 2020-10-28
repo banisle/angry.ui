@@ -1198,41 +1198,41 @@ html.mobile .form__select {
 }
 
 /* //mark:  2depth gnb */
-.menu2depth {
+[class^='menu2depth'] {
 	width: 100%;
 	height: 35px;
-	background: #3ead57;
+	background: #3a3a3a;
 	box-sizing: border-box;
 }
 
-.menu2depth>li {
+[class^='menu2depth']>li {
 	float: left;
 	width: 20%;
 	position: relative;
 	text-align: center;
 }
 
-.menu2depth>li>a {
+[class^='menu2depth']>li>a {
 	display: block;
 	position: relative;
 	padding: 0;
 	line-height: 35px
 }
 
-.menu2depth>li>a span {
+[class^='menu2depth']>li>a span {
 	display: block;
 	position: relative;
-	color: #e6fb92;
+	color: #fff;
 	font-size: 16px;
 	transition: all .5s ease;
 }
 
-.menu2depth>li>a:hover span {
+[class^='menu2depth']>li>a:hover span {
 	position: relative;
 	color: #fff;
 }
 
-.menu2depth>li>a span:after {
+[class^='menu2depth']>li>a span:after {
 	content: '';
 	display: block;
 	position: absolute;
@@ -1247,18 +1247,18 @@ html.mobile .form__select {
 	opacity: 0;
 }
 
-.menu2depth>li.active>a span:after {
+[class^='menu2depth']>li.active>a span:after {
 	opacity: 1;
 	transform: scaleX(1);
 }
 
-.menu2depth>li.cs a:after,
-.menu2depth>li:first-child a span:after,
-.menu2depth>li:last-child a span:after {
+[class^='menu2depth']>li.cs a:after,
+[class^='menu2depth']>li:first-child a span:after,
+[class^='menu2depth']>li:last-child a span:after {
 	display: none;
 }
 
-.menu2depth>li a:after {
+[class^='menu2depth']>li a:after {
 	content: '';
 	display: block;
 	position: absolute;
@@ -1271,7 +1271,7 @@ html.mobile .form__select {
 	opacity: .3;
 }
 
-.menu2depth>li ul {
+[class^='menu2depth']>li ul {
 	display: none;
 	position: absolute;
 	padding: 19px 0 27px;
@@ -1279,15 +1279,15 @@ html.mobile .form__select {
 	left: 0;
 	right: 0;
 	box-shadow: inset 0 3px 3px 0px rgba(0, 0, 0, .2);
-	border: 1px solid #3ead57;
+	border: 1px solid #333;
 	z-index: 10;
 }
 
-.menu2depth>li.active ul {
+[class^='menu2depth']>li.active ul {
 	display: block;
 }
 
-.menu2depth>li ul a {
+[class^='menu2depth']>li ul a {
 	display: inline-block;
 	line-height: 30px;
 	font-size: 14px;
@@ -1295,10 +1295,16 @@ html.mobile .form__select {
 	border-bottom: 1px solid #fff;
 }
 
-.menu2depth>li ul a:hover {
-	color: #3ead57;
-	border-color: #3ead57;
+[class^='menu2depth']>li ul a:hover {
+	color: #333;
+	border-color: #333;
 }
+
+.menu2depth--allsub{position: relative;}
+.menu2depth--allsub.active:after{ height: auto;}
+.menu2depth--allsub >li ul{ overflow: hidden; display: block; height: 0; padding: 0; border:1px solid #333; box-shadow: 0;background: #fff; transition: all .3s ease;}
+.menu2depth--allsub.active >li ul{ height: auto; padding:19px 0 27px}
+
 
 /* //mark:  top버튼 */
 .aui-scrlTop {

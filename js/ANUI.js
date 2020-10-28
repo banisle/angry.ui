@@ -2162,6 +2162,32 @@ ANUI.module = (function () {
 				$menu.removeClass('active');
 			});
 		},
+		// mark : gnbAllUi
+		gnbAllUi: function () {
+			var $menu = $('.aui-allsub');
+			var h = 0;
+
+			$menu.find('ul').each(function(index){
+				var height = this.scrollHeight;
+				h = h < height ? height : h;
+			});
+
+
+
+
+			//init
+			$menu.on('mouseenter',function(e){
+				var $t = $(this);
+				$t.addClass('active');
+				$menu.find('ul').height(h);
+			});
+			$menu.on('mouseleave',function(e){
+				var $t = $(this);
+				$t.removeClass('active');
+				$menu.find('ul').height(0);
+			});
+
+		},
 		// mark : scrlTopUi
 		scrlTopUi: function (rV) {
 			var scrTopF,

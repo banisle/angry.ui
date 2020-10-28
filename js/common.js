@@ -39,18 +39,18 @@ $(function () {
         if (isMobile) $('.mo-guide-btn').trigger('click');
     })
 
-    // $.ajax({
-    //     type: 'get',
-    //     url: 'pages/e09.html',
-    //     dataType: 'html',
-    //     success: function (data) {
-    //         $("#load-ct").html(data);
-    //         SyntaxHighlighter.defaults['collapse'] = true;
-    //         SyntaxHighlighter.config.strings.expandSource = "source view";
-    //         SyntaxHighlighter.highlight();
-    //         ANUI.wsg.init();
-    //     }
-    // });
+    $.ajax({
+        type: 'get',
+        url: 'pages/c13.html',
+        dataType: 'html',
+        success: function (data) {
+            $("#load-ct").html(data);
+            SyntaxHighlighter.defaults['collapse'] = true;
+            SyntaxHighlighter.config.strings.expandSource = "source view";
+            SyntaxHighlighter.highlight();
+            ANUI.wsg.init();
+        }
+    });
 
     ANUI.wsg.init();
 
