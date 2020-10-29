@@ -1641,7 +1641,6 @@ $(document).ready(function(){
 					// var $pageID = $(this).find('.pid').text();
 					var $pageName = $(this).find('.page').text();
 					var goURL = $(this).find('.path a').attr('href');
-					// var goURL = $(this).find('.path a').attr('href');
 
 					if($(this).hasClass('del') || !$(this).find('.rdate').text() || typeof goURL=="undefined" || $(this).context.style.display =='none'){
 						target_a.removeClass('iframe cboxElement'); //colorbox object 삭제
