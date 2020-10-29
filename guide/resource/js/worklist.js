@@ -613,7 +613,7 @@ $(document).ready(function(){
 				$('.tab_nav > ul').css('width', navW);*/
 
 				if(! is_2Depth_view) return;
-				
+
 				//SubNav 고정 토글 버튼
 				$('.tab_nav >ul').append('<a href="javascript:void(0);" class="btn_pin"><i class="fa fa-lock"></i></a>');
 				$('.btn_pin').on('click', function(){
@@ -1866,7 +1866,7 @@ $(document).ready(function(){
 					}
 
 					var rdateTxtFlag = $(this).find('td.rdate').text() ? true : false;//완료
-					var popTxtFlag = ($(this).find('td.page').text().search('pop') != -1 || $(this).find('td').text().search('popup') != -1) ? true : false;//팝업
+					var popTxtFlag = ($(this).find('td.page').text().indexOf('pop') != -1 || $(this).find('td').text().indexOf('popup') != -1) ? true : false;//팝업
 
 					//Delete 포함
 					if(filterOptionObj.delete){
