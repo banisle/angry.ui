@@ -112,8 +112,8 @@ function inc_IAHead(){
 	str+='	<col class="depth2" style="width:13%" /><!-- 2Depth -->';
 	str+='	<col class="depth3" style="width:14%" /><!-- 3Depth -->';
 	str+='	<col class="depth4" style="width:12%" /><!-- 4Depth -->';
-	str+='	<col class="depth5" style="width:11%" /><!-- Page -->';
-	str+='	<col class="path" style="width:6%" /><!-- 경로 -->';
+	str+='	<col class="depth5" style="width:6%" /><!-- Page -->';
+	str+='	<col class="path" style="width:11%" /><!-- 경로 -->';
 	// str+='	<col class="planner" style="width:4%" /><!-- 기획자 -->';
 	str+='	<col class="rdate" style="width:4%" /><!-- 완료일 -->';
 	str+='	<col class="mdate" style="width:4%" /><!-- 수정일 -->';
@@ -146,8 +146,8 @@ function inc_IAHead_guide(){
 	str+='	<col class="depth2" style="width:9%" /><!-- 2Depth -->';
 	str+='	<col class="depth3" style="width:9%" /><!-- 3Depth -->';
 	str+='	<col class="depth4" style="width:9%" /><!-- 4Depth -->';
-	str+='	<col class="depth5" style="width:18%" /><!-- Page -->';
-	str+='	<col class="path" style="width:10%" /><!-- 경로 -->';
+	str+='	<col class="depth5" style="width:10%" /><!-- Page -->';
+	str+='	<col class="path" style="width:18%" /><!-- 경로 -->';
 	str+='	<col class="rdate" style="width:4%" /><!-- 완료일 -->';
 	str+='	<col class="mdate" style="width:4%" /><!-- 수정일 -->';
 	str+='	<col class="etc" style="width:auto" /><!-- 비고 -->';

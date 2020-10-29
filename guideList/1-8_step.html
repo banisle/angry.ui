@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>step/flag/페이징/슬라이더</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+
+	<link rel="stylesheet" href="css/shCore.css">
+	<link rel="stylesheet" href="css/shCoreDefault.css">
+
+	<link rel="stylesheet" href="css/guide.css">
+	<link rel="stylesheet" href="../css/common.css">
+
+	<script src="../js/jquery-2.2.4.min.js"></script>
+	<!-- <script src="../js/jquery-ui.js"></script> -->
+	<script src="js/shCore.js"></script>
+	<script src="js/shBrushCss.js"></script>
+	<script src="js/shBrushJScript.js"></script>
+	<script src="js/shBrushXml.js"></script>
+	<script src="js/common.js"></script>
+	<script src="../js/ui.front.js"></script>
+</head>
+<body>
+	<h1>step/flag/페이징/슬라이더</h1>
+
+	<h2>snap</h2>
+	<h3>1개</h3>
+	<div class="view">
+		<div class="snapArea">
+			<div class="inner">
+				<div class="item">1개월</div>
+				<div class="item">2개월</div>
+				<div class="item">3개월</div>
+				<div class="item">4개월</div>
+				<div class="item">5개월</div>
+				<div class="item">6개월</div>
+				<div class="item">7개월</div>
+				<div class="item">8개월</div>
+				<div class="item">9개월</div>
+				<div class="item">10개월</div>
+				<div class="item">11개월</div>
+				<div class="item">12개월</div>
+			</div>
+		</div>
+	</div>
+	<h3>2개</h3>
+	<div class="view">
+		<div class="snapArea half">
+			<div class="inner">
+				<div class="item">매월</div>
+				<div class="item">매주</div>
+				<div class="item">매일</div>
+			</div>
+			<div class="inner">
+				<div class="item">월요일</div>
+				<div class="item">화요일</div>
+				<div class="item">수요일</div>
+				<div class="item">목요일</div>
+				<div class="item">금요일</div>
+				<div class="item">토요일</div>
+				<div class="item">일요일</div>
+			</div>
+		</div>
+	</div>
+	<h3>3개</h3>
+	<div class="view">
+		<div class="snapArea three">
+			<div class="inner">
+				<div class="item">2018년</div>
+				<div class="item">2019년</div>
+				<div class="item">2020년</div>
+			</div>
+			<div class="inner">
+				<div class="item">1월</div>
+				<div class="item">2월</div>
+				<div class="item">3월</div>
+				<div class="item">4월</div>
+				<div class="item">5월</div>
+				<div class="item">6월</div>
+				<div class="item">7월</div>
+				<div class="item">8월</div>
+				<div class="item">9월</div>
+				<div class="item">10월</div>
+				<div class="item">11월</div>
+				<div class="item">12월</div>
+			</div>
+			<div class="inner">
+				<div class="item">1일</div>
+				<div class="item">2일</div>
+				<div class="item">3일</div>
+				<div class="item">4일</div>
+				<div class="item">5일</div>
+				<div class="item">6일</div>
+				<div class="item">7일</div>
+				<div class="item">8일</div>
+				<div class="item">9일</div>
+				<div class="item">10일</div>
+				<div class="item">11일</div>
+				<div class="item">12일</div>
+				<div class="item">13일</div>
+				<div class="item">14일</div>
+				<div class="item">15일</div>
+				<div class="item">16일</div>
+				<div class="item">17일</div>
+				<div class="item">18일</div>
+				<div class="item">19일</div>
+				<div class="item">20일</div>
+				<div class="item">21일</div>
+				<div class="item">22일</div>
+				<div class="item">23일</div>
+				<div class="item">24일</div>
+				<div class="item">25일</div>
+				<div class="item">26일</div>
+				<div class="item">27일</div>
+				<div class="item">28일</div>
+				<div class="item">29일</div>
+				<div class="item">30일</div>
+				<div class="item">31일</div>
+			</div>
+		</div>
+	</div>
+
+	<h2>step</h2>
+	<h3>기본</h3>
+	<div class="view">
+		<div class="stepArea">
+			<span class="step_5_2"></span>
+			<h2 class="tit_1nd">타이틀</h2>
+		</div>
+	</div>
+	<pre class="brush:xml">
+		<div class="stepArea">
+			<span class="step_5_2"></span>
+			<h2 class="tit_1nd">타이틀</h2>
+		</div>
+
+		class="step_스텝총개수_현재스텝순서"</pre>
+
+	<h3>다이렉트</h3>
+	<div class="view">
+		<div class="stepArea direct">
+			<span class="step_2_2"></span>
+			<h2 class="tit_1nd">다이렉트</h2>
+
+			<button type="button"><span class="blind">요약정보 보기</span></button>
+		</div>
+	</div>
+	<pre class="brush:xml">
+		<div class="stepArea direct">
+			<span class="step_2_2"></span>
+			<h2 class="tit_1nd">다이렉트</h2>
+
+			<button type="button"><span class="blind">요약정보 보기</span></button>
+		</div></pre>
+
+	<h3>진행단계 1</h3>
+	<div class="view">
+		<div class="progressArea">
+			<ul class="progressStep">
+				<li class="step_1 on"><span>신청</span></li>
+				<li class="step_2 on"><span>접수</span></li>
+				<li class="step_3"><span>심사</span></li>
+				<li class="step_4"><span>부결/완료</span></li>
+			</ul>
+		</div>
+	</div>
+
+	<h3>진행단계 2</h3>
+	<div class="view">
+		<div class="progressArea">
+			<ul class="progressStep">
+				<li class="step_1 on"><span>로그인</span></li>
+				<li class="step_2 on"><span>계약선택</span></li>
+				<li class="step_3 on"><span>모니터링설문</span></li>
+				<li class="step_4 on"><span>완료</span></li>
+			</ul>
+		</div>
+	</div>
+
+	<h3>진행단계 3</h3>
+	<div class="view">
+		<div class="progressArea total03">
+			<ul class="progressStep">
+				<li class="step_1 on etc"><span>본인인증</span></li>
+				<li class="step_2 on"><span>모니터링설문</span></li>
+				<li class="step_3 on"><span>완료</span></li>
+			</ul>
+		</div>
+	</div>
+
+	<h2>flag</h2>
+	<div class="view">
+		<span class="flag_1">딱지</span>
+		<span class="flag_2">딱지</span>
+		<span class="flag_3">딱지</span>
+		<span class="flag_4">딱지</span><br>
+		<span class="flag_1 line">딱지</span>
+		<span class="flag_2 line">딱지</span>
+		<span class="flag_3 line">딱지</span>
+		<span class="flag_4 line">딱지</span>
+	</div>
+	<pre class="brush:xml">
+		<span class="flag_1">딱지</span>
+		<span class="flag_2">딱지</span>
+		<span class="flag_3">딱지</span>
+		<span class="flag_4">딱지</span><br>
+		<span class="flag_1 line">딱지</span>
+		<span class="flag_2 line">딱지</span>
+		<span class="flag_3 line">딱지</span>
+		<span class="flag_4 line">딱지</span></pre>
+
+	<h2>슬라이더</h2>
+	<div class="view">
+		<div class="rangeArea">
+			<div class="inner">
+				<div class="rangeBar">
+					<input type="range" name="slider" value="24" min="1" max="36" step="1" class="rangeSlider">
+					<div class="rangeTxt" aria-hidden="true">
+						<div class="num">
+							<span>1</span>
+							<span>6</span>
+							<span>12</span>
+							<span>18</span>
+							<span>24</span>
+							<span>30</span>
+							<span>36</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="rangeResult">
+					<div class="term">
+						<span class="result">1</span>개월 만기
+					</div>
+					<div class="interest">
+						<strong>연 <span>2.35</span></strong>%
+					</div>
+				</div>
+			</div>
+
+			<div class="btnArea">
+				<button type="button" class="btn_formFunc">직접설정</button>
+			</div>
+		</div>
+
+		<script>
+			var result = $('.result');
+			var slider = $('.rangeSlider');
+			slider.on('input', function() {
+				result.html($(this).val());
+			});
+		</script>
+	</div>
+	<pre class="brush:xml">
+		<div class="rangeArea">
+			<div class="inner">
+				<div class="rangeBar">
+					<input type="range" name="slider" value="1" min="1" max="36" step="1" class="rangeSlider">
+					<div class="rangeTxt" aria-hidden="true">
+						<div class="num">
+							<span>1</span>
+							<span>6</span>
+							<span>12</span>
+							<span>18</span>
+							<span>24</span>
+							<span>30</span>
+							<span>36</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="rangeResult">
+					<div class="term">
+						<span class="result">1</span>개월 만기
+					</div>
+					<div class="interest">
+						<strong>연 <span>2.35</span></strong>%
+					</div>
+				</div>
+			</div>
+
+			<div class="btnArea">
+				<button type="button" class="btn_formFunc">직접설정</button>
+			</div>
+		</div>
+
+		<script>
+			var result = $('.result');
+			var slider = $('.rangeSlider');
+			slider.on('input', function() {
+				result.html($(this).val());
+			});
+		</script></pre>
+</body>
+</html>

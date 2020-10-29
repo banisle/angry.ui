@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>개발 가이드</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+
+	<link rel="stylesheet" href="css/shCore.css">
+	<link rel="stylesheet" href="css/shCoreDefault.css">
+
+	<link rel="stylesheet" href="css/guide.css">
+	<link rel="stylesheet" href="../css/common.css">
+
+	<script src="../js/jquery-2.2.4.min.js"></script>
+	<!-- <script src="../js/jquery-ui.js"></script> -->
+	<script src="js/shCore.js"></script>
+	<script src="js/shBrushCss.js"></script>
+	<script src="js/shBrushJScript.js"></script>
+	<script src="js/shBrushXml.js"></script>
+	<script src="js/common.js"></script>
+	<script src="../js/ui.front.js"></script>
+</head>
+<body>
+	<h1>개발 가이드</h1>
+	
+	<h2>role 관련</h2>
+	<div class="view">
+		<div class="cardBox shadow" role="button" tabindex="0">
+			<div class="titArea">
+				<span class="blind">증권번호</span>
+				<span class="num">33-02-181021</span>
+				<span class="blind">상품명</span>
+				<div class="tit">무)신협치아지킴이공제(갱신형)</div>
+			</div>
+			<!--s 정보 리스트 -->
+			<ul class="listType_info">
+				<li>
+					<span class="item">최종납입월(회차)</span>
+					<span class="value">2019/03(12회)</span>
+				</li>
+			</ul>
+			<!--e 정보 리스트 -->
+		</div>
+	</div>
+	<pre class="brush:xml">
+		<div class="cardBox shadow" role="button" tabindex="0">
+			<div class="titArea">
+				<span class="blind">증권번호</span>
+				<span class="num">33-02-181021</span>
+				<span class="blind">상품명</span>
+				<div class="tit">무)신협치아지킴이공제(갱신형)</div>
+			</div>
+			<!--s 정보 리스트 -->
+			<ul class="listType_info">
+				<li>
+					<span class="item">최종납입월(회차)</span>
+					<span class="value">2019/03(12회)</span>
+				</li>
+			</ul>
+			<!--e 정보 리스트 -->
+		</div>
+
+		div에 role="button" tabindex="0" 추가시 div가 button으로 역활이 바뀜
+		그러므로 role="button"이 있는 div에 이벤트를 주면 됨</pre>
+	
+	<h2>스텝</h2>
+	<div class="view">
+		<div class="stepArea">
+			<span class="step_5_2"></span>
+			<h2 class="tit_1nd">타이틀</h2>
+		</div>
+	</div>
+	<pre class="brush:xml">
+		<div class="stepArea">
+			<span class="step_5_2"></span>
+			<h2 class="tit_1nd">타이틀</h2>
+		</div>
+
+		스텝단계 이미지 표현은 class="step_스텝단계총개수_현재스텝순서" 로 정의
+		스텝단계총개수에 완료페이지도 포함되지만 완료페이지에는 스텝 노출 안함</pre>
+
+	<h2>보안키패드</h2>
+	<h3>비밀번호</h3>
+	<div class="view">
+		<!--s 비밀번호 + 보안키패드 -->
+		<div class="fieldCellData">
+			<span class="item">비밀번호</span>
+			<!--s 보안키패드 입력 영역 -->
+			<button type="button" class="Keypad" aria-label="비밀번호 보안키패드">
+				<span class="on"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<!--e 보안키패드 입력 영역 -->
+		</div>
+		<!--e 비밀번호 + 보안키패드 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 비밀번호 + 보안키패드 -->
+		<div class="fieldCellData">
+			<span class="item">비밀번호</span>
+			<!--s 보안키패드 입력 영역 -->
+			<button type="button" class="Keypad" aria-label="비밀번호 보안키패드">
+				<span class="on"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<!--e 보안키패드 입력 영역 -->
+		</div>
+		<!--e 비밀번호 + 보안키패드 -->
+
+		class="Keypad" 하위의 span에 class="on" 클래스 추가하면 마스킹 컬러가 바뀜</pre>
+
+	<h3>주민등록번호</h3>
+	<div class="view">
+		<!--s 주민번호 + 보안키패드 -->
+		<div class="fieldCell regisNum">
+			<input type="tel" maxlength="6" class="fieldForm" aria-label="주민번호 앞 6자리" placeholder="주민번호 앞 6자리">
+			<span class="sign" aria-hidden="true">-</span>
+			<!--s 보안키패드 입력 영역 -->
+			<button type="button" class="Keypad" aria-label="주민번호 뒤 7자리 보안키패드">
+				<span class="on"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<!--e 보안키패드 입력 영역 -->
+		</div>
+		<!--e 주민번호 + 보안키패드 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 주민번호 + 보안키패드 -->
+		<div class="fieldCell regisNum">
+			<input type="tel" maxlength="6" class="fieldForm" aria-label="주민번호 앞 6자리" placeholder="주민번호 앞 6자리">
+			<span class="sign" aria-hidden="true">-</span>
+			<!--s 보안키패드 입력 영역 -->
+			<button type="button" class="Keypad" aria-label="주민번호 뒤 7자리 보안키패드">
+				<span class="on"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<!--e 보안키패드 입력 영역 -->
+		</div>
+		<!--e 주민번호 + 보안키패드 -->
+
+		class="Keypad" 하위의 span에 class="on" 클래스 추가하면 마스킹 컬러가 바뀜</pre>
+	
+	<h2>입력양식</h2>
+	<h3>기본</h3>
+	<div class="view">
+		<!--s 입력양식 -->
+		<div class="fieldCell">
+			<label for="formSP1" class="fieldLabel"><span>이름</span></label>
+			<input type="text" id="formSP1" class="fieldForm">
+		</div>
+		<!--e 입력양식 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 입력양식 -->
+		<div class="fieldCell">
+			<label for="formSP1" class="fieldLabel"><span>이름</span></label>
+			<input type="text" id="formSP1" class="fieldForm">
+		</div>
+		<!--e 입력양식 -->
+
+		input과 1:1 매칭이 가능한 label이 있는 경우
+		label의 for="값"과 input의 id="값" 매칭 필수</pre>
+
+	<h3>필수 입력</h3>
+	<div class="view">
+		<!--s 입력양식 -->
+		<div class="fieldCell">
+			<label for="formSP2" class="fieldLabel"><span>이름<span class="required">*</span></span></label>
+			<input type="text" id="formSP2" class="fieldForm" aria-required="true">
+		</div>
+		<!--e 입력양식 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 입력양식 -->
+		<div class="fieldCell">
+			<label for="formSP2" class="fieldLabel"><span>이름<span class="required">*</span></span></label>
+			<input type="text" id="formSP2" class="fieldForm" aria-required="true">
+		</div>
+		<!--e 입력양식 -->
+
+		label에 <span class="required">*</span> 추가
+		input에 aria-required="true" 추가</pre>
+
+	<h3>금액 입력</h3>
+	<div class="view">
+		<!--s 입력양식 -->
+		<div class="fieldCell addUnit">
+			<label for="formSP1_2" class="fieldLabel"><span>금액입력</span></label>
+			<input type="tel" id="formSP1_2" class="fieldForm" value="123,000,000">
+			<span class="fieldUnit">원</span>
+		</div>
+		<!--s 금액 입금시 한글 금액 노출 -->
+		<div class="fieldMsg money">일백이십오만육천원</div>
+		<!--e 금액 입금시 한글 금액 노출 -->
+		<!--e 입력양식 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 입력양식 -->
+		<div class="fieldCell addUnit">
+			<label for="formSP1_2" class="fieldLabel"><span>금액입력</span></label>
+			<input type="tel" id="formSP1_2" class="fieldForm" value="123,000,000">
+			<span class="fieldUnit">원</span>
+		</div>
+		<!--s 금액 입금시 한글 금액 노출 -->
+		<div class="fieldMsg money">일백이십오만육천원</div>
+		<!--e 금액 입금시 한글 금액 노출 -->
+		<!--e 입력양식 -->
+
+		사용자가 금액 입력 전엔 무노출
+		입력시엔 <div class="fieldMoney">입력중인금액한글</div> 노출</pre>
+
+	<h3>입력지침(입력조건 설명글)</h3>
+	<div class="view">
+		<!--s 입력양식 -->
+		<div class="fieldCell">
+			<label for="formSP6" class="fieldLabel"><span>아이디</span></label>
+			<input type="text" id="formSP6" class="fieldForm" aria-describedby="idMsg">
+		</div>
+		<div class="fieldMsg" id="idMsg">5~20자의 영문 소문자, 숫자와 특수기호(_), (-)만 사용하여 입력해 주세요.</div>
+		<!--e 입력양식 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 입력양식 -->
+		<div class="fieldCell">
+			<label for="formSP6" class="fieldLabel"><span>아이디</span></label>
+			<input type="text" id="formSP6" class="fieldForm" aria-describedby="idMsg">
+		</div>
+		<div class="fieldMsg" id="idMsg">5~20자의 영문 소문자, 숫자와 특수기호(_), (-)만 사용하여 입력해 주세요.</div>
+		<!--e 입력양식 -->
+
+		입력지침 fieldMsg의 id="값"과 input의 aria-describedby="값" 매칭해야 접근성 유효</pre>
+
+	<h3>입력양식 유효성 : 오류</h3>
+	<div class="view">
+		<!--s 입력양식 -->
+		<div class="fieldCell">
+			<label for="formSP7" class="fieldLabel"><span>비밀번호</span></label>
+			<input type="password" id="formSP7" class="fieldForm error" aria-invalid="true" aria-describedby="errorMsg">
+		</div>
+		<div class="fieldMsg error" id="errorMsg">비밀번호 오류, 확인 후 다시 입력해주세요.</div>
+		<!--e 입력양식 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 입력양식 -->
+		<div class="fieldCell">
+			<label for="formSP7" class="fieldLabel"><span>비밀번호</span></label>
+			<input type="password" id="formSP7" class="fieldForm error" aria-invalid="true" aria-describedby="errorMsg">
+		</div>
+		<div class="fieldMsg error" id="errorMsg">비밀번호 오류, 확인 후 다시 입력해주세요.</div>
+		<!--e 입력양식 -->
+
+		입력양식 유효성 오류일때 input class="fieldForm"에 'error' 추가
+		오류 메시지 id="값"과 aria-describedby="값" 매칭, aria-invalid="true" 속성 추가
+		입력양식 유효성관련 aria-invalid속성의 기본값은 false(오류 아님), true(오류)로 접근성관련 ARIA
+
+		입력양식 유효성 테스트 오류시 오류 입력양식에 초점 이동 필수</pre>
+
+	<h3>입력양식 유효성 : 성공</h3>
+	<div class="view">
+		<!--s 입력양식 -->
+		<div class="fieldCell">
+			<label for="formSP8" class="fieldLabel"><span>인증번호</span></label>
+			<input type="tel" id="formSP8" class="fieldForm success" aria-invalid="false" aria-describedby="successMsg">
+		</div>
+		<div class="fieldMsg success" id="successMsg">인증에 성공하였습니다.</div>
+		<!--e 입력양식 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 입력양식 -->
+		<div class="fieldCell">
+			<label for="formSP8" class="fieldLabel"><span>인증번호</span></label>
+			<input type="tel" id="formSP8" class="fieldForm success" aria-invalid="false" aria-describedby="successMsg">
+		</div>
+		<div class="fieldMsg success" id="successMsg">인증에 성공하였습니다.</div>
+		<!--e 입력양식 -->
+
+		입력양식 유효성 성공일때 input class="fieldForm"에 'success' 추가
+		성공 메시지 id="값"과 aria-describedby="값" 매칭, aria-invalid="false" 속성 추가
+		입력양식 유효성관련 aria-invalid속성의 기본값은 false(오류 아님), true(오류)로 접근성관련 ARIA</pre>
+	
+	<h2>입력 번외</h2>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>입력서식</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+
+	<link rel="stylesheet" href="css/shCore.css">
+	<link rel="stylesheet" href="css/shCoreDefault.css">
+
+	<link rel="stylesheet" href="css/guide.css">
+	<link rel="stylesheet" href="../css/common.css">
+
+	<script src="../js/jquery-2.2.4.min.js"></script>
+	<!-- <script src="../js/jquery-ui.js"></script> -->
+	<script src="js/shCore.js"></script>
+	<script src="js/shBrushCss.js"></script>
+	<script src="js/shBrushJScript.js"></script>
+	<script src="js/shBrushXml.js"></script>
+	<script src="js/common.js"></script>
+	<script src="../js/ui.front.js"></script>
+</head>
+<body>
+	<h1>입력서식</h1>
+	
+	<h2>기본 서식</h2>
+	<h3>input</h3>
+	<div class="view">
+		<!--s 이름 -->
+		<div class="fieldCell">
+			<label for="formSP1" class="fieldLabel"><span>이름</span></label>
+			<input type="text" id="formSP1" class="fieldForm">
+		</div>
+		<!--e 이름 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 이름 -->
+		<div class="fieldCell">
+			<label for="formSP1" class="fieldLabel"><span>이름</span></label>
+			<input type="text" id="formSP1" class="fieldForm">
+		</div>
+		<!--e 이름 --></pre>
+
+	<h3>input - 필수 : aria-required="true"</h3>
+	<div class="view">
+		<!--s 이름 -->
+		<div class="fieldCell">
+			<label for="formSP2" class="fieldLabel"><span>이름<span class="required">*</span></span></label>
+			<input type="text" id="formSP2" class="fieldForm" aria-required="true">
+		</div>
+		<!--e 이름 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 이름 -->
+		<div class="fieldCell">
+			<label for="formSP2" class="fieldLabel"><span>이름<span class="required">*</span></span></label>
+			<input type="text" id="formSP2" class="fieldForm" aria-required="true">
+		</div>
+		<!--e 이름 --></pre>
+
+	<h3>input</h3>
+	<div class="view">
+		<!--s 상호명 -->
+		<div class="fieldCell">
+			<label for="formSP3" class="fieldLabel"><span>상호명</span></label>
+			<input type="text" id="formSP3" class="fieldForm" value="텀브커피북창동점" readonly="readonly">
+		</div>
+		<!--e 상호명 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 상호명 -->
+		<div class="fieldCell">
+			<label for="formSP3" class="fieldLabel"><span>상호명</span></label>
+			<input type="text" id="formSP3" class="fieldForm" value="텀브커피북창동점" readonly="readonly">
+		</div>
+		<!--e 상호명 --></pre>
+
+	<h3>달력</h3>
+	<div class="view">
+		<!--s 달력 버튼 -->
+		<div class="fieldCellData addCombo">
+			<span class="item">납부일</span>
+			<span class="value">2019.09.20</span>
+			<button type="button" class="btn_calendar"><span>납부일 선택</span></button>
+		</div>
+		<!--e 달력 버튼 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 달력 -->
+		<div class="fieldCellData addCombo">
+			<span class="item">납부일</span>
+			<span class="value">2019.09.20</span>
+			<button type="button" class="btn_calendar"><span>납부일 선택</span></button>
+		</div>
+		<!--e 달력 --></pre>
+
+	<h3>textarea</h3>
+	<div class="view">
+		<!--s 내용입력 -->
+		<div class="fieldCell">
+			<label for="formSP5" class="fieldLabel"><span>내용입력</span></label>
+			<textarea id="formSP5" class="fieldForm"></textarea>
+		</div>
+		<!--e 내용입력 -->
+		<!--s 내용입력 -->
+		<div class="fieldCell">
+			<textarea id="formSP5" class="fieldForm" placeholder="내용입력"></textarea>
+		</div>
+		<!--e 내용입력 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 내용입력 -->
+		<div class="fieldCell">
+			<label for="formSP5" class="fieldLabel"><span>내용입력</span></label>
+			<textarea id="formSP5" class="fieldForm"></textarea>
+		</div>
+		<!--e 내용입력 -->
+		<!--s 내용입력 -->
+		<div class="fieldCell">
+			<textarea id="formSP5" class="fieldForm" placeholder="내용입력"></textarea>
+		</div>
+		<!--e 내용입력 --></pre>
+	
+	<h2>입력지침</h2>
+	<h3>aria-describedby="입력지침id"</h3>
+	<div class="view">
+		<!--s 아이디 -->
+		<div class="fieldCell">
+			<label for="formSP6" class="fieldLabel"><span>아이디</span></label>
+			<input type="text" id="formSP6" class="fieldForm" aria-describedby="idMsg">
+		</div>
+		<div class="fieldMsg" id="idMsg">5~20자의 영문 소문자, 숫자와 특수기호(_), (-)만 사용하여 입력해 주세요.</div>
+		<!--e 아이디 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 아이디 -->
+		<div class="fieldCell">
+			<label for="formSP6" class="fieldLabel"><span>아이디</span></label>
+			<input type="text" id="formSP6" class="fieldForm" aria-describedby="idMsg">
+		</div>
+		<div class="fieldMsg" id="idMsg">5~20자의 영문 소문자, 숫자와 특수기호(_), (-)만 사용하여 입력해 주세요.</div>
+		<!--e 아이디 --></pre>
+
+	<h2>유효성 관련 - 개발에서 처리</h2>
+	<h3>오류 : aria-invalid="true" aria-describedby="오류메시지id"</h3>
+	<div class="view">
+		<!--s 인증번호 -->
+		<div class="fieldCell">
+			<label for="formSP7" class="fieldLabel"><span>인증번호</span></label>
+			<input type="tel" id="formSP7" class="fieldForm error" aria-invalid="true" aria-describedby="errorMsg">
+		</div>
+		<div class="fieldMsg error" id="errorMsg">인증번호를 입력해주세요.</div>
+		<!--e 인증번호 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 인증번호 -->
+		<div class="fieldCell">
+			<label for="formSP7" class="fieldLabel"><span>인증번호</span></label>
+			<input type="tel" id="formSP7" class="fieldForm error" aria-invalid="true" aria-describedby="errorMsg">
+		</div>
+		<div class="fieldMsg error" id="errorMsg">인증번호를 입력해주세요.</div>
+		<!--e 인증번호 --></pre>
+
+	<h3>성공 : aria-invalid="false" aria-describedby="성공메시지id"</h3>
+	<div class="view">
+		<!--s 인증번호 -->
+		<div class="fieldCell">
+			<label for="formSP8" class="fieldLabel"><span>인증번호</span></label>
+			<input type="tel" id="formSP8" class="fieldForm success" aria-invalid="false" aria-describedby="successMsg">
+		</div>
+		<div class="fieldMsg success" id="successMsg">인증에 성공하였습니다.</div>
+		<!--e 인증번호 -->
+	</div>
+	<pre class="brush:xml">
+		<!--s 인증번호 -->
+		<div class="fieldCell">
+			<label for="formSP8" class="fieldLabel"><span>인증번호</span></label>
+			<input type="tel" id="formSP8" class="fieldForm success" aria-invalid="false" aria-describedby="successMsg">
+			<div class="fieldMsg" id="successMsg">인증에 성공하였습니다.</div>
+		</div>
+		<!--e 인증번호 --></pre>
+</body>
+</html>
