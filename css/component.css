@@ -1227,9 +1227,10 @@ html.mobile .form__select {
 	transition: all .5s ease;
 }
 
+[class^='menu2depth']>li>a:focus span,
 [class^='menu2depth']>li>a:hover span {
 	position: relative;
-	color: #fff;
+	color: rgb(253, 236, 0);
 }
 
 [class^='menu2depth']>li>a span:after {
@@ -1295,6 +1296,7 @@ html.mobile .form__select {
 	border-bottom: 1px solid #fff;
 }
 
+[class^='menu2depth']>li ul a:focus,
 [class^='menu2depth']>li ul a:hover {
 	color: #333;
 	border-color: #333;
@@ -1321,9 +1323,10 @@ html.mobile .form__select {
 	top: 20px;
 	bottom: 20px;
 	width: 1px;
-	box-shadow: 0;
+	box-shadow: none;
 	background-color: #cccccc;
 }
+.menu2depth--allsub>li:last-child ul:after{display: none;}
 .menu2depth--allsub.active:after { height: auto; }
 .menu2depth--allsub.active>li ul { height: auto; padding: 19px 0 27px }
 

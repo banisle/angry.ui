@@ -2165,6 +2165,7 @@ ANUI.module = (function () {
 		// mark : gnbAllUi
 		gnbAllUi: function () {
 			var $menu = $('.aui-allsub');
+			var $submenu = $menu.find('> li > a');
 			var h = 0;
 
 			$menu.find('ul').each(function(index){
@@ -2172,16 +2173,16 @@ ANUI.module = (function () {
 				h = h < height ? height : h;
 			});
 
-
-
-
 			//init
-			$menu.on('mouseenter',function(e){
+			$submenu.on('click',function(e){
+				e.preventDefault();
+			});
+			$menu.on('mouseenter focusin',function(e){
 				var $t = $(this);
 				$t.addClass('active');
 				$menu.find('ul').height(h);
 			});
-			$menu.on('mouseleave',function(e){
+			$menu.on('mouseleave focusout',function(e){
 				var $t = $(this);
 				$t.removeClass('active');
 				$menu.find('ul').height(0);
