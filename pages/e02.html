@@ -62,7 +62,7 @@
 </style>
 <!-- swipe -->
 <h3>minimap</h3>
-<p class="sub-txt">icn-error 태그로 추가 포인트 지정, 해당 태그의 좌표는 현재 비율에 맞춰 css에서 top,left,크기를 조정한다. 
+<p class="sub-txt">icn-error 태그로 추가 포인트 지정, 해당 태그의 좌표는 현재 비율에 맞춰 css에서 top,left,크기를 조정한다.
 	<br/>todo : 스크립트에서 parent의 태그만 작성후 자동으로 append해서 적용되도록
 </p>
 
@@ -95,14 +95,14 @@
 
 <script >
 	$(document).ready(function () {
-		
+
 		console.log('minimap init');
-		$(".minimap_img").load(function(){
+		$(".minimap_img").ready(function(){
 			console.log('load');
 			$('#minimap').minimap($('#parent'));
 		});
 
-		
+
 	});
 
 
