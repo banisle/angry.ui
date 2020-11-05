@@ -184,7 +184,6 @@ ANUI.module = (function () {
 				uiTabBtn = uiTab.find('.aui-tab-btn'),
 				uiTabBtnA = $('a.aui-tab-btn'),
 				uiTabBtnRad = $('label.aui-tab-btn').prev('input[type=radio]'),
-				uiTabList = $('.aui-tab-list'),
 				index;
 
 
@@ -207,39 +206,38 @@ ANUI.module = (function () {
 				$("#" + $(this).attr("aria-controls"))
 					.attr("tabindex", "0")
 					.addClass("on")
-					.siblings(uiTabList)
+					.siblings('.aui-tab-list')
 					.attr("tabindex", "-1")
 					.removeClass("on");
+
+					
 
 			});
 
 			// 라디오 탭 버튼
-			uiTabBtnRad.on('click change', function (e) {
+			uiTabBtnRad.on('change', function (e) {
 
 
 				var _this = $(this).next('label');
 
-				if (_this.hasClass('on')) return;
+				if (_this.hasClass("on")) return;
 
-				$(this).closest(uiTabWrap).find(uiTabBtn).removeClass('on');
-
-				_this.attr({
-					"tabindex": "-1",
-					"aria-selected": "false"
+				$(this).closest(uiTabWrap).find(uiTabBtn).removeClass("on").attr({
+					"aria-selected": "false",
 				});
 
-				_this.addClass('on').attr({
-					"tabindex": "0",
+				_this.addClass("on").attr({
 					"aria-selected": "true"
 				});
 
 				$("#" + _this.attr("aria-controls"))
 					.attr("tabindex", "0")
 					.addClass("on")
-					.siblings(uiTabList)
+					.siblings('.aui-tab-list')
 					.attr("tabindex", "-1")
 					.removeClass("on");
 
+				
 			});
 
 
@@ -305,7 +303,7 @@ ANUI.module = (function () {
 							.attr("tabindex", "0")
 							.addClass("on");
 						// 기존 탭 패널 비활성화
-						$("#" + $(this).attr("aria-controls")).siblings()
+						$("#" + $(this).attr("aria-controls")).siblings('.aui-tab-list')
 							.attr("tabindex", "-1")
 							.removeClass("on");
 						break;
@@ -326,7 +324,7 @@ ANUI.module = (function () {
 						.attr("tabindex", "0")
 						.addClass("on")
 						.focus()
-						.siblings(uiTabList)
+						.siblings('.aui-tab-list')
 						.attr("tabindex", "-1")
 						.removeClass("on");
 				}

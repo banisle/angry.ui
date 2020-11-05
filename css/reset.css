@@ -23,7 +23,7 @@ button:focus,
 input:focus,
 textarea:focus,
 label:focus {
-outline: none;
+	/* outline: none; */
 }
 
 /* //mark: fonts */
