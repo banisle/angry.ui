@@ -182,13 +182,19 @@ ANUI.module = (function () {
 			var uiTabWrap = $('.aui-tab-wrap'),
 				uiTab = uiTabWrap.find('.aui-tab'),
 				uiTabBtn = uiTab.find('.aui-tab-btn'),
-				uiTabBtnA = $('a.aui-tab-btn'),
-				uiTabBtnRad = $('label.aui-tab-btn').prev('input[type=radio]'),
-				index;
+				uiTabBtnA = uiTabWrap.find('a.aui-tab-btn'),
+				uiTabBtnRad = uiTabWrap.find('label.aui-tab-btn').prev('input[type=radio]');
 
 
 			// a 탭 버튼
 			uiTabBtnA.on('click', function (e) {
+
+				var index = $(this).closest('li').index();
+
+				$(this).closest(uiTabWrap).removeClass(function (index, className) {
+					return (className.match (/(^|\s)i-\S+/g) || []).join(' ');
+				}).addClass('i-' + index);
+
 				e.preventDefault();
 
 				if ($(this).hasClass('on')) return;
@@ -209,13 +215,17 @@ ANUI.module = (function () {
 					.siblings('.aui-tab-list')
 					.attr("tabindex", "-1")
 					.removeClass("on");
-
-					
-
 			});
+			uiTabBtnA.filter('.on').trigger('click');
 
 			// 라디오 탭 버튼
 			uiTabBtnRad.on('change', function (e) {
+
+				var index = $(this).closest('li').index();
+
+				$(this).closest(uiTabWrap).removeClass(function (index, className) {
+					return (className.match (/(^|\s)i-\S+/g) || []).join(' ');
+				}).addClass('i-' + index);
 
 
 				var _this = $(this).next('label');
@@ -236,9 +246,8 @@ ANUI.module = (function () {
 					.siblings('.aui-tab-list')
 					.attr("tabindex", "-1")
 					.removeClass("on");
-
-				
 			});
+			uiTabBtnRad.filter(':checked').trigger('change');
 
 
 			// 탭 키 초점
@@ -2176,13 +2185,11 @@ ANUI.module = (function () {
 				e.preventDefault();
 			});
 			$menu.on('mouseenter focusin', function (e) {
-				var $t = $(this);
-				$t.addClass('active');
+				$menu.addClass('active');
 				$menu.find('ul').height(h);
 			});
 			$menu.on('mouseleave focusout', function (e) {
-				var $t = $(this);
-				$t.removeClass('active');
+				$menu.removeClass('active');
 				$menu.find('ul').height(0);
 			});
 
