@@ -250,8 +250,7 @@ button[class^=btn] {
 	letter-spacing: 0;
 }
 
-a[class^=btn]:before,
-button[class^=btn]:before {
+a[class^=btn]:before{
 	content: "";
 	display: inline-block;
 	height: 100%;
