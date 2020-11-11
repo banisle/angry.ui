@@ -2620,7 +2620,7 @@ ANUI.module = (function () {
 			});
 		},
 		//mark : custom alert 창 + callback
-		alertui: function (option, callback) {
+		alertUi: function (option, callback) {
 			var option = { // 내용 받아오기
 					title: option.title,
 					msg: option.msg
@@ -2633,28 +2633,28 @@ ANUI.module = (function () {
 				alertT();
 			} else if (option.title) {
 				console.log('title ok');
-				var alertTit = '<div class="costomAlert_tit"> ' + option.title + '</div> ';
+				var alertTit = '<div class="alert-tit"> ' + option.title + '</div> ';
 				alertT();
 			}
 
 			function alertT() { //alert 창
 				var str = '';
-				str = '<div class="costomAlert_wrap" class=""><div class="dim"></div> ' +
-					' <div class="costomAlert"> ' +
+				str = '<div class="alert-wrap" class=""><div class="dim"></div> ' +
+					' <div class="alert"> ' +
 					alertTit +
-					'<div class="costomAlert_content"> ' +
-					'<p class="costomAlert_p">' + option.msg + '</p> ' +
+					'<div class="alert-content"> ' +
+					'<p class="alert-p">' + option.msg + '</p> ' +
 					'</div> ' +
-					'<div class="costomAlert_btnWrap"> ' +
-					'<button class="costomAlert_btn aui-close" >확인</button> ' +
+					'<div class="alert-btnWrap"> ' +
+					'<button class="alert-btn aui-close" >확인</button> ' +
 					'</div>' + '</div>' + '</div>';
 
 				$(str).appendTo(document.body);
 
-				$('.costomAlert_bg').addClass('on');
+				$('.alert-bg').addClass('on');
 
 				function alertClose() { // alert창 닫기
-					$('.costomAlert_wrap').remove();
+					$('.alert-wrap').remove();
 					return false;
 				}
 
@@ -2665,7 +2665,54 @@ ANUI.module = (function () {
 					}
 				});
 			}
-			// alertT();
+            
+
+		},
+        //mark : tostUi
+		toastUi : function( option, callback ){
+			var option = {
+				msg: option.msg,
+				time: option.time
+			},
+			removeToast,
+			_t,
+			callback = callback;
+
+			var toastCreate = function(){
+
+				if( !$('body').hasClass('has-toast') ){
+					$('<div class="aui-toast"><p>' + option.msg + '</p></div>').appendTo(document.body);
+				}
+				_t = $('.aui-toast');
+				$('body').addClass('has-toast');
+
+				setTimeout(function(){
+					_t.addClass('active');
+					toastEvt();
+				},0);
+			}
+
+			var toastEvt = function(){
+				if( _t.hasClass('active') ){
+					clearTimeout(removeToast),
+					removeToast = setTimeout(function(){
+						_t.removeClass('active');
+						setTimeout(function(){
+							_t.remove();
+						},option.time)
+						$('body').removeClass('has-toast');
+					}, option.time);
+				} else{
+					removeToast;
+				}
+
+				if(typeof callback == 'function'){
+					callback.call(this);
+				}
+			}
+
+			// init
+			toastCreate();
 
 		},
 		//mark : prev, next 버튼으로 paging
