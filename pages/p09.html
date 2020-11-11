@@ -46,15 +46,15 @@
 <h3>toast</h3>
 <p class="sub-txt">ANUI.module.toastUi({msg:'메시지 내용용, time: 토스트 사라지는 시간}, callback)</p>
 <button type="button" id="toastCall" class="btn-icn"><span>토스트 호출</span></button>
-<pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
-    $('#toastCall').on('click', function(){
-		ANUI.module.toastUi({
-			msg: '토스트 메시지 출력력',
-			time: 1000
-		}, function(){
-			_call_back();
-		});
+<pre class="brush:javascript; first-line:1; tab-size:2;  pad-line-numbers:true;" >
+$('#toastCall').on('click', function(){
+    ANUI.module.toastUi({
+        msg: '토스트 메시지 출력력',
+        time: 1000
+    }, function(){
+        _call_back();
     });
+});
 </pre>
 
 <script>
