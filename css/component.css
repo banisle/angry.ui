@@ -1584,7 +1584,7 @@ html.mobile .form__select {
     position: relative;
 	display: inline-block;
 	padding: 10px 15px;
-	background: #450e4c;
+	background: #3b3b3b;
 	border-radius: 5px;
 }
 [class^='aui-tooltip'] > span{
@@ -1593,54 +1593,116 @@ html.mobile .form__select {
 }
 
 [class^='tooltipContent'] {
+	min-width: 70px;
+	max-width: 150px;
+	min-height: 20px;
 	position: absolute;
 	padding: 10px;
-	background-color: #ffc8a2;
+	background-color: #e3e3e3;
 	border-radius: 5px;
 	font-size: 12px;
+	word-break: break-all;
 	text-align: left;
     pointer-events: none;
 	z-index: 9999;
     transition: opacity .5s;
-    opacity: 0;
+	opacity: 0;
+	visibility: hidden;
+	border:1px solid #333;
 }
 .tooltipContent.active{
-    opacity: 1;
+	opacity: 1;
+	visibility: visible;
 }
 .tooltipContent--close.active{
-    opacity: 1;
-    pointer-events: all;
+	opacity: 1;
+	visibility: visible;
+	pointer-events: all;
 }
-
+.tooltipContent--close .tit{
+	display: block;
+	padding: 0 0 5px;
+	font-size: 16px;
+	font-weight: 500;
+}
+.tooltipContent--close > p{
+	font-size: 12px;
+	line-height: 1.4;
+}
+.tooltipContent--close .aui-tbClose{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	padding: 5px;
+	background: #555;
+	border: 1px solid;
+	border-radius: 5px;
+	font-size: 0;
+}
+.tooltipContent--close .aui-tbClose::after{
+	content:'X';
+	display:block;
+	font-size:10px;
+	line-height:1;
+	color: #fff;
+}
 .tooltipContent::after {
 	content: '';
 	position: absolute;
 	border-style: solid;
 	display: block;
-    transition: opacity .5s;
+	transition: opacity .5s;
+}
+.tooltipContent::before {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	display: block;
+	transition: opacity .5s;
 }
 
 .right.tooltipContent::after {
 	top: 50%;
     transform: translateY(-50%);
-	left: -7px;
-	border-color: transparent #ffc8a2;
-	border-width: 10px 10px 10px 0;
+    left: -7px;
+    border-color: transparent #e3e3e3;
+    border-width: 10px 10px 10px 0;
+}
+.right.tooltipContent::before {
+	top: 50%;
+    transform: translateY(-50%);
+    left: -8px;
+    border-color: transparent #333;
+    border-width: 7px 7px 7px 0;
 }
 
 .left.tooltipContent::after {
 	top: 18px;
     transform: translateY(-50%);
 	right: -7px;
-	border-color: transparent #ffc8a2;
+	border-color: transparent #e3e3e3;
 	border-width: 10px 0 10px 10px;
+}
+.left.tooltipContent::before {
+	top: 18px;
+    transform: translateY(-50%);
+	right: -8px;
+	border-color: transparent #333;
+	border-width: 7px 0 7px 7px;
 }
 
 .top.tooltipContent::after {
 	bottom: -7px;
 	left: 50%;
     transform: translateX(-50%);
-	border-color: #ffc8a2 transparent;
+	border-color: #e3e3e3 transparent;
+	border-width: 7px 7px 0;
+}
+.top.tooltipContent::before {
+	bottom: -8px;
+	left: 50%;
+    transform: translateX(-50%);
+	border-color: #333 transparent;
 	border-width: 7px 7px 0;
 }
 
@@ -1648,7 +1710,14 @@ html.mobile .form__select {
 	top: -7px;
 	left: 50%;
     transform: translateX(-50%);
-	border-color: #ffc8a2 transparent;
+	border-color: #e3e3e3 transparent;
+	border-width: 0 7px 7px;
+}
+.bottom.tooltipContent::before {
+	top: -8px;
+	left: 50%;
+    transform: translateX(-50%);
+	border-color: #333 transparent ;
 	border-width: 0 7px 7px;
 }
 

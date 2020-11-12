@@ -540,9 +540,9 @@ ANUI.module = (function () {
                         dataOpt = t.data('option');
 
                     $('#' + tarId + '').removeClass('active');
-                    setTimeout(function(){
-                        $('#' + tarId + '').removeClass(dataOpt);
-                    },5000) // transition 속도와 동일하게
+                    // setTimeout(function(){
+                    //     $('#' + tarId + '').removeClass(dataOpt);
+                    // },500); // transition 속도와 동일하게
 				});;
 			}
 			new tooltip1(pad);
@@ -573,7 +573,7 @@ ANUI.module = (function () {
 						tarW = $('#' + tarId + '').outerWidth(),
 						thisBtnW = t.outerWidth(),
                         thisBtnH = t.outerHeight();
-                    
+
                         //단일 툴팁 허용 옵션
                     if(isSingle == true){
                         _tbox.removeClass('active');
@@ -609,8 +609,8 @@ ANUI.module = (function () {
                         orgT = $('[data-id="'+ orgId+ '"]'),
                         dataOpt = orgT.data('option');
 
-                    t.removeClass(dataOpt).removeClass('active');
-                    
+                    t.removeClass('active');
+
 				});;
 			}
 			new tooltip(pad);
@@ -2735,7 +2735,7 @@ ANUI.module = (function () {
 					}
 				});
 			}
-            
+
 
 		},
         //mark : tostUi
