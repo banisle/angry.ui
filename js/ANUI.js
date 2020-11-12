@@ -490,19 +490,19 @@ ANUI.module = (function () {
 
 		},
 		// mark :tooltipUi
-		tooltipUi: function (arrW, arrH, opt) {
-			var tooltip,
-				$tooltip = $('.aui-tooltipbox a'),
-				opt = opt || 0; // 페이드 효과 없엘때 0으로;
+		tooltipUi: function (pad) {
+			var tooltip1,
+				$tooltip = $('.aui-tooltip'),
+				pad = pad; // 여백;
 
 
-			tooltip = function () {
-
+			tooltip1 = function () {
 				this.evt();
 			}
 
-			tooltip.prototype.evt = function () {
-				$tooltip.on('mouseenter focus', function () {
+			tooltip1.prototype.evt = function () {
+				$tooltip.on('mouseenter focus', function (e) {
+                    e.preventDefault();
 					var t = $(this),
 						targetOff = t.offset(),
 						dataOpt = t.data('option'),
@@ -512,39 +512,109 @@ ANUI.module = (function () {
 						thisBtnW = t.outerWidth(),
 						thisBtnH = t.outerHeight();
 
-					// console.log(
-					//     'targetOff top' + targetOff.top,
-					//     'targetOff left' + targetOff.left,
-					//     'thisBtnW' + thisBtnW);
+
 					var config = {
 						top: {
-							'top': parseInt(targetOff.top - tarH - arrH),
-							'left': parseInt(targetOff.left)
+							'top': parseInt(targetOff.top - tarH - pad),
+							'left': parseInt(targetOff.left + (thisBtnW - tarW)/2 )
 						},
 						left: {
-							'top': parseInt(targetOff.top - tarH / 4),
-							'left': parseInt(targetOff.left - tarW - arrW)
+							'top': parseInt(targetOff.top),
+							'left': parseInt(targetOff.left - tarW - pad < 0 ? 0 : targetOff.left - tarW - pad)
 						},
 						right: {
-							'top': parseInt(targetOff.top - tarH / 4),
-							'left': parseInt(targetOff.left + thisBtnW + arrW)
+							'top': parseInt(targetOff.top),
+							'left': parseInt(targetOff.left + tarW + thisBtnW > $('body').width() ? $('body').width() - tarW : targetOff.left + thisBtnW + pad  )
 						},
 						bottom: {
-							'top': parseInt(targetOff.top + thisBtnH + arrH),
-							'left': parseInt(targetOff.left)
+							'top': parseInt(targetOff.top + thisBtnH + pad),
+							'left': parseInt(targetOff.left + (thisBtnW - tarW)/2 )
 						}
 					};
 
-					$('#' + tarId + '').css(config[dataOpt]).addClass(dataOpt).stop().fadeIn(opt);
+					$('#' + tarId + '').css(config[dataOpt]).addClass(dataOpt).addClass('active');
 
 				}).on('blur mouseleave', function () {
 					var t = $(this),
-						tarId = t.data('id');
-					$('#' + tarId + '').stop().fadeOut(opt);
+                        tarId = t.data('id'),
+                        dataOpt = t.data('option');
+
+                    $('#' + tarId + '').removeClass('active');
+                    setTimeout(function(){
+                        $('#' + tarId + '').removeClass(dataOpt);
+                    },5000) // transition 속도와 동일하게
 				});;
 			}
-			new tooltip(arrW, arrH, opt);
+			new tooltip1(pad);
 			console.log('tooltipUi');
+
+        },
+        // mark :tooltipUiClose
+		tooltipUiClose: function (pad) {
+			var tooltip,
+                $tooltip = $('.aui-tooltipClose'),
+                $close = $('.aui-tbClose'),
+                _tbox = $('.tooltipContent--close'),
+				pad = pad; // 여백;
+
+			tooltip = function () {
+				this.evt();
+			}
+
+			tooltip.prototype.evt = function () {
+				$tooltip.on('click', function (e) {
+                    e.preventDefault();
+					var t = $(this),
+						targetOff = t.offset(),
+                        dataOpt = t.data('option'),
+                        isSingle = t.data('single'),
+						tarId = t.data('id'),
+						tarH = $('#' + tarId + '').outerHeight(),
+						tarW = $('#' + tarId + '').outerWidth(),
+						thisBtnW = t.outerWidth(),
+                        thisBtnH = t.outerHeight();
+                    
+                        //단일 툴팁 허용 옵션
+                    if(isSingle == true){
+                        _tbox.removeClass('active');
+                    }
+
+
+					var config = {
+						top: {
+							'top': parseInt(targetOff.top - tarH - pad),
+							'left': parseInt(targetOff.left + (thisBtnW - tarW)/2 )
+						},
+						left: {
+							'top': parseInt(targetOff.top),
+							'left': parseInt(targetOff.left - tarW - pad < 0 ? 0 : targetOff.left - tarW - pad)
+						},
+						right: {
+							'top': parseInt(targetOff.top),
+							'left': parseInt(targetOff.left + tarW + thisBtnW > $('body').width() ? $('body').width() - tarW : targetOff.left + thisBtnW + pad  )
+						},
+						bottom: {
+							'top': parseInt(targetOff.top + thisBtnH + pad),
+							'left': parseInt(targetOff.left + (thisBtnW - tarW)/2 )
+						}
+					};
+
+					$('#' + tarId + '').css(config[dataOpt]).addClass(dataOpt).addClass('active');
+
+                });
+
+                $close.on('click', function () {
+					var t = $(this).closest('.tooltipContent--close'),
+                        orgId = t.attr('id'),
+                        orgT = $('[data-id="'+ orgId+ '"]'),
+                        dataOpt = orgT.data('option');
+
+                    t.removeClass(dataOpt).removeClass('active');
+                    
+				});;
+			}
+			new tooltip(pad);
+			console.log('tooltipUiClose');
 
 		},
 		// mark : modalUi

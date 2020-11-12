@@ -1,81 +1,51 @@
-<h3>툴팁</h3>
-<p class="sub-txt">data-option속성 레이어 top, left, right, bottom 호출필요(선택)<br>data-id 속성으로 레이어 호출필요<br/>ANUI.module.tooltipUi(툴팁화살표 가로값, 툴팁화살표 높이값, 모션 속도);</p>
+<h3>툴팁 닫기 O</h3>
+<p class="sub-txt">data-option = {top|left|right|bottom}, data-single 속성이 있을경우 다른 툴팁창을 닫고 하나만 열림<br>data-id 속성으로 레이어 호출필요<br/>ANUI.module.tooltipUiClose(pad); pad = 여백</p>
 
-
-<div class="aui-tooltipbox">
-    <a href="#" data-option="top" data-id="tooltip01" class="tooltipTarget" title="툴팁 레이어 top">툴팁 레이어 top</a>
-    <a href="#" data-option="left" data-id="tooltip02" class="tooltipTarget" title="툴팁 레이어 left">툴팁 레이어 left</a>
-    <a href="#" data-option="right" data-id="tooltip03" class="tooltipTarget" title="툴팁 레이어 right">툴팁 레이어 right</a>
-    <a href="#" data-option="bottom" data-id="tooltip04" class="tooltipTarget" title="툴팁 레이어 bottom">툴팁 레이어 bottom</a>
+<div class="">
+    <a href="#" data-option="top" data-id="tooltip-c01" data-single="true" class="aui-tooltipClose tooltipTarget" title="툴팁 레이어 top"><span>툴팁 레이어 top</span></a>
+    <a href="#" data-option="left" data-id="tooltip-c02" data-single="true"  class="aui-tooltipClose tooltipTarget" title="툴팁 레이어 left"><span>툴팁 레이어 left</span></a>
+    <a href="#" data-option="right" data-id="tooltip-c03" data-single="true"  class="aui-tooltipClose tooltipTarget" title="툴팁 레이어 right"><span>툴팁 레이어 right</span></a>
+    <a href="#" data-option="bottom" data-id="tooltip-c04" data-single="true"  class="aui-tooltipClose tooltipTarget" title="툴팁 레이어 bottom"><span>툴팁 레이어 bottom</span></a>
 </div>
 
-<div id="tooltip01" class="tooltipContent"> 
-    <ul> 
-        <li>축복받은 폴리네의 판타스마, 무기 상자(30일) 100% 할인 쿠폰</li> 
-        <li>축복받은 폴리네의 카데이라, 방어구 상자(30일) 100% 할인 쿠폰</li> 
-        <li>축복받은 폴리네의 카데이라, 액세서리 상자(30일) 100% 할인 쿠폰</li> 
-    </ul> 
-</div> 
-<div id="tooltip02" class="tooltipContent"> 
-    <h2>12주년 응원 수술(영구)</h2> 
-    <ul> 
-        <li>공격력/마법력 +12 증가</li> 
-        <li>액티브 스킬 : 폭죽</li> 
-    </ul> 
+<h3>툴팁 마우스 오버</h3>
+<p class="sub-txt">data-option = {top|left|right|bottom}<br>data-id 속성으로 레이어 호출필요, 화살표 스타일은 css에서 적용<br/>ANUI.module.tooltipUi(pad); pad = 여백</p>
+
+<div class="">
+    <a href="#" data-option="top" data-id="tooltip01" class="aui-tooltip tooltipTarget" title="툴팁 레이어 top"><span>툴팁 레이어 top</span></a>
+    <a href="#" data-option="left" data-id="tooltip02" class="aui-tooltip tooltipTarget" title="툴팁 레이어 left"><span>툴팁 레이어 left</span></a>
+    <a href="#" data-option="right" data-id="tooltip03" class="aui-tooltip tooltipTarget" title="툴팁 레이어 right"><span>툴팁 레이어 right</span></a>
+    <a href="#" data-option="bottom" data-id="tooltip04" class="aui-tooltip tooltipTarget" title="툴팁 레이어 bottom"><span>툴팁 레이어 bottom</span></a>
 </div>
-<div id="tooltip03" class="tooltipContent"> 
-    <h2>12주년 응원 수술(영구)</h2> 
-    <ul> 
-        <li>공격력/마법력 +12 증가</li> 
-        <li>액티브 스킬 : 폭죽</li> 
-    </ul> 
+<!-- 툴팁 마우스 오버  -->
+<div id="tooltip01" class="tooltipContent">tooltip 1</div>
+<div id="tooltip02" class="tooltipContent">tooltip 2</div>
+<div id="tooltip03" class="tooltipContent">tooltip 3</div>
+<div id="tooltip04" class="tooltipContent">tooltip 4</div>
+
+<!-- 툴팁 닫기 O -->
+<div id="tooltip-c01" class="tooltipContent--close">
+    <button type="button" class="aui-tbClose"><span>닫기</span></button>
+    tooltip 1
 </div>
-<div id="tooltip04" class="tooltipContent"> 
-    <h2>12주년 응원 수술(영구)</h2> 
-    <ul> 
-        <li>공격력/마법력 +12 증가</li> 
-        <li>액티브 스킬 : 폭죽</li> 
-    </ul> 
+<div id="tooltip-c02" class="tooltipContent--close">
+    <button type="button" class="aui-tbClose"><span>닫기</span></button>
+    tooltip 2
 </div>
+<div id="tooltip-c03" class="tooltipContent--close">
+    <button type="button" class="aui-tbClose"><span>닫기</span></button>
+    tooltip 3
+</div>
+<div id="tooltip-c04" class="tooltipContent--close">
+    <button type="button" class="aui-tbClose"><span>닫기</span></button>
+    tooltip 4
+</div>
+
 
 
 <!-- (sta) pre sample -->
 <pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true; /* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
-&lt;div class=&quot;aui-tooltip&quot;&gt;
-    &lt;a href=&quot;#&quot; data-option=&quot;top&quot; data-id=&quot;tooltip01&quot; class=&quot;tooltipTarget&quot; title=&quot;툴팁 레이어 top&quot;&gt;툴팁 레이어 top&lt;/a&gt;
-    &lt;a href=&quot;#&quot; data-option=&quot;left&quot; data-id=&quot;tooltip02&quot; class=&quot;tooltipTarget&quot; title=&quot;툴팁 레이어 left&quot;&gt;툴팁 레이어 left&lt;/a&gt;
-    &lt;a href=&quot;#&quot; data-option=&quot;right&quot; data-id=&quot;tooltip03&quot; class=&quot;tooltipTarget&quot; title=&quot;툴팁 레이어 right&quot;&gt;툴팁 레이어 right&lt;/a&gt;
-    &lt;a href=&quot;#&quot; data-option=&quot;bottom&quot; data-id=&quot;tooltip04&quot; class=&quot;tooltipTarget&quot; title=&quot;툴팁 레이어 bottom&quot;&gt;툴팁 레이어 bottom&lt;/a&gt;
-&lt;/div&gt;
 
-&lt;div id=&quot;tooltip01&quot; class=&quot;tooltipContent&quot;&gt; 
-    &lt;ul&gt; 
-        &lt;li&gt;축복받은 폴리네의 판타스마, 무기 상자(30일) 100% 할인 쿠폰&lt;/li&gt; 
-        &lt;li&gt;축복받은 폴리네의 카데이라, 방어구 상자(30일) 100% 할인 쿠폰&lt;/li&gt; 
-        &lt;li&gt;축복받은 폴리네의 카데이라, 액세서리 상자(30일) 100% 할인 쿠폰&lt;/li&gt; 
-    &lt;/ul&gt; 
-&lt;/div&gt; 
-&lt;div id=&quot;tooltip02&quot; class=&quot;tooltipContent&quot;&gt; 
-    &lt;h2&gt;12주년 응원 수술(영구)&lt;/h2&gt; 
-    &lt;ul&gt; 
-        &lt;li&gt;공격력/마법력 +12 증가&lt;/li&gt; 
-        &lt;li&gt;액티브 스킬 : 폭죽&lt;/li&gt; 
-    &lt;/ul&gt; 
-&lt;/div&gt;
-&lt;div id=&quot;tooltip03&quot; class=&quot;tooltipContent&quot;&gt; 
-    &lt;h2&gt;12주년 응원 수술(영구)&lt;/h2&gt; 
-    &lt;ul&gt; 
-        &lt;li&gt;공격력/마법력 +12 증가&lt;/li&gt; 
-        &lt;li&gt;액티브 스킬 : 폭죽&lt;/li&gt; 
-    &lt;/ul&gt; 
-&lt;/div&gt;
-&lt;div id=&quot;tooltip04&quot; class=&quot;tooltipContent&quot;&gt; 
-    &lt;h2&gt;12주년 응원 수술(영구)&lt;/h2&gt; 
-    &lt;ul&gt; 
-        &lt;li&gt;공격력/마법력 +12 증가&lt;/li&gt; 
-        &lt;li&gt;액티브 스킬 : 폭죽&lt;/li&gt; 
-    &lt;/ul&gt; 
-&lt;/div&gt;
 </pre>
 <!-- (end) pre sample -->
 
@@ -83,6 +53,7 @@
 
 <script>
 $(document).ready(function(){
-    ANUI.module.tooltipUi(10,7,500);
+    ANUI.module.tooltipUiClose(10);
+    ANUI.module.tooltipUi(10);
 })
 </script>

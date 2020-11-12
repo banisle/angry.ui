@@ -1580,24 +1580,36 @@ html.mobile .form__select {
 
 
 /* //mark:  tooltip */
-.aui-tooltipbox a {
+[class^='aui-tooltip']{
+    position: relative;
 	display: inline-block;
 	padding: 10px 15px;
 	background: #450e4c;
 	border-radius: 5px;
-	color: #fff;
-	font-size: 12px;
+}
+[class^='aui-tooltip'] > span{
+    color:#fff;
+    font-size: 12px;
 }
 
-.tooltipContent {
-	display: none;
+[class^='tooltipContent'] {
 	position: absolute;
 	padding: 10px;
 	background-color: #ffc8a2;
 	border-radius: 5px;
 	font-size: 12px;
 	text-align: left;
+    pointer-events: none;
 	z-index: 9999;
+    transition: opacity .5s;
+    opacity: 0;
+}
+.tooltipContent.active{
+    opacity: 1;
+}
+.tooltipContent--close.active{
+    opacity: 1;
+    pointer-events: all;
 }
 
 .tooltipContent::after {
@@ -1605,11 +1617,12 @@ html.mobile .form__select {
 	position: absolute;
 	border-style: solid;
 	display: block;
-	width: 0;
+    transition: opacity .5s;
 }
 
 .right.tooltipContent::after {
-	top: 18px;
+	top: 50%;
+    transform: translateY(-50%);
 	left: -7px;
 	border-color: transparent #ffc8a2;
 	border-width: 10px 10px 10px 0;
@@ -1617,6 +1630,7 @@ html.mobile .form__select {
 
 .left.tooltipContent::after {
 	top: 18px;
+    transform: translateY(-50%);
 	right: -7px;
 	border-color: transparent #ffc8a2;
 	border-width: 10px 0 10px 10px;
@@ -1624,14 +1638,16 @@ html.mobile .form__select {
 
 .top.tooltipContent::after {
 	bottom: -7px;
-	left: 54px;
+	left: 50%;
+    transform: translateX(-50%);
 	border-color: #ffc8a2 transparent;
 	border-width: 7px 7px 0;
 }
 
 .bottom.tooltipContent::after {
 	top: -7px;
-	left: 54px;
+	left: 50%;
+    transform: translateX(-50%);
 	border-color: #ffc8a2 transparent;
 	border-width: 0 7px 7px;
 }
