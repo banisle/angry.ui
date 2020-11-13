@@ -2584,36 +2584,68 @@ ANUI.module = (function () {
 		// mark : allChkUi
 		allChkUi: function (opt) {
 
-			var $t = $('.aui-allChk'),
+            var $t = $('.aui-allChk'),
+                $t0 = $('.aui-allChk-0 > input:checkbox'),//전체 체크 상위
 				$allChk = $t.find('[data-allchk]'), //부모 체크박스
 				$optChk = $t.find('[data-optchk]'),
-				$subChk = $t.find('[data-subchk] input').not($optChk), //자식 체크박스
+                $subChk = $t.find('[data-subchk] input').not($optChk), //자식 체크박스
+                $subChkAll,
+                _subVal,
+                $thisOrg,
 				allChkFn,
 				opt = {
 					'req': opt.req || true //전체 체크시 선택요소 체크 부분
 				};
 
-			allChkFn = function (opt) {
-				this.init();
-				this.evt();
+			allChkFn = function () {
+                this.evt();
+                $thisOrg = this;
 
-			}
-			allChkFn.prototype.init = function () {}
+            }
+            //자식에 의한 전체의 상위 체크 / 풀림
+			allChkFn.prototype.subchk = function () {
+                _subVal = $t0.parent().data('parent');
+                $subChkAll = $t0.parent().parent().find('[data-sub='+ _subVal +']').find('input:checkbox');
+
+                if( $subChkAll.length == $subChkAll.filter(':checked').length ){
+                    $t0.prop('checked',true);
+                } else{
+                    $t0.prop('checked',false);
+                }
+            }
+
 			allChkFn.prototype.evt = function () {
+
+                // 전체체크 가장 상위 이벤트
+                $t0.on('change', function () {
+                    var _t = $(this),
+                        _subVal = _t.parent().data('parent');
+
+                    $subChkAll = _t.parent().parent().find('[data-sub='+ _subVal +']').find('input:checkbox');
+
+					if( _t.prop('checked') == true ){
+                        $subChkAll.prop('checked',true);
+                    } else{
+                        $subChkAll.prop('checked',false);
+                    }
+				});
 
 				//전체체크 버튼 이벤트
 				$allChk.on('change', function () {
 					var _t = $(this);
 
 					$optChk = _t.closest($t).find('[data-optchk]'),
-						$subChk = _t.closest($t).find('[data-subchk] input').not($optChk);
+					$subChk = _t.closest($t).find('[data-subchk] input').not($optChk);
 
 					if (_t.prop('checked') == true) {
 						//전체체크 옵션값이 true일때 선택요소도 체크되게, false 일때 선택요소는 체크 안되게 함
 						opt.req == true ? $subChk.add($optChk).prop('checked', true) : $subChk.prop('checked', true);
 					} else {
 						$subChk.add($optChk).prop('checked', false);
-					}
+                    }
+                    
+                    //전체의 상위 체크 
+                    $thisOrg.subchk();
 				});
 
 				//자식요소 체크 이벤트
@@ -2636,8 +2668,10 @@ ANUI.module = (function () {
 						}
 					} else {
 						$allChk.prop("checked", false);
-					}
-
+                    }
+                    
+                    //전체의 상위 체크 
+                    $thisOrg.subchk();
 
 				});
 			}

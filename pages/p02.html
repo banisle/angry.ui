@@ -1,10 +1,16 @@
 <h3>전체 체크박스</h3>
-<p class="sub-txt">ANUI.module.allChkUi({'req':true}); 호출, req: 인자값(전체체크시 선택값을 포함 : true)<br/>가장 상위 aui-allchk 클래스 선언, 전체 체크 부모의 input 요소에 <strong>data-allchk</strong>속성<br/>자식들 감싼 상위에 data-subchk 속성</p>
+<p class="sub-txt">ANUI.module.allChkUi({'req':true}); 호출, req: 인자값(전체체크시 선택값을 포함 : true)<br/>가장 상위 aui-allchk 클래스 선언, 전체 체크 부모의 input 요소에 <strong>data-allchk</strong>속성<br/>자식들 감싼 상위에 data-subchk 속위<br>
+data-optchk속성 선택값 체크박스<br>전체체크의 최상위 체크시 data-parnet속성과 그 자식들은 data-sub속성</p>
 
 <fieldset>
     <legend>전체 체크박스</legend>
     <form >
-        <div class="aui-allChk">
+        <!-- 전체체크 최상위 -->
+        <div class="aui-allChk-0" data-parent="all">
+            <input type="checkbox" name="" id="all0" class="form__chk">
+            <label for="all0"><span class="label-txt">전체체크 최상위</span></label>
+        </div>
+        <div class="aui-allChk" data-sub="all">
             <span class="form-grp">
                 <input type="checkbox" name="chk_all1" id="chk_a_all" class="form__chk" data-allchk>
                 <label for="chk_a_all"><span class="label-txt">전체체크</span></label>
@@ -36,7 +42,7 @@
                 </li>
             </ul>
         </div>
-        <div class="aui-allChk" style="padding-top:30px">
+        <div class="aui-allChk" style="padding-top:30px" data-sub="all">
             <span class="form-grp">
                 <input type="checkbox" name="chk_all1" id="chk_a_all2" class="form__chk" data-allchk>
                 <label for="chk_a_all2"><span class="label-txt">전체체크</span></label>
