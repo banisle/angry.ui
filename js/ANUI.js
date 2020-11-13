@@ -2605,7 +2605,8 @@ ANUI.module = (function () {
             //자식에 의한 전체의 상위 체크 / 풀림
 			allChkFn.prototype.subchk = function () {
                 _subVal = $t0.parent().data('parent');
-                $subChkAll = $t0.parent().parent().find('[data-sub='+ _subVal +']').find('input:checkbox');
+                $optChk = $t0.parent().parent().find('[data-sub='+ _subVal +']').find('[data-optchk]');
+                $subChkAll = $t0.parent().parent().find('[data-sub='+ _subVal +']').find('input:checkbox').not($optChk);
 
                 if( $subChkAll.length == $subChkAll.filter(':checked').length ){
                     $t0.prop('checked',true);
