@@ -536,8 +536,7 @@ ANUI.module = (function () {
 
 				}).on('blur mouseleave', function () {
 					var t = $(this),
-                        tarId = t.data('id'),
-                        dataOpt = t.data('option');
+                        tarId = t.data('id');
 
                     $('#' + tarId + '').removeClass('active');
                     // setTimeout(function(){
@@ -604,10 +603,7 @@ ANUI.module = (function () {
                 });
 
                 $close.on('click', function () {
-					var t = $(this).closest('.tooltipContent--close'),
-                        orgId = t.attr('id'),
-                        orgT = $('[data-id="'+ orgId+ '"]'),
-                        dataOpt = orgT.data('option');
+					var t = $(this).closest('.tooltipContent--close');                       
 
                     t.removeClass('active');
 
