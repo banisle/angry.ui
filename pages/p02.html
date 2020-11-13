@@ -75,7 +75,12 @@ data-optchk속성 선택값 체크박스<br>전체체크의 최상위 체크시 
 &lt;fieldset&gt;
     &lt;legend&gt;전체 체크박스&lt;/legend&gt;
     &lt;form &gt;
-        &lt;div class=&quot;aui-allChk&quot;&gt;
+        <!-- 전체체크 최상위 -->
+        &lt;div class=&quot;aui-allChk-0&quot; data-parent=&quot;all&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; name=&quot;&quot; id=&quot;all0&quot; class=&quot;form__chk&quot;&gt;
+            &lt;label for=&quot;all0&quot;&gt;&lt;span class=&quot;label-txt&quot;&gt;전체체크 최상위&lt;/span&gt;&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;aui-allChk&quot; data-sub=&quot;all&quot;&gt;
             &lt;span class=&quot;form-grp&quot;&gt;
                 &lt;input type=&quot;checkbox&quot; name=&quot;chk_all1&quot; id=&quot;chk_a_all&quot; class=&quot;form__chk&quot; data-allchk&gt;
                 &lt;label for=&quot;chk_a_all&quot;&gt;&lt;span class=&quot;label-txt&quot;&gt;전체체크&lt;/span&gt;&lt;/label&gt;
