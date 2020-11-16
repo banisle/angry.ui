@@ -963,6 +963,22 @@ html.mobile .form__select {
 	top: 0;
 }
 
+.laypop.bottom .wrap-modal {
+	justify-content: flex-end;
+    position:fixed;
+    left: 15px;
+    right: 15px;
+}
+.laypop.bottom.trans-ms .wrap-modal .inner {
+	transition: all ease-in-out .5s;
+    top:initial;
+    bottom: -100%;
+}
+.laypop.bottom.trans-ms.on .wrap-modal .inner {
+    bottom: 0;
+}
+
+
 .laypop.type01 .wrap-modal .inner {
 	width: 728px;
 	margin: 0 auto

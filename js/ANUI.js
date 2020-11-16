@@ -692,7 +692,10 @@ ANUI.module = (function () {
 					return;
 				}
 				//스크롤바가 생겼는지 체크
-				bodyIsOverflowing = Math.sign($(window).height() - $(document).height()) > 0 ? 'true' : 'false';
+                bodyIsOverflowing = Math.sign($(window).height() - $(document).height()) > 0 ? 'true' : 'false';
+            
+                //trans 옵션 체크
+				$('[data-target=' + mvId + ']').hasClass('trans-ms') ? optTrans = 'true' : optTrans = 'false';
 
 				//모달 출력시 바닥 고정
 				$('html').addClass('fixed');
@@ -765,16 +768,14 @@ ANUI.module = (function () {
 				}
 				openSt = 'false';
 				// console.log('close');
-			}
-
+            }
+            
+            //모달 버튼
 			mvBtn.on('click', function (e) {
 				e.preventDefault();
 
 				mvId = $(this).attr('data-modal');
-				$('[data-target=' + mvId + ']').hasClass('trans-ms') ? optTrans = 'true' : optTrans = 'false';
-
 				dimLyOpen(mvId, maskClick);
-
 				$this = $(this);
 			});
 
@@ -786,7 +787,6 @@ ANUI.module = (function () {
 
 			//외부 제어용 플러그인형식
 			$.fn.modalUi = function (evt, mvId, maskClick, t) {
-
 
 				if (evt === 'open') {
 					$this = t;

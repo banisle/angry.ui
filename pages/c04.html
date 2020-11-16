@@ -76,7 +76,7 @@
 
     $('.mvClose').on('click', function () {
         $('#a').modalUi('close', 'ajax_modal01');
-    })
+    });
 </script>
 
 <pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ ">
@@ -99,7 +99,7 @@ $(&quot;#ajax_btn&quot;).on(&#39;click&#39;, function (e) {
 
         },
         error: function (request, status, error) {
-            console.log(&quot;code:&quot; + request.status + &quot;\n&quot; + &quot;message:&quot; + request.responseText +
+            console.log(&quot;code:&quot; + reque가t.status + &quot;\n&quot; + &quot;message:&quot; + request.responseText +
                 &quot;\n&quot; + &quot;error:&quot; + error);
         }
     });
@@ -142,6 +142,56 @@ $(&#39;.mvClose&#39;).on(&#39;click&#39;, function () {
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
+
+<h3>bottom 모달</h3>
+<p class="sub-txt">ajax와 동일하게 호출<br /> $({selector}).modalUi('open|close', '{data-target 속성}', {dim부분 클릭 적용 true | false}); 형태로 적용<br>laypop 클래스에 'bottom,trans-ms' 추가</p>
+
+<p><a href="#" id="modal-btn" class="btn-icn" data-modal="modal01"><span>bottom 모달 호출</span></a></p>
+
+<script>
+//sampple
+$('#modal-btn').on('click',function(){
+    $('#modal-ct').modalUi('open', 'modal-bt', true, $('#modal-btn'));
+});
+//창 닫기
+$('.mvClose').on('click', function () {
+    $('#modal-ct').modalUi('close', 'modal-bt');
+});
+</script>
+
+<pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
+//실제 적용
+$('#modal-ct').modalUi('open', 'modal-bt', true, $('#modal-btn'));
+$('.mvClose').on('click', function () {
+    $('#a').modalUi('close', 'ajax_modal01');
+});
+//창 닫기
+$('.mvClose').on('click', function () {
+    $('#modal-ct').modalUi('close', 'modal-bt');
+});
+
+&lt;div id=&quot;modal-bt-ct&quot; class=&quot;laypop bottom trans-ms&quot; data-target=&quot;modal-bt&quot; role=&quot;dialog&quot; aria-labelledby=&quot;title-dialog3&quot; aria-describedby=&quot;ajax_data&quot;&gt;
+    &lt;div class=&quot;wrap-modal&quot; role=&quot;document&quot; &gt;
+        &lt;article class=&quot;inner&quot;&gt;
+            &lt;header class=&quot;laypop__header&quot;&gt;
+                &lt;h1 id=&quot;title-dialog3&quot;&gt;bottom 모달 팝업 타이틀&lt;/h1&gt;
+            &lt;/header&gt;
+            &lt;div class=&quot;laypop__content&quot;&gt;
+                &lt;div class=&quot;scrollWrap&quot;&gt;
+                    &lt;div class=&quot;scrollview&quot;&gt;
+                        &lt;div style=&quot;text-align:center;&quot; id=&quot;ajax_data&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;footer class=&quot;laypop_footer&quot;&gt;
+                &lt;div class=&quot;btn-wrap&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;btn--ok w100 mvClose&quot;&gt;&lt;span&gt;닫기&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+            &lt;/footer&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+
 
 <!-- (sta) 모달 ct -->
 <div class="laypop type01" id="" data-target="modal01" role="dialog" aria-labelledby="title-dialog" aria-describedby="desc-txt">
@@ -232,6 +282,28 @@ $(&#39;.mvClose&#39;).on(&#39;click&#39;, function () {
     </div>
 </div>
 <!--(end) 모달 ct -->
+
+<!-- (sta) bottom 모달 ct -->
+<div id="modal-bt-ct" class="laypop bottom trans-ms" data-target="modal-bt" role="dialog" aria-labelledby="title-dialog3" aria-describedby="ajax_data">
+    <div class="wrap-modal" role="document" >
+        <article class="inner">
+            <header class="laypop__header">
+                <h1 id="title-dialog3">bottom 모달 팝업 타이틀</h1>
+            </header>
+            <div class="laypop__content">
+                <div class="scrollWrap">
+                    <div class="scrollview">
+                        <div style="text-align:center;" id="ajax_data"></div>
+                    </div>
+                </div>
+            </div>
+            <footer class="laypop_footer">
+                <div class="btn-wrap"><a href="#" class="btn--ok w100 mvClose"><span>닫기</span></a></div>
+            </footer>
+        </article>
+    </div>
+</div>
+<!--(end) bottom ct -->
 
 <script>
     ANUI.module.modalUi();
