@@ -1,15 +1,25 @@
 <script src="lib/jquery-ui.min.js"></script>
 <script src="lib/jquery.ui.touch-punch.min.js"></script>
+<style>
+    .dragarea{
+        float: right;
+        width:50px;
+        padding:15px 0;
+        background: #e3e3e3;
+        color:#000;
+
+    }
+</style>
 <h3>sortable</h3>
 <p class="sub-txt">index num 갱신, css counter로 제어</p>
 
 <div style="width: 90vw;margin:0 auto">
 	<ul class="aui-sort">
-		<li class="slide"><span class="num"></span><span class="tit">Slide 1</span></li>
-		<li class="slide"><span class="num"></span><span class="tit">Slide 2</span></li>
-		<li class="slide"><span class="num"></span><span class="tit">Slide 3</span></li>
-		<li class="slide"><span class="num"></span><span class="tit">Slide 4</span></li>
-		<li class="slide"><span class="num"></span><span class="tit">Slide 5</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 1</span><span class="dragarea">handle</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 2</span><span class="dragarea">handle</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 3</span><span class="dragarea">handle</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 4</span><span class="dragarea">handle</span></li>
+		<li class="slide"><span class="num"></span><span class="tit">Slide 5</span><span class="dragarea">handle</span></li>
 	</ul>
 </div>
 
@@ -202,7 +212,8 @@
 	// sortable
 	$(".aui-sort ").sortable({
 		axis: "y",
-		revert: 150,
+        revert: 150,
+        handle: '.dragarea',
 		start: function (e, ui) {
 
 		},
