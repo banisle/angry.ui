@@ -962,6 +962,18 @@ html.mobile .form__select {
 .laypop.trans-ms.on .wrap-modal .inner {
 	top: 0;
 }
+.laypop.type-full{}
+.laypop.type-full .wrap-modal {padding:0}
+.laypop.type-full .wrap-modal .inner {
+    display:flex;
+    flex-direction: column;
+    flex:1;
+    justify-content: space-between;
+    border-radius: 0;
+}
+.laypop.type-full .wrap-modal .laypop__content{
+    flex:1;
+} 
 
 .laypop.bottom .wrap-modal {
 	justify-content: flex-end;
