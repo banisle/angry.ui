@@ -1,3 +1,32 @@
+<style>
+.laypop .swipe-bar{
+    position: absolute;
+    top: 0;
+}
+.swipe-bar{
+    position: fixed;
+    display: block;
+    width: 100%;
+    left: 50%;
+    height: 30px;
+    bottom: 0;
+    transform:translateX(-50%);
+    transition: height .3s ease-out;
+}
+.swipe-bar::after{
+    content:'';
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 3px;
+    background-color: rgba(0,0,0,.4);
+    border-radius:3px;
+    transform:translate(-50%,-50%);
+}
+</style>
+
 <!-- modal -->
 <h3>pc 모달</h3>
 <!-- (sta)모달 호출 버튼 -->
@@ -155,14 +184,15 @@ $(&#39;.mvClose&#39;).on(&#39;click&#39;, function () {
 <!-- (end) pre sample -->
 
 <h3>bottom 모달</h3>
-<p class="sub-txt">ajax와 동일하게 호출<br /> $({selector}).modalUi('open|close', '{data-target 속성}', {dim부분 클릭 적용 true | false}); 형태로 적용<br>laypop 클래스에 'bottom,trans-ms' 추가</p>
+<p class="sub-txt">ajax와 동일하게 호출<br /> $({selector}).modalUi('open|close', '{data-target 속성}', {dim부분 클릭 적용 true | false}); 형태로 적용<br>laypop 클래스에 'bottom,trans-ms' 추가<br>하단 스와이프 닫기 기능 bar 추가 </p>
 
 <p><a href="#" id="modal-btn" class="btn-icn" data-modal="modal01"><span>bottom 모달 호출</span></a></p>
-
+<!-- swipe bar -->
+<div class="swipe-bar"></div>
 <script>
 //sampple
 $('#modal-btn').on('click',function(){
-    $('#modal-ct').modalUi('open', 'modal-bt', true, $('#modal-btn'));
+    $('#modal-ct').modalUi('open', 'modal-bt', false, $('#modal-btn'));
 });
 //창 닫기
 $('.mvClose').on('click', function () {
@@ -171,12 +201,10 @@ $('.mvClose').on('click', function () {
 </script>
 
 <pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
-//실제 적용
-$('#modal-ct').modalUi('open', 'modal-bt', true, $('#modal-btn'));
-$('.mvClose').on('click', function () {
-    $('#a').modalUi('close', 'ajax_modal01');
-});
-//창 닫기
+//모달 호출
+$('#modal-ct').modalUi('open', 'modal-bt', false, $('#modal-btn'));
+
+//모달 닫기
 $('.mvClose').on('click', function () {
     $('#modal-ct').modalUi('close', 'modal-bt');
 });
@@ -336,10 +364,13 @@ $('.mvClose').on('click', function () {
 </div>
 <!--(end) 모달 ct -->
 
+
 <!-- (sta) bottom 모달 ct -->
 <div id="modal-bt-ct" class="laypop bottom trans-ms" data-target="modal-bt" role="dialog" aria-labelledby="title-dialog3" aria-describedby="ajax_data">
     <div class="wrap-modal" role="document" >
         <article class="inner">
+            <!-- swipe bar -->
+            <div class="swipe-bar"></div>
             <header class="laypop__header">
                 <h1 id="title-dialog3">bottom 모달 팝업 타이틀</h1>
             </header>
@@ -360,4 +391,21 @@ $('.mvClose').on('click', function () {
 
 <script>
     ANUI.module.modalUi();
+
+    //bottom 모달 스와이프 액션 추가 swipe-bar
+    var ts,
+        $swBar = $('.swipe-bar'),
+        distance = 5;
+    $swBar.on('touchstart', function(e){
+        ts = e.originalEvent.touches[0].clientY;
+    });
+    $(document).on('touchend',$swBar, function(e){
+        te = e.originalEvent.touches[0].clientY;
+
+        if(ts >ts + distance){
+            $('#modal-ct').modalUi('open', 'modal-bt', false, $('#modal-btn'));
+        } else if( ts < te - distance){
+            $('#modal-ct').modalUi('close', 'modal-bt');
+        }
+    });
 </script>
