@@ -393,19 +393,26 @@ $('.mvClose').on('click', function () {
     ANUI.module.modalUi();
 
     //bottom 모달 스와이프 액션 추가 swipe-bar
-    var ts,
+    var ts,te,
         $swBar = $('.swipe-bar'),
         distance = 5;
+
     $swBar.on('touchstart', function(e){
         ts = e.originalEvent.touches[0].clientY;
+        console.log('ts',ts);
     });
-    $(document).on('touchend',$swBar, function(e){
-        te = e.originalEvent.touches[0].clientY;
 
-        if(ts >ts + distance){
+    $(document).on('touchend',$swBar, function(e){
+        
+        te = e.originalEvent.touches[0].clientY;
+        console.log('te',te );
+
+        if(ts > te + distance){
             $('#modal-ct').modalUi('open', 'modal-bt', false, $('#modal-btn'));
         } else if( ts < te - distance){
             $('#modal-ct').modalUi('close', 'modal-bt');
         }
+
+
     });
 </script>
