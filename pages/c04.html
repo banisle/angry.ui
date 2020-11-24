@@ -1,3 +1,4 @@
+<script src="lib/hammer.min.js"></script>
 <style>
 .laypop .swipe-bar{
     position: absolute;
@@ -394,18 +395,17 @@ $('.mvClose').on('click', function () {
 
     //bottom 모달 스와이프 액션 추가 swipe-bar
     var ts,te,
+        // $swBar = document.querySelector('.swipe-bar'),
         $swBar = $('.swipe-bar'),
         distance = 5;
 
     $swBar.on('touchstart', function(e){
         ts = e.originalEvent.touches[0].clientY;
-        console.log('ts',ts);
     });
 
     $(document).on('touchend',$swBar, function(e){
         
-        te = e.originalEvent.touches[0].clientY;
-        console.log('te',te );
+        te = e.originalEvent.changedTouches[0].clientY;
 
         if(ts > te + distance){
             $('#modal-ct').modalUi('open', 'modal-bt', false, $('#modal-btn'));
@@ -415,4 +415,10 @@ $('.mvClose').on('click', function () {
 
 
     });
+    // var mc = new Hammer( $swBar, {threshold:5} );
+
+    // mc.on('pan', function(ev) {
+    //     console.log(ev);
+    // });
+    
 </script>
