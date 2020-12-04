@@ -82,25 +82,30 @@ var DataGridRenderer = {
 
 		//1. tableStyle : Col
 		if(tableStyle =='col'){
-			outputText += indent+indent+'<thead>'+newLine;
-			outputText += indent+indent+indent+'<tr>'+newLine;
-
-				for (var j=0; j < numColumns; j++) {
-					outputText += indent+indent+indent+indent+'<th scope="col">'+headerNames[j]+'</th>'+newLine;
-					ARth[arCnt++] = headerNames[j];
-				};
-			outputText += indent+indent+indent+'</tr>'+newLine;
-			outputText += indent+indent+'</thead>'+newLine;
+            //th opt
+            var optTh = $('#headersProvidedCB').prop('checked');
+            if(optTh){
+                outputText += indent+indent+'<thead>'+newLine;
+                outputText += indent+indent+indent+'<tr>'+newLine;
+    
+                    for (var j=0; j < numColumns; j++) {
+                        outputText += indent+indent+indent+indent+'<th scope="col">'+headerNames[j]+'</th>'+newLine;
+                        ARth[arCnt++] = headerNames[j];
+                    };
+                outputText += indent+indent+indent+'</tr>'+newLine;
+                outputText += indent+indent+'</thead>'+newLine;
+            }
 
 			outputText += indent+indent+'<tbody>'+newLine;
 				for (var i=0; i < numRows; i++) {
 					var row = dataGrid[i];
                     var rowClassName = '';
-                    var classOpt = $('.classOpt').val().split(',');
+                    var classOptVal = $('.classOpt').val().length == 0 ? null : $('.classOpt').val().split(',');
 
 					outputText += indent+indent+indent+'<tr>'+newLine;
 						for (var j=0; j < numColumns; j++) {
-							outputText += indent+indent+indent+indent+'<td class="'+ classOpt[j]+'">'+row[j]+'</td>'+newLine;
+                            var classOpt = classOptVal == null ? '' : classOptVal[j];
+							outputText += indent+indent+indent+indent+'<td class="'+ classOpt+'">'+row[j]+'</td>'+newLine;
 						};
 					outputText += indent+indent+indent+'</tr>'+newLine;
 				};
