@@ -95,10 +95,12 @@ var DataGridRenderer = {
 			outputText += indent+indent+'<tbody>'+newLine;
 				for (var i=0; i < numRows; i++) {
 					var row = dataGrid[i];
-					var rowClassName = '';
+                    var rowClassName = '';
+                    var classOpt = $('.classOpt').val().split(',');
+
 					outputText += indent+indent+indent+'<tr>'+newLine;
 						for (var j=0; j < numColumns; j++) {
-							outputText += indent+indent+indent+indent+'<td>'+row[j]+'</td>'+newLine;
+							outputText += indent+indent+indent+indent+'<td class="'+ classOpt[j]+'">'+row[j]+'</td>'+newLine;
 						};
 					outputText += indent+indent+indent+'</tr>'+newLine;
 				};
