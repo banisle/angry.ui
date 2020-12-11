@@ -179,76 +179,77 @@ ANUI.module = (function () {
 	return {
 		// mark : tabUi
 		tabUi: function () {
-			var uiTabWrap = $('.aui-tab-wrap'),
+            var _tabUibox,
+                uiTabWrap = $('.aui-tab-wrap'),
 				uiTab = uiTabWrap.find('.aui-tab'),
 				uiTabBtn = uiTab.find('.aui-tab-btn'),
-				uiTabBtnA = uiTabWrap.find('a.aui-tab-btn'),
-				uiTabBtnRad = uiTabWrap.find('label.aui-tab-btn').prev('input[type=radio]');
+				uiTabBtnA = uiTabWrap.find('.aui-tab-btn:not(.radio)'),
+                uiTabBtnRad = uiTabWrap.find('label.aui-tab-btn').prev('input[type=radio]');
+                
+            _tabUibox = function(){
+                this.open();
+            }
+
+            _tabUibox.prototype.open = function(_selTab){
+
+                // a 탭 버튼
+			    uiTabBtnA.on('click', function (e) {
+                    e.preventDefault();
+                    _open( $(this) );
+                });
+
+                // 라디오 탭 버튼
+			    uiTabBtnRad.on('change', function (e) {
+                    _openR( $(this) );
+                })
+
+                var _open = function(e){
+                    var _t = e;
+
+                    if( _t.hasClass('on') ) return;
+
+                    _t.closest(uiTabWrap).find(uiTabBtn).removeClass('on').attr({
+                        "tabindex": "-1",
+                        "aria-selected": "false"
+                    });
+                    _t.addClass('on').attr({
+                            "tabindex": "0",
+                            "aria-selected": "true"
+                        })
+                        .focus();
+
+                    $("#" + _t.attr("aria-controls"))
+                        .attr("tabindex", "0")
+                        .addClass("on")
+                        .siblings('.aui-tab-list')
+                        .attr("tabindex", "-1")
+                        .removeClass("on");
 
 
-			// a 탭 버튼
-			uiTabBtnA.on('click', function (e) {
+                }
 
-				var index = $(this).closest('li').index();
+                var _openR = function(e){
+                   
+                    var _this = e.next('label');
 
-				$(this).closest(uiTabWrap).removeClass(function (index, className) {
-					return (className.match (/(^|\s)i-\S+/g) || []).join(' ');
-				}).addClass('i-' + index);
+                    if (_this.hasClass("on")) return;
 
-				e.preventDefault();
+                    e.closest(uiTabWrap).find(uiTabBtn).removeClass("on").attr({
+                        "aria-selected": "false",
+                    });
 
-				if ($(this).hasClass('on')) return;
+                    _this.addClass("on").attr({
+                        "aria-selected": "true"
+                    });
 
-				$(this).closest(uiTabWrap).find(uiTabBtn).removeClass('on').attr({
-					"tabindex": "-1",
-					"aria-selected": "false"
-				});
-				$(this).addClass('on').attr({
-						"tabindex": "0",
-						"aria-selected": "true"
-					})
-					.focus();
-
-				$("#" + $(this).attr("aria-controls"))
-					.attr("tabindex", "0")
-					.addClass("on")
-					.siblings('.aui-tab-list')
-					.attr("tabindex", "-1")
-					.removeClass("on");
-			});
-			uiTabBtnA.filter('.on').trigger('click');
-
-			// 라디오 탭 버튼
-			uiTabBtnRad.on('change', function (e) {
-
-				var index = $(this).closest('li').index();
-
-				$(this).closest(uiTabWrap).removeClass(function (index, className) {
-					return (className.match (/(^|\s)i-\S+/g) || []).join(' ');
-				}).addClass('i-' + index);
-
-
-				var _this = $(this).next('label');
-
-				if (_this.hasClass("on")) return;
-
-				$(this).closest(uiTabWrap).find(uiTabBtn).removeClass("on").attr({
-					"aria-selected": "false",
-				});
-
-				_this.addClass("on").attr({
-					"aria-selected": "true"
-				});
-
-				$("#" + _this.attr("aria-controls"))
-					.attr("tabindex", "0")
-					.addClass("on")
-					.siblings('.aui-tab-list')
-					.attr("tabindex", "-1")
-					.removeClass("on");
-			});
-			uiTabBtnRad.filter(':checked').trigger('change');
-
+                    $("#" + _this.attr("aria-controls"))
+                        .attr("tabindex", "0")
+                        .addClass("on")
+                        .siblings('.aui-tab-list')
+                        .attr("tabindex", "-1")
+                        .removeClass("on");
+                }
+            }
 
 			// 탭 키 초점
 			uiTabBtn.on("keydown", function (event) {
@@ -319,7 +320,6 @@ ANUI.module = (function () {
 				}
 			});
 
-
 			//탭 상세로 이동 (tab키)
 			uiTab.on("keydown", ".on", function (event) {
 				event = event || window.event;
@@ -337,8 +337,16 @@ ANUI.module = (function () {
 						.attr("tabindex", "-1")
 						.removeClass("on");
 				}
-			});
+            });
+            
+            uiTabWrap.each(function(){
+                //기본 열린탭 설정
+                var initTab = $(this).data('init'),
+                    _selTab = initTab == undefined ? $(this).closest(uiTabWrap).find(uiTabBtn).eq(0) : $(this).closest(uiTabWrap).find(uiTabBtn).eq(initTab);
 
+                    new _tabUibox();
+                    _selTab.trigger('click');
+            });
 
 			console.log('tabUi');
 		},
