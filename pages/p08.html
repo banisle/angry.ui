@@ -7,11 +7,18 @@
         padding:15px 0;
         background: #e3e3e3;
         color:#000;
-
+    }
+    .aui-sort .slide{
+      width:50vw;
+    }
+    .aui-sort .slide.on{
+      box-shadow: 0 0 5px 5px rgba(0,0,0,.3);
+      transform: scale(.9);
+      transform-origin: center;
     }
 </style>
 <h3>sortable</h3>
-<p class="sub-txt">index num 갱신, css counter로 제어</p>
+<p class="sub-txt">index num 갱신, css counter로 제어<br>presstime서 선언한 시간만큼 터치후 동작</p>
 
 <div style="width: 90vw;margin:0 auto">
 	<ul class="aui-sort">
@@ -209,17 +216,42 @@
 		ANUI.module.updnChgUi('.aui-updn2', 'li');
 	});
 
-	// sortable
-	$(".aui-sort ").sortable({
-		axis: "y",
-        handle: '.dragarea',
-		start: function (e, ui) {
+  // sortable
+  let _ac = false,
+      presstime = 1000;
 
+	$(".aui-sort").sortable({
+		axis: "y",
+    //handle: '.dragarea',
+    items : '.slide',
+		start: function (e, ui) {
 		},
 		change: function (event, ui) {
 		},
-
 		stop: function (e, ui) {
+      _ac = false;
+      $(this).sortable('disable');
 		},
-	});
+  }).sortable('disable');
+
+  $(".aui-sort .slide").on('mousedown touchstart',function(e){
+    if( _ac === false){
+      let _this = $(this),
+          _e = e;
+      this.downTimer = setTimeout(function(){
+        $('.aui-sort').sortable('enable');
+        _ac = true;
+        _this.trigger(_e);
+        _this.addClass('on');
+      }, presstime);
+    }
+   }).on('mouseup touchend', function(e){
+    clearTimeout(this.downTimer);
+    $(this).removeClass('on');
+    _ac = false;
+   }).on('mouseup touchend', function(e){
+    clearTimeout(this.downTimer);
+    _ac = false;
+   });
+  
 </script>
