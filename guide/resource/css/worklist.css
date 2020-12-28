@@ -8,4 +8,14 @@ tr.equal > td.path a{color:#333;}
 td.info{font-size:10px;}
 td.rdate,
 td.mdate{text-align:center;}
+tr.disable{transform: scale(1);}
+tr.disable:after{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  top:50%;
+  height:1px;
+  background-color:#555;
+}
 /*# sourceMappingURL=maps/worklist.css.map */
