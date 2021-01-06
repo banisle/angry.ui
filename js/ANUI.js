@@ -185,7 +185,7 @@ ANUI.module = (function () {
 				uiTabBtn = uiTab.find('.aui-tab-btn'),
 				uiTabBtnA = uiTabWrap.find('.aui-tab-btn:not(.radio)'),
                 uiTabBtnRad = uiTabWrap.find('label.aui-tab-btn').prev('input[type=radio]');
-                
+
             _tabUibox = function(){
                 this.open();
             }
@@ -229,7 +229,7 @@ ANUI.module = (function () {
                 }
 
                 var _openR = function(e){
-                   
+
                     var _this = e.next('label');
 
                     if (_this.hasClass("on")) return;
@@ -338,7 +338,7 @@ ANUI.module = (function () {
 						.removeClass("on");
 				}
             });
-            
+
             uiTabWrap.each(function(){
                 //기본 열린탭 설정
                 var initTab = $(this).data('init'),
@@ -611,7 +611,7 @@ ANUI.module = (function () {
                 });
 
                 $close.on('click', function () {
-					var t = $(this).closest('.tooltipContent--close');                       
+					var t = $(this).closest('.tooltipContent--close');
 
                     t.removeClass('active');
 
@@ -701,7 +701,7 @@ ANUI.module = (function () {
 				}
 				//스크롤바가 생겼는지 체크
                 bodyIsOverflowing = Math.sign($(window).height() - $(document).height()) > 0 ? 'true' : 'false';
-            
+
                 //trans 옵션 체크
 				$('[data-target=' + mvId + ']').hasClass('trans-ms') ? optTrans = 'true' : optTrans = 'false';
 
@@ -777,7 +777,7 @@ ANUI.module = (function () {
 				openSt = 'false';
 				// console.log('close');
             }
-            
+
             //모달 버튼
 			mvBtn.on('click', function (e) {
 				e.preventDefault();
@@ -2652,8 +2652,8 @@ ANUI.module = (function () {
 					} else {
 						$subChk.add($optChk).prop('checked', false);
                     }
-                    
-                    //전체의 상위 체크 
+
+                    //전체의 상위 체크
                     $thisOrg.subchk();
 				});
 
@@ -2678,8 +2678,8 @@ ANUI.module = (function () {
 					} else {
 						$allChk.prop("checked", false);
                     }
-                    
-                    //전체의 상위 체크 
+
+                    //전체의 상위 체크
                     $thisOrg.subchk();
 
 				});
@@ -3453,8 +3453,8 @@ ANUI.module = (function () {
 				console.log(this, data);
 			});
     },
-    
-    //mark : 연도 선택
+
+    // mark : 연도 선택
     popRollDateUi: function () {
       const options = {
         root :document.querySelector('.date-roll-wrap'),
@@ -3479,7 +3479,7 @@ ANUI.module = (function () {
       console.log('popRollDate');
 
     },
-    
+
 
 		// mark : init
 		init: function () {

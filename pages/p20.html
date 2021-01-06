@@ -1,116 +1,127 @@
 <h3>모바일 롤링 연/월 팝업</h3>
 <style>
-  .dateRoll{position: relative;}
-  .dateRoll .fixed-h{
-    display: flex;
-    justify-content: space-around;
-  }
-  .dateRoll .date-roll-wrap{
-    overflow: hidden;
-    position: relative;    
-    height:100%;
-    
-  }
-  .dateRoll .date-roll-wrap .sel-year-wrap,
-  .dateRoll .date-roll-wrap .sel-month-wrap{
-    overflow: hidden;
-    position: relative;
-    float: left;
-    width:50%;
-    height: 150px;
-  }
-  .dateRoll .date-roll-wrap .sel-year-wrap::after{
-    content:'';
-    display: block;
-    position: absolute;
-    top:47px;
-    left:50px;
-    right:50px;
-    bottom:48px;
-    border-top:2px solid #111;
-    border-bottom:2px solid #111;
-    pointer-events: none;
-  }
-  .dateRoll .date-roll-wrap .sel-month-wrap::after{
-    content:'';
-    display: block;
-    position: absolute;
-    top:47px;
-    left:72px;
-    right:72px;
-    bottom:48px;
-    border-top:2px solid #111;
-    border-bottom:2px solid #111;
-    pointer-events: none;
-  }
-  .dateRoll .date-roll-wrap .sel-year,
-  .dateRoll .date-roll-wrap .sel-month{
-    overflow-y: scroll;
-    height: 150px;
-    padding:55px 0;
-    scroll-snap-type: y mandatory;
-    box-sizing:border-box;
-  }
-  .dateRoll .date-roll-wrap .date-btn{
-    display:block;
-    height:55px;
-    line-height: 55px;
-    scroll-snap-align: center;
-    text-align: center;
-    color:#111;
-  }
-  .dateRoll .date-roll-wrap .date-btn.active{
-    font-size:22px;
-    font-weight: bold;
-  }
+	.dateRoll {
+		position: relative;
+	}
 
+	.dateRoll .fixed-h {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.dateRoll .date-roll-wrap {
+		overflow: hidden;
+		position: relative;
+		height: 100%;
+
+	}
+
+	.dateRoll .date-roll-wrap .sel-year-wrap,
+	.dateRoll .date-roll-wrap .sel-month-wrap {
+		overflow: hidden;
+		position: relative;
+		float: left;
+		width: 50%;
+		height: 150px;
+	}
+
+	.dateRoll .date-roll-wrap .sel-year-wrap::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 47px;
+		left: 50px;
+		right: 50px;
+		bottom: 48px;
+		border-top: 2px solid #111;
+		border-bottom: 2px solid #111;
+		pointer-events: none;
+	}
+
+	.dateRoll .date-roll-wrap .sel-month-wrap::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 47px;
+		left: 65px;
+		right: 65px;
+		bottom: 48px;
+		border-top: 2px solid #111;
+		border-bottom: 2px solid #111;
+		pointer-events: none;
+	}
+
+	.dateRoll .date-roll-wrap .sel-year,
+	.dateRoll .date-roll-wrap .sel-month {
+		overflow-y: scroll;
+		height: 150px;
+		padding: 55px 0;
+		scroll-snap-type: y mandatory;
+		box-sizing: border-box;
+	}
+
+	.dateRoll .date-roll-wrap .date-btn {
+		display: block;
+		height: 55px;
+		line-height: 55px;
+		scroll-snap-align: center;
+		text-align: center;
+		color: #111;
+		transition: all .3s ease;
+	}
+
+	.dateRoll .date-roll-wrap .date-btn.active {
+		font-size: 22px;
+		font-weight: bold;
+	}
 </style>
 <p class="sub-txt">
-    css:snap-scroll로 snap 적용, IntersectionObserver로 화면 노출영역 잡아서 클래스 제어
+	css:snap-scroll로 snap 적용, IntersectionObserver로 화면 노출영역 잡아서 클래스 제어
 </p>
 <div class="dateRoll">
-  <div class="fixed-h">
-    <span>연도</span>
-    <span>월</span>
-  </div>
-  <div class="date-roll-wrap">
-    <div class="sel-year-wrap">
-      <div class="sel-year">
-        <a href="" class="date-btn">2011</a>
-        <a href="" class="date-btn">2012</a>
-        <a href="" class="date-btn">2013</a>
-        <a href="" class="date-btn">2014</a>
-        <a href="" class="date-btn">2015</a>
-        <a href="" class="date-btn">2016</a>
-        <a href="" class="date-btn">2017</a>
-        <a href="" class="date-btn">2018</a>
-        <a href="" class="date-btn">2019</a>
-        <a href="" class="date-btn">2010</a>
-      </div>
+	<div class="fixed-h">
+		<span>연도</span>
+		<span>월</span>
+	</div>
+	<div class="date-roll-wrap">
+		<div class="sel-year-wrap">
+			<div class="sel-year">
+				<a href="" class="date-btn">2011</a>
+				<a href="" class="date-btn">2012</a>
+				<a href="" class="date-btn">2013</a>
+				<a href="" class="date-btn">2014</a>
+				<a href="" class="date-btn">2015</a>
+				<a href="" class="date-btn">2016</a>
+				<a href="" class="date-btn">2017</a>
+				<a href="" class="date-btn">2018</a>
+				<a href="" class="date-btn">2019</a>
+				<a href="" class="date-btn">2010</a>
+			</div>
 
-    </div>
-    <div class="sel-month-wrap">
-      <div class="sel-month">
-        <a href="" class="date-btn">1</a>
-        <a href="" class="date-btn">2</a>
-        <a href="" class="date-btn">3</a>
-        <a href="" class="date-btn">4</a>
-        <a href="" class="date-btn">5</a>
-        <a href="" class="date-btn">6</a>
-        <a href="" class="date-btn">7</a>
-        <a href="" class="date-btn">8</a>
-        <a href="" class="date-btn">9</a>
-        <a href="" class="date-btn">10</a>
-        <a href="" class="date-btn">11</a>
-        <a href="" class="date-btn">12</a>
-      </div>
+		</div>
+		<div class="sel-month-wrap">
+			<div class="sel-month">
+				<a href="" class="date-btn">1</a>
+				<a href="" class="date-btn">2</a>
+				<a href="" class="date-btn">3</a>
+				<a href="" class="date-btn">4</a>
+				<a href="" class="date-btn">5</a>
+				<a href="" class="date-btn">6</a>
+				<a href="" class="date-btn">7</a>
+				<a href="" class="date-btn">8</a>
+				<a href="" class="date-btn">9</a>
+				<a href="" class="date-btn">10</a>
+				<a href="" class="date-btn">11</a>
+				<a href="" class="date-btn">12</a>
+			</div>
 
-    </div>
+		</div>
 
-  </div>
+	</div>
 </div>
 
-<pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */" >
+<pre
+	class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
 <div class="dateRoll">
   <div class="fixed-h">
     <span>연도</span>
@@ -156,5 +167,5 @@
 
 
 <script>
-    ANUI.module.popRollDateUi();
+	ANUI.module.popRollDateUi();
 </script>
