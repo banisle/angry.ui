@@ -3452,7 +3452,34 @@ ANUI.module = (function () {
 			calender.on('change', function (data) {
 				console.log(this, data);
 			});
-		},
+    },
+    
+    //mark : 연도 선택
+    popRollDateUi: function () {
+      const options = {
+        root :document.querySelector('.date-roll-wrap'),
+        threshold:1,
+        rootMargin :'-41px 0px'
+      }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('active');
+          } else{
+            entry.target.classList.remove('active');
+          }
+        });
+      }, options);
+
+      const btnList = document.querySelectorAll('.date-btn');
+      btnList.forEach((el) => {
+        io.observe(el);
+      });
+
+      console.log('popRollDate');
+
+    },
+    
 
 		// mark : init
 		init: function () {
