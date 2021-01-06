@@ -3458,16 +3458,17 @@ ANUI.module = (function () {
     popRollDateUi: function () {
       const options = {
         root :document.querySelector('.date-roll-wrap'),
-        threshold:1,
+        threshold:[.5], //안드로이드 모바일에서 배열이 아닌 Number 형식일때 동작 안함
         rootMargin :'-41px 0px'
       }
       const io = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if(entry.isIntersecting){
-            entry.target.classList.add('active');
+						entry.target.classList.add('active');
+
           } else{
-            entry.target.classList.remove('active');
-          }
+						entry.target.classList.remove('active');
+					}
         });
       }, options);
 
