@@ -67,62 +67,102 @@
 		scroll-snap-align: center;
 		text-align: center;
 		color: #111;
+
+	}
+
+	.dateRoll .date-roll-wrap .date-btn>label {
+		font-size: 15px;
 		transition: all .3s ease;
 	}
 
-	.dateRoll .date-roll-wrap .date-btn.active  > label{
+	.dateRoll .date-roll-wrap .date-btn.active>label {
 		font-size: 22px;
 		font-weight: bold;
 	}
 </style>
 <p class="sub-txt">
-	css:snap-scroll로 snap 적용, IntersectionObserver로 화면 노출영역 잡아서 클래스 제어
+	css:snap-scroll로 snap 적용, IntersectionObserver로 화면 노출영역 잡아서 클래스 제어<br>
+	접근성 적용(터치영역 radio로 변경, aria-labelledby 속성 추가)
 </p>
 <div class="dateRoll">
 	<div class="fixed-h">
 		<span id="sel-year">연도</span>
-        <span id="sel=month">월</span>
+		<span id="sel=month">월</span>
 	</div>
 	<div class="date-roll-wrap">
 		<div class="sel-year-wrap">
 			<div class="sel-year" aria-labelledby="sel-year">
-                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio" checked><label>2011</label></span>
-                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2012</label></span>
-                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2013</label></span>
-                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2014</label></span>
-                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2015</label></span>
-                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2016</label></span>
-                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2017</label></span>
-                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2018</label></span>
-                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2019</label></span>
-                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2020</label></span>
+				<span class="date-btn"><input type="radio" name="year" id="" class="" checked><label>2011</label></span>
+				<span class="date-btn"><input type="radio" name="year" id="" class=""><label>2012</label></span>
+				<span class="date-btn"><input type="radio" name="year" id="" class=""><label>2013</label></span>
+				<span class="date-btn"><input type="radio" name="year" id="" class=""><label>2014</label></span>
+				<span class="date-btn"><input type="radio" name="year" id="" class=""><label>2015</label></span>
+				<span class="date-btn"><input type="radio" name="year" id="" class=""><label>2016</label></span>
+				<span class="date-btn"><input type="radio" name="year" id="" class=""><label>2017</label></span>
+				<span class="date-btn"><input type="radio" name="year" id="" class=""><label>2018</label></span>
+				<span class="date-btn"><input type="radio" name="year" id="" class=""><label>2019</label></span>
+				<span class="date-btn"><input type="radio" name="year" id="" class=""><label>2020</label></span>
 			</div>
-
 		</div>
 		<div class="sel-month-wrap">
 			<div class="sel-month" aria-labelledby="sel-month">
-				<span class="date-btn"><input type="radio" name="month" id="" class="form__radio"checked><label>1</label></span>
-                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>2</label></span>
-                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>3</label></span>
-                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>4</label></span>
-                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>5</label></span>
-                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>6</label></span>
-                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>7</label></span>
-                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>8</label></span>
-                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>9</label></span>
-                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>10</label></span>
-                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>11</label></span>
-                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>12</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class="" checked><label>1</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>2</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>3</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>4</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>5</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>6</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>7</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>8</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>9</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>10</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>11</label></span>
+				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>12</label></span>
 			</div>
-
 		</div>
-
 	</div>
 </div>
 
 <pre
 	class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
-
+&lt;div class=&quot;dateRoll&quot;&gt;
+	&lt;div class=&quot;fixed-h&quot;&gt;
+		&lt;span id=&quot;sel-year&quot;&gt;연도&lt;/span&gt;
+		&lt;span id=&quot;sel=month&quot;&gt;월&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;date-roll-wrap&quot;&gt;
+		&lt;div class=&quot;sel-year-wrap&quot;&gt;
+			&lt;div class=&quot;sel-year&quot; aria-labelledby=&quot;sel-year&quot;&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot; checked&gt;&lt;label&gt;2011&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2012&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2013&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2014&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2015&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2016&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2017&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2018&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2019&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2020&lt;/label&gt;&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;sel-month-wrap&quot;&gt;
+			&lt;div class=&quot;sel-month&quot; aria-labelledby=&quot;sel-month&quot;&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot; checked&gt;&lt;label&gt;1&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;3&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;4&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;5&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;6&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;7&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;8&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;9&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;10&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;11&lt;/label&gt;&lt;/span&gt;
+				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;12&lt;/label&gt;&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
 </pre>
 
 
