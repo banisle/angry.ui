@@ -70,7 +70,7 @@
 		transition: all .3s ease;
 	}
 
-	.dateRoll .date-roll-wrap .date-btn.active {
+	.dateRoll .date-roll-wrap .date-btn.active  > label{
 		font-size: 22px;
 		font-weight: bold;
 	}
@@ -80,39 +80,39 @@
 </p>
 <div class="dateRoll">
 	<div class="fixed-h">
-		<span>연도</span>
-		<span>월</span>
+		<span id="sel-year">연도</span>
+        <span id="sel=month">월</span>
 	</div>
 	<div class="date-roll-wrap">
 		<div class="sel-year-wrap">
-			<div class="sel-year">
-				<a href="" class="date-btn">2011</a>
-				<a href="" class="date-btn">2012</a>
-				<a href="" class="date-btn">2013</a>
-				<a href="" class="date-btn">2014</a>
-				<a href="" class="date-btn">2015</a>
-				<a href="" class="date-btn">2016</a>
-				<a href="" class="date-btn">2017</a>
-				<a href="" class="date-btn">2018</a>
-				<a href="" class="date-btn">2019</a>
-				<a href="" class="date-btn">2010</a>
+			<div class="sel-year" aria-labelledby="sel-year">
+                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio" checked><label>2011</label></span>
+                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2012</label></span>
+                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2013</label></span>
+                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2014</label></span>
+                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2015</label></span>
+                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2016</label></span>
+                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2017</label></span>
+                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2018</label></span>
+                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2019</label></span>
+                <span class="date-btn"><input type="radio" name="year" id="" class="form__radio"><label>2020</label></span>
 			</div>
 
 		</div>
 		<div class="sel-month-wrap">
-			<div class="sel-month">
-				<a href="" class="date-btn">1</a>
-				<a href="" class="date-btn">2</a>
-				<a href="" class="date-btn">3</a>
-				<a href="" class="date-btn">4</a>
-				<a href="" class="date-btn">5</a>
-				<a href="" class="date-btn">6</a>
-				<a href="" class="date-btn">7</a>
-				<a href="" class="date-btn">8</a>
-				<a href="" class="date-btn">9</a>
-				<a href="" class="date-btn">10</a>
-				<a href="" class="date-btn">11</a>
-				<a href="" class="date-btn">12</a>
+			<div class="sel-month" aria-labelledby="sel-month">
+				<span class="date-btn"><input type="radio" name="month" id="" class="form__radio"checked><label>1</label></span>
+                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>2</label></span>
+                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>3</label></span>
+                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>4</label></span>
+                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>5</label></span>
+                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>6</label></span>
+                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>7</label></span>
+                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>8</label></span>
+                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>9</label></span>
+                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>10</label></span>
+                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>11</label></span>
+                <span class="date-btn"><input type="radio" name="month" id="" class="form__radio"><label>12</label></span>
 			</div>
 
 		</div>
@@ -122,47 +122,7 @@
 
 <pre
 	class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
-<div class="dateRoll">
-  <div class="fixed-h">
-    <span>연도</span>
-    <span>월</span>
-  </div>
-  <div class="date-roll-wrap">
-    <div class="sel-year-wrap">
-      <div class="sel-year">
-        <a href="" class="date-btn">2011</a>
-        <a href="" class="date-btn">2012</a>
-        <a href="" class="date-btn">2013</a>
-        <a href="" class="date-btn">2014</a>
-        <a href="" class="date-btn">2015</a>
-        <a href="" class="date-btn">2016</a>
-        <a href="" class="date-btn">2017</a>
-        <a href="" class="date-btn">2018</a>
-        <a href="" class="date-btn">2019</a>
-        <a href="" class="date-btn">2010</a>
-      </div>
 
-    </div>
-    <div class="sel-month-wrap">
-      <div class="sel-month">
-        <a href="" class="date-btn">1</a>
-        <a href="" class="date-btn">2</a>
-        <a href="" class="date-btn">3</a>
-        <a href="" class="date-btn">4</a>
-        <a href="" class="date-btn">5</a>
-        <a href="" class="date-btn">6</a>
-        <a href="" class="date-btn">7</a>
-        <a href="" class="date-btn">8</a>
-        <a href="" class="date-btn">9</a>
-        <a href="" class="date-btn">10</a>
-        <a href="" class="date-btn">11</a>
-        <a href="" class="date-btn">12</a>
-      </div>
-
-    </div>
-
-  </div>
-</div>
 </pre>
 
 

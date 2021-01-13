@@ -3454,7 +3454,7 @@ ANUI.module = (function () {
 			});
     },
 
-    // mark : 연도 선택
+    // mark : popRollDateUi 연월 선택
     popRollDateUi: function () {
       const options = {
         root :document.querySelector('.date-roll-wrap'),
@@ -3462,20 +3462,39 @@ ANUI.module = (function () {
         rootMargin :'-41px 0px'
       }
       const io = new IntersectionObserver(entries => {
+          
         entries.forEach(entry => {
-          if(entry.isIntersecting){
-						entry.target.classList.add('active');
+            let $radInp = entry.target.querySelectorAll('input');
 
-          } else{
-						entry.target.classList.remove('active');
-					}
+            if(entry.isIntersecting){
+                entry.target.classList.add('active');
+                $($radInp).prop('checked',true);
+
+            } else{
+				entry.target.classList.remove('active');
+				}
         });
       }, options);
+
+      const wrap = $('.date-roll-wrap');
+      const scrollAfter = function(){
+          wrap.on('keyup',function(e){
+            let paddingH = 55;
+            let index = $(e.target).parent().index();
+            var key = e.which.toString();
+            //38 = Up, 40 = Down
+            if(key.match(/38|40/)){
+                $(e.target).parent().parent().scrollTop(paddingH * index);
+            }
+          });
+      }
 
       const btnList = document.querySelectorAll('.date-btn');
       btnList.forEach((el) => {
         io.observe(el);
       });
+
+      scrollAfter();
 
       console.log('popRollDate');
 
