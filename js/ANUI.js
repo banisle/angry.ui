@@ -3460,7 +3460,8 @@ ANUI.module = (function () {
         root :document.querySelector('.date-roll-wrap'),
         threshold:[.5], //안드로이드 모바일에서 배열이 아닌 Number 형식일때 동작 안함
         rootMargin :'-41px 0px'
-      }
+      };
+
       const io = new IntersectionObserver(entries => {
           
         entries.forEach(entry => {
@@ -3481,13 +3482,13 @@ ANUI.module = (function () {
           wrap.on('keyup',function(e){
             let paddingH = 55;
             let index = $(e.target).parent().index();
-            var key = e.which.toString();
+            listener key = e.which.toString();
             //38 = Up, 40 = Down
             if(key.match(/38|40/)){
                 $(e.target).parent().parent().scrollTop(paddingH * index);
             }
           });
-      }
+      };
 
       const btnList = document.querySelectorAll('.date-btn');
       btnList.forEach((el) => {
