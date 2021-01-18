@@ -3456,14 +3456,20 @@ ANUI.module = (function () {
 
     // mark : popRollDateUi 연월 선택
     popRollDateUi: function () {
+      //var
+      const wrap = $('.date-roll-wrap');
+      const paddingH = 55;
+      const btnList = document.querySelectorAll('.date-btn');
+      const initIndex = document.querySelectorAll('.date-roll-wrap [data-init]');
+
+      //ovserver
       const options = {
         root :document.querySelector('.date-roll-wrap'),
         threshold:[.5], //안드로이드 모바일에서 배열이 아닌 Number 형식일때 동작 안함
         rootMargin :'-41px 0px'
       };
 
-      const io = new IntersectionObserver(entries => {
-          
+      const io = new IntersectionObserver(entries => {          
         entries.forEach(entry => {
             let $radInp = entry.target.querySelectorAll('input');
 
@@ -3477,25 +3483,34 @@ ANUI.module = (function () {
         });
       }, options);
 
-      const wrap = $('.date-roll-wrap');
-      const scrollAfter = function(){
-          wrap.on('keyup',function(e){
-            let paddingH = 55;
-            let index = $(e.target).parent().index();
-            listener key = e.which.toString();
-            //38 = Up, 40 = Down
-            if(key.match(/38|40/)){
-                $(e.target).parent().parent().scrollTop(paddingH * index);
-            }
-          });
-      };
-
-      const btnList = document.querySelectorAll('.date-btn');
       btnList.forEach((el) => {
         io.observe(el);
       });
 
-      scrollAfter();
+      //key up evt
+      wrap.on('keyup',function(e){
+        scrollAfter(e);
+      });
+
+      const scrollAfter = function(){
+        let index = $(e.target).parent().index();
+        let key = e.which.toString();
+        //38 = Up, 40 = Down
+        if(key.match(/38|40/)){
+            $(e.target).parent().parent().scrollTop(paddingH * index);
+        }
+      };
+
+      //init
+      initIndex.forEach((el) => {
+        let e = $(el).children().find('input');
+        let index = $(el).data('init');
+
+        e.parent().parent().scrollTop(paddingH * index);
+      });
+
+      
+      
 
       console.log('popRollDate');
 

@@ -82,7 +82,8 @@
 </style>
 <p class="sub-txt">
 	css:snap-scroll로 snap 적용, IntersectionObserver로 화면 노출영역 잡아서 클래스 제어<br>
-	접근성 적용(터치영역 radio로 변경, aria-labelledby 속성 추가)
+  접근성 적용(터치영역 radio로 변경, aria-labelledby 속성 추가)<br>
+  data-init 속성으로 초기값 설정
 </p>
 <div class="dateRoll">
 	<div class="fixed-h">
@@ -91,7 +92,7 @@
 	</div>
 	<div class="date-roll-wrap">
 		<div class="sel-year-wrap">
-			<div class="sel-year" aria-labelledby="sel-year">
+			<div class="sel-year" aria-labelledby="sel-year" data-init="5">
 				<span class="date-btn"><input type="radio" name="year" id="" class="" checked><label>2011</label></span>
 				<span class="date-btn"><input type="radio" name="year" id="" class=""><label>2012</label></span>
 				<span class="date-btn"><input type="radio" name="year" id="" class=""><label>2013</label></span>
@@ -105,7 +106,7 @@
 			</div>
 		</div>
 		<div class="sel-month-wrap">
-			<div class="sel-month" aria-labelledby="sel-month">
+			<div class="sel-month" aria-labelledby="sel-month" data-init="3">
 				<span class="date-btn"><input type="radio" name="month" id="" class="" checked><label>1</label></span>
 				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>2</label></span>
 				<span class="date-btn"><input type="radio" name="month" id="" class=""><label>3</label></span>
@@ -132,7 +133,7 @@
 	&lt;/div&gt;
 	&lt;div class=&quot;date-roll-wrap&quot;&gt;
 		&lt;div class=&quot;sel-year-wrap&quot;&gt;
-			&lt;div class=&quot;sel-year&quot; aria-labelledby=&quot;sel-year&quot;&gt;
+			&lt;div class=&quot;sel-year&quot; aria-labelledby=&quot;sel-year&quot; data-init=&quot;5&quot;&gt;
 				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot; checked&gt;&lt;label&gt;2011&lt;/label&gt;&lt;/span&gt;
 				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2012&lt;/label&gt;&lt;/span&gt;
 				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;year&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2013&lt;/label&gt;&lt;/span&gt;
@@ -146,7 +147,7 @@
 			&lt;/div&gt;
 		&lt;/div&gt;
 		&lt;div class=&quot;sel-month-wrap&quot;&gt;
-			&lt;div class=&quot;sel-month&quot; aria-labelledby=&quot;sel-month&quot;&gt;
+			&lt;div class=&quot;sel-month&quot; aria-labelledby=&quot;sel-month&quot; data-init=&quot;3&quot;&gt;
 				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot; checked&gt;&lt;label&gt;1&lt;/label&gt;&lt;/span&gt;
 				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;2&lt;/label&gt;&lt;/span&gt;
 				&lt;span class=&quot;date-btn&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;month&quot; id=&quot;&quot; class=&quot;&quot;&gt;&lt;label&gt;3&lt;/label&gt;&lt;/span&gt;
