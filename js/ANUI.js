@@ -2200,8 +2200,7 @@ ANUI.module = (function () {
 				// });
 
 				// 삭제 버튼 클릭
-				$(document).on('click', $btnDel, function (e) {
-
+				$inp_form.on('click', $btnDel, function (e) {
 					var $t = $(e.target);
 					$t.prev($inp).val('').trigger('propertychange').focus();
 
