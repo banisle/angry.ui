@@ -2757,7 +2757,12 @@ ANUI.module = (function () {
 					'<button class="alert-btn aui-close" >확인</button> ' +
 					'</div>' + '</div>' + '</div>';
 
-				$(str).appendTo(document.body);
+				$(str).appendTo(document.body).on('click', '.aui-close', function () {
+					alertClose();
+					if (typeof callback == 'function') { //callback 실행
+						callback.call(this);
+          }
+        });
 
 				$('.alert-bg').addClass('on');
 
@@ -2766,12 +2771,7 @@ ANUI.module = (function () {
 					return false;
 				}
 
-				$(document).on('click', '.aui-close', function () {
-					alertClose();
-					if (typeof callback == 'function') { //callback 실행
-						callback.call(this);
-					}
-				});
+			
 			}
 
 
