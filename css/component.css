@@ -1043,7 +1043,7 @@ html.mobile .form__select {
 	left: 50%;
 	transform: translate(-50%,10px);
 	padding: 10px;
-	border-radius: 5px;
+	border-radius: 40px;
 	font-size: 14px;
 	opacity: 0;
 	visibility: hidden;
@@ -1051,6 +1051,10 @@ html.mobile .form__select {
 	background: rgba(0, 0, 0, .5);
 	color:#fff;
 	z-index: 10000;
+}
+.aui-toast p{
+  color:#fff;
+  font-size: 14px;
 }
 .aui-toast.active{
 	opacity: 1;

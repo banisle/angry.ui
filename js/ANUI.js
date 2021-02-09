@@ -2727,102 +2727,7 @@ ANUI.module = (function () {
 				}
 			});
 		},
-		//mark : custom alert 창 + callback
-		alertUi: function (option, callback) {
-			var option = { // 내용 받아오기
-					title: option.title,
-					msg: option.msg
-				},
-				callback = callback;
-
-			if (!option.title) {
-				console.log('title no');
-				var alertTit = '';
-				alertT();
-			} else if (option.title) {
-				console.log('title ok');
-				var alertTit = '<div class="alert-tit"> ' + option.title + '</div> ';
-				alertT();
-			}
-
-			function alertT() { //alert 창
-				var str = '';
-				str = '<div class="alert-wrap" class=""><div class="dim"></div> ' +
-					' <div class="alert"> ' +
-					alertTit +
-					'<div class="alert-content"> ' +
-					'<p class="alert-p">' + option.msg + '</p> ' +
-					'</div> ' +
-					'<div class="alert-btnWrap"> ' +
-					'<button class="alert-btn aui-close" >확인</button> ' +
-					'</div>' + '</div>' + '</div>';
-
-				$(str).appendTo(document.body).on('click', '.aui-close', function () {
-					alertClose();
-					if (typeof callback == 'function') { //callback 실행
-						callback.call(this);
-          }
-        });
-
-				$('.alert-bg').addClass('on');
-
-				function alertClose() { // alert창 닫기
-					$('.alert-wrap').remove();
-					return false;
-				}
-
-			
-			}
-
-
-		},
-        //mark : tostUi
-		toastUi : function( option, callback ){
-			var option = {
-				msg: option.msg,
-				time: option.time
-			},
-			removeToast,
-			_t,
-			callback = callback;
-
-			var toastCreate = function(){
-
-				if( !$('body').hasClass('has-toast') ){
-					$('<div class="aui-toast"><p>' + option.msg + '</p></div>').appendTo(document.body);
-				}
-				_t = $('.aui-toast');
-				$('body').addClass('has-toast');
-
-				setTimeout(function(){
-					_t.addClass('active');
-					toastEvt();
-				},0);
-			}
-
-			var toastEvt = function(){
-				if( _t.hasClass('active') ){
-					clearTimeout(removeToast),
-					removeToast = setTimeout(function(){
-						_t.removeClass('active');
-						setTimeout(function(){
-							_t.remove();
-						},option.time)
-						$('body').removeClass('has-toast');
-					}, option.time);
-				} else{
-					removeToast;
-				}
-
-				if(typeof callback == 'function'){
-					callback.call(this);
-				}
-			}
-
-			// init
-			toastCreate();
-
-		},
+		    
 		//mark : prev, next 버튼으로 paging
 		pageMove: function ($btn) {
 			//인자값 받아오기($(this)==$this)
@@ -3533,3 +3438,118 @@ ANUI.module = (function () {
 
 
 })();
+
+//plugin
+$(document).ready(function(){
+
+  //toastUi pluguin
+  $.fn.toastUi = function(evt,option,callback){
+    var option = {
+      msg : option.msg,
+      time: option.time
+    },
+    removeToast,
+    _t;
+
+    var toastCreate = function(){
+      if( !$('body').hasClass('has-toast') ){
+        $('<div class="aui-toast"><p>' + option.msg + '</p></div>').appendTo(document.body);
+      }
+
+      _t = $('.aui-toast');
+      $('body').addClass('has-toast');
+
+      setTimeout(function(){
+        _t.addClass('active');
+        toastEvt();
+      },0);
+    }
+
+    var toastEvt = function(){
+      if( _t.hasClass('active')){
+        clearTimeout(removeToast);
+
+        removeToast = setTimeout(function(){
+          _t.removeClass('active');
+
+          setTimeout(function(){
+            _t.remove();
+          },option.time);
+
+          $('body').removeClass('has-toast');
+        },option.time);
+
+      } else{
+        removeToast;
+      }
+      //callback 실행      
+      if (typeof callback === 'function'){
+        callback.call(this);
+      }
+    }
+
+    //init
+    this.on(evt,function(){
+      toastCreate();
+      console.log('toastUi');
+    });
+  }
+
+  //alert plugin
+  $.fn.alertUi = function(evt,option,callback){
+    var option = {
+      msg : option.msg,
+      flag : option.flag,
+      btn : option.btn.split(',')
+    };
+
+    var alertCreate = function(){
+      if( !$('body').hasClass('has-alert') ){
+
+        if( option.flag === 'ok' ){
+          var inhtml =
+          '<div class="alert-wrap">'
+          +'  <div class="alert-ct">'
+          +'      <div class="alert-txt">'+ option.msg +'</div>'
+          +'      <div class="btn-wrap"><button type="button" class="btn aui-close"><span>'+ option.btn +'</span></button></div>'
+          +'    </div>'
+          +'</div>';
+        } else{
+          var inhtml =
+          '<div class="alert-wrap">'
+          +'  <div class="alert-ct">'
+          +'      <div class="alert-txt">'+ option.msg +'</div>'
+          +'      <div class="btn-wrap"><button type="button" class="btn--no"><span>'+ option.btn[0] +'</span></button><button type="button" class="btn aui-close"><span>'+ option.btn[1] +'</span></button></div>'
+          +'    </div>'
+          +'</div>';
+        }
+
+        $(inhtml).appendTo(document.body);
+        $('.aui-close').on(evt,function(){
+          alertClose();
+          //callback 실행          
+          if(typeof callback === 'function'){
+            callback.call(this);
+          }
+        });
+      }
+
+      $('body').addClass('has-alert');
+      $('alert-wrap').attr('tabindex',-1).focus();
+    }
+
+    //alert창 닫기
+    function alertClose(){
+      $('body').removeClass('has-alert');
+      $('.alert-wrap').remove();
+    }
+
+    //init
+    this.on(evt,function(){
+      alertCreate();
+      console.log('alertui');
+    });   
+  }
+
+
+});
