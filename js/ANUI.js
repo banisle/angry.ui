@@ -19,7 +19,7 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
 }
 
 // userAgent 추가 분류
-var chkUserAgent = function () {
+var chkUserAgent = (function () {
 	var ua = window.navigator.userAgent,
 		isChrome = {
 			agent: ua.indexOf('Chrome/'),
@@ -48,7 +48,7 @@ var chkUserAgent = function () {
 	});
 
 	$root.addClass(usName);
-}();
+}());
 
 function get_version_of_IE() { //ie aegent 체크
 	var word;
