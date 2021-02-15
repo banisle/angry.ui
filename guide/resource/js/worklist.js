@@ -1951,7 +1951,7 @@ $(document).ready(function () {
 
           var rdateTxtFlag = $(this).find('td.rdate').text() ? true : false; //완료
           $(this).find('td.rdate').text() ? $(this).closest('tr').addClass('complete') : '';
-					var popTxtFlag = ($(this).find('td.page').text().endsWith('P') != -1 || $(this).find('td').text().endsWith('P') != -1) ? true : false; //팝업
+					var popTxtFlag = ($(this).find('td.page').text().endsWith('P') != false || $(this).find('td').text().endsWith('P') != false) ? true : false; //팝업
 
 					//Delete 포함
 					if (filterOptionObj.delete) {
