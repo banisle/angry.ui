@@ -50,21 +50,6 @@ var chkUserAgent = (function () {
 	$root.addClass(usName);
 }());
 
-function get_version_of_IE() { //ie aegent 체크
-	var word;
-	var agent = navigator.userAgent.toLowerCase();
-	// IE old version ( IE 10 or Lower )
-	if (navigator.appName == "Microsoft Internet Explorer") word = "msie ";
-	// IE 11
-	else if (agent.search("trident") > -1) word = "trident/.*rv:";
-	// Microsoft Edge
-	else if (agent.search("edge/") > -1) word = "edge/";
-	// 그외, IE가 아니라면 ( If it's not IE or Edge )
-	else return -1;
-	var reg = new RegExp(word + "([0-9]{1,})(\\.{0,}[0-9]{0,1})");
-	if (reg.exec(agent) != null) return parseInt(RegExp.$1 + RegExp.$2);
-	return -1;
-}
 
 if (!(window.console && console.log)) {
 	console = {
@@ -152,7 +137,7 @@ if (typeof Function.prototype.bind === "undefined") {
 	}
 }
 
-// polyfill
+//mark: polyfill
 if (!Math.sign) {
 	Math.sign = function (x) {
 		// If x is NaN, the result is NaN.
@@ -171,6 +156,44 @@ if (!Math.sign) {
 		//                      // not a number, then x converts to number
 	};
 }
+
+//mark: snippet
+//comma 3자리
+function commaSepNum(val){
+  while( /(\d+)(\d{3})/.test(val.toString()) ){
+    val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+  }
+  return val;
+}
+//removeClass 접두어
+$.fn.removeClassPrefix = function (prefix) {
+    this.each( function ( i, it ) {
+        var classes = it.className.split(" ").map(function (item) {
+            return item.indexOf(prefix) === 0 ? "" : item;
+        });
+        it.className = classes.join(" ");
+    })ㅇ
+
+    return thisㅁ
+};
+
+//ie aegent 체크
+function get_version_of_IE() { 
+	var word;
+	var agent = navigator.userAgent.toLowerCase();
+	// IE old version ( IE 10 or Lower )
+	if (navigator.appName == "Microsoft Internet Explorer") word = "msie ";
+	// IE 11
+	else if (agent.search("trident") > -1) word = "trident/.*rv:";
+	// Microsoft Edge
+	else if (agent.search("edge/") > -1) word = "edge/";
+	// 그외, IE가 아니라면 ( If it's not IE or Edge )
+	else return -1;
+	var reg = new RegExp(word + "([0-9]{1,})(\\.{0,}[0-9]{0,1})");
+	if (reg.exec(agent) != null) return parseInt(RegExp.$1 + RegExp.$2);
+	return -1;
+}
+
 
 var ANUI = ANUI || {};
 
@@ -3439,7 +3462,7 @@ ANUI.module = (function () {
 
 })();
 
-//plugin
+//mark: plugin
 $(document).ready(function(){
 
   //toastUi pluguin
@@ -3549,6 +3572,35 @@ $(document).ready(function(){
       alertCreate();
       console.log('alertui');
     });   
+  }
+
+  //countNumRoll
+  $.fn.countNumRoll = function(sNum,eNum,duration,comma,easing){
+
+   var duration = duration || 800,
+       easing = easing || 'swing',
+       comma = comma || 'true';
+
+    this.each(function(){
+      var $t = $(this);
+
+      $({countNum : sNum}).animate({
+        countNum : eNum
+      },{
+        duration : duration,
+        easing : easing,
+        step : function(){
+          comma === 'true' ? $t.text(commaSepNum( Math.floor(this.countNum) )) : $t.text(Math.floor(this.countNum));
+        },
+        complete : function(){
+          comma === 'true' ? $t.text(commaSepNum( (this.countNum) )) : $t.text( (this.countNum) );
+          
+        }
+
+      });
+
+    });    
+
   }
 
 

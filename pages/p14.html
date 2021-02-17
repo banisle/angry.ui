@@ -1,8 +1,33 @@
 
 <!-- 롤링 카운트 js-->
 <script src="lib/numberAnimate.js"></script>
+<h3>no lib, plugin type</h3>
+<p class="sub-txt">{selector}.countNumRoll({ 시작숫자,목표숫자,duration, 3자리 콤마 여부 default : true, easing : default 'swing' });
+flag 에서 컨펌,일반 얼럿 구분, btn에 버튼 이름 설정</p>
+<input type="text" class="sNumInp" value="0">
+<input type="text" class="eNumInp" value="50000">
+<button type="button" id="btnRoll" class="btn-icn" ><span>카운트 롤링</span></button>
+<div class="cnt100" style="padding:15px; color:#fff; background-color: #333; border-radius: 15px;">00000</div>
 
-<p class="sub-txt"><strong class="clr--danger">lib : numberAnimate.js</strong><br/><br/>
+<script>
+  $(document).ready(function(){
+    
+    $('#btnRoll').on('click',function(){
+      var sNumInp = $('.sNumInp').val(),
+          eNumInp = $('.eNumInp').val();
+      $('.cnt100').countNumRoll(sNumInp,eNumInp,1000,'true');
+    });
+  });
+</script>
+<pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */" >
+  $('#btnRoll').on('click',function(){
+      var sNumInp = $('.sNumInp').val(),
+          eNumInp = $('.eNumInp').val();
+      $('.cnt100').countNumRoll(sNumInp,eNumInp,1000,'true');
+    });
+</pre>
+
+<p class="sub-txt" style="margin-top: 20px;"><strong class="clr--danger">lib : numberAnimate.js</strong><br/><br/>
     $(...).numberAnimate({<br/>
         // 시작딜레이, 롤링 속도, 제거시간<br/>
         animationTimes: [ 0,500,500]<br/>
@@ -66,5 +91,5 @@
         cnt1.numberAnimate('set','999999');
         cnt3.numberAnimate('set','123,456');
         cntTime.numberAnimate('set','10:15');
-    })
+    });
 </script>
