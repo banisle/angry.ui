@@ -165,6 +165,7 @@ function commaSepNum(val){
   }
   return val;
 }
+
 //removeClass 접두어
 $.fn.removeClassPrefix = function (prefix) {
     this.each( function ( i, it ) {
@@ -176,6 +177,16 @@ $.fn.removeClassPrefix = function (prefix) {
 
     return this;
 };
+
+//getIndex
+function getIndex(ele) {
+  var _i = 0;
+  while((ele = ele.previousSibling) != null ) {
+    _i++;
+  }
+
+  return _i;
+}
 
 //ie aegent 체크
 function get_version_of_IE() { 
@@ -3384,7 +3395,8 @@ ANUI.module = (function () {
     // mark : popRollDateUi 연월 선택
     popRollDateUi: function () {
       //var
-      const wrap = $('.date-roll-wrap');
+      //const wrap = $('.date-roll-wrap');
+      const wrap = document.querySelector('.date-roll-wrap');
       const paddingH = 55;
       const btnList = document.querySelectorAll('.date-btn');
       const initIndex = document.querySelectorAll('.date-roll-wrap [data-init]');
@@ -3402,7 +3414,8 @@ ANUI.module = (function () {
 
             if(entry.isIntersecting){
                 entry.target.classList.add('active');
-                $($radInp).prop('checked',true);
+                //$($radInp).prop('checked',true);
+                $radInp.checked = true;
 
             } else{
 				entry.target.classList.remove('active');
@@ -3415,28 +3428,31 @@ ANUI.module = (function () {
       });
 
       //key up evt
-      wrap.on('keyup',function(e){
+      //wrap.on('keyup',function(e){
+      wrap.addEventListener('keyup',function(e){
         keyMove(e);
       });
 
       const keyMove = function(){
-        let index = $(e.target).parent().index();
+        //let index = $(e.target).parent().index();
+        let index = getIndex(e.target.parentNode) - 1;
         let key = e.which.toString();
         //38 = Up, 40 = Down
         if(key.match(/38|40/)){
-            $(e.target).parent().parent().scrollTop(paddingH * index);
+            //$(e.target).parent().parent().scrollTop(paddingH * index);
+            e.target.parentNode.parentNode.scrollTop = paddingH * index;
         }
       };
 
       //init
       initIndex.forEach((el) => {
-        let e = $(el).children().find('input');
-        let index = $(el).data('init');
-        e.parent().parent().scrollTop(paddingH * index);
+        //let e = $(el).children().find('input');
+        //let index = $(el).data('init');
+        //e.parent().parent().scrollTop(paddingH * index);
+        let e = el.querySelector('input');
+        let index = el.dataset.init;
+        e.parentNode.parentNode.scrollTop = paddingH * index;
       });
-
-      
-      
 
       console.log('popRollDate');
 
