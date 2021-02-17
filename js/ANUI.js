@@ -3433,7 +3433,6 @@ ANUI.module = (function () {
         let e = $(el).children().find('input');
         let index = $(el).data('init');
         e.parent().parent().scrollTop(paddingH * index);
-        e.prop('checked',true);
       });
 
       
