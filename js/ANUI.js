@@ -3416,10 +3416,10 @@ ANUI.module = (function () {
 
       //key up evt
       wrap.on('keyup',function(e){
-        scrollAfter(e);
+        keyMove(e);
       });
 
-      const scrollAfter = function(){
+      const keyMove = function(){
         let index = $(e.target).parent().index();
         let key = e.which.toString();
         //38 = Up, 40 = Down
@@ -3432,8 +3432,8 @@ ANUI.module = (function () {
       initIndex.forEach((el) => {
         let e = $(el).children().find('input');
         let index = $(el).data('init');
-
         e.parent().parent().scrollTop(paddingH * index);
+        e.prop('checked',true);
       });
 
       
