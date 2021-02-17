@@ -172,9 +172,9 @@ $.fn.removeClassPrefix = function (prefix) {
             return item.indexOf(prefix) === 0 ? "" : item;
         });
         it.className = classes.join(" ");
-    })ㅇ
+    });
 
-    return thisㅁ
+    return this;
 };
 
 //ie aegent 체크
