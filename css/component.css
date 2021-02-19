@@ -973,7 +973,7 @@ html.mobile .form__select {
 }
 .laypop.type-full .wrap-modal .laypop__content{
     flex:1;
-} 
+}
 
 .laypop.bottom .wrap-modal {
 	justify-content: flex-end;
@@ -2751,6 +2751,7 @@ html.mobile .aui-content {
 	margin: 0 0 15px;
 	text-align: center;
 	color: #FFF;
+	user-select: none;
 }
 
 .aui-sort .slide .num {
@@ -2778,6 +2779,19 @@ html.mobile .aui-content {
 
 .aui-sort .slide-placeholder {
 	background: #fff;
+}
+
+.aui-sort .dragarea{
+	float: right;
+	width:50px;
+	padding:15px 0;
+	background: #e3e3e3;
+	color:#000;
+}
+.aui-sort .slide.on{
+box-shadow: 0 0 5px 5px rgba(0,0,0,.3);
+transform: scale(.9);
+transform-origin: center;
 }
 
 /* //mark: date picker */
