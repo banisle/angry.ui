@@ -3527,10 +3527,14 @@ $(document).ready(function(){
     }
 
     //init
-    this.on(evt,function(){
+    if(!!evt === true){
+      this.on(evt,function(){
+        toastCreate();
+      });
+    } else{
       toastCreate();
-      console.log('toastUi');
-    });
+    }
+    console.log('toastUi');
   }
 
   //alert plugin

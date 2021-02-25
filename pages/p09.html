@@ -50,12 +50,23 @@ $('#confirmAlert').alertUi('click',{
 
 
 <h3>toast</h3>
-<p class="sub-txt">{selector}.toastUi({msg:'메시지 내용용, time: 토스트 사라지는 시간}, callback)</p>
+<p class="sub-txt">{selector}.toastUi(event type,{msg:'메시지 내용용, time: 토스트 사라지는 시간}, callback)<br>
+  이벤트 없이 바로 실행할 경우 : $.fn.toastUi('',{msg:'메시지 내용용, time: 토스트 사라지는 시간}, callback)
+</p>
 
 <button type="button" class="btn-icn" id="toastCall"><span>toastCall</span></button>
 
 <pre class="brush:js; pad-line-numbers:true;">
+  // click 이벤트 후 호출
   $('#toastCall').toastUi('click',{
+    msg : '토스트 메시지 출력',
+    time : 1000
+  },function(){
+    console.log('toast');
+  });
+  
+  //이벤트 없이 바로 호출
+  $.fn.toastUi('',{
     msg : '토스트 메시지 출력',
     time : 1000
   },function(){
