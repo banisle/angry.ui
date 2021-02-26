@@ -1,12 +1,12 @@
 <!-- accordion detail -->
 
 <h3>단일 어코디언</h3>
-<p class="sub-txt">접근성: aria-expanded 속성 제어(js),<strong>class=active</strong> 속성으로 초기 열림상태, <strong>data-trans-speed</strong>속성으로 모션 속도(0일때 없음) <br/>키 조작(tab, up down ctrl+pagedown ctrl+pageup ctrl+home ctrl+end)<br/>ctrl+pageup,pagedown ie에서만 됨</p>
+<p class="sub-txt">접근성: aria-expanded 속성 제어(js),<strong>class=active</strong> 속성으로 초기 열림상태 및 aria-expanded="true" 설정, <strong>data-trans-speed</strong>속성으로 모션 속도(0일때 없음) <br/>키 조작(tab, up down ctrl+pagedown ctrl+pageup ctrl+home ctrl+end)<br/>ctrl+pageup,pagedown ie에서만 됨</p>
 
 <ul class="aui-accordian" data-trans-speed="150" >
     <li class="active">
         <h3 class="acco-btn">
-            <button type="button" id="aui-acco01" class="aui-btn-acco"  aria-expanded="false" aria-controls="acco01" aria-disabled="false"><span>아코디언01</span></button>
+            <button type="button" id="aui-acco01" class="aui-btn-acco" aria-controls="acco01" aria-disabled="false"><span>아코디언01</span></button>
         </h3>
         <div class="aui-acco-ct" id="acco01" aria-labelledby="aui-acco01" role="region">
             <div class="acco-ct">
@@ -22,7 +22,7 @@
     </li>
     <li>
         <h3 class="acco-btn">
-            <button type="button" id="aui-acco02" class="aui-btn-acco" aria-expanded="false" aria-controls="acco02" aria-disabled="false"><span>아코디언02</span></button>
+            <button type="button" id="aui-acco02" class="aui-btn-acco" aria-controls="acco02" aria-disabled="false"><span>아코디언02</span></button>
         </h3>
         <div class="aui-acco-ct" id="acco02" aria-labelledby="aui-acco02" role="region">
             <div class="acco-ct">아코디언02 내용</div>
@@ -30,7 +30,7 @@
     </li>
     <li>
         <h3 class="acco-btn">
-            <button type="button" id="aui-acco03" class="aui-btn-acco" aria-expanded="false" aria-controls="acco03" aria-disabled="false"><span>아코디언03</span></button>
+            <button type="button" id="aui-acco03" class="aui-btn-acco" aria-controls="acco03" aria-disabled="false"><span>아코디언03</span></button>
         </h3>
         <div class="aui-acco-ct" id="acco03" aria-labelledby="aui-acco03" role="region">
             <div class="acco-ct">아코디언03 내용</div>
@@ -40,40 +40,40 @@
 
 <!-- (sta) pre sample -->
 <pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
-    <ul class="aui-accordian" data-trans-speed="300">
-        <li>
-            <h3 class="acco-btn">
-                <button type="button" id="aui-acco01" class="aui-btn-acco" data-open="true" aria-expanded="false" aria-controls="acco01" aria-disabled="false"><span>아코디언01</span></button>
-            </h3>
-            <div class="aui-acco-ct" id="acco01" aria-labelledby="aui-acco01" role="region">
-                <div class="acco-ct">
-                    <h4>아코디언01 내용</h4>
-                    <div class="form-grp">
-                        <label for="txt01">이름</label><input type="text" name="" id="txt01">
-                        <label for="txt02">이름2</label><input type="text" name="" id="txt02">
-                        <label for="txt03">이름3</label><input type="text" name="" id="txt03">
-                        <label for="txt04">이름4</label><input type="text" name="" id="txt04">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <h3 class="acco-btn">
-                <button type="button" id="aui-acco02" class="aui-btn-acco" aria-expanded="false" aria-controls="acco02" aria-disabled="false"><span>아코디언02</span></button>
-            </h3>
-            <div class="aui-acco-ct" id="acco02" aria-labelledby="aui-acco02" role="region">
-                <div class="acco-ct">아코디언02 내용</div>
-            </div>
-        </li>
-        <li>
-            <h3 class="acco-btn">
-                <button type="button" id="aui-acco03" class="aui-btn-acco" aria-expanded="false" aria-controls="acco03" aria-disabled="false"><span>아코디언03</span></button>
-            </h3>
-            <div class="aui-acco-ct" id="acco03" aria-labelledby="aui-acco03" role="region">
-                <div class="acco-ct">아코디언03 내용</div>
-            </div>
-        </li>
-    </ul>
+&lt;ul class=&quot;aui-accordian&quot; data-trans-speed=&quot;150&quot; &gt;
+	&lt;li class=&quot;active&quot;&gt;
+			&lt;h3 class=&quot;acco-btn&quot;&gt;
+					&lt;button type=&quot;button&quot; id=&quot;aui-acco01&quot; class=&quot;aui-btn-acco&quot; aria-controls=&quot;acco01&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;아코디언01&lt;/span&gt;&lt;/button&gt;
+			&lt;/h3&gt;
+			&lt;div class=&quot;aui-acco-ct&quot; id=&quot;acco01&quot; aria-labelledby=&quot;aui-acco01&quot; role=&quot;region&quot;&gt;
+					&lt;div class=&quot;acco-ct&quot;&gt;
+							&lt;h4&gt;아코디언01 내용&lt;/h4&gt;
+							&lt;div class=&quot;form-grp&quot;&gt;
+									&lt;label for=&quot;txt01&quot;&gt;이름&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;txt01&quot;&gt;
+									&lt;label for=&quot;txt02&quot;&gt;이름2&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;txt02&quot;&gt;
+									&lt;label for=&quot;txt03&quot;&gt;이름3&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;txt03&quot;&gt;
+									&lt;label for=&quot;txt04&quot;&gt;이름4&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;txt04&quot;&gt;
+							&lt;/div&gt;
+					&lt;/div&gt;
+			&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+			&lt;h3 class=&quot;acco-btn&quot;&gt;
+					&lt;button type=&quot;button&quot; id=&quot;aui-acco02&quot; class=&quot;aui-btn-acco&quot; aria-controls=&quot;acco02&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;아코디언02&lt;/span&gt;&lt;/button&gt;
+			&lt;/h3&gt;
+			&lt;div class=&quot;aui-acco-ct&quot; id=&quot;acco02&quot; aria-labelledby=&quot;aui-acco02&quot; role=&quot;region&quot;&gt;
+					&lt;div class=&quot;acco-ct&quot;&gt;아코디언02 내용&lt;/div&gt;
+			&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+			&lt;h3 class=&quot;acco-btn&quot;&gt;
+					&lt;button type=&quot;button&quot; id=&quot;aui-acco03&quot; class=&quot;aui-btn-acco&quot; aria-controls=&quot;acco03&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;아코디언03&lt;/span&gt;&lt;/button&gt;
+			&lt;/h3&gt;
+			&lt;div class=&quot;aui-acco-ct&quot; id=&quot;acco03&quot; aria-labelledby=&quot;aui-acco03&quot; role=&quot;region&quot;&gt;
+					&lt;div class=&quot;acco-ct&quot;&gt;아코디언03 내용&lt;/div&gt;
+			&lt;/div&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
 </pre>
 <!-- (end) pre sample -->
 
@@ -82,15 +82,15 @@
 <ul class="aui-accordian" data-allow-multiple="true" data-trans-speed="150">
     <li>
         <h3 class="acco-btn">
-            <button type="button" id="aui-acco11" class="aui-btn-acco" aria-expanded="false" aria-controls="acco11" aria-disabled="false"><span>아코디언01</span></button>
+            <button type="button" id="aui-acco11" class="aui-btn-acco"  aria-controls="acco11" aria-disabled="false"><span>아코디언01</span></button>
         </h3>
         <div class="aui-acco-ct" id="acco11" aria-labelledby="aui-acco01" role="region">
             <div class="acco-ct">아코디언01 내용</div>
         </div>
     </li>
-    <li>
+    <li class="active">
         <h3 class="acco-btn">
-            <button type="button" id="aui-acco12" class="aui-btn-acco" aria-expanded="false" aria-controls="acco12" aria-disabled="false"><span>아코디언02</span></button>
+            <button type="button" id="aui-acco12" class="aui-btn-acco"  aria-controls="acco12" aria-disabled="false"><span>아코디언02</span></button>
         </h3>
         <div class="aui-acco-ct" id="acco12" aria-labelledby="aui-acco02" role="region">
             <div class="acco-ct">아코디언02 내용</div>
@@ -98,7 +98,7 @@
     </li>
     <li>
         <h3 class="acco-btn">
-            <button type="button" id="aui-acco13" class="aui-btn-acco" aria-expanded="false" aria-controls="acco13" aria-disabled="false"><span>아코디언03</span></button>
+            <button type="button" id="aui-acco13" class="aui-btn-acco"  aria-controls="acco13" aria-disabled="false"><span>아코디언03</span></button>
         </h3>
         <div class="aui-acco-ct" id="acco13" aria-labelledby="aui-acco03" role="region">
             <div class="acco-ct">아코디언03 내용</div>
@@ -107,48 +107,48 @@
 </ul>
 <!-- (sta) pre sample -->
 <pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
-<ul class="aui-accordian" data-allow-multiple="true" data-trans-speed="300">
-    <li>
-        <h3 class="acco-btn">
-            <button type="button" id="aui-acco11" class="aui-btn-acco" aria-expanded="false" aria-controls="acco11" aria-disabled="false"><span>아코디언01</span></button>
-        </h3>
-        <div class="aui-acco-ct" id="acco11" aria-labelledby="aui-acco01" role="region">
-            <div class="acco-ct">아코디언01 내용</div>
-        </div>
-    </li>
-    <li>
-        <h3 class="acco-btn">
-            <button type="button" id="aui-acco12" class="aui-btn-acco" aria-expanded="false" aria-controls="acco12" aria-disabled="false"><span>아코디언02</span></button>
-        </h3>
-        <div class="aui-acco-ct" id="acco12" aria-labelledby="aui-acco02" role="region">
-            <div class="acco-ct">아코디언02 내용</div>
-        </div>
-    </li>
-    <li>
-        <h3 class="acco-btn">
-            <button type="button" id="aui-acco13" class="aui-btn-acco" aria-expanded="false" aria-controls="acco13" aria-disabled="false"><span>아코디언03</span></button>
-        </h3>
-        <div class="aui-acco-ct" id="acco13" aria-labelledby="aui-acco03" role="region">
-            <div class="acco-ct">아코디언03 내용</div>
-        </div>
-    </li>
-</ul>
+&lt;ul class=&quot;aui-accordian&quot; data-allow-multiple=&quot;true&quot; data-trans-speed=&quot;150&quot;&gt;
+	&lt;li&gt;
+			&lt;h3 class=&quot;acco-btn&quot;&gt;
+					&lt;button type=&quot;button&quot; id=&quot;aui-acco11&quot; class=&quot;aui-btn-acco&quot;  aria-controls=&quot;acco11&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;아코디언01&lt;/span&gt;&lt;/button&gt;
+			&lt;/h3&gt;
+			&lt;div class=&quot;aui-acco-ct&quot; id=&quot;acco11&quot; aria-labelledby=&quot;aui-acco01&quot; role=&quot;region&quot;&gt;
+					&lt;div class=&quot;acco-ct&quot;&gt;아코디언01 내용&lt;/div&gt;
+			&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li class=&quot;active&quot;&gt;
+			&lt;h3 class=&quot;acco-btn&quot;&gt;
+					&lt;button type=&quot;button&quot; id=&quot;aui-acco12&quot; class=&quot;aui-btn-acco&quot;  aria-controls=&quot;acco12&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;아코디언02&lt;/span&gt;&lt;/button&gt;
+			&lt;/h3&gt;
+			&lt;div class=&quot;aui-acco-ct&quot; id=&quot;acco12&quot; aria-labelledby=&quot;aui-acco02&quot; role=&quot;region&quot;&gt;
+					&lt;div class=&quot;acco-ct&quot;&gt;아코디언02 내용&lt;/div&gt;
+			&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+			&lt;h3 class=&quot;acco-btn&quot;&gt;
+					&lt;button type=&quot;button&quot; id=&quot;aui-acco13&quot; class=&quot;aui-btn-acco&quot;  aria-controls=&quot;acco13&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;아코디언03&lt;/span&gt;&lt;/button&gt;
+			&lt;/h3&gt;
+			&lt;div class=&quot;aui-acco-ct&quot; id=&quot;acco13&quot; aria-labelledby=&quot;aui-acco03&quot; role=&quot;region&quot;&gt;
+					&lt;div class=&quot;acco-ct&quot;&gt;아코디언03 내용&lt;/div&gt;
+			&lt;/div&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
 </pre>
 <!-- (end) pre sample -->
 <h3>다중 어코디언</h3>
 <p class="sub-txt">어코디언 내에 어코디언 케이스, 서브 어코디언 버튼 태그에 클래스 <i>sub</i> 추가,서브 어코디언 부모의 버튼에 <i>sub-has</i>클래스 추가<br/> li에 해당하는 태그에 <strong >data-li</strong>속성 추가(li 태그 안쓸 경우 대비)</p>
 
 <ul class="aui-accordian" data-trans-speed="0" data-allow-multiple="true">
-    <li data-li>
+    <li data-li class="active">
         <h3 class="acco-btn">
-            <button type="button" id="aui-acco31" class="aui-btn-acco sub-has" aria-expanded="false" aria-controls="acco31" aria-disabled="false"><span>아코디언01</span></button>
+            <button type="button" id="aui-acco31" class="aui-btn-acco sub-has" aria-controls="acco31" aria-disabled="false"><span>아코디언01</span></button>
         </h3>
         <div class="aui-acco-ct" id="acco31" aria-labelledby="aui-acco31" role="region">
             <!-- (sta) sub accordian -->
             <ul class="aui-accordian sub-accord" data-trans-speed="330" data-allow-multiple="true">
-                <li>
+                <li >
                     <h3 class="acco-btn">
-                        <button type="button" id="aui-accoS01" class="aui-btn-acco sub" aria-expanded="false" aria-controls="accoS01" aria-disabled="false"><span>서브 아코디언01</span></button>
+                        <button type="button" id="aui-accoS01" class="aui-btn-acco sub" aria-controls="accoS01" aria-disabled="false"><span>서브 아코디언01</span></button>
                     </h3>
                     <div class="aui-acco-ct" id="accoS01" aria-labelledby="aui-accoS01" role="region">
                         <div class="acco-ct">
@@ -164,7 +164,7 @@
                 </li>
                 <li>
                     <h3 class="acco-btn">
-                        <button type="button" id="aui-accoS02" class="aui-btn-acco sub" aria-expanded="false" aria-controls="accoS02" aria-disabled="false"><span>서브 아코디언02</span></button>
+                        <button type="button" id="aui-accoS02" class="aui-btn-acco sub" aria-controls="accoS02" aria-disabled="false"><span>서브 아코디언02</span></button>
                     </h3>
                     <div class="aui-acco-ct" id="accoS02" aria-labelledby="aui-accoS02" role="region">
                         <div class="acco-ct">서브 아코디언02 내용</div>
@@ -172,7 +172,7 @@
                 </li>
                 <li>
                     <h3 class="acco-btn">
-                        <button type="button" id="aui-accoS03" class="aui-btn-acco sub" aria-expanded="false" aria-controls="accoS03" aria-disabled="false"><span>서브 아코디언03</span></button>
+                        <button type="button" id="aui-accoS03" class="aui-btn-acco sub" aria-controls="accoS03" aria-disabled="false"><span>서브 아코디언03</span></button>
                     </h3>
                     <div class="aui-acco-ct" id="accoS03" aria-labelledby="aui-acco03" role="region">
                         <div class="acco-ct">서브 아코디언03 내용</div>
@@ -184,7 +184,7 @@
     </li>
     <li data-li>
         <h3 class="acco-btn">
-            <button type="button" id="aui-acco32" class="aui-btn-acco" aria-expanded="false" aria-controls="acco32" aria-disabled="false"><span>아코디언02</span></button>
+            <button type="button" id="aui-acco32" class="aui-btn-acco" aria-controls="acco32" aria-disabled="false"><span>아코디언02</span></button>
         </h3>
         <div class="aui-acco-ct" id="acco32" aria-labelledby="aui-acco32" role="region">
             <div class="acco-ct">아코디언02 내용</div>
@@ -192,7 +192,7 @@
     </li>
     <li data-li>
         <h3 class="acco-btn">
-            <button type="button" id="aui-acco33" class="aui-btn-acco" aria-expanded="false" aria-controls="acco33" aria-disabled="false"><span>아코디언03</span></button>
+            <button type="button" id="aui-acco33" class="aui-btn-acco" aria-controls="acco33" aria-disabled="false"><span>아코디언03</span></button>
         </h3>
         <div class="aui-acco-ct" id="acco33" aria-labelledby="aui-acco33" role="region">
             <div class="acco-ct">아코디언03 내용</div>
@@ -202,67 +202,67 @@
 
 <!-- (sta) pre sample -->
 <pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
-<ul class="aui-accordian" data-trans-speed="0" data-allow-multiple="true">
-    <li data-li>
-        <h3 class="acco-btn">
-            <button type="button" id="aui-acco31" class="aui-btn-acco sub-has" aria-expanded="false" aria-controls="acco31" aria-disabled="false"><span>아코디언01</span></button>
-        </h3>
-        <div class="aui-acco-ct" id="acco31" aria-labelledby="aui-acco31" role="region">
-            <!-- (sta) sub accordian -->
-            <ul class="aui-accordian sub-accord" data-trans-speed="330" data-allow-multiple="true">
-                <li>
-                    <h3 class="acco-btn">
-                        <button type="button" id="aui-accoS01" class="aui-btn-acco sub" aria-expanded="false" aria-controls="accoS01" aria-disabled="false"><span>서브 아코디언01</span></button>
-                    </h3>
-                    <div class="aui-acco-ct" id="accoS01" aria-labelledby="aui-accoS01" role="region">
-                        <div class="acco-ct">
-                            <h4>서브 아코디언01</h4>
-                            <div class="form-grp">
-                                <label for="txt11">이름</label><input type="text" name="" id="txt11">
-                                <label for="txt12">이름2</label><input type="text" name="" id="txt12">
-                                <label for="txt13">이름3</label><input type="text" name="" id="txt13">
-                                <label for="txt14">이름4</label><input type="text" name="" id="txt14">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <h3 class="acco-btn">
-                        <button type="button" id="aui-accoS02" class="aui-btn-acco sub" aria-expanded="false" aria-controls="accoS02" aria-disabled="false"><span>서브 아코디언02</span></button>
-                    </h3>
-                    <div class="aui-acco-ct" id="accoS02" aria-labelledby="aui-accoS02" role="region">
-                        <div class="acco-ct">서브 아코디언02 내용</div>
-                    </div>
-                </li>
-                <li>
-                    <h3 class="acco-btn">
-                        <button type="button" id="aui-accoS03" class="aui-btn-acco sub" aria-expanded="false" aria-controls="accoS03" aria-disabled="false"><span>서브 아코디언03</span></button>
-                    </h3>
-                    <div class="aui-acco-ct" id="accoS03" aria-labelledby="aui-acco03" role="region">
-                        <div class="acco-ct">서브 아코디언03 내용</div>
-                    </div>
-                </li>
-            </ul>
-            <!-- (end) sub accordian -->
-        </div>
-    </li>
-    <li data-li>
-        <h3 class="acco-btn">
-            <button type="button" id="aui-acco32" class="aui-btn-acco" aria-expanded="false" aria-controls="acco32" aria-disabled="false"><span>아코디언02</span></button>
-        </h3>
-        <div class="aui-acco-ct" id="acco32" aria-labelledby="aui-acco32" role="region">
-            <div class="acco-ct">아코디언02 내용</div>
-        </div>
-    </li>
-    <li data-li>
-        <h3 class="acco-btn">
-            <button type="button" id="aui-acco33" class="aui-btn-acco" aria-expanded="false" aria-controls="acco33" aria-disabled="false"><span>아코디언03</span></button>
-        </h3>
-        <div class="aui-acco-ct" id="acco33" aria-labelledby="aui-acco33" role="region">
-            <div class="acco-ct">아코디언03 내용</div>
-        </div>
-    </li>
-</ul>
+&lt;ul class=&quot;aui-accordian&quot; data-trans-speed=&quot;0&quot; data-allow-multiple=&quot;true&quot;&gt;
+	&lt;li data-li class=&quot;active&quot;&gt;
+			&lt;h3 class=&quot;acco-btn&quot;&gt;
+					&lt;button type=&quot;button&quot; id=&quot;aui-acco31&quot; class=&quot;aui-btn-acco sub-has&quot; aria-controls=&quot;acco31&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;아코디언01&lt;/span&gt;&lt;/button&gt;
+			&lt;/h3&gt;
+			&lt;div class=&quot;aui-acco-ct&quot; id=&quot;acco31&quot; aria-labelledby=&quot;aui-acco31&quot; role=&quot;region&quot;&gt;
+					&lt;!-- (sta) sub accordian --&gt;
+					&lt;ul class=&quot;aui-accordian sub-accord&quot; data-trans-speed=&quot;330&quot; data-allow-multiple=&quot;true&quot;&gt;
+							&lt;li &gt;
+									&lt;h3 class=&quot;acco-btn&quot;&gt;
+											&lt;button type=&quot;button&quot; id=&quot;aui-accoS01&quot; class=&quot;aui-btn-acco sub&quot; aria-controls=&quot;accoS01&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;서브 아코디언01&lt;/span&gt;&lt;/button&gt;
+									&lt;/h3&gt;
+									&lt;div class=&quot;aui-acco-ct&quot; id=&quot;accoS01&quot; aria-labelledby=&quot;aui-accoS01&quot; role=&quot;region&quot;&gt;
+											&lt;div class=&quot;acco-ct&quot;&gt;
+													&lt;h4&gt;서브 아코디언01&lt;/h4&gt;
+													&lt;div class=&quot;form-grp&quot;&gt;
+															&lt;label for=&quot;txt11&quot;&gt;이름&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;txt11&quot;&gt;
+															&lt;label for=&quot;txt12&quot;&gt;이름2&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;txt12&quot;&gt;
+															&lt;label for=&quot;txt13&quot;&gt;이름3&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;txt13&quot;&gt;
+															&lt;label for=&quot;txt14&quot;&gt;이름4&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;txt14&quot;&gt;
+													&lt;/div&gt;
+											&lt;/div&gt;
+									&lt;/div&gt;
+							&lt;/li&gt;
+							&lt;li&gt;
+									&lt;h3 class=&quot;acco-btn&quot;&gt;
+											&lt;button type=&quot;button&quot; id=&quot;aui-accoS02&quot; class=&quot;aui-btn-acco sub&quot; aria-controls=&quot;accoS02&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;서브 아코디언02&lt;/span&gt;&lt;/button&gt;
+									&lt;/h3&gt;
+									&lt;div class=&quot;aui-acco-ct&quot; id=&quot;accoS02&quot; aria-labelledby=&quot;aui-accoS02&quot; role=&quot;region&quot;&gt;
+											&lt;div class=&quot;acco-ct&quot;&gt;서브 아코디언02 내용&lt;/div&gt;
+									&lt;/div&gt;
+							&lt;/li&gt;
+							&lt;li&gt;
+									&lt;h3 class=&quot;acco-btn&quot;&gt;
+											&lt;button type=&quot;button&quot; id=&quot;aui-accoS03&quot; class=&quot;aui-btn-acco sub&quot; aria-controls=&quot;accoS03&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;서브 아코디언03&lt;/span&gt;&lt;/button&gt;
+									&lt;/h3&gt;
+									&lt;div class=&quot;aui-acco-ct&quot; id=&quot;accoS03&quot; aria-labelledby=&quot;aui-acco03&quot; role=&quot;region&quot;&gt;
+											&lt;div class=&quot;acco-ct&quot;&gt;서브 아코디언03 내용&lt;/div&gt;
+									&lt;/div&gt;
+							&lt;/li&gt;
+					&lt;/ul&gt;
+					&lt;!-- (end) sub accordian --&gt;
+			&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li data-li&gt;
+			&lt;h3 class=&quot;acco-btn&quot;&gt;
+					&lt;button type=&quot;button&quot; id=&quot;aui-acco32&quot; class=&quot;aui-btn-acco&quot; aria-controls=&quot;acco32&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;아코디언02&lt;/span&gt;&lt;/button&gt;
+			&lt;/h3&gt;
+			&lt;div class=&quot;aui-acco-ct&quot; id=&quot;acco32&quot; aria-labelledby=&quot;aui-acco32&quot; role=&quot;region&quot;&gt;
+					&lt;div class=&quot;acco-ct&quot;&gt;아코디언02 내용&lt;/div&gt;
+			&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li data-li&gt;
+			&lt;h3 class=&quot;acco-btn&quot;&gt;
+					&lt;button type=&quot;button&quot; id=&quot;aui-acco33&quot; class=&quot;aui-btn-acco&quot; aria-controls=&quot;acco33&quot; aria-disabled=&quot;false&quot;&gt;&lt;span&gt;아코디언03&lt;/span&gt;&lt;/button&gt;
+			&lt;/h3&gt;
+			&lt;div class=&quot;aui-acco-ct&quot; id=&quot;acco33&quot; aria-labelledby=&quot;aui-acco33&quot; role=&quot;region&quot;&gt;
+					&lt;div class=&quot;acco-ct&quot;&gt;아코디언03 내용&lt;/div&gt;
+			&lt;/div&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
 </pre>
 <!-- (end) pre sample -->
 <script>

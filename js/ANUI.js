@@ -159,37 +159,34 @@ if (!Math.sign) {
 
 //mark: snippet
 //comma 3자리
-function commaSepNum(val){
-  while( /(\d+)(\d{3})/.test(val.toString()) ){
-    val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
-  }
-  return val;
+function commaSepNum(val) {
+	while (/(\d+)(\d{3})/.test(val.toString())) {
+		val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+	}
+	return val;
 }
 
 //removeClass 접두어
 $.fn.removeClassPrefix = function (prefix) {
-    this.each( function ( i, it ) {
-        var classes = it.className.split(" ").map(function (item) {
-            return item.indexOf(prefix) === 0 ? "" : item;
-        });
-        it.className = classes.join(" ");
-    });
+	this.each(function (i, it) {
+		var classes = it.className.split(" ").map(function (item) {
+			return item.indexOf(prefix) === 0 ? "" : item;
+		});
+		it.className = classes.join(" ");
+	});
 
-    return this;
+	return this;
 };
 
 //getIndex
-function getIndex(ele) {
-  var _i = 0;
-  while((ele = ele.previousSibling) != null ) {
-    _i++;
-  }
-
-  return _i;
+function getIndex(elm) {
+	var c = elm.parentNode.children, i = 0;
+	for(; i < c.length; i++ )
+			if( c[i] == elm ) return i;
 }
 
 //ie aegent 체크
-function get_version_of_IE() { 
+function get_version_of_IE() {
 	var word;
 	var agent = navigator.userAgent.toLowerCase();
 	// IE old version ( IE 10 or Lower )
@@ -213,77 +210,77 @@ ANUI.module = (function () {
 	return {
 		// mark : tabUi
 		tabUi: function () {
-            var _tabUibox,
-                uiTabWrap = $('.aui-tab-wrap'),
+			var _tabUibox,
+				uiTabWrap = $('.aui-tab-wrap'),
 				uiTab = uiTabWrap.find('.aui-tab'),
 				uiTabBtn = uiTab.find('.aui-tab-btn'),
 				uiTabBtnA = uiTabWrap.find('.aui-tab-btn:not(.radio)'),
-                uiTabBtnRad = uiTabWrap.find('label.aui-tab-btn').prev('input[type=radio]');
+				uiTabBtnRad = uiTabWrap.find('label.aui-tab-btn').prev('input[type=radio]');
 
-            _tabUibox = function(){
-                this.open();
-            }
+			_tabUibox = function () {
+				this.open();
+			}
 
-            _tabUibox.prototype.open = function(_selTab){
+			_tabUibox.prototype.open = function (_selTab) {
 
-                // a 탭 버튼
-			    uiTabBtnA.on('click', function (e) {
-                    e.preventDefault();
-                    _open( $(this) );
-                });
+				// a 탭 버튼
+				uiTabBtnA.on('click', function (e) {
+					e.preventDefault();
+					_open($(this));
+				});
 
-                // 라디오 탭 버튼
-			    uiTabBtnRad.on('change', function (e) {
-                    _openR( $(this) );
-                })
+				// 라디오 탭 버튼
+				uiTabBtnRad.on('change', function (e) {
+					_openR($(this));
+				})
 
-                var _open = function(e){
-                    var _t = e;
+				var _open = function (e) {
+					var _t = e;
 
-                    if( _t.hasClass('on') ) return;
+					if (_t.hasClass('on')) return;
 
-                    _t.closest(uiTabWrap).find(uiTabBtn).removeClass('on').attr({
-                        "tabindex": "-1",
-                        "aria-selected": "false"
-                    });
-                    _t.addClass('on').attr({
-                            "tabindex": "0",
-                            "aria-selected": "true"
-                        })
-                        .focus();
+					_t.closest(uiTabWrap).find(uiTabBtn).removeClass('on').attr({
+						"tabindex": "-1",
+						"aria-selected": "false"
+					});
+					_t.addClass('on').attr({
+							"tabindex": "0",
+							"aria-selected": "true"
+						})
+						.focus();
 
-                    $("#" + _t.attr("aria-controls"))
-                        .attr("tabindex", "0")
-                        .addClass("on")
-                        .siblings('.aui-tab-list')
-                        .attr("tabindex", "-1")
-                        .removeClass("on");
+					$("#" + _t.attr("aria-controls"))
+						.attr("tabindex", "0")
+						.addClass("on")
+						.siblings('.aui-tab-list')
+						.attr("tabindex", "-1")
+						.removeClass("on");
 
 
-                }
+				}
 
-                var _openR = function(e){
+				var _openR = function (e) {
 
-                    var _this = e.next('label');
+					var _this = e.next('label');
 
-                    if (_this.hasClass("on")) return;
+					if (_this.hasClass("on")) return;
 
-                    e.closest(uiTabWrap).find(uiTabBtn).removeClass("on").attr({
-                        "aria-selected": "false",
-                    });
+					e.closest(uiTabWrap).find(uiTabBtn).removeClass("on").attr({
+						"aria-selected": "false",
+					});
 
-                    _this.addClass("on").attr({
-                        "aria-selected": "true"
-                    });
+					_this.addClass("on").attr({
+						"aria-selected": "true"
+					});
 
-                    $("#" + _this.attr("aria-controls"))
-                        .attr("tabindex", "0")
-                        .addClass("on")
-                        .siblings('.aui-tab-list')
-                        .attr("tabindex", "-1")
-                        .removeClass("on");
-                }
-            }
+					$("#" + _this.attr("aria-controls"))
+						.attr("tabindex", "0")
+						.addClass("on")
+						.siblings('.aui-tab-list')
+						.attr("tabindex", "-1")
+						.removeClass("on");
+				}
+			}
 
 			// 탭 키 초점
 			uiTabBtn.on("keydown", function (event) {
@@ -371,16 +368,16 @@ ANUI.module = (function () {
 						.attr("tabindex", "-1")
 						.removeClass("on");
 				}
-            });
+			});
 
-            uiTabWrap.each(function(){
-                //기본 열린탭 설정
-                var initTab = $(this).data('init'),
-                    _selTab = initTab == undefined ? $(this).closest(uiTabWrap).find(uiTabBtn).eq(0) : $(this).closest(uiTabWrap).find(uiTabBtn).eq(initTab);
+			uiTabWrap.each(function () {
+				//기본 열린탭 설정
+				var initTab = $(this).data('init'),
+					_selTab = initTab == undefined ? $(this).closest(uiTabWrap).find(uiTabBtn).eq(0) : $(this).closest(uiTabWrap).find(uiTabBtn).eq(initTab);
 
-                    new _tabUibox();
-                    _selTab.trigger('click');
-            });
+				new _tabUibox();
+				_selTab.trigger('click');
+			});
 
 			console.log('tabUi');
 		},
@@ -544,7 +541,7 @@ ANUI.module = (function () {
 
 			tooltip1.prototype.evt = function () {
 				$tooltip.on('mouseenter focus', function (e) {
-                    e.preventDefault();
+					e.preventDefault();
 					var t = $(this),
 						targetOff = t.offset(),
 						dataOpt = t.data('option'),
@@ -558,7 +555,7 @@ ANUI.module = (function () {
 					var config = {
 						top: {
 							'top': parseInt(targetOff.top - tarH - pad),
-							'left': parseInt(targetOff.left + (thisBtnW - tarW)/2 )
+							'left': parseInt(targetOff.left + (thisBtnW - tarW) / 2)
 						},
 						left: {
 							'top': parseInt(targetOff.top),
@@ -566,36 +563,32 @@ ANUI.module = (function () {
 						},
 						right: {
 							'top': parseInt(targetOff.top),
-							'left': parseInt(targetOff.left + tarW + thisBtnW > $('body').width() ? $('body').width() - tarW : targetOff.left + thisBtnW + pad  )
+							'left': parseInt(targetOff.left + tarW + thisBtnW > $('body').width() ? $('body').width() - tarW : targetOff.left + thisBtnW + pad)
 						},
 						bottom: {
 							'top': parseInt(targetOff.top + thisBtnH + pad),
-							'left': parseInt(targetOff.left + (thisBtnW - tarW)/2 )
+							'left': parseInt(targetOff.left + (thisBtnW - tarW) / 2)
 						}
 					};
 
 					$('#' + tarId + '').css(config[dataOpt]).addClass(dataOpt).addClass('active');
 
-				}).on('blur mouseleave', function () {
-					var t = $(this),
-                        tarId = t.data('id');
-
-                    $('#' + tarId + '').removeClass('active');
-                    // setTimeout(function(){
-                    //     $('#' + tarId + '').removeClass(dataOpt);
-                    // },500); // transition 속도와 동일하게
-				});;
+				});
+				//issue fix : ios blur not firing
+				$(document).on('touchstart', function () {
+					$('.tooltipContent').removeClass('active');
+				});
 			}
 			new tooltip1(pad);
 			console.log('tooltipUi');
 
-        },
-        // mark :tooltipUiClose
+		},
+		// mark :tooltipUiClose
 		tooltipUiClose: function (pad) {
 			var tooltip,
-                $tooltip = $('.aui-tooltipClose'),
-                $close = $('.aui-tbClose'),
-                _tbox = $('.tooltipContent--close'),
+				$tooltip = $('.aui-tooltipClose'),
+				$close = $('.aui-tbClose'),
+				_tbox = $('.tooltipContent--close'),
 				pad = pad; // 여백;
 
 			tooltip = function () {
@@ -604,27 +597,27 @@ ANUI.module = (function () {
 
 			tooltip.prototype.evt = function () {
 				$tooltip.on('click', function (e) {
-                    e.preventDefault();
+					e.preventDefault();
 					var t = $(this),
 						targetOff = t.offset(),
-                        dataOpt = t.data('option'),
-                        isSingle = t.data('single'),
+						dataOpt = t.data('option'),
+						isSingle = t.data('single'),
 						tarId = t.data('id'),
 						tarH = $('#' + tarId + '').outerHeight(),
 						tarW = $('#' + tarId + '').outerWidth(),
 						thisBtnW = t.outerWidth(),
-                        thisBtnH = t.outerHeight();
+						thisBtnH = t.outerHeight();
 
-                        //단일 툴팁 허용 옵션
-                    if(isSingle == true){
-                        _tbox.removeClass('active');
-                    }
+					//단일 툴팁 허용 옵션
+					if (isSingle == true) {
+						_tbox.removeClass('active');
+					}
 
 
 					var config = {
 						top: {
 							'top': parseInt(targetOff.top - tarH - pad),
-							'left': parseInt(targetOff.left + (thisBtnW - tarW)/2 )
+							'left': parseInt(targetOff.left + (thisBtnW - tarW) / 2)
 						},
 						left: {
 							'top': parseInt(targetOff.top),
@@ -632,22 +625,22 @@ ANUI.module = (function () {
 						},
 						right: {
 							'top': parseInt(targetOff.top),
-							'left': parseInt(targetOff.left + tarW + thisBtnW > $('body').width() ? $('body').width() - tarW : targetOff.left + thisBtnW + pad  )
+							'left': parseInt(targetOff.left + tarW + thisBtnW > $('body').width() ? $('body').width() - tarW : targetOff.left + thisBtnW + pad)
 						},
 						bottom: {
 							'top': parseInt(targetOff.top + thisBtnH + pad),
-							'left': parseInt(targetOff.left + (thisBtnW - tarW)/2 )
+							'left': parseInt(targetOff.left + (thisBtnW - tarW) / 2)
 						}
 					};
 
 					$('#' + tarId + '').css(config[dataOpt]).addClass(dataOpt).addClass('active');
 
-                });
+				});
 
-                $close.on('click', function () {
+				$close.on('click', function () {
 					var t = $(this).closest('.tooltipContent--close');
 
-                    t.removeClass('active');
+					t.removeClass('active');
 
 				});;
 			}
@@ -734,9 +727,9 @@ ANUI.module = (function () {
 					return;
 				}
 				//스크롤바가 생겼는지 체크
-                bodyIsOverflowing = Math.sign($(window).height() - $(document).height()) > 0 ? 'true' : 'false';
+				bodyIsOverflowing = Math.sign($(window).height() - $(document).height()) > 0 ? 'true' : 'false';
 
-                //trans 옵션 체크
+				//trans 옵션 체크
 				$('[data-target=' + mvId + ']').hasClass('trans-ms') ? optTrans = 'true' : optTrans = 'false';
 
 				//모달 출력시 바닥 고정
@@ -810,9 +803,9 @@ ANUI.module = (function () {
 				}
 				openSt = 'false';
 				// console.log('close');
-            }
+			}
 
-            //모달 버튼
+			//모달 버튼
 			mvBtn.on('click', function (e) {
 				e.preventDefault();
 
@@ -989,8 +982,11 @@ ANUI.module = (function () {
 				}
 
 				if (!isExpanded) {
+					// console.log('!isExpanded');
 					//다중 열기 불가능
 					if (!allowMultiple) {
+					// console.log('!allowMultiple');
+
 						t.closest(uiAccoWrap).find(uiAccoCt).animate({
 							'height': 0
 						}, motSpd);
@@ -1012,9 +1008,12 @@ ANUI.module = (function () {
 
 
 				} else {
+					// console.log('!isExpanded else');
 
 					//다중 열기 불가능
 					if (!allowMultiple) {
+					// console.log('!isExpanded else allowMultiple');
+
 						if (isExpanded) {
 							return
 						};
@@ -1099,13 +1098,12 @@ ANUI.module = (function () {
 				}
 			});
 
-
-
 			//init
 			// uiAccoCt.hide();
 			uiAccoWrap.each(function () {
 				var t = $(this);
 				t.find('.aui-btn-acco').last().addClass('last');
+				t.find('> li.active >.acco-btn >.aui-btn-acco').attr('aria-expanded',true);
 			});
 			// 서브 어코디언 있을때 다음 어코디언(키맵핑)에 클래스 추가
 			if ($('.sub-has').length !== 0) $('.sub-has').closest('[data-li]').next().find(uiAccobtn).addClass('aui-sub-next');
@@ -2625,51 +2623,51 @@ ANUI.module = (function () {
 		// mark : allChkUi
 		allChkUi: function (opt) {
 
-            var $t = $('.aui-allChk'),
-                $t0 = $('.aui-allChk-0 > input:checkbox'),//전체 체크 상위
+			var $t = $('.aui-allChk'),
+				$t0 = $('.aui-allChk-0 > input:checkbox'), //전체 체크 상위
 				$allChk = $t.find('[data-allchk]'), //부모 체크박스
 				$optChk = $t.find('[data-optchk]'),
-                $subChk = $t.find('[data-subchk] input').not($optChk), //자식 체크박스
-                $subChkAll,
-                _subVal,
-                $thisOrg,
+				$subChk = $t.find('[data-subchk] input').not($optChk), //자식 체크박스
+				$subChkAll,
+				_subVal,
+				$thisOrg,
 				allChkFn,
 				opt = {
 					'req': opt.req || true //전체 체크시 선택요소 체크 부분
 				};
 
 			allChkFn = function () {
-                this.evt();
-                $thisOrg = this;
+				this.evt();
+				$thisOrg = this;
 
-            }
-            //자식에 의한 전체의 상위 체크 / 풀림
+			}
+			//자식에 의한 전체의 상위 체크 / 풀림
 			allChkFn.prototype.subchk = function () {
-                _subVal = $t0.parent().data('parent');
-                $optChk = $t0.parent().parent().find('[data-sub='+ _subVal +']').find('[data-optchk]');
-                $subChkAll = $t0.parent().parent().find('[data-sub='+ _subVal +']').find('input:checkbox').not($optChk);
+				_subVal = $t0.parent().data('parent');
+				$optChk = $t0.parent().parent().find('[data-sub=' + _subVal + ']').find('[data-optchk]');
+				$subChkAll = $t0.parent().parent().find('[data-sub=' + _subVal + ']').find('input:checkbox').not($optChk);
 
-                if( $subChkAll.length == $subChkAll.filter(':checked').length ){
-                    $t0.prop('checked',true);
-                } else{
-                    $t0.prop('checked',false);
-                }
-            }
+				if ($subChkAll.length == $subChkAll.filter(':checked').length) {
+					$t0.prop('checked', true);
+				} else {
+					$t0.prop('checked', false);
+				}
+			}
 
 			allChkFn.prototype.evt = function () {
 
-                // 전체체크 가장 상위 이벤트
-                $t0.on('change', function () {
-                    var _t = $(this),
-                        _subVal = _t.parent().data('parent');
+				// 전체체크 가장 상위 이벤트
+				$t0.on('change', function () {
+					var _t = $(this),
+						_subVal = _t.parent().data('parent');
 
-                    $subChkAll = _t.parent().parent().find('[data-sub='+ _subVal +']').find('input:checkbox');
+					$subChkAll = _t.parent().parent().find('[data-sub=' + _subVal + ']').find('input:checkbox');
 
-					if( _t.prop('checked') == true ){
-                        $subChkAll.prop('checked',true);
-                    } else{
-                        $subChkAll.prop('checked',false);
-                    }
+					if (_t.prop('checked') == true) {
+						$subChkAll.prop('checked', true);
+					} else {
+						$subChkAll.prop('checked', false);
+					}
 				});
 
 				//전체체크 버튼 이벤트
@@ -2677,17 +2675,17 @@ ANUI.module = (function () {
 					var _t = $(this);
 
 					$optChk = _t.closest($t).find('[data-optchk]'),
-					$subChk = _t.closest($t).find('[data-subchk] input').not($optChk);
+						$subChk = _t.closest($t).find('[data-subchk] input').not($optChk);
 
 					if (_t.prop('checked') == true) {
 						//전체체크 옵션값이 true일때 선택요소도 체크되게, false 일때 선택요소는 체크 안되게 함
 						opt.req == true ? $subChk.add($optChk).prop('checked', true) : $subChk.prop('checked', true);
 					} else {
 						$subChk.add($optChk).prop('checked', false);
-                    }
+					}
 
-                    //전체의 상위 체크
-                    $thisOrg.subchk();
+					//전체의 상위 체크
+					$thisOrg.subchk();
 				});
 
 				//자식요소 체크 이벤트
@@ -2710,10 +2708,10 @@ ANUI.module = (function () {
 						}
 					} else {
 						$allChk.prop("checked", false);
-                    }
+					}
 
-                    //전체의 상위 체크
-                    $thisOrg.subchk();
+					//전체의 상위 체크
+					$thisOrg.subchk();
 
 				});
 			}
@@ -2761,7 +2759,7 @@ ANUI.module = (function () {
 				}
 			});
 		},
-		    
+
 		//mark : prev, next 버튼으로 paging
 		pageMove: function ($btn) {
 			//인자값 받아오기($(this)==$this)
@@ -3390,73 +3388,73 @@ ANUI.module = (function () {
 			calender.on('change', function (data) {
 				console.log(this, data);
 			});
-    },
+		},
 
-    // mark : popRollDateUi 연월 선택
-    popRollDateUi: function () {
-      //var
-      //const wrap = $('.date-roll-wrap');
-      const wrap = document.querySelector('.date-roll-wrap');
-      const paddingH = 55;
-      const btnList = document.querySelectorAll('.date-btn');
-      const initIndex = document.querySelectorAll('.date-roll-wrap [data-init]');
+		// mark : popRollDateUi 연월 선택
+		popRollDateUi: function () {
+			//var
+			//const wrap = $('.date-roll-wrap');
+			const wrap = document.querySelector('.date-roll-wrap');
+			const paddingH = 55;
+			const btnList = document.querySelectorAll('.date-btn');
+			const initIndex = document.querySelectorAll('.date-roll-wrap [data-init]');
 
-      //ovserver
-      const options = {
-        root :document.querySelector('.date-roll-wrap'),
-        threshold:[.5], //안드로이드 모바일에서 배열이 아닌 Number 형식일때 동작 안함
-        rootMargin :'-41px 0px'
-      };
+			//ovserver
+			const options = {
+				root: document.querySelector('.date-roll-wrap'),
+				threshold: [.5], //안드로이드 모바일에서 배열이 아닌 Number 형식일때 동작 안함
+				rootMargin: '-41px 0px'
+			};
 
-      const io = new IntersectionObserver(entries => {          
-        entries.forEach(entry => {
-            let $radInp = entry.target.querySelectorAll('input');
+			const io = new IntersectionObserver(entries => {
+				entries.forEach(entry => {
+					let $radInp = entry.target.querySelectorAll('input');
 
-            if(entry.isIntersecting){
-                entry.target.classList.add('active');
-                //$($radInp).prop('checked',true);
-                $radInp.checked = true;
+					if (entry.isIntersecting) {
+						entry.target.classList.add('active');
+						// $($radInp).prop('checked',true);
+						entry.target.querySelector('input').checked = true;
 
-            } else{
-				entry.target.classList.remove('active');
+					} else {
+						entry.target.classList.remove('active');
+					}
+				});
+			}, options);
+
+			btnList.forEach((el) => {
+				io.observe(el);
+			});
+
+			//key up evt
+			//wrap.on('keyup',function(e){
+			wrap.addEventListener('keyup', function (e) {
+				keyMove(e);
+			});
+
+			const keyMove = function (e) {
+				//let index = $(e.target).parent().index();
+				let index = getIndex(e.target.parentNode);
+				let key = e.which.toString();
+				//38 = Up, 40 = Down
+				if (key.match(/38|40/)) {
+					//$(e.target).parent().parent().scrollTop(paddingH * index);
+					e.target.parentNode.parentNode.scrollTop = paddingH * index;
 				}
-        });
-      }, options);
+			};
 
-      btnList.forEach((el) => {
-        io.observe(el);
-      });
+			//init
+			initIndex.forEach((el) => {
+				//let e = $(el).children().find('input');
+				//let index = $(el).data('init');
+				//e.parent().parent().scrollTop(paddingH * index);
+				let e = el.querySelector('input');
+				let index = el.dataset.init;
+				e.parentNode.parentNode.scrollTop = paddingH * index;
+			});
 
-      //key up evt
-      //wrap.on('keyup',function(e){
-      wrap.addEventListener('keyup',function(e){
-        keyMove(e);
-      });
+			console.log('popRollDate');
 
-      const keyMove = function(){
-        //let index = $(e.target).parent().index();
-        let index = getIndex(e.target.parentNode) - 1;
-        let key = e.which.toString();
-        //38 = Up, 40 = Down
-        if(key.match(/38|40/)){
-            //$(e.target).parent().parent().scrollTop(paddingH * index);
-            e.target.parentNode.parentNode.scrollTop = paddingH * index;
-        }
-      };
-
-      //init
-      initIndex.forEach((el) => {
-        //let e = $(el).children().find('input');
-        //let index = $(el).data('init');
-        //e.parent().parent().scrollTop(paddingH * index);
-        let e = el.querySelector('input');
-        let index = el.dataset.init;
-        e.parentNode.parentNode.scrollTop = paddingH * index;
-      });
-
-      console.log('popRollDate');
-
-    },
+		},
 
 
 		// mark : init
@@ -3478,149 +3476,151 @@ ANUI.module = (function () {
 })();
 
 //mark: plugin
-$(document).ready(function(){
+$(document).ready(function () {
 
-  //toastUi pluguin
-  $.fn.toastUi = function(evt,option,callback){
-    var option = {
-      msg : option.msg,
-      time: option.time
-    },
-    removeToast,
-    _t;
+	//mark: toastUi pluguin
+	$.fn.toastUi = function (evt, option, callback) {
+		var option = {
+				msg: option.msg,
+				time: option.time
+			},
+			removeToast,
+			_t;
 
-    var toastCreate = function(){
-      if( !$('body').hasClass('has-toast') ){
-        $('<div class="aui-toast"><p>' + option.msg + '</p></div>').appendTo(document.body);
-      }
+		var toastCreate = function () {
+			if (!$('body').hasClass('has-toast')) {
+				$('<div class="aui-toast"><p>' + option.msg + '</p></div>').appendTo(document.body);
+			}
 
-      _t = $('.aui-toast');
-      $('body').addClass('has-toast');
+			_t = $('.aui-toast');
+			$('body').addClass('has-toast');
 
-      setTimeout(function(){
-        _t.addClass('active');
-        toastEvt();
-      },0);
-    }
+			setTimeout(function () {
+				_t.addClass('active');
+				toastEvt();
+			}, 0);
+		}
 
-    var toastEvt = function(){
-      if( _t.hasClass('active')){
-        clearTimeout(removeToast);
+		var toastEvt = function () {
+			if (_t.hasClass('active')) {
+				clearTimeout(removeToast);
 
-        removeToast = setTimeout(function(){
-          _t.removeClass('active');
+				removeToast = setTimeout(function () {
+					_t.removeClass('active');
 
-          setTimeout(function(){
-            _t.remove();
-          },option.time);
+					setTimeout(function () {
+						_t.remove();
+					}, option.time);
 
-          $('body').removeClass('has-toast');
-        },option.time);
+					$('body').removeClass('has-toast');
+				}, option.time);
 
-      } else{
-        removeToast;
-      }
-      //callback 실행      
-      if (typeof callback === 'function'){
-        callback.call(this);
-      }
-    }
+			} else {
+				removeToast;
+			}
+			//callback 실행
+			if (typeof callback === 'function') {
+				callback.call(this);
+			}
+		}
 
-    //init
-    if(!!evt === true){
-      this.on(evt,function(){
-        toastCreate();
-      });
-    } else{
-      toastCreate();
-    }
-    console.log('toastUi');
-  }
+		//init
+		if (!!evt === true) {
+			this.on(evt, function () {
+				toastCreate();
+			});
+		} else {
+			toastCreate();
+		}
+		console.log('toastUi');
+	}
 
-  //alert plugin
-  $.fn.alertUi = function(evt,option,callback){
-    var option = {
-      msg : option.msg,
-      flag : option.flag,
-      btn : option.btn.split(',')
-    };
+	//mark: alert plugin
+	$.fn.alertUi = function (evt, option, callback) {
+		var option = {
+			msg: option.msg,
+			flag: option.flag,
+			btn: option.btn.split(',')
+		};
 
-    var alertCreate = function(){
-      if( !$('body').hasClass('has-alert') ){
+		var alertCreate = function () {
+			if (!$('body').hasClass('has-alert')) {
 
-        if( option.flag === 'ok' ){
-          var inhtml =
-          '<div class="alert-wrap">'
-          +'  <div class="alert-ct">'
-          +'      <div class="alert-txt">'+ option.msg +'</div>'
-          +'      <div class="btn-wrap"><button type="button" class="btn aui-close"><span>'+ option.btn +'</span></button></div>'
-          +'    </div>'
-          +'</div>';
-        } else{
-          var inhtml =
-          '<div class="alert-wrap">'
-          +'  <div class="alert-ct">'
-          +'      <div class="alert-txt">'+ option.msg +'</div>'
-          +'      <div class="btn-wrap"><button type="button" class="btn--no"><span>'+ option.btn[0] +'</span></button><button type="button" class="btn aui-close"><span>'+ option.btn[1] +'</span></button></div>'
-          +'    </div>'
-          +'</div>';
-        }
+				if (option.flag === 'ok') {
+					var inhtml =
+						'<div class="alert-wrap">' +
+						'  <div class="alert-ct">' +
+						'      <div class="alert-txt">' + option.msg + '</div>' +
+						'      <div class="btn-wrap"><button type="button" class="btn aui-close"><span>' + option.btn + '</span></button></div>' +
+						'    </div>' +
+						'</div>';
+				} else {
+					var inhtml =
+						'<div class="alert-wrap">' +
+						'  <div class="alert-ct">' +
+						'      <div class="alert-txt">' + option.msg + '</div>' +
+						'      <div class="btn-wrap"><button type="button" class="btn--no"><span>' + option.btn[0] + '</span></button><button type="button" class="btn aui-close"><span>' + option.btn[1] + '</span></button></div>' +
+						'    </div>' +
+						'</div>';
+				}
 
-        $(inhtml).appendTo(document.body);
-        $('.aui-close').on(evt,function(){
-          alertClose();
-          //callback 실행          
-          if(typeof callback === 'function'){
-            callback.call(this);
-          }
-        });
-      }
+				$(inhtml).appendTo(document.body);
+				$('.aui-close').on(evt, function () {
+					alertClose();
+					//callback 실행
+					if (typeof callback === 'function') {
+						callback.call(this);
+					}
+				});
+			}
 
-      $('body').addClass('has-alert');
-      $('alert-wrap').attr('tabindex',-1).focus();
-    }
+			$('body').addClass('has-alert');
+			$('alert-wrap').attr('tabindex', -1).focus();
+		}
 
-    //alert창 닫기
-    function alertClose(){
-      $('body').removeClass('has-alert');
-      $('.alert-wrap').remove();
-    }
+		//alert창 닫기
+		function alertClose() {
+			$('body').removeClass('has-alert');
+			$('.alert-wrap').remove();
+		}
 
-    //init
-    this.on(evt,function(){
-      alertCreate();
-      console.log('alertui');
-    });   
-  }
+		//init
+		this.on(evt, function () {
+			alertCreate();
+			console.log('alertui');
+		});
+	}
 
-  //countNumRoll
-  $.fn.countNumRoll = function(sNum,eNum,duration,comma,easing){
+	//mark: countNumRoll
+	$.fn.countNumRoll = function (sNum, eNum, duration, comma, easing) {
 
-   var duration = duration || 800,
-       easing = easing || 'swing',
-       comma = comma || 'true';
+		var duration = duration || 800,
+			easing = easing || 'swing',
+			comma = comma || 'true';
 
-    this.each(function(){
-      var $t = $(this);
+		this.each(function () {
+			var $t = $(this);
 
-      $({countNum : sNum}).animate({
-        countNum : eNum
-      },{
-        duration : duration,
-        easing : easing,
-        step : function(){
-          comma === 'true' ? $t.text(commaSepNum( Math.floor(this.countNum) )) : $t.text(Math.floor(this.countNum));
-        },
-        complete : function(){
-          comma === 'true' ? $t.text(commaSepNum( (this.countNum) )) : $t.text( (this.countNum) );
-          
-        }
+			$({
+				countNum: sNum
+			}).animate({
+				countNum: eNum
+			}, {
+				duration: duration,
+				easing: easing,
+				step: function () {
+					comma === 'true' ? $t.text(commaSepNum(Math.floor(this.countNum))) : $t.text(Math.floor(this.countNum));
+				},
+				complete: function () {
+					comma === 'true' ? $t.text(commaSepNum((this.countNum))) : $t.text((this.countNum));
 
-      });
+				}
 
-    });    
+			});
 
-  }
+		});
+
+	}
 
 
 });

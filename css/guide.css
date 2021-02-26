@@ -9,7 +9,7 @@
 }
 .syntaxhighlighter .line{
 	/*자동 줄바꿈하기*/
-	/* white-space: pre-wrap !important; 
+	/* white-space: pre-wrap !important;
 	word-break: break-word !important;  */
 }
 .syntaxhighlighter .line.alt1:hover,
@@ -155,7 +155,7 @@
 		position: fixed;
 		box-sizing: border-box;
 		padding: 10px 20px;
-		z-index: 3;
+		z-index: 9999;
 	}
 
 	.mo-guide-side>button {
