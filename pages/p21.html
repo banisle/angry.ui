@@ -1,0 +1,60 @@
+<h3>css var color change</h3>
+<style>
+	:root{
+		--main-clr: red;
+	}
+</style>
+<p class="sub-txt">
+		input box 에 변경하고자 하는 color 값 적용(hex,rgba 상관없음)
+</p>
+
+<button type="button" class="btn-icn" id="chgBtn"><span>Change color</span></button>
+<div class="inp-wrap"><input type="text" id="chgClrInp" placeholder="Input color code" class=""></div>
+<div style="margin-top:10px; width:100%;height:50px;background-color: var(--main-clr);"></div>
+
+<pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */" >
+&lt;div style=&quot;margin-top:10px; width:100%;height:50px;background-color: var(--main-clr);&quot;&gt;&lt;/div&gt;
+
+&lt;style&gt;
+	:root{
+		--main-clr: red;
+	}
+&lt;/style&gt;
+
+&lt;script&gt;
+const $chgBtn = document.getElementById(&#39;chgBtn&#39;);
+
+function chgColor(){
+	const _chgClrInp = document.getElementById(&#39;chgClrInp&#39;).value;
+
+	//메인 변수 컬러 가져오기
+	getComputedStyle(document.documentElement).getPropertyValue(&#39;--main-clr&#39;);
+
+	//메인 변수 컬러 지정
+	document.documentElement.style.setProperty(&#39;--main-clr&#39;, _chgClrInp);
+}
+
+$chgBtn.addEventListener(&#39;click&#39;,function(){
+	chgColor();
+});
+&lt;/script&gt;
+
+</pre>
+
+<script>
+const $chgBtn = document.getElementById('chgBtn');
+
+function chgColor(){
+	const _chgClrInp = document.getElementById('chgClrInp').value;
+
+	//메인 변수 컬러 가져오기
+	getComputedStyle(document.documentElement).getPropertyValue('--main-clr');
+
+	//메인 변수 컬러 지정
+	document.documentElement.style.setProperty('--main-clr', _chgClrInp);
+}
+
+$chgBtn.addEventListener('click',function(){
+	chgColor();
+});
+</script>

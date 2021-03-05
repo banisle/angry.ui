@@ -23,7 +23,8 @@
 <h3>custom alert</h3>
 <p class="sub-txt">
   {selector}.alertUi({msg : '메시지입니다.',flag : 'confirm | ok', btn : '취소,확인'},function(){ /* 콜백함수 */});
-	<br>flag 에서 컨펌,일반 얼럿 구분, btn에 버튼 이름 설정
+	<br>flag 에서 컨펌,일반 얼럿 구분, btn에 버튼 이름 설정<br>
+	<br><strong class="fw-b">이벤트 없이 바로 실행할 경우</strong> :<br> $.fn.alertUi('',{msg : '메시지입니다.',flag : 'confirm | ok', btn : '취소,확인'},function(){ /* 콜백함수 */});
 </p>
 
 <button type="button" class="btn-icn" id="confirmAlert"><span>confirm alert</span></button>
@@ -33,7 +34,7 @@ $('#confirmAlert').alertUi('click',{
     msg :'컨펌 얼럿창입니다.',
     flag : 'confirm',
     btn : '취소,확인'
-    
+
   }, function(){
     _call_back();
   });
@@ -42,16 +43,25 @@ $('#confirmAlert').alertUi('click',{
     msg :'확인 얼럿창입니다.',
     flag : 'ok',
     btn : '확인'
-    
+
   }, function(){
     _call_back2();
+	});
+
+	//이벤트 없이 바로 호출
+  $.fn.alertUi('',{
+    msg :'확인 얼럿창입니다.',
+    flag : 'ok',
+    btn : '확인'
+  },function(){
+    console.log('toast');
   });
 </pre>
 
 
 <h3>toast</h3>
 <p class="sub-txt">{selector}.toastUi(event type,{msg:'메시지 내용용, time: 토스트 사라지는 시간}, callback)<br>
-  이벤트 없이 바로 실행할 경우 : $.fn.toastUi('',{msg:'메시지 내용용, time: 토스트 사라지는 시간}, callback)
+  <br><strong class="fw-b">이벤트 없이 바로 실행할 경우</strong> : $.fn.toastUi('',{msg:'메시지 내용용, time: 토스트 사라지는 시간}, callback)
 </p>
 
 <button type="button" class="btn-icn" id="toastCall"><span>toastCall</span></button>
@@ -64,7 +74,7 @@ $('#confirmAlert').alertUi('click',{
   },function(){
     console.log('toast');
   });
-  
+
   //이벤트 없이 바로 호출
   $.fn.toastUi('',{
     msg : '토스트 메시지 출력',
@@ -83,12 +93,12 @@ $('#confirmAlert').alertUi('click',{
 		//callback 내용
 		console.log('callback 2');
   }
-  
+
   $('#confirmAlert').alertUi('click',{
     msg :'컨펌 얼럿창입니다.',
     flag : 'confirm',
     btn : '취소,확인'
-    
+
   }, function(){
     _call_back();
   });
@@ -97,7 +107,7 @@ $('#confirmAlert').alertUi('click',{
     msg :'확인 얼럿창입니다.',
     flag : 'ok',
     btn : '확인'
-    
+
   }, function(){
     _call_back2();
   });

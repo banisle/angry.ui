@@ -571,6 +571,7 @@ ANUI.module = (function () {
 						}
 					};
 
+					$('.tooltipContent').removeClass('active');
 					$('#' + tarId + '').css(config[dataOpt]).addClass(dataOpt).addClass('active');
 
 				});
@@ -3551,7 +3552,7 @@ $(document).ready(function () {
 						'<div class="alert-wrap">' +
 						'  <div class="alert-ct">' +
 						'      <div class="alert-txt">' + option.msg + '</div>' +
-						'      <div class="btn-wrap"><button type="button" class="btn aui-close"><span>' + option.btn + '</span></button></div>' +
+						'      <div class="btn-wrap--flex"><button type="button" class="btn w100 aui-close"><span>' + option.btn + '</span></button></div>' +
 						'    </div>' +
 						'</div>';
 				} else {
@@ -3559,7 +3560,7 @@ $(document).ready(function () {
 						'<div class="alert-wrap">' +
 						'  <div class="alert-ct">' +
 						'      <div class="alert-txt">' + option.msg + '</div>' +
-						'      <div class="btn-wrap"><button type="button" class="btn--no"><span>' + option.btn[0] + '</span></button><button type="button" class="btn aui-close"><span>' + option.btn[1] + '</span></button></div>' +
+						'      <div class="btn-wrap--flex"><button type="button" class="btn--no"><span>' + option.btn[0] + '</span></button><button type="button" class="btn aui-close"><span>' + option.btn[1] + '</span></button></div>' +
 						'    </div>' +
 						'</div>';
 				}
@@ -3585,10 +3586,15 @@ $(document).ready(function () {
 		}
 
 		//init
-		this.on(evt, function () {
+		if (!!evt === true) {
+			this.on(evt, function () {
+				alertCreate();
+			});
+		} else {
 			alertCreate();
-			console.log('alertui');
-		});
+		}
+		console.log('alertui');
+
 	}
 
 	//mark: countNumRoll
