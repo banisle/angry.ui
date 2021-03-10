@@ -180,9 +180,10 @@ $.fn.removeClassPrefix = function (prefix) {
 
 //getIndex
 function getIndex(elm) {
-	var c = elm.parentNode.children, i = 0;
-	for(; i < c.length; i++ )
-			if( c[i] == elm ) return i;
+	var c = elm.parentNode.children,
+		i = 0;
+	for (; i < c.length; i++)
+		if (c[i] == elm) return i;
 }
 
 //ie aegent 체크
@@ -986,7 +987,7 @@ ANUI.module = (function () {
 					// console.log('!isExpanded');
 					//다중 열기 불가능
 					if (!allowMultiple) {
-					// console.log('!allowMultiple');
+						// console.log('!allowMultiple');
 
 						t.closest(uiAccoWrap).find(uiAccoCt).animate({
 							'height': 0
@@ -1013,7 +1014,7 @@ ANUI.module = (function () {
 
 					//다중 열기 불가능
 					if (!allowMultiple) {
-					// console.log('!isExpanded else allowMultiple');
+						// console.log('!isExpanded else allowMultiple');
 
 						if (isExpanded) {
 							return
@@ -1104,7 +1105,7 @@ ANUI.module = (function () {
 			uiAccoWrap.each(function () {
 				var t = $(this);
 				t.find('.aui-btn-acco').last().addClass('last');
-				t.find('> li.active >.acco-btn >.aui-btn-acco').attr('aria-expanded',true);
+				t.find('> li.active >.acco-btn >.aui-btn-acco').attr('aria-expanded', true);
 			});
 			// 서브 어코디언 있을때 다음 어코디언(키맵핑)에 클래스 추가
 			if ($('.sub-has').length !== 0) $('.sub-has').closest('[data-li]').next().find(uiAccobtn).addClass('aui-sub-next');
@@ -3197,33 +3198,44 @@ ANUI.module = (function () {
 			new srui();
 		},
 
-		// mark: calendar
-		calpickUi: function () {
-			var calender = function () {
-				var _year, _month, _data, _table, _target, _button;
-				var callback = ['select', 'change'];
+		// mark: datepickUi
+		datepickUi: function (  ) {
+			var datepicker = function (target) {
+				var callback = ['select', 'update'];
 
-				function getData(year, month) {
-					var array = [],
-						date;
+				function getDigit(value, char, length, after) {
+					var result = String(value);
+
+					while (result.length < length) {
+						result = after ?
+							result + String(char) :
+							String(char) + result;
+					}
+
+					return result;
+				};
+
+				function getData(context) {
+					var array = [];
+					var date;
 
 					do {
-						date = new Date([year, month, array.length + 1].join());
+						date = new Date([context.year, context.month, array.length + 1].join());
 						array.push({
-							year: year,
-							month: month,
+							year: context.year,
+							month: context.month,
 							date: date.getDate(),
 							week: date.getDay()
 						});
 					}
-					while (month == date.getMonth() + 1);
+					while (context.month == date.getMonth() + 1);
 
 					array.pop();
 
 					while (array[0].week != 0) {
 						array.unshift({
-							year: year,
-							month: month,
+							year: context.year,
+							month: context.month,
 							date: null,
 							week: array[0].week - 1
 						});
@@ -3231,8 +3243,8 @@ ANUI.module = (function () {
 
 					while (array[array.length - 1].week != 6) {
 						array.push({
-							year: year,
-							month: month,
+							year: context.year,
+							month: context.month,
 							date: null,
 							week: array[array.length - 1].week + 1
 						});
@@ -3241,154 +3253,199 @@ ANUI.module = (function () {
 					return array;
 				};
 
-				function getTable(data) {
+				function getHead() {
 					var weeks = ['일', '월', '화', '수', '목', '금', '토'];
-					var table = document.createElement('table'),
-						caption = document.createElement('caption'),
-						thead = document.createElement('thead'),
-						tbody = document.createElement('tbody'),
-						row, col, button;
-
-					table.setAttribute('class', 'aui-calender-table');
-					table.appendChild(caption);
-					table.appendChild(thead);
-					table.appendChild(tbody);
-
-					caption.innerText = [data[0].year, data[0].month].join('-');
-
-					row = document.createElement('tr');
-					thead.appendChild(row);
+					var thead = document.createElement('thead');
+					var row = document.createElement('tr');
+					var col;
 
 					while (weeks.length) {
 						col = document.createElement('th');
+						col.setAttribute('class', 'datepicker-week');
 						col.setAttribute('scope', 'col');
 						col.innerText = weeks[0];
-						row.appendChild(col);
+						row.append(col);
 						weeks.shift();
 					}
 
-					_button = [];
+					thead.append(row)
+
+					return thead;
+				}
+
+				function getBody(context) {
+					var data = context.data.slice();
+					var tbody = document.createElement('tbody');
+					var row, col, button;
 
 					while (data.length) {
 						if (data[0].week == 0) {
 							row = document.createElement('tr');
-							tbody.appendChild(row);
+							tbody.append(row);
 						}
 
 						col = document.createElement('td');
-						row.appendChild(col);
+						col.setAttribute('class', 'datepicker-date');
+						row.append(col);
 
 						if (data[0].date) {
 							button = document.createElement('button');
-							button.dataset.date = [data[0].year, data[0].month, data[0].date].join('-');
+							button.setAttribute('class', 'datepicker-button');
+							button.dataset.date = [data[0].year, getDigit(data[0].month, 0, 2), getDigit(data[0].date, 0, 2)].join('.');
 							button.dataset.week = data[0].week;
 							button.innerText = data[0].date;
 							button.addEventListener('click', function (event) {
-								callback.select.call(this, event)
+								context.callback.select.call(context, event);
 							});
-							_button.push(button);
-							col.appendChild(button);
+
+							col.append(button);
 						}
 
 						data.shift();
 					}
 
+					return tbody;
+				}
+
+				function getTable(context) {
+					var table = document.createElement('table');
+					var caption = document.createElement('caption');
+
+					caption.setAttribute('class', 'datepicker-caption');
+					caption.innerText = [context.year, getDigit(context.month, 0, 2)].join('.');
+
+					table.setAttribute('class', 'datepicker-table');
+					table.append(caption);
+					table.append(getHead());
+					table.append(getBody(context));
+
 					return table;
 				}
 
-				function setMonth(number) {
-					_month += number;
+				function getCtlr(context) {
+					var result = document.createElement('div');
+					var button;
+					var array = [{
+							html: '<i class="fas fa-angle-double-left fa-sm"></i>',
+							func: function (event) {
+								update(context, 'year', -1)
+							}
+						},
+						{
+							html: '<i class="fas fa-angle-left fa-sm"></i>',
+							func: function (event) {
+								update(context, 'month', -1)
+							}
+						},
+						{
+							html: '<i class="fas fa-angle-right fa-sm"></i>',
+							func: function (event) {
+								update(context, 'month', 1)
+							}
+						},
+						{
+							html: '<i class="fas fa-angle-double-right fa-sm"></i>',
+							func: function (event) {
+								update(context, 'year', 1)
+							}
+						}
+					];
 
-					if (_month >= 13) {
-						_year++;
-						_month = 1;
-					}
-
-					if (_month <= 0) {
-						_year--;
-						_month = 12;
-					}
-				}
-
-				callback = function (array) {
-					var result = {};
+					result.setAttribute('class', 'datepicker-ctlr');
 
 					while (array.length) {
-						result[array.shift()] = function () {};
+						button = document.createElement('button');
+						button.innerHTML = array[0].html;
+						button.addEventListener('click', array[0].func);
+						result.append(button);
+						array.shift();
 					}
 
 					return result;
-				}(callback);
+				}
 
-				return {
-					create: function (year, month) {
-						_year = year || new Date().getFullYear();
-						_month = month || new Date().getMonth() + 1;
-						_data = getData(_year, _month);
-						_table = getTable(_data.slice());
-					},
-					append: function (target) {
-						_target = target || document.querySelector('body');
-						_target.append(_table);
-					},
-					next: function (string) {
-						string == 'year' ? _year++ : setMonth(1);
-						_table.remove();
-						this.create(_year, _month);
-						this.append(_target);
-						callback.change.call(_table, _data);
-					},
-					prev: function (string) {
-						string == 'year' ? _year-- : setMonth(-1);
-						_table.remove();
-						this.create(_year, _month);
-						this.append(_target);
-						callback.change.call(_table, _data);
-					},
-					get: function (property) {
-						switch (property) {
-							case 'data':
-								return _data;
-							case 'table':
-								return _table;
-							case 'button':
-								return _button;
-							default:
-								return this;
+				function update(context, string, number) {
+					context[string] += number;
+
+					if (context.month >= 13) {
+						context.year++;
+						context.month = 1;
+					}
+
+					if (context.month <= 0) {
+						context.year--;
+						context.month = 12;
+					}
+
+					context.data = getData(context);
+					context.table.querySelector('caption').innerText = [context.year, getDigit(context.month, 0, 2)].join('.');
+					context.table.querySelector('tbody').replaceWith(getBody(context));
+					context.callback.update.call(context, context.table);
+				}
+
+				function datepicker(target) {
+					this.target = target;
+					this.year = new Date().getFullYear();
+					this.month = new Date().getMonth() + 1;
+					this.data = getData(this);
+					this.table = getTable(this);
+					this.button;
+
+					this.callback = function (array) {
+						var result = {};
+
+						while (array.length) {
+							result[array.shift()] = function () {};
 						}
-					},
+
+						return result;
+					}(callback.slice());
+
+					this.target.append(this.table);
+					this.target.append(getCtlr(this));
+				}
+
+				datepicker.prototype = {
 					on: function (property, fn) {
-						callback[property] = fn;
+						this.callback[property] = fn;
+					},
+					show: function () {
+						this.target.style.height = this.target.scrollHeight + 'px';
+					},
+					hide: function () {
+						this.target.style.height = 0;
 					}
 				};
+
+				return {
+					create: function (target) {
+						return new datepicker(target);
+					}
+				}
 			}();
 
-			calender.create(2020, 10);
-			calender.append(document.querySelector('.aui-calender'));
+			// var date01 = datepicker.create(document.querySelector('.datepicker'));
+			var body =  document.querySelector('body');
+			var	datepickWrap = document.createElement('div');
+					datepickWrap.setAttribute('class', 'datepicker');
+					body.append(datepickWrap);
 
-			document.querySelectorAll('.aui-calender-controller button')[0].addEventListener('click', function (event) {
-				calender.prev('year');
+
+			var date01 = datepicker.create(document.querySelector('.datepicker'));
+
+
+
+			date01.on('select', function (event) {
+				document.querySelector('#DATE_01').value = event.target.dataset.date;
+				date01.hide();
 			});
 
-			document.querySelectorAll('.aui-calender-controller button')[1].addEventListener('click', function (event) {
-				calender.prev('month');
+			document.querySelector('#DATE_01').addEventListener('focusin', function (event) {
+				date01.show();
 			});
 
-			document.querySelectorAll('.aui-calender-controller button')[2].addEventListener('click', function (event) {
-				calender.next('month');
-			});
 
-			document.querySelectorAll('.aui-calender-controller button')[3].addEventListener('click', function (event) {
-				calender.next('year');
-			});
 
-			calender.on('select', function (event) {
-				console.log(this, event);
-			});
-
-			calender.on('change', function (data) {
-				console.log(this, data);
-			});
 		},
 
 		// mark : popRollDateUi 연월 선택
@@ -3536,8 +3593,8 @@ $(document).ready(function () {
 		console.log('toastUi');
 	}
 
-	//mark: alert plugin
-	$.fn.alertUi = function (evt, option, callback) {
+	//mark: alertUi plugin
+	$.fn.alertUi = function (evt, option, callback, callback2) {
 		var option = {
 			msg: option.msg,
 			flag: option.flag,
@@ -3552,7 +3609,7 @@ $(document).ready(function () {
 						'<div class="alert-wrap">' +
 						'  <div class="alert-ct">' +
 						'      <div class="alert-txt">' + option.msg + '</div>' +
-						'      <div class="btn-wrap--flex"><button type="button" class="btn w100 aui-close"><span>' + option.btn + '</span></button></div>' +
+						'      <div class="btn-wrap--flex"><button type="button" class="btn--ok w100 aui-close"><span>' + option.btn + '</span></button></div>' +
 						'    </div>' +
 						'</div>';
 				} else {
@@ -3560,17 +3617,26 @@ $(document).ready(function () {
 						'<div class="alert-wrap">' +
 						'  <div class="alert-ct">' +
 						'      <div class="alert-txt">' + option.msg + '</div>' +
-						'      <div class="btn-wrap--flex"><button type="button" class="btn--no"><span>' + option.btn[0] + '</span></button><button type="button" class="btn aui-close"><span>' + option.btn[1] + '</span></button></div>' +
+						'      <div class="btn-wrap--flex"><button type="button" class="btn--no aui-cancel"><span>' + option.btn[0] + '</span></button><button type="button" class="btn--ok aui-close"><span>' + option.btn[1] + '</span></button></div>' +
 						'    </div>' +
 						'</div>';
 				}
 
 				$(inhtml).appendTo(document.body);
+
 				$('.aui-close').on(evt, function () {
 					alertClose();
 					//callback 실행
 					if (typeof callback === 'function') {
 						callback.call(this);
+					}
+				});
+
+				$('.aui-cancel').on(evt, function () {
+					alertClose();
+					//callback 실행
+					if (typeof callback2 === 'function') {
+						callback2.call(this);
 					}
 				});
 			}

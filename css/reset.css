@@ -15,7 +15,12 @@ button { padding: 0; background: 0; border: 0; cursor: pointer; letter-spacing: 
 a { text-decoration: none; }
 a:link, a:hover, a:active, a:visited { text-decoration: none; color: initial }
 input[type="checkbox"],
-input[type="radio"] { overflow: hidden; border: 0; position: absolute; width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%);
+input[type="radio"] {
+	-webkit-appearance: none;
+	position: absolute;
+	opacity: 0.00001;
+	width: 1em;
+	height: 1em;
 }
 
 a:focus,

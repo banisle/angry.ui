@@ -1,27 +1,26 @@
 <p class="sub-txt">picker</p>
-<div class="aui-calender">
-	<div class="aui-calender-controller">
-		<button>&lt;&lt;</button>
-		<button>&lt;</button>
-		<button>&gt;</button>
-		<button>&gt;&gt;</button>
+
+
+<!-- <div class="datepicker"></div> -->
+<div class="datepicker-wrap">
+	<div class="inp-wrap">
+		<label for="DATE_01" class="label-name"><span>시작일</span></label>
+		<span><input type="text" id="DATE_01" placeholder="YYYY.MM.DD"></span>
+	</div>
+</div>
+<div class="datepicker-wrap">
+	<div class="inp-wrap">
+		<label for="DATE_02" class="label-name"><span>종료일</span></label>
+		<span><input type="text" id="DATE_02" placeholder="YYYY.MM.DD"></span>
 	</div>
 </div>
 
-<div class="print"></div>
-
 <pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;">
-&lt;div class=&quot;aui-calender&quot;&gt;
-	&lt;div class=&quot;aui-calender-controller&quot;&gt;
-		&lt;button&gt;&amp;lt;&amp;lt;&lt;/button&gt;
-		&lt;button&gt;&amp;lt;&lt;/button&gt;
-		&lt;button&gt;&amp;gt;&lt;/button&gt;
-		&lt;button&gt;&amp;gt;&amp;gt;&lt;/button&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
+
 </pre>
 
 
 <script>
-	ANUI.module.calpickUi();
+	ANUI.module.datepickUi();
+
 </script>
