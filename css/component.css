@@ -708,7 +708,6 @@ html.mobile .form__select {
 .select-wrap.aui-selectbox:after {
 	content: "\f107";
 	position: absolute;
-	z-index: 1111;
 	top: 50%;
 	transform: translateY(-50%);
 	right: 10px;

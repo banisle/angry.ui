@@ -218,8 +218,8 @@ ANUI.module = (function () {
 				uiTabBtnA = uiTabWrap.find('.aui-tab-btn:not(.radio)'),
 				uiTabBtnRad = uiTabWrap.find('label.aui-tab-btn').prev('input[type=radio]');
 
-			_tabUibox = function () {
-				this.open();
+			_tabUibox = function (_selTab) {
+				this.open(_selTab);
 			}
 
 			_tabUibox.prototype.open = function (_selTab) {
@@ -227,16 +227,21 @@ ANUI.module = (function () {
 				// a 탭 버튼
 				uiTabBtnA.on('click', function (e) {
 					e.preventDefault();
-					_open($(this));
+					_open($(e.currentTarget));
 				});
 
 				// 라디오 탭 버튼
 				uiTabBtnRad.on('change', function (e) {
-					_openR($(this));
+					var e = $(e.currentTarget).next('label');
+					_open(e);
 				})
 
 				var _open = function (e) {
 					var _t = e;
+
+					if (_t[0].tagName === 'LABEL') {
+						_t.siblings().prop('checked', true);
+					}
 
 					if (_t.hasClass('on')) return;
 
@@ -245,10 +250,9 @@ ANUI.module = (function () {
 						"aria-selected": "false"
 					});
 					_t.addClass('on').attr({
-							"tabindex": "0",
-							"aria-selected": "true"
-						})
-						.focus();
+						"tabindex": "0",
+						"aria-selected": "true"
+					});
 
 					$("#" + _t.attr("aria-controls"))
 						.attr("tabindex", "0")
@@ -256,31 +260,8 @@ ANUI.module = (function () {
 						.siblings('.aui-tab-list')
 						.attr("tabindex", "-1")
 						.removeClass("on");
-
-
 				}
-
-				var _openR = function (e) {
-
-					var _this = e.next('label');
-
-					if (_this.hasClass("on")) return;
-
-					e.closest(uiTabWrap).find(uiTabBtn).removeClass("on").attr({
-						"aria-selected": "false",
-					});
-
-					_this.addClass("on").attr({
-						"aria-selected": "true"
-					});
-
-					$("#" + _this.attr("aria-controls"))
-						.attr("tabindex", "0")
-						.addClass("on")
-						.siblings('.aui-tab-list')
-						.attr("tabindex", "-1")
-						.removeClass("on");
-				}
+				_open(_selTab);
 			}
 
 			// 탭 키 초점
@@ -376,8 +357,7 @@ ANUI.module = (function () {
 				var initTab = $(this).data('init'),
 					_selTab = initTab == undefined ? $(this).closest(uiTabWrap).find(uiTabBtn).eq(0) : $(this).closest(uiTabWrap).find(uiTabBtn).eq(initTab);
 
-				new _tabUibox();
-				_selTab.trigger('click');
+				new _tabUibox(_selTab);
 			});
 
 			console.log('tabUi');
@@ -3199,7 +3179,7 @@ ANUI.module = (function () {
 		},
 
 		// mark: datepickUi
-		datepickUi: function (  ) {
+		datepickUi: function () {
 			var datepicker = function (target) {
 				var callback = ['select', 'update'];
 
@@ -3425,10 +3405,10 @@ ANUI.module = (function () {
 			}();
 
 			// var date01 = datepicker.create(document.querySelector('.datepicker'));
-			var body =  document.querySelector('body');
-			var	datepickWrap = document.createElement('div');
-					datepickWrap.setAttribute('class', 'datepicker');
-					body.append(datepickWrap);
+			var body = document.querySelector('body');
+			var datepickWrap = document.createElement('div');
+			datepickWrap.setAttribute('class', 'datepicker');
+			body.append(datepickWrap);
 
 
 			var date01 = datepicker.create(document.querySelector('.datepicker'));
