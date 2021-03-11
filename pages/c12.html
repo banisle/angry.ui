@@ -54,8 +54,12 @@
 	</div>
 </pre>
 
-<h3>스크롤 아래로 하면 숨김 위로 하면 보여짐</h3>
+<h3>맨 위로 가기 퀵메뉴</h3>
 <p class="sub-txt">ANUI.module.scrlTopUi({right 인자값, 없을시 0}) 호출</p>
+
+<h3>스크롤 아래로 하면 숨김 위로 하면 보여짐</h3>
+<p class="sub-txt">ANUI.module.scrollMenu() 호출</p>
+<div class="aui-scrlTop"></div>
 <div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 <div class="scrollMenu">
     <h4>NAVMenu</h4>
@@ -63,8 +67,7 @@
 
 <script>
 $(document).ready(function(){
-    // 모바일에선 호출 안함
-    if(!$('html').hasClass('mobile')) ANUI.module.scrollUi();
-    ANUI.module.scrollMenu();
+		ANUI.module.scrollMenu();
+		ANUI.module.scrlTopUi(30);
 })
 </script>

@@ -94,7 +94,7 @@ var resChk = function () {
 
 			if (curW > wmode.min && curW <= wmode.max) {
 				wmode.width = curW;
-				console.log(wmode.mode);
+				// console.log(wmode.mode);
 
 				switch (wmode.mode) {
 					case "wide":
@@ -374,8 +374,7 @@ ANUI.module = (function () {
 
 			selectUibox = function (selId) {
 				$selBox = $('#' + selId + ''),
-					$optGrp = $selBox.find('option');
-
+				$optGrp = $selBox.find('option');
 
 				//포커스 잃었을때
 				$(document).on('focusin click', function (e) {
@@ -386,12 +385,10 @@ ANUI.module = (function () {
 						}
 					}
 				});
-
 				this.init();
 				this.createDiv();
 				this.selUpdate();
 				this.selOne();
-
 			};
 
 			selectUibox.prototype.init = function () {
@@ -401,7 +398,6 @@ ANUI.module = (function () {
 			};
 			selectUibox.prototype.createDiv = function () {
 				var appendLi = '';
-
 
 				// 중복생성 체크
 				if ($selBox.closest($selWrap).find('.pc_selwrap').length < 1) {
@@ -427,33 +423,28 @@ ANUI.module = (function () {
 
 					// 옵션 ul 높이 구하기
 					var $uiResult = $selBox.closest($selWrap).find('.aui-result-ul'),
-						uiResultH = Number($uiResult.css('height').split('px')[0]),
-						uiResultulH = $uiResult.show().find('ul').outerHeight();
-					// console.log($selBox,uiResultH,uiResultulH);
+							uiResultH = Number($uiResult.css('height').split('px')[0]),
+							uiResultulH = $uiResult.show().find('ul').outerHeight();
+
 					//옵션 이 css지정된 height보다 클 경우 스크롤 실행
 					if (uiResultH < uiResultulH) {
-
-						scrollOn = 'true';
-						$uiResult.find('ul')
-							.wrapAll('<div class="scrollWrap aui-scrollview"><div class="scrollInner aui-scrollarea"><div class="scrollview aui-content"></div></div></div>');
-
-						$uiResult.find('.aui-scrollview').prepend('<div class="aui-scrollbar"><span class="bar"></span></div>');
-
+						// scrollOn = 'true';
+						$uiResult
+						.find('ul')
+						.wrapAll('<div class="scrollWrap aui-scrollview"><div class="scrollInner aui-scrollarea"><div class="scrollview aui-content"></div></div></div>').end()
+						.find('.aui-scrollview').prepend('<div class="aui-scrollbar"><span class="bar"></span></div>');
+						ANUI.module.scrollUi();
 					}
-
-
-
+					$uiResult.hide();
 
 				}
-
-
 			};
 
 			selectUibox.prototype.selUpdate = function () {
 				var $selBox = $('#' + selId + ''),
 					$selectedOne = $selBox.closest($selWrap).find('.aui-selected-one'),
-					$uiResult = $selBox.closest($selWrap).find('.aui-result-ul'),
-					isHidden = $selBox.find('option').prop('hidden') ? true : false;
+					isHidden = $selBox.find('option').prop('hidden') ? true : false,
+					$uiResult = $selBox.closest($selWrap).find('.aui-result-ul');
 
 				$uiResult.find('button').on('click', function (e) {
 					var index = isHidden ? $(this).parent().index() + 1 : $(this).parent().index();
@@ -467,14 +458,15 @@ ANUI.module = (function () {
 					//셀렉트박스 포커스
 					$(this).closest($selWrap).find($selectedOne).focus();
 
-
-					e.preventDefault();
+					// e.preventDefault();
+					$uiResult.hide();
 				});
 			}
 
 			selectUibox.prototype.selOne = function () {
 				var $selBox = $('#' + selId + ''),
-					$selectedOne = $selBox.closest($selWrap).find('.aui-selected-one');
+					$selectedOne = $selBox.closest($selWrap).find('.aui-selected-one'),
+					$uiResult = $selBox.closest($selWrap).find('.aui-result-ul');
 
 
 				$selectedOne.on('click', function (e) {
@@ -485,30 +477,18 @@ ANUI.module = (function () {
 					$selWrap.removeClass('active aui-result-active');
 					$selectedOne.removeAttr('aria-expanded');
 					$(this).attr('aria-expanded', true).closest($selWrap).removeClass('active aui-result-active').addClass('active aui-result-active');
-					e.preventDefault();
-					// 스크롤 길때 스크롤 ui호출
-					if (scrollOn == 'true') {
-						ANUI.module.scrollUi();
-						scrollOn = 'false';
-					}
+					// e.preventDefault();
+					$uiResult.show();
 
 				});
-
 			}
-
-
 			$.each($selWrap, function (i) {
 				selId = $selWrap.eq(i).find('select').attr('id');
 				new selectUibox('' + selId + '');
-
 			});
-
-
-
 			console.log('selectUi');
-
-
 		},
+
 		// mark :tooltipUi
 		tooltipUi: function (pad) {
 			var tooltip1,
@@ -821,11 +801,9 @@ ANUI.module = (function () {
 		scrollUi: function () {
 
 			// 모바일 체크
-			// console.log('pc',!isMobile);
-
 			if (!isMobile) {
 
-				var scrollWrap = $('.aui-scrollview'),
+				var scrollWrap = $('.aui-scrollview:visible'),
 					scrollArea = scrollWrap.find('.aui-scrollarea'),
 					scrollCt = scrollArea.find('.aui-content'),
 					scrollBar = scrollWrap.find('.aui-scrollbar'),
@@ -843,13 +821,13 @@ ANUI.module = (function () {
 							wrapH = scrollCt.eq(i).prop('scrollHeight'),
 							wrapOrgH = scrollWrap.eq(i).height(),
 							barSize = parseFloat((wrapOrgH / wrapH) * 100);
-
-						// console.log(
-						//     'wrapW' + wrapW,
-						//     'wrapOrgH' + wrapOrgH,
-						//     'wrapH' + wrapH,
-						//     'barSize' + barSize
-						//     );
+						console.log(
+							scrollWrap.eq(i),
+						    'wrapW' + wrapW,
+						    'wrapOrgH' + wrapOrgH,
+						    'wrapH' + wrapH,
+						    'barSize' + barSize
+						    );
 						scrollWrap.eq(i).width(wrapW);
 						scrollCt.eq(i).width(wrapW).height(wrapOrgH);
 
@@ -879,11 +857,6 @@ ANUI.module = (function () {
 							rangeSize = t.height();
 						scrollCt = t.closest(scrollWrap).find(scrollArea),
 							down = true;
-
-
-						// console.log(scrollCt);
-
-
 						return false;
 					});
 
@@ -913,9 +886,6 @@ ANUI.module = (function () {
 
 					}
 
-
-
-
 					// 리사이즈시 적용
 					var thisObj = this;
 
@@ -927,7 +897,6 @@ ANUI.module = (function () {
 
 						}, 250);
 					});
-
 
 					console.log('scrollUi');
 				}
@@ -945,7 +914,6 @@ ANUI.module = (function () {
 				tarCtH;
 
 			// console.log( ArrSubBtn );
-
 
 			//click evt
 			uiAccobtn.on('click', function (e) {
@@ -2284,8 +2252,7 @@ ANUI.module = (function () {
 		// mark : scrlTopUi
 		scrlTopUi: function (rV) {
 			var scrTopF,
-				optLen = arguments.length,
-				rV,
+				rV = rV || 0,
 				$top = $('.aui-scrlTop');
 
 			scrTopF = function () {
@@ -2297,13 +2264,6 @@ ANUI.module = (function () {
 
 			//init
 			scrTopF.prototype.init = function (rV) {
-
-				if (optLen === 0) {
-					rV = $(window).width() >= $('.guide-container').width() ? ($(window).width() - $('.guide-container').width()) / 2 - $top.width() - 30 : 0;
-				} else {
-					rV = rV;
-				}
-
 				$top.css({
 					'right': rV
 				});

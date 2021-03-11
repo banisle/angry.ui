@@ -16,7 +16,7 @@ ANUI.wsg = (function () {
             var mobtn = $('.mo-guide-btn'),
                 sg = $('.guide-side'),
                 dimBtn = $('.mo-guide-dim'),
-                openSt = 'false';
+								openSt = 'false';
 
             var dimLyOpen = function () {
                 $('html').addClass('fixed');
@@ -37,33 +37,33 @@ ANUI.wsg = (function () {
                 (openSt == 'false') ? dimLyOpen(): dimLyClose();
             });
 
-            var toggleOn = function () {
+            var menuClick = function () {
                 var guSide = $('.guide-side'),
                     s1Item = guSide.find('.menu-item > a'),
                     s2Item = guSide.find('.sub-menu > li > a'),
                     s2ItemTXT;
-    
-    
+
+
                 s2Item.on('click', function () {
-    
+
                     if ($(this).hasClass('on')) return;
-    
+
                     s1Item.add(s2Item).removeClass('on');
                     $(this).addClass('on').closest('.menu-item').find('> a').addClass('on');
-    
+
                     s2ItemTXT = s2Item.parent().find('a.on').text();
-    
+
                     t.createH1(s2ItemTXT);
 
                     dimLyClose();
-                    
+
                 });
             };
 
-            toggleOn();
+            menuClick();
 
         },
-        
+
         modalEvt: function () {
             var t = this,
                 btnTog = $('#btn-transtoggle'),
@@ -78,7 +78,6 @@ ANUI.wsg = (function () {
             var t = this;
 
             t.createH1();
-            // t.toggleOn();
             t.moGuideMenu();
             t.modalEvt();
             ANUI.module.scrollUi();
@@ -86,6 +85,6 @@ ANUI.wsg = (function () {
             console.log('init');
         }
     }
-    
+
 })();
 
