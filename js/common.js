@@ -41,7 +41,7 @@ $(function () {
 
     $.ajax({
         type: 'get',
-        url: 'pages/c12.html',
+        url: 'pages/c02.html',
         dataType: 'html',
         success: function (data) {
             $("#load-ct").html(data);
