@@ -17,10 +17,12 @@ a:link, a:hover, a:active, a:visited { text-decoration: none; color: initial }
 input[type="checkbox"],
 input[type="radio"] {
 	-webkit-appearance: none;
-	position: absolute;
-	opacity: 0.00001;
-	width: 1em;
-	height: 1em;
+	width: 1px;
+	height: 1px;
+	margin:-1px;
+	clip:rect(1px,1px,1px,1px);
+	clip-path: inset(50%);
+	outline: none;
 }
 
 a:focus,

@@ -3486,6 +3486,10 @@ $(document).ready(function () {
 			_t;
 
 		var toastCreate = function () {
+			if(!!($('.aui-toast').length)){
+				return;
+			}
+
 			if (!$('body').hasClass('has-toast')) {
 				$('<div class="aui-toast"><p>' + option.msg + '</p></div>').appendTo(document.body);
 			}

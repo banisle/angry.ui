@@ -6,7 +6,7 @@
 <h3>sortable</h3>
 <p class="sub-txt">index num 갱신, css counter로 제어<br>presstime서 선언한 시간만큼 터치후 동작</p>
 
-<div style="width: 90vw;margin:0 auto">
+<div style="">
 	<ul class="aui-sort">
 		<li class="slide"><span class="num"></span><span class="tit">Slide 1</span><span class="dragarea">handle</span></li>
 		<li class="slide"><span class="num"></span><span class="tit">Slide 2</span><span class="dragarea">handle</span></li>
@@ -24,15 +24,16 @@
 		&lt;li class=&quot;slide&quot;&gt;&lt;span class=&quot;num&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tit&quot;&gt;Slide 4&lt;/span&gt;&lt;/li&gt;
 		&lt;li class=&quot;slide&quot;&gt;&lt;span class=&quot;num&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tit&quot;&gt;Slide 5&lt;/span&gt;&lt;/li&gt;
 	&lt;/ul&gt;
-	<script>
-		$(".aui-sort ").sortable({
-		axis: "y",
+	&lt;script&gt;
+		$(&quot;.aui-sort &quot;).sortable({
+		axis: &quot;y&quot;,
 		revert: 150});
-	</script>
+	&lt;/script&gt;
 </pre>
 
 <h3>tr 순서 변경</h3>
-<p class="sub-txt">ANUI.module.updnChgUi('.aui-updn','tr'); <br />인자값 : {target},{el}<br /> aui-row-up,aui-row-dn 클래스 추가 </p>
+<p class="sub-txt">ANUI.module.updnChgUi('.aui-updn','tr'); <br />인자값 : {target},{el}<br /> aui-row-up,aui-row-dn 클래스 추가
+</p>
 <div class="content_page">
 	<div class="board_list type_notice">
 		<table>
@@ -61,10 +62,8 @@
 					<td><span>2019-01-10</span></td>
 					<td>
 						<div class="btn-wrap">
-							<span><button type="button" class="btn-icn icn_up aui-row-up"><span
-										class="">▲</span></button></span>
-							<span><button type="button" class="btn-icn icn_up aui-row-dn"><span
-										class="">▼</span></button></span>
+							<span><button type="button" class="btn-icn icn_up aui-row-up"><span class="">▲</span></button></span>
+							<span><button type="button" class="btn-icn icn_up aui-row-dn"><span class="">▼</span></button></span>
 						</div>
 					</td>
 				</tr>
@@ -75,10 +74,8 @@
 					<td><span>2019-01-10</span></td>
 					<td>
 						<div class="btn-wrap">
-							<span><button type="button" class="btn-icn icn_up aui-row-up"><span
-										class="">▲</span></button></span>
-							<span><button type="button" class="btn-icn icn_up aui-row-dn"><span
-										class="">▼</span></button></span>
+							<span><button type="button" class="btn-icn icn_up aui-row-up"><span class="">▲</span></button></span>
+							<span><button type="button" class="btn-icn icn_up aui-row-dn"><span class="">▼</span></button></span>
 						</div>
 					</td>
 				</tr>
@@ -89,10 +86,8 @@
 					<td><span>2019-01-10</span></td>
 					<td>
 						<div class="btn-wrap">
-							<span><button type="button" class="btn-icn icn_up aui-row-up"><span
-										class="">▲</span></button></span>
-							<span><button type="button" class="btn-icn icn_up aui-row-dn"><span
-										class="">▼</span></button></span>
+							<span><button type="button" class="btn-icn icn_up aui-row-up"><span class="">▲</span></button></span>
+							<span><button type="button" class="btn-icn icn_up aui-row-dn"><span class="">▼</span></button></span>
 						</div>
 					</td>
 				</tr>
@@ -103,7 +98,8 @@
 		</table>
 	</div>
 </div>
-<pre class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
+<pre
+	class="brush:js; /* javascript 지정 */ first-line:1; /* 시작 라인 번호 지정 */ html-script:true;/* HTML과 같이 사용될경우 HTML을 highlight할지를 결정함. shBrushXml.js가 필요함 */ tab-size:2;	/* 탭 사이즈 변경 */  pad-line-numbers:true;	/* 라인번호 앞에 0을 채움. */">
 &lt;tbody class=&quot;aui-updn&quot;&gt;
     &lt;tr&gt;
         &lt;td&gt;&lt;span&gt;1&lt;/span&gt;&lt;/td&gt;
@@ -200,44 +196,44 @@
 	$(document).ready(function () {
 		ANUI.module.updnChgUi('.aui-updn', 'tr');
 		ANUI.module.updnChgUi('.aui-updn2', 'li');
+
+		// sortable
+		var _ac = false,
+				presstime = 600;
+
+		$(".aui-sort").sortable({
+			axis: "y",
+			//handle: '.dragarea',
+			revert: 150,
+			items: '.slide'
+			// start: function (e, ui) {},
+			// change: function (e, ui) {},
+			// stop: function (e, ui) {},
+		}).sortable('disable');
+
+		$(".aui-sort .slide").on('mousedown touchstart', function (e) {
+			if (_ac === false) {
+				var _this = $(this),
+						_e = e;
+
+				this.downTimer = setTimeout(function () {
+					$('.aui-sort').sortable('enable');
+					_ac = true;
+					_this.trigger(_e);
+					_this.addClass('on');
+				}, presstime);
+				return;
+			}
+		}).on('mouseup touchend', function (e) {
+			clearTimeout(this.downTimer);
+			$(this).removeClass('on');
+			_ac = false;
+			$('.aui-sort').sortable('disable');
+		}).on('mousemove touchmove', function (e) {
+			clearTimeout(this.downTimer);
+			_ac = false;
+		});
+
 	});
-
-  // sortable
-  let _ac = false,
-      presstime = 1000;
-
-	$(".aui-sort").sortable({
-		axis: "y",
-    //handle: '.dragarea',
-    items : '.slide',
-		start: function (e, ui) {
-		},
-		change: function (event, ui) {
-		},
-		stop: function (e, ui) {
-      _ac = false;
-      $(this).sortable('disable');
-		},
-  }).sortable('disable');
-
-  $(".aui-sort .slide").on('mousedown touchstart',function(e){
-    if( _ac === false){
-      let _this = $(this),
-          _e = e;
-      this.downTimer = setTimeout(function(){
-        $('.aui-sort').sortable('enable');
-        _ac = true;
-        _this.trigger(_e);
-        _this.addClass('on');
-      }, presstime);
-    }
-   }).on('mouseup touchend', function(e){
-    clearTimeout(this.downTimer);
-    $(this).removeClass('on');
-    _ac = false;
-   }).on('mouseup touchend', function(e){
-    clearTimeout(this.downTimer);
-    _ac = false;
-   });
 
 </script>
