@@ -764,6 +764,7 @@ ANUI.module = (function () {
 					$('[data-target=' + mvId + ']').hide(0);
 				}
 				openSt = 'false';
+				optTrans = 'false';
 				// console.log('close');
 			}
 
