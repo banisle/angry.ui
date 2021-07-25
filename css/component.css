@@ -65,7 +65,7 @@ input[type=text]+.aui-deltxt {
 	z-index: 10;
 }
 
-input[type=text]+.aui-deltxt.hidden {
+.aui-hasDelForm[data-toggle="false"] .aui-deltxt{
 	display: none;
 }
 

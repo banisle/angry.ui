@@ -2134,9 +2134,9 @@ ANUI.module = (function () {
 					$btnIcn = $searchWrap.find('.icn--search');
 
 				$searchInp.on('click focus', function () {
-					$(this).closest($search - wrap).find($btnIcn).addClass('active');
+					$(this).closest($searchWrap).find($btnIcn).addClass('active');
 				}).on('blur', function () {
-					$(this).closest($search - wrap).find($btnIcn).removeClass('active');
+					$(this).closest($searchWrap).find($btnIcn).removeClass('active');
 				});
 			}();
 
@@ -2168,24 +2168,21 @@ ANUI.module = (function () {
 						$btnDel = $('.aui-deltxt');
 
 
-					t.closest($inp_form).find($btnDel).toggleClass('hidden', !visible);
+					t.closest($inp_form).attr('data-toggle',visible);
 				}).trigger('propertychange');
 
-				//포커스 잃었을때
-				// $(document).on('focusin click', function (e) {
-				//     var $btnDel = $('.aui-deltxt');
-
-				//     if ($inp_form) {
-				//         if (!$inp_form.find(e.target).length) {
-				//             $btnDel.removeClass('active');
-				//         }
-				//     }
-				// });
 
 				// 삭제 버튼 클릭
 				$inp_form.on('click', $btnDel, function (e) {
 					var $t = $(e.target);
-					$t.prev($inp).val('').trigger('propertychange').focus();
+					console.log($t);
+
+					if($t.hasClass('aui-deltxt')){
+
+						$t.parent().find($inp).val('').trigger('propertychange').focus();
+					}
+
+
 
 				});
 			}();
