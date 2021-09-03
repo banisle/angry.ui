@@ -822,13 +822,13 @@ ANUI.module = (function () {
 							wrapH = scrollCt.eq(i).prop('scrollHeight'),
 							wrapOrgH = scrollWrap.eq(i).height(),
 							barSize = parseFloat((wrapOrgH / wrapH) * 100);
-						console.log(
-							scrollWrap.eq(i),
-						    'wrapW' + wrapW,
-						    'wrapOrgH' + wrapOrgH,
-						    'wrapH' + wrapH,
-						    'barSize' + barSize
-						    );
+						// console.log(
+						// 	scrollWrap.eq(i),
+						//     'wrapW' + wrapW,
+						//     'wrapOrgH' + wrapOrgH,
+						//     'wrapH' + wrapH,
+						//     'barSize' + barSize
+						//     );
 						scrollWrap.eq(i).width(wrapW);
 						scrollCt.eq(i).width(wrapW).height(wrapOrgH);
 
@@ -3450,6 +3450,113 @@ ANUI.module = (function () {
 
 			console.log('popRollDate');
 
+		},
+
+		// mark : dragBarH
+		dragBarH: function (width, callback) {
+			var doc = $('[data-dragwrap]');
+			var docW = doc.width();
+			var $btnDragHande = doc.find('.aui-handle');
+
+			var $targetDomL = doc.find('.card-left');
+			var $targetDomR = doc.find('.card-right');
+			var down = false;
+
+			var leftWidth = width;
+			var minCardL = 150;
+			var minCardR = 150;
+
+			//init
+			var init = function (leftWidth) {
+				$targetDomL.css({
+					width: leftWidth,
+					left: 0
+				});
+
+				var rightWidth = parseInt(docW - $targetDomL.width() - $btnDragHande.outerWidth());
+
+				$targetDomR.css({
+					width: rightWidth,
+					left: parseInt($targetDomL.width() + $btnDragHande.outerWidth())
+
+				});
+				$btnDragHande.css({
+					'transform': 'translateX(' + parseInt($targetDomL.width()) + 'px)'
+				});
+
+				$btnDragHande.on('mousedown', function () {
+					down = true;
+					return false;
+				});
+			}
+
+
+			var redraw = function () {
+				var w = $('.card-left').width();
+				var rW = $('.card-right').width();
+				var dW = $('[data-dragwrap]').width();
+
+				var calW = w > (dW - rW) ? calW = minCardL : calW = w;
+				docW = dW;
+
+				init(calW, docW);
+			}
+
+			//스크롤바 drag 이벤트
+			var updateDrag = function (e, docW) {
+				var curX = e.pageX - doc.offset().left,
+					initPos = $btnDragHande.offset().left;
+
+				down == true ? $btnDragHande.addClass('is-moving') : $btnDragHande.removeClass('is-moving');
+
+				if (down && curX >= minCardL && curX <= docW - minCardR) {
+
+
+					var moveVal = (curX - initPos);
+
+					$btnDragHande.css({
+						left: 0,
+						'transform': 'translateX(' + curX + 'px)'
+						/* left: curX */
+					});
+					$targetDomL.css({
+						width: curX
+					});
+					$targetDomR.css({
+						width: parseInt(docW - $targetDomL.width() - $btnDragHande.outerWidth()),
+						left: parseInt($targetDomL.width() + $btnDragHande.outerWidth())
+					});
+
+				}
+
+
+			}
+
+			//evt
+			$(document).on('mousemove', function (e) {
+				updateDrag(e, docW);
+			});
+
+			$(document).on('mouseup', function () {
+				down = false;
+
+				//callback 실행
+				if (typeof callback === 'function') {
+					callback.call(this);
+				}
+			});
+
+			//resize evt
+			$(window).on('resize', function () {
+				clearTimeout(window.dargBarHresizedFinished);
+				window.dargBarHresizedFinished = setTimeout(function () {
+					redraw();
+				}, 300);
+			});
+
+			//init
+			init(leftWidth);
+			console.log('dragBarH');
 		},
 
 

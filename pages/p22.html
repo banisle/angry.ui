@@ -1,0 +1,97 @@
+<style>
+[data-dragwrap] {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+
+}
+
+.card-left,
+.card-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  background: #eee;
+  border: 1px solid #e3e3e3;
+  box-sizing: border-box;
+
+}
+
+.card-right {
+  background: #e3e3e3;
+  z-index: 9;
+}
+
+.aui-handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 100%;
+  text-align: center;
+  z-index: 10;
+  transition: opacity .2s linear;
+  background-image: radial-gradient(at center center, rgba(0, 0, 0, 0.3) 0%, transparent 70%, transparent 100%);
+  background-size: 50px 100%;
+  background-position: 0 50%;
+  opacity: 0;
+}
+.aui-handle:hover {
+  cursor: col-resize;
+  opacity: 1;
+}
+
+.aui-handle.is-moving {
+  opacity: 1;
+}
+</style>
+<h3>drag horizontal </h3>
+<p class="sub-txt">
+  부모 영역에 data-dragwrap 속성 추가, 화면 리사이즈 대응<br>
+    ANUI.module.dragBarH( {좌측 width(%,px)}, callback );
+</p>
+
+<div class="container" data-dragwrap>
+  <div class="card-left">
+    card-left
+  </div>
+  <div class="aui-handle">
+
+  </div>
+  <div class="card-right">
+    card-right
+  </div>
+</div>
+
+<pre class="brush:js; first-line:1; html-script:true; tab-size:2;  pad-line-numbers:true;" >
+&lt;div class=&quot;container&quot; data-dragwrap&gt;
+  &lt;div class=&quot;card-left&quot;&gt;
+    card-left
+  &lt;/div&gt;
+  &lt;div class=&quot;aui-handle&quot;&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;card-right&quot;&gt;
+    card-right
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</pre>
+
+<script>
+    ANUI.module.dragBarH('200px', function(e) {
+      console.log('positonLeft of current handle  : ', $('.aui-handle').offset().left)
+    });
+
+</script>
