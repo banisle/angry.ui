@@ -3490,12 +3490,17 @@ ANUI.module = (function () {
 					'transform': 'translateX(' + parseInt($targetDomL.width()) + 'px)'
 				});
 
-				$btnDragHande.on('mousedown', function () {
-					down = true;
-					return false;
+				$btnDragHande.on('mousedown touchstart', function (e) {
+
+					if(e.cancelable) {
+						e.preventDefault();
+
+						down = true;
+
+						return false;
+					}
 				});
 			}
-
 
 			var redraw = function () {
 				var w = $('.card-left').width();
@@ -3510,12 +3515,16 @@ ANUI.module = (function () {
 
 			//스크롤바 drag 이벤트
 			var updateDrag = function (e, docW) {
-				var curX = e.pageX - doc.offset().left,
-					initPos = $btnDragHande.offset().left;
+				//jquery e.touches --> e.originalEvemt.touches 필요
+				var getX = (e.originalEvent.touches && e.originalEvent.touches[0].clientX) || e.clientX,
+						curX = getX - doc.offset().left,
+						initPos = $btnDragHande.offset().left;
+
 
 				down == true ? $btnDragHande.addClass('is-moving') : $btnDragHande.removeClass('is-moving');
 
 				if (down && curX >= minCardL && curX <= docW - minCardR) {
+
 
 
 					var moveVal = (curX - initPos);
@@ -3539,18 +3548,22 @@ ANUI.module = (function () {
 			}
 
 			//evt
-			$(document).on('mousemove', function (e) {
+			$(document).on('mousemove touchmove', function (e) {
 				updateDrag(e, docW);
 			});
 
-			$(document).on('mouseup', function () {
-				down = false;
+			$(document).on('mouseup touchend', function () {
+				if(down ===true){
+					down = false;
 
-				//callback 실행
-				if (typeof callback === 'function') {
-					callback.call(this);
+					//callback 실행
+					if (typeof callback === 'function') {
+						callback.call(this);
+					}
 				}
 			});
+
+
 
 			//resize evt
 			$(window).on('resize', function () {
