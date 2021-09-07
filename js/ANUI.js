@@ -613,7 +613,7 @@ ANUI.module = (function () {
 		// mark : modalUi
 		modalUi: function (maskClick) {
 			var mvBtn = $('[data-modal]'),
-				btnClose = $('.mvClose'),
+				btnClose = $('.laypop .aui-mv-close'),
 				optTrans = 'false',
 				openSt = 'false',
 				mask = '<div class="mask">',
@@ -684,6 +684,7 @@ ANUI.module = (function () {
 			var dimLyOpen = function (mvId, maskClick) {
 				var $targetM = $('[data-target=' + mvId + ']'),
 					wrapStat = $targetM.find('.dialog-start').length;
+					// console.log( 'open', mvId );
 
 				if (openSt == 'true') {
 					return;
@@ -741,7 +742,7 @@ ANUI.module = (function () {
 					$(document).on('click', function (e) {
 						// e.preventDefault();
 						if (e.target.className === 'wrap-modal') {
-							$('.mvClose').find(':visible').trigger('click');
+							$('.aui-mv-close').find(':visible').trigger('click');
 						}
 					});
 				} else {
@@ -757,21 +758,25 @@ ANUI.module = (function () {
 			var dimLyClose = function (mvId) {
 				$('html').removeClass('fixed');
 				$('html').css('padding-right', '');
+
+				// console.log( 'in', 	mvId );
+
 				if (optTrans == 'true') {
+
 					//css transition ease값 = delay
 					$('[data-target=' + mvId + ']').removeClass('on').delay(500).fadeOut(0);
+
 				} else {
+
 					$('[data-target=' + mvId + ']').hide(0);
 				}
 				openSt = 'false';
 				optTrans = 'false';
-				// console.log('close');
 			}
 
 			//모달 버튼
 			mvBtn.on('click', function (e) {
 				e.preventDefault();
-
 				mvId = $(this).attr('data-modal');
 				dimLyOpen(mvId, maskClick);
 				$this = $(this);
@@ -779,6 +784,7 @@ ANUI.module = (function () {
 
 			btnClose.on('click', function (e) {
 				e.preventDefault();
+				mvId = $(e.target).closest('.laypop').data('target');
 				dimLyClose(mvId);
 				$this.focus();
 			});

@@ -9,8 +9,8 @@
 }
 .syntaxhighlighter .line{
 	/*자동 줄바꿈하기*/
-	/* white-space: pre-wrap !important;
-	word-break: break-word !important;  */
+	white-space: pre-wrap !important;
+	word-break: break-word !important;
 }
 .syntaxhighlighter .line.alt1:hover,
 .syntaxhighlighter .line.alt2:hover{

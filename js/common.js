@@ -15,6 +15,15 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
     isMobile = true;
 }
 
+//msg Dom
+// const $msgDom = document.querySelector('.index-push-msg');
+
+// import commitLog from './commitLog.js'
+// import { commitLog } from './scrapping.js'
+
+// $msgDom.innerHTML = commitLog[0].title + commitLog[0].time;
+// $msgDom.innerHTML = commitLog();
+
 
 $(function () {
     var s2Item = $('.guide-side .sub-menu > li > a');
@@ -29,8 +38,8 @@ $(function () {
             dataType: 'html',
             success: function (data) {
                 $("#load-ct").html(data);
-                SyntaxHighlighter.defaults['collapse'] = true;
-                SyntaxHighlighter.config.strings.expandSource = "source view";
+                // SyntaxHighlighter.defaults['collapse'] = true;
+                // SyntaxHighlighter.config.strings.expandSource = "source view";
                 SyntaxHighlighter.highlight();
                 ANUI.wsg.init();
                 // console.log('ajax success');
@@ -41,12 +50,10 @@ $(function () {
 
     // $.ajax({
     //     type: 'get',
-    //     url: 'pages/p22.html',
+    //     url: 'pages/c04.html',
     //     dataType: 'html',
     //     success: function (data) {
     //         $("#load-ct").html(data);
-    //         SyntaxHighlighter.defaults['collapse'] = true;
-    //         SyntaxHighlighter.config.strings.expandSource = "source view";
     //         SyntaxHighlighter.highlight();
     //         ANUI.wsg.init();
     //     }
