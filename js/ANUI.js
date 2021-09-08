@@ -3491,14 +3491,11 @@ ANUI.module = (function () {
 				});
 
 				$btnDragHande.on('mousedown touchstart', function (e) {
-
-					if(e.cancelable) {
-						e.preventDefault();
-
-						down = true;
-
-						return false;
-					}
+					down = true;
+					// if(e.cancelable) {
+					// 	e.preventDefault();
+					// 	return false;
+					// }
 				});
 			}
 
