@@ -25,6 +25,14 @@
     textarea {
         width: 100%;
     }
+    .form-table table{
+        width:100%;
+        border:1px solid #333;
+    }
+    .form-table th,
+    .form-table td{
+        border:1px solid #999;
+    }
 </style>
 <div class="regWrap inp-wrap">
     <input type="text" id="" placeholder="위의 예시처럼 정규식 사용">/g
@@ -37,9 +45,14 @@
 </div>
 <button type="button" id="chgWord" class="btn-org"><span>변경</span></button>
 <h3>input text</h3>
-<textarea name="" id="intxt" cols="30" rows="10"></textarea>
+<textarea name="" id="intxt" cols="30" rows="10">
+1.세실리아 106/110/방10.8%/생18%
+2.키세 116/116/공12.9%/공18%
+3.빌트레드 116/116/속12/공18%
+4.샬롯 99/99/공10.8%/공18%</textarea>
 <h3>output text</h3>
 <textarea name="" id="outtxt" cols="30" rows="10"></textarea>
+<div class="form-table"></div>
 <button type="button" id="exe" class="btn-org"><span>RUN</span></button>
 
 <script>
@@ -57,6 +70,9 @@
             var ctable = '<table>\n' + txt + '</table>';
 
             $outTxt.val(ctable);
+
+            $(document).find('.form-table').html(ctable);
+
             // console.log('create',txt);
         }
 
@@ -99,7 +115,7 @@
 
                     //replace 함수
                     var replLine = function(a){
-                        
+
                         cvtLine = a.replace(regExp, function (item) {
                             return item + '</td><td>';
                         });
@@ -109,7 +125,7 @@
 
                         return arr;
                     }
-                    
+
                     //받아온 배열을 replLine함수로 처리
                     cvtLine = replLine(arr);
 
@@ -156,7 +172,7 @@
         $addRegBtn.on('click', function () {
             $regWrap.append('<input [type=text]>');
         });
-        
+
         //btn chkword
         $chgBtn.on('click', chgWord);
     });
