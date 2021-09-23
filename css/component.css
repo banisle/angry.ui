@@ -2737,6 +2737,9 @@ html.mobile .aui-content {
 	/* display: inline-flex; */
 	font-size: 0;
 }
+.aui-star .rating-group >input {
+	display: none;
+}
 
 .aui-star .star {
 	display: block;
@@ -2782,7 +2785,7 @@ html.mobile .aui-content {
 	/* 별 이미지 사이즈 높이 */
 	height: 14px;
 	/* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
-	padding: 0 10px;
+	/* padding: 0 5px; */
 	cursor: pointer;
 }
 
